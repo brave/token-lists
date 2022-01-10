@@ -1,0 +1,18 @@
+{
+  "0xad6d458402f60fd3bd25163575031acdce07538d": {
+    "name": "DAI Stablecoin",
+    "logo": "dai.png",
+    "erc20": true,
+    "symbol": "DAI",
+    "decimals": 18,
+    "chainId": "0x3"
+  },
+  "0x07865c6e87b9f70255377e024ace6630c1eaa37f": {
+    "name": "USD Coin",
+    "logo": "usdc.png",
+    "erc20": true,
+    "symbol": "USDC",
+    "decimals": 6,
+    "chainId": "0x3"
+  }
+}
