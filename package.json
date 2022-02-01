@@ -4,7 +4,7 @@
   "description": "Manages custom token lists for Brave Wallet",
   "dependencies": {
     "@metamask/contract-metadata": "git+https://github.com/MetaMask/contract-metadata.git",
-    "sharp": "^0.29.1",
+    "sharp": "^0.30.0",
     "svg-resizer": "github:brave/svg-resizer"
   },
   "main": "index.js",
