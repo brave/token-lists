@@ -5,6 +5,7 @@
     "erc20": true,
     "symbol": "DAI",
     "decimals": 18,
+    "coingeckoId": "dai",
     "chainId": "0x3"
   },
   "0x07865c6e87b9f70255377e024ace6630c1eaa37f": {
@@ -13,6 +14,178 @@
     "erc20": true,
     "symbol": "USDC",
     "decimals": 6,
+    "coingeckoId": "usd-coin",
     "chainId": "0x3"
+  },
+  "0xc2132D05D31c914a87C6611C10748AEb04B58e8F": {
+    "name": "Tether USD (PoS)",
+    "logo": "usdt.png",
+    "erc20": true,
+    "symbol": "USDT",
+    "decimals": 6,
+    "coingeckoId": "tether",
+    "chainId": "0x89"
+  },
+  "0x3BA4c387f786bFEE076A58914F5Bd38d668B42c3": {
+    "name": "Binance Coin",
+    "logo": "bnb.png",
+    "erc20": true,
+    "symbol": "BNB",
+    "decimals": 18,
+    "coingeckoId": "binancecoin",
+    "chainId": "0x89"
+  },
+  "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174": {
+    "name": "USD Coin (PoS)",
+    "logo": "usdc.png",
+    "erc20": true,
+    "symbol": "USDC",
+    "decimals": 6,
+    "coingeckoId": "usd-coin",
+    "chainId": "0x89"
+  },
+  "0x692597b009d13C4049a947CAB2239b7d6517875F": {
+    "name": "Wrapped UST",
+    "logo": "ust.png",
+    "erc20": true,
+    "symbol": "UST",
+    "decimals": 18,
+    "coingeckoId": "wrapped-ust",
+    "chainId": "0x89"
+  },
+  "0xdAb529f40E671A1D4bF91361c21bf9f0C9712ab7": {
+    "name": "Binance USD",
+    "logo": "busd.png",
+    "erc20": true,
+    "symbol": "BUSD",
+    "decimals": 18,
+    "coingeckoId": "binance-usd",
+    "chainId": "0x89"
+  },
+  "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6": {
+    "name": "Wrapped Bitcoin (PoS)",
+    "logo": "wbtc.png",
+    "erc20": true,
+    "symbol": "WBTC",
+    "decimals": 8,
+    "coingeckoId": "wrapped-bitcoin",
+    "chainId": "0x89"
+  },
+  "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063": {
+    "name": "Dai Stablecoin (PoS)",
+    "logo": "dai.png",
+    "erc20": true,
+    "symbol": "DAI",
+    "decimals": 18,
+    "coingeckoId": "dai",
+    "chainId": "0x89"
+  },
+  "0x53E0bca35eC356BD5ddDFebbD1Fc0fD03FaBad39": {
+    "name": "ChainLink",
+    "logo": "chainlink.png",
+    "erc20": true,
+    "symbol": "LINK",
+    "decimals": 18,
+    "coingeckoId": "chainlink",
+    "chainId": "0x89"
+  },
+  "0xb33EaAd8d922B1083446DC23f610c2567fB5180f": {
+    "name": "Uniswap (PoS)",
+    "logo": "uni.png",
+    "erc20": true,
+    "symbol": "UNI",
+    "decimals": 18,
+    "coingeckoId": "uniswap",
+    "chainId": "0x89"
+  },
+  "0xA1c57f48F0Deb89f569dFbE6E2B7f46D33606fD4": {
+    "name": "Decentraland",
+    "logo": "mana.png",
+    "erc20": true,
+    "symbol": "MANA",
+    "decimals": 18,
+    "coingeckoId": "decentraland",
+    "chainId": "0x89"
+  },
+  "0xBbba073C31bF03b8ACf7c28EF0738DeCF3695683": {
+    "name": "The Sandbox",
+    "logo": "sand.png",
+    "erc20": true,
+    "symbol": "SAND",
+    "decimals": 18,
+    "coingeckoId": "the-sandbox",
+    "chainId": "0x89"
+  },
+  "0xD6DF932A45C0f255f85145f286eA0b292B21C90B": {
+    "name": "Aave (PoS)",
+    "logo": "aave.png",
+    "erc20": true,
+    "symbol": "AAVE",
+    "decimals": 18,
+    "coingeckoId": "aave",
+    "chainId": "0x89"
+  },
+  "0x0b3F868E0BE5597D5DB7fEB59E1CADBb0fdDa50a": {
+    "name": "Sushi (PoS)",
+    "logo": "",
+    "erc20": true,
+    "symbol": "SUSHI",
+    "decimals": 18,
+    "coingeckoId": "sushi",
+    "chainId": "0x89"
+  },
+  "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619": {
+    "name": "Wrapped Ether",
+    "logo": "weth.png",
+    "erc20": true,
+    "symbol": "WETH",
+    "decimals": 18,
+    "coingeckoId": "weth",
+    "chainId": "0x89"
+  },
+  "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270": {
+    "name": "Wrapped Matic",
+    "logo": "matic.png",
+    "erc20": true,
+    "symbol": "WMATIC",
+    "decimals": 18,
+    "coingeckoId": "wmatic",
+    "chainId": "0x89"
+  },
+  "0x831753DD7087CaC61aB5644b308642cc1c33Dc13": {
+    "name": "Quickswap",
+    "logo": "quick.png",
+    "erc20": true,
+    "symbol": "QUICK",
+    "decimals": 18,
+    "coingeckoId": "quick",
+    "chainId": "0x89"
+  },
+  "0x172370d5Cd63279eFa6d502DAB29171933a610AF": {
+    "name": "Curve (PoS)",
+    "logo": "curve.png",
+    "erc20": true,
+    "symbol": "CRV",
+    "decimals": 18,
+    "coingeckoId": "curve-dao-token",
+    "chainId": "0x89"
+  },
+  "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3": {
+    "name": "Balancer",
+    "logo": "balancer.png",
+    "erc20": true,
+    "symbol": "BAL",
+    "decimals": 18,
+    "coingeckoId": "balancer",
+    "chainId": "0x89"
+  },
+  "0x3Cef98bb43d732E2F285eE605a8158cDE967D219": {
+    "name": "Basic Attention Token",
+    "logo": "bat.png",
+    "erc20": true,
+    "symbol": "BAT",
+    "decimals": 18,
+    "coingeckoId": "basic-attention-token",
+    "chainId": "0x89"
   }
 }
