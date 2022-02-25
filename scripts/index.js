@@ -12,13 +12,19 @@ function stageTokenFile(stagingDir, inputTokenFilePath) {
 }
 
 function stagePackageJson(stagingDir) {
-  const manifest = JSON.parse(fs.readFileSync('./package.json', 'utf-8'))
-  manifest.name = 'brave-wallet-lists'
-  manifest.scripts = {}
-  manifest.devDependencies = {}
-  manifest.dependencies = {}
-  manifest.engines = {}
-  fs.writeFileSync(path.join(stagingDir, 'package.json'), JSON.stringify(manifest, null, 2));
+  const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf-8'))
+  packageJson.name = 'brave-wallet-lists'
+  packageJson.scripts = {}
+  packageJson.devDependencies = {}
+  packageJson.dependencies = {}
+  packageJson.engines = {}
+  fs.writeFileSync(path.join(stagingDir, 'package.json'), JSON.stringify(packageJson, null, 2));
+}
+
+function stageManifest(stagingDir) {
+  const manifestPath = path.join('data', 'manifest.json');
+  const outputManifestPath = path.join(stagingDir, 'manifest.json');
+  fs.copyFileSync(manifestPath, outputManifestPath)
 }
 
 async function stageTokenImages(stagingDir, inputTokenFilePath, addExtraTokens = false) {
@@ -66,6 +72,7 @@ async function stageTokenPackage() {
   await stageTokenImages(stagingDir, braveTokenPath)
 
   stagePackageJson(stagingDir)
+  stageManifest(stagingDir)
 }
 
 util.installErrorHandlers();
