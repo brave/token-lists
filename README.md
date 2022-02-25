@@ -47,3 +47,11 @@ After things are tested you can run the Jenkins job: `brave-core-ext-local-data-
 The change will be live within 5-10 minutes. Please also test on production.
 
 After testing on production, gives sign off in Slack on `#releases` and `#prod-changes`.
+
+## Troubleshooting deployment
+
+You can see a list of the components that the component updater serves by going to these URLs:
+
+- Prod: https://go-updater.brave.com/extensions/test
+- Dev: https://go-updater-dev.bravesoftware.com/extensions/test
+
