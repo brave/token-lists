@@ -3,6 +3,7 @@ const fs = require('fs')
 const os = require('os')
 const path = require('path')
 const sharp = require('sharp')
+const Downloader = require("nodejs-file-downloader")
 
 const contractReplaceSvgToPng = (file) => {
   const data = JSON.parse(fs.readFileSync(file))
@@ -73,8 +74,9 @@ async function saveToPNGResize(source, dest, ignoreError) {
             }
             const fileName = path.parse(source).base
             childProcess.execSync('./node_modules/svg-resizer/svg-resizer.js -f -x 300 -y 300 -o ' + outputDir + ' -i ' + source)
-            saveToPNGResize(path.join(outputDir, fileName), dest, true).then(() => {
-              resolve()})
+            saveToPNGResize(path.join(outputDir, fileName), dest, true)
+              .then(resolve)
+              .catch((e) => console.log(e))
           } else {
             resolve()
           }
@@ -88,9 +90,19 @@ async function saveToPNGResize(source, dest, ignoreError) {
           return
         }
         console.log('trying one more time source == ' + source + ' ' + err)
-        modifySvgFile(source)
-        saveToPNGResize(source, dest, true).then(() => {
-          resolve()})
+        try {
+          modifySvgFile(source)
+        } catch (e) {
+          console.log('failed to fix SVG file:', e)
+          return
+        }
+
+        saveToPNGResize(source, dest, true)
+          .then(resolve)
+          .catch((e) => {
+            console.log(e)
+            reject()
+          })
       })
   })
 }
@@ -105,6 +117,30 @@ const modifySvgFile = (file) => {
     data = buf + data
   }
   fs.writeFileSync(file, data)
+}
+
+async function download (url, dest) {
+  console.log(`download: ${url}`)
+  const downloader = new Downloader({
+    url,
+    directory: os.tmpdir(),
+    onBeforeSave: (deducedName) => {
+      const deducedExtension = path.extname(deducedName)
+      return path.parse(dest).name + deducedExtension
+    },
+    cloneFiles: false,
+
+    // We set it to 3, but in the case of status code 404, it will run only once.
+    maxAttempts: 3,
+
+    shouldStop: function (error) {
+      // A request that results in a status code of 400 and above, will throw
+      // an Error, that contains a custom property "statusCode".
+      return error.statusCode && error.statusCode === 404
+    },
+  })
+
+  await downloader.download()
 }
 
 const installErrorHandlers = () => {
@@ -123,5 +159,6 @@ module.exports = {
   contractReplaceSvgToPng,
   contractAddExtraAssetIcons,
   installErrorHandlers,
-  saveToPNGResize
+  saveToPNGResize,
+  download
 }
