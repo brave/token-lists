@@ -1,5 +1,13 @@
+// Node imports
 const fs = require('fs')
+const os = require('os')
 const path = require('path')
+
+// NPM imports
+const { TokenListProvider, Strategy } = require('@solana/spl-token-registry')
+const { Qyu } = require('qyu')
+
+// Local module imports
 const util = require('./util')
 
 function getOutputTokenPath(stagingDir, inputTokenFilePath) {
@@ -27,7 +35,7 @@ function stageManifest(stagingDir) {
   fs.copyFileSync(manifestPath, outputManifestPath)
 }
 
-async function stageTokenImages(stagingDir, inputTokenFilePath, addExtraTokens = false) {
+async function stageEVMTokenImages(stagingDir, inputTokenFilePath, addExtraTokens = false) {
   const outputTokenFilePath = getOutputTokenPath(stagingDir, inputTokenFilePath);
   const baseSrcTokenPath = path.dirname(inputTokenFilePath)
   // Copy images and convert them to png plus resize to 200x200 if needed
@@ -55,21 +63,108 @@ async function stageTokenImages(stagingDir, inputTokenFilePath, addExtraTokens =
   }
 }
 
+async function stageTokenListsLogo(stagingDir, token) {
+  const { address, logoURI } = token
+
+  // NFTs do not have the logoURI field.
+  if (!logoURI) {
+    return ''
+  }
+
+  const isRemoteURL = logoURI.startsWith('https://') || logoURI.startsWith('http://')
+  if (!isRemoteURL) {
+    return logoURI
+  }
+
+  const extension = logoURI.substr(logoURI.lastIndexOf('.'), 4)
+  const sourceFile = `${address}${extension}`
+  const destFile = `${address}.png`
+  const sourceFilePath = path.join(os.tmpdir(), sourceFile)
+  try {
+    await util.download(logoURI, sourceFile)
+  } catch (err) {
+    return ''
+  }
+
+  try {
+    await util.saveToPNGResize(
+      sourceFilePath,
+      path.join(stagingDir, 'images', destFile),
+      false,
+    )
+  } catch {
+    return ''
+  }
+
+  return destFile
+}
+
+async function stageTokenListsTokens(stagingDir, tokens, isEVM = true) {
+  // Use an asynchronous job queue to throttle downloads.
+  const q = new Qyu({concurrency: 10})
+  q(tokens, async (token, idx) => {
+    tokens[idx].logoURI = await stageTokenListsLogo(stagingDir, token)
+  })
+
+  await q.whenEmpty()
+  return tokens
+    .reduce((acc, token) => {
+      const result = {
+        name: token.name,
+        logo: token.logoURI,
+        erc20: isEVM,
+        symbol: token.symbol,
+        decimals: token.decimals,
+        chainId: `0x${token.chainId.toString(16)}`
+      }
+
+      if (token.extensions && token.extensions.coingeckoId) {
+        result.coingeckoId = token.extensions.coingeckoId
+      }
+
+      return {
+        ...acc,
+        [token.address]: result
+      }
+    }, {})
+}
+
+async function stageSPLTokens(stagingDir) {
+  const splTokensProvider = await new TokenListProvider()
+    .resolve(Strategy.Static)
+
+  const splTokensArray = splTokensProvider
+    .filterByClusterSlug('mainnet-beta')
+    .getList()
+
+  const splTokens = await stageTokenListsTokens(stagingDir, splTokensArray, false)
+  const splTokensPath = path.join(stagingDir, 'solana-contract-map.json')
+  fs.writeFileSync(splTokensPath, JSON.stringify(splTokens, null, 2))
+}
+
 async function stageTokenPackage() {
   const stagingDir = 'build'
   if (!fs.existsSync(stagingDir)) {
     fs.mkdirSync(stagingDir)
   }
 
+  const imagesDstPath = path.join(stagingDir, "images")
+  if (!fs.existsSync(imagesDstPath)){
+    fs.mkdirSync(imagesDstPath)
+  }
+
   // Add MetaMask tokens for contract-map.json
   const metamaskTokenPath = path.join('node_modules', '@metamask', 'contract-metadata', 'contract-map.json');
   stageTokenFile(stagingDir, metamaskTokenPath)
-  await stageTokenImages(stagingDir, metamaskTokenPath, true)
+  await stageEVMTokenImages(stagingDir, metamaskTokenPath, true)
 
   // Add Brave specific tokens in evm-contract-map.json
   const braveTokenPath = path.join('data', 'evm-contract-map', 'evm-contract-map.json');
   stageTokenFile(stagingDir, braveTokenPath)
-  await stageTokenImages(stagingDir, braveTokenPath)
+  await stageEVMTokenImages(stagingDir, braveTokenPath)
+
+  // Add Solana (SPL) tokens in solana-contract-map.json.
+  await stageSPLTokens(stagingDir)
 
   stagePackageJson(stagingDir)
   stageManifest(stagingDir)
