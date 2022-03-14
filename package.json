@@ -1,14 +1,14 @@
 {
   "name": "token-lists",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Manages custom token lists for Brave Wallet",
   "dependencies": {
     "@metamask/contract-metadata": "git+https://github.com/MetaMask/contract-metadata.git",
-    "@solana/spl-token-registry": "github:brave/solana-token-list",
+    "@solana/spl-token-registry": "git+https://github.com/brave/solana-token-list.git",
     "nodejs-file-downloader": "^4.9.3",
     "qyu": "^0.4.7",
     "sharp": "^0.30.0",
-    "svg-resizer": "github:brave/svg-resizer"
+    "svg-resizer": "git+https://github.com/brave/svg-resizer.git"
   },
   "main": "index.js",
   "scripts": {
