@@ -17,6 +17,8 @@ jobs:
           node-version: '14.x'
           registry-url: 'https://registry.npmjs.org'
       - run: brew install librsvg
+      - run: npm install -g npm
+      - run: npm --version
       - run: npm ci
       - run: npm start
       - run: npm run publish-token-package
