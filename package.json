@@ -7,7 +7,7 @@
     "@solana/spl-token-registry": "git+https://git@github.com/brave/solana-token-list.git",
     "nodejs-file-downloader": "^4.9.3",
     "qyu": "^0.4.7",
-    "sharp": "^0.30.0",
+    "sharp": "^0.30.5",
     "svg-resizer": "git+https://git@github.com/brave/svg-resizer.git"
   },
   "main": "scripts/index.js",
