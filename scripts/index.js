@@ -1,5 +1,6 @@
 // Node imports
 const fs = require('fs')
+const fsPromises = require('fs/promises')
 const os = require('os')
 const path = require('path')
 
@@ -27,6 +28,12 @@ function stagePackageJson(stagingDir) {
   packageJson.dependencies = {}
   packageJson.engines = {}
   fs.writeFileSync(path.join(stagingDir, 'package.json'), JSON.stringify(packageJson, null, 2));
+}
+
+async function stageChainListJson(stagingDir) {
+  const srcPath = path.join('data', 'chainlist', 'chainlist.json')
+  const dstPath = path.join(stagingDir, 'chainlist.json')
+  fsPromises.copyFile(srcPath, dstPath)
 }
 
 function stageManifest(stagingDir) {
@@ -165,6 +172,9 @@ async function stageTokenPackage() {
 
   // Add Solana (SPL) tokens in solana-contract-map.json.
   await stageSPLTokens(stagingDir)
+
+  // Add chainlist.json.
+  await stageChainListJson(stagingDir)
 
   stagePackageJson(stagingDir)
   stageManifest(stagingDir)
