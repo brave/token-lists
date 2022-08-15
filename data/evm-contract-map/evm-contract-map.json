@@ -745,5 +745,221 @@
     "decimals": 18,
     "coingeckoId": "curve-dao-token",
     "chainId": "0xfa"
+  },
+  "0x4e834cdcc911605227eedddb89fad336ab9dc00a": {
+    "name": "Aave Token",
+    "logo": "aave.png",
+    "erc20": true,
+    "symbol": "AAVE",
+    "decimals": 18,
+    "coingeckoId": "aave",
+    "chainId": "0x4e454152"
+  },
+  "0x8bec47865ade3b172a928df8f990bc7f2a3b9f79": {
+    "name": "Aurora",
+    "logo": "aurora.png",
+    "erc20": true,
+    "symbol": "AURORA",
+    "decimals": 18,
+    "coingeckoId": "aurora-near",
+    "chainId": "0x4e454152"
+  },
+  "0xb59d0fdaf498182ff19c4e80c00ecfc4470926e2": {
+    "name": "Balancer",
+    "logo": "balancer.png",
+    "erc20": true,
+    "symbol": "BAL",
+    "decimals": 18,
+    "coingeckoId": "balancer",
+    "chainId": "0x4e454152"
+  },
+  "0x2b9025aecc5ce7a8e6880d3e9c6e458927ecba04": {
+    "name": "Basic Attention Token",
+    "logo": "bat.png",
+    "erc20": true,
+    "symbol": "BAT",
+    "decimals": 18,
+    "coingeckoId": "basic-attention-token",
+    "chainId": "0x4e454152"
+  },
+  "0xdeacf0faa2b80af41470003b5f6cd113d47b4dcd": {
+    "name": "Compound",
+    "logo": "comp.png",
+    "erc20": true,
+    "symbol": "COMP",
+    "decimals": 18,
+    "coingeckoId": "compound-governance-token",
+    "chainId": "0x4e454152"
+  },
+  "0xabe9818c5fb5e751c4310be6f0f18c8d85f9bd7f": {
+    "name": "Cream Finance",
+    "logo": "cream.png",
+    "erc20": true,
+    "symbol": "CREAM",
+    "decimals": 18,
+    "coingeckoId": "cream-2",
+    "chainId": "0x4e454152"
+  },
+  "0xe3520349f477a5f6eb06107066048508498a291b": {
+    "name": "DAI Stablecoin",
+    "logo": "dai.png",
+    "erc20": true,
+    "symbol": "DAI",
+    "decimals": 18,
+    "coingeckoId": "dai",
+    "chainId": "0x4e454152"
+  },
+  "0xe301ed8c7630c9678c39e4e45193d1e7dfb914f7": {
+    "name": "DODO bird",
+    "logo": "dodo.png",
+    "erc20": true,
+    "symbol": "DODO",
+    "decimals": 18,
+    "coingeckoId": "dodo",
+    "chainId": "0x4e454152"
+  },
+  "0xea62791aa682d455614eaa2a12ba3d9a2fd197af": {
+    "name": "Flux Token",
+    "logo": "flx.png",
+    "erc20": true,
+    "symbol": "FLX",
+    "decimals": 18,
+    "coingeckoId": "flux-token",
+    "chainId": "0x4e454152"
+  },
+  "0xda2585430fef327ad8ee44af8f1f989a2a91a3d2": {
+    "name": "Frax",
+    "logo": "frax.png",
+    "erc20": true,
+    "symbol": "FRAX",
+    "decimals": 18,
+    "coingeckoId": "frax",
+    "chainId": "0x4e454152"
+  },
+  "0xc8fdd32e0bf33f0396a18209188bb8c6fb8747d2": {
+    "name": "Frax Share",
+    "logo": "fxs.png",
+    "erc20": true,
+    "symbol": "FXS",
+    "decimals": 18,
+    "coingeckoId": "frax-share",
+    "chainId": "0x4e454152"
+  },
+  "0x94190d8ef039c670c6d6b9990142e0ce2a1e3178": {
+    "name": "ChainLink Token",
+    "logo": "chainlink.png",
+    "erc20": true,
+    "symbol": "LINK",
+    "decimals": 18,
+    "coingeckoId": "chainlink",
+    "chainId": "0x4e454152"
+  },
+  "0x1d1f82d8b8fc72f29a8c268285347563cb6cd8b3": {
+    "name": "Maker",
+    "logo": "mkr.png",
+    "erc20": true,
+    "symbol": "MKR",
+    "decimals": 18,
+    "coingeckoId": "maker",
+    "chainId": "0x4e454152"
+  },
+  "0x18921f1e257038e538ba24d49fa6495c8b1617bc": {
+    "name": "Republic",
+    "logo": "ren.png",
+    "erc20": true,
+    "symbol": "REN",
+    "decimals": 18,
+    "coingeckoId": "republic-protocol",
+    "chainId": "0x4e454152"
+  },
+  "0xdc9be1ff012d3c6da818d136a3b2e5fdd4442f74": {
+    "name": "Synthetix Network Token",
+    "logo": "snx.png",
+    "erc20": true,
+    "symbol": "SNX",
+    "decimals": 18,
+    "coingeckoId": "havven",
+    "chainId": "0x4e454152"
+  },
+  "0x7821c773a12485b12a2b5b7bc451c3eb200986b1": {
+    "name": "SushiToken",
+    "logo": "sushi.png",
+    "erc20": true,
+    "symbol": "SUSHI",
+    "decimals": 18,
+    "coingeckoId": "sushi",
+    "chainId": "0x4e454152"
+  },
+  "0x1bc741235ec0ee86ad488fa49b69bb6c823ee7b7": {
+    "name": "Uniswap",
+    "logo": "uni.png",
+    "erc20": true,
+    "symbol": "UNI",
+    "decimals": 18,
+    "coingeckoId": "uniswap",
+    "chainId": "0x4e454152"
+  },
+  "0xb12bfca5a55806aaf64e99521918a4bf0fc40802": {
+    "name": "USD Coin",
+    "logo": "usdc.png",
+    "erc20": true,
+    "symbol": "USDC",
+    "decimals": 6,
+    "coingeckoId": "usd-coin",
+    "chainId": "0x4e454152"
+  },
+  "0x4988a896b1227218e4a686fde5eabdcabd91571f": {
+    "name": "Tether USD",
+    "logo": "usdt.png",
+    "erc20": true,
+    "symbol": "USDT",
+    "decimals": 6,
+    "coingeckoId": "tether",
+    "chainId": "0x4e454152"
+  },
+  "0xf4eb217ba2454613b15dbdea6e5f22276410e89e": {
+    "name": "Wrapped BTC",
+    "logo": "wbtc.png",
+    "erc20": true,
+    "symbol": "WBTC",
+    "decimals": 8,
+    "coingeckoId": "wrapped-bitcoin",
+    "chainId": "0x4e454152"
+  },
+  "0xa64514a8af3ff7366ad3d5daa5a548eefcef85e0": {
+    "name": "yearn.finance",
+    "logo": "yfi.png",
+    "erc20": true,
+    "symbol": "YFI",
+    "decimals": 18,
+    "coingeckoId": "yearn-finance",
+    "chainId": "0x4e454152"
+  },
+  "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d": {
+    "name": "Wrapped NEAR",
+    "logo": "wnear.png",
+    "erc20": true,
+    "symbol": "wNEAR",
+    "decimals": 24,
+    "coingeckoId": "wrapped-near",
+    "chainId": "0x4e454152"
+  },
+  "0x07f9f7f963c5cd2bbffd30ccfb964be114332e30": {
+    "name": "Staked NEAR",
+    "logo": "stnear.png",
+    "erc20": true,
+    "symbol": "STNEAR",
+    "decimals": 24,
+    "coingeckoId": "staked-near",
+    "chainId": "0x4e454152"
+  },
+  "0x885f8CF6E45bdd3fdcDc644efdcd0AC93880c781": {
+    "name": "NearPad Token",
+    "logo": "pad.png",
+    "erc20": true,
+    "symbol": "PAD",
+    "decimals": 18,
+    "coingeckoId": "nearpad",
+    "chainId": "0x4e454152"
   }
 }
