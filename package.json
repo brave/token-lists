@@ -5,9 +5,10 @@
   "dependencies": {
     "@metamask/contract-metadata": "git+https://git@github.com/MetaMask/contract-metadata.git",
     "@solana/spl-token-registry": "git+https://git@github.com/brave/solana-token-list.git",
+    "node-fetch": "^3.2.10",
     "nodejs-file-downloader": "^4.9.3",
     "qyu": "^0.4.7",
-    "sharp": "^0.30.5",
+    "sharp": "^0.30.7",
     "svg-resizer": "git+https://git@github.com/brave/svg-resizer.git"
   },
   "main": "scripts/index.js",

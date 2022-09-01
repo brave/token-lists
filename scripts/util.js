@@ -1,9 +1,14 @@
 const childProcess = require('child_process')
 const fs = require('fs')
+const fsPromises = require('fs/promises')
 const os = require('os')
 const path = require('path')
 const sharp = require('sharp')
 const Downloader = require("nodejs-file-downloader")
+const { Qyu } = require('qyu')
+
+// Local imports
+const coingeckoLib = require('./coingecko')
 
 const contractReplaceSvgToPng = (file) => {
   const data = JSON.parse(fs.readFileSync(file))
@@ -16,6 +21,33 @@ const contractReplaceSvgToPng = (file) => {
     }
   }
   fs.writeFileSync(file, JSON.stringify(data, null, 2))
+}
+
+async function contractInjectCoingeckoId(file, coinType) {
+  const json = await fsPromises.readFile(file)
+  const data = JSON.parse(json)
+
+  // Use an asynchronous job queue to throttle queries.
+  const q = new Qyu({concurrency: 2})
+
+  for (const token in data) {
+    if (data.hasOwnProperty(token)) {
+      q(async (each) => {
+        let coingeckoId = data[each].coingeckoId
+        try {
+          coingeckoId = await coingeckoLib.getCoingeckoId(each, data[each].chainId, coinType)
+        } catch (e) {
+          // Ignore error
+          return
+        }
+
+        data[each].coingeckoId = coingeckoId
+      }, null, token)
+    }
+  }
+
+  await q.whenEmpty()
+  await fsPromises.writeFile(file, JSON.stringify(data, null, 2))
 }
 
 const contractAddExtraAssetIcons = (file, imagesDstPath) => {
@@ -157,6 +189,7 @@ const installErrorHandlers = () => {
 
 module.exports = {
   contractReplaceSvgToPng,
+  contractInjectCoingeckoId,
   contractAddExtraAssetIcons,
   installErrorHandlers,
   saveToPNGResize,

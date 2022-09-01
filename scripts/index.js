@@ -10,6 +10,7 @@ const { Qyu } = require('qyu')
 
 // Local module imports
 const util = require('./util')
+const coingeckoLib = require('./coingecko')
 
 function getOutputTokenPath(stagingDir, inputTokenFilePath) {
   const tokenFilename = path.parse(inputTokenFilePath).base
@@ -167,6 +168,7 @@ async function stageTokenPackage() {
 
   // Add Brave specific tokens in evm-contract-map.json
   const braveTokenPath = path.join('data', 'evm-contract-map', 'evm-contract-map.json');
+  await util.contractInjectCoingeckoId(braveTokenPath, coingeckoLib.CoinType.ETH)
   stageTokenFile(stagingDir, braveTokenPath)
   await stageEVMTokenImages(stagingDir, braveTokenPath)
 
