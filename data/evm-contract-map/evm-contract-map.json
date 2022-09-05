@@ -485,6 +485,15 @@
     "coingeckoId": "1inch",
     "chainId": "0x38"
   },
+  "0x965F527D9159dCe6288a2219DB51fc6Eef120dD1": {
+    "name": "Biswap",
+    "logo": "bsw.png",
+    "erc20": true,
+    "symbol": "BSW",
+    "decimals": 18,
+    "coingeckoId": "biswap",
+    "chainId": "0x38"
+  },
   "0xc7198437980c041c805A1EDcbA50c1Ce5db95118": {
     "name": "Tether USD",
     "logo": "usdt.png",
