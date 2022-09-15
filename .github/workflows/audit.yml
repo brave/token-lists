@@ -4,6 +4,9 @@ name: Audit NPM package
 # Controls when the workflow will run
 on: push
 
+env:
+  TOKEN_LISTS_ACTIONS_OR_CI_BUILD: true
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
