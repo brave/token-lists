@@ -14,6 +14,7 @@
   "scripts": {
     "start": "node scripts/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "./isDocker.sh",
     "publish-token-package": "npm publish ./build"
   },
   "repository": {

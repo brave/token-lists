@@ -90,14 +90,20 @@ async function saveToPNGResize(source, dest, ignoreError) {
           return
         }
         console.log('trying one more time source == ' + source + ' ' + err)
+        const outputDir = path.join(os.tmpdir(), 'brave-token-images')
+        if (!fs.existsSync(outputDir)) {
+          fs.mkdirSync(outputDir)
+        }
+        const fileName = path.parse(source).base
+        fs.copyFileSync(source, path.join(outputDir, fileName))
         try {
-          modifySvgFile(source)
+          modifySvgFile(path.join(outputDir, fileName))
         } catch (e) {
           console.log('failed to fix SVG file:', e)
           return
         }
 
-        saveToPNGResize(source, dest, true)
+        saveToPNGResize(path.join(outputDir, fileName), dest, true)
           .then(resolve)
           .catch((e) => {
             console.log(e)

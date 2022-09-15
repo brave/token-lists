@@ -4,22 +4,19 @@ Manages custom token lists for Brave Wallet
 
 ## Development
 
-To test out the output of this package run:
+To test out the output of this package you have to use a docker. It has been
+tested on Linux and macOS:
 
-```js
-npm start
-```
+- Install [docker](https://runnable.com/docker/)
+- Create a docker image `docker build -t token-lists .`
+- Launch the docker image `docker run -u "$(id -u):$(id -g)" -v "$PWD/build:/token-lists/build" -ti token-lists`
+- You will see an output in the `build` folder
 
 ## Publishing token list to npm
 
-[brave/brave-core-crx-pacager](https://github.com/brave/brave-core-crx-packager) uses the npm package published [here brave-wallet-lists](https://www.npmjs.com/package/brave-wallet-lists).
+[brave/brave-core-crx-packager](https://github.com/brave/brave-core-crx-packager) uses the npm package published [here brave-wallet-lists](https://www.npmjs.com/package/brave-wallet-lists).
 
-To publish a new package run:
-
-```js
-npm start
-npm run publish-token-package
-```
+It will be automatically published when your PR is merged.
 
 This outputs a no dependency package with output images and token lists.
 

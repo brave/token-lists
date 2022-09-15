@@ -5,6 +5,9 @@ name: Build NPM package
 
 on: push
 
+env:
+  TOKEN_LISTS_ACTIONS_OR_CI_BUILD: true
+
 jobs:
   build:
     runs-on: macos-latest
