@@ -11,8 +11,8 @@
     "svg-resizer": "git+https://git@github.com/brave/svg-resizer.git"
   },
   "devDependencies": {
-    "imagemin": "^8.0.1",
-    "imagemin-pngquant": "^9.0.2"
+    "imagemin": "8.0.1",
+    "imagemin-pngquant": "9.0.2"
   },
   "overrides": {
     "semver-regex": ">=4.0.5",
