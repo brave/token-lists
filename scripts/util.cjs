@@ -3,7 +3,7 @@ const fs = require('fs')
 const os = require('os')
 const path = require('path')
 const sharp = require('sharp')
-const Downloader = require("nodejs-file-downloader")
+const Downloader = require('nodejs-file-downloader')
 
 const contractReplaceSvgToPng = (file) => {
   const data = JSON.parse(fs.readFileSync(file))
@@ -73,7 +73,9 @@ async function saveToPNGResize(source, dest, ignoreError) {
               fs.mkdirSync(outputDir)
             }
             const fileName = path.parse(source).base
-            childProcess.execSync('./node_modules/svg-resizer/svg-resizer.js -f -x 300 -y 300 -o ' + outputDir + ' -i ' + source)
+            let cmd = './node_modules/svg-resizer/svg-resizer.js'
+            let args = ['-f', '-x', '300', '-y', '300', '-o', outputDir, '-i', source]
+            childProcess.execFileSync(cmd, args)
             saveToPNGResize(path.join(outputDir, fileName), dest, true)
               .then(resolve)
               .catch((e) => console.log(e))

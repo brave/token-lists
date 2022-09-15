@@ -16,7 +16,7 @@ tested on Linux and macOS:
 
 [brave/brave-core-crx-packager](https://github.com/brave/brave-core-crx-packager) uses the npm package published [here brave-wallet-lists](https://www.npmjs.com/package/brave-wallet-lists).
 
-It will be automatically published when your PR is merged.
+It will be automatically published when your PR is merged and release is created.
 
 This outputs a no dependency package with output images and token lists.
 

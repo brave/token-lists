@@ -1,15 +1,18 @@
 // Node imports
-const fs = require('fs')
-const fsPromises = require('fs/promises')
-const os = require('os')
-const path = require('path')
+import fs from 'fs'
+import fsPromises from 'fs/promises'
+import os from 'os'
+import path from 'path'
 
 // NPM imports
-const { TokenListProvider, Strategy } = require('@solana/spl-token-registry')
-const { Qyu } = require('qyu')
+import {TokenListProvider, Strategy} from '@solana/spl-token-registry'
+import { Qyu } from 'qyu'
 
 // Local module imports
-const util = require('./util')
+import util from './util.cjs'
+
+import imagemin from 'imagemin'
+import imageminPngquant from 'imagemin-pngquant'
 
 function getOutputTokenPath(stagingDir, inputTokenFilePath) {
   const tokenFilename = path.parse(inputTokenFilePath).base
@@ -47,7 +50,7 @@ async function stageEVMTokenImages(stagingDir, inputTokenFilePath, addExtraToken
   const baseSrcTokenPath = path.dirname(inputTokenFilePath)
   // Copy images and convert them to png plus resize to 200x200 if needed
   const imagesSrcPath = path.join(baseSrcTokenPath, "images")
-  const imagesDstPath = path.join(stagingDir, "images")
+  const imagesDstPath = path.join(stagingDir, "imagesUncompressed")
   const files = fs.readdirSync(imagesSrcPath)
   if (!fs.existsSync(imagesDstPath)){
     fs.mkdirSync(imagesDstPath)
@@ -68,6 +71,21 @@ async function stageEVMTokenImages(stagingDir, inputTokenFilePath, addExtraToken
   if (addExtraTokens) {
     util.contractAddExtraAssetIcons(outputTokenFilePath, imagesDstPath)
   }
+}
+
+async function compressPng(imagesDstPath, stagingDir) {
+  console.log('compressing png images...')
+  if (!fs.existsSync(stagingDir + '/images')) {
+    fs.mkdirSync(stagingDir + '/images')
+  }
+  await imagemin([imagesDstPath + "/*.png"], {
+      destination: stagingDir + '/images',
+      plugins: [
+        imageminPngquant({
+          quality: [0.1, 0.3]
+        })
+      ]
+    })
 }
 
 async function stageTokenListsLogo(stagingDir, token) {
@@ -96,7 +114,7 @@ async function stageTokenListsLogo(stagingDir, token) {
   try {
     await util.saveToPNGResize(
       sourceFilePath,
-      path.join(stagingDir, 'images', destFile),
+      path.join(stagingDir, 'imagesUncompressed', destFile),
       false,
     )
   } catch {
@@ -155,7 +173,7 @@ async function stageTokenPackage() {
     fs.mkdirSync(stagingDir)
   }
 
-  const imagesDstPath = path.join(stagingDir, "images")
+  const imagesDstPath = path.join(stagingDir, "imagesUncompressed")
   if (!fs.existsSync(imagesDstPath)){
     fs.mkdirSync(imagesDstPath)
   }
@@ -172,6 +190,8 @@ async function stageTokenPackage() {
 
   // Add Solana (SPL) tokens in solana-contract-map.json.
   await stageSPLTokens(stagingDir)
+  await compressPng(imagesDstPath, stagingDir)
+  fs.rmSync(imagesDstPath, { recursive: true, force: true });
 
   // Add chainlist.json.
   await stageChainListJson(stagingDir)
