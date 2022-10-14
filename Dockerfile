@@ -1,4 +1,4 @@
-FROM node:16.13.0
+FROM node:18.11.0
 
 # Create directory
 RUN mkdir /token-lists
