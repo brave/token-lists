@@ -970,14 +970,5 @@
     "decimals": 18,
     "coingeckoId": "nearpad",
     "chainId": "0x4e454152"
-  },
- "0xc581b735a1688071a1746c968e0798d642ede491": {
-    "name": "Euro Tether",
-    "logo": "eurt.png",
-    "erc20": true,
-    "symbol": "EURT",
-    "decimals": 18,
-    "coingeckoId": "tether-eurt",
-    "chainId": "0x3"
   }
 }
