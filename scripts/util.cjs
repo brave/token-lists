@@ -36,6 +36,16 @@ const contractAddExtraAssetIcons = (file, imagesDstPath) => {
     symbol: "PDAI",
     decimals: 18
   }
+
+  // EURT
+  data["0xc581b735a1688071a1746c968e0798d642ede491"] = {
+    "name": "Euro Tether",
+    "logo": "eurt.png",
+    "erc20": true,
+    "symbol": "EURT",
+    "decimals": 6
+  }
+
   // Just copy ETH icon as ETH is not a contract token
   fs.writeFileSync(file, JSON.stringify(data, null, 2))
 }
@@ -45,7 +55,7 @@ async function saveToPNGResize(source, dest, ignoreError) {
     sharp(source)
       .png()
       .toFile(dest)
-      .then(function(info) {
+      .then(function (info) {
         if (info.width > 200 || info.height > 200) {
           let aspectRatio = 200 / info.width
           if (info.height > info.width) {
@@ -57,15 +67,15 @@ async function saveToPNGResize(source, dest, ignoreError) {
             .png()
             .resize(newWidth, newHeight)
             .toFile(dest)
-            .then(function(info) {
+            .then(function (info) {
               resolve()
             })
-            .catch(function(err) {
+            .catch(function (err) {
               console.log('source == ' + source + ' ' + err)
               reject()
             })
         } else {
-          if ((info.width < 200 || info.height < 200) && !source.endsWith(".png"))  {
+          if ((info.width < 200 || info.height < 200) && !source.endsWith(".png")) {
             console.log('resizing vector image == ' + source)
             const outputDir = path.join(os.tmpdir(), 'brave-token-images')
             console.log('outputdir: ', outputDir)
@@ -84,7 +94,7 @@ async function saveToPNGResize(source, dest, ignoreError) {
           }
         }
       })
-      .catch(function(err) {
+      .catch(function (err) {
         if (ignoreError) {
           console.log('source == ' + source + ' ' + err)
           console.log('Do you need to "brew install librsvg"?')
@@ -127,7 +137,7 @@ const modifySvgFile = (file) => {
   fs.writeFileSync(file, data)
 }
 
-async function download (url, dest) {
+async function download(url, dest) {
   console.log(`download: ${url}`)
   const downloader = new Downloader({
     url,
