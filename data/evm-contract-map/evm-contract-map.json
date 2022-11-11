@@ -970,5 +970,95 @@
     "decimals": 18,
     "coingeckoId": "nearpad",
     "chainId": "0x4e454152"
+  },
+  "0xa2ca40dbe72028d3ac78b5250a8cb8c404e7fb8c": {
+    "name": "Fear",
+    "logo": "fear.png",
+    "erc20": true,
+    "symbol": "FEAR",
+    "decimals": 18,
+    "coingeckoId": "fear",
+    "chainId": "0x89"
+  },
+  "0xe6FC6C7CB6d2c31b359A49A33eF08aB87F4dE7CE": {
+    "name": "IG Gold",
+    "logo": "igg.png",
+    "erc20": true,
+    "symbol": "IGG",
+    "decimals": 18,
+    "coingeckoId": "ig-gold",
+    "chainId": "0x89"
+  },
+  "0xe8377a076adabb3f9838afb77bee96eac101ffb1": {
+    "name": "MetaSoccer",
+    "logo": "msu.png",
+    "erc20": true,
+    "symbol": "MSU",
+    "decimals": 18,
+    "coingeckoId": "metasoccer",
+    "chainId": "0x89"
+  },
+  "0x72d6066F486bd0052eefB9114B66ae40e0A6031a": {
+    "name": "WazirX",
+    "logo": "wrx.png",
+    "erc20": true,
+    "symbol": "WRX",
+    "decimals": 18,
+    "coingeckoId": "wazirx",
+    "chainId": "0x38"
+  },
+  "0x4b0f1812e5df2a09796481ff14017e6005508003": {
+    "name": "Trust Wallet",
+    "logo": "twt.png",
+    "erc20": true,
+    "symbol": "TWT",
+    "decimals": 18,
+    "coingeckoId": "trust-wallet-token",
+    "chainId": "0x38"
+  },
+  "0x83e6f1E41cdd28eAcEB20Cb649155049Fac3D5Aa": {
+    "name": "Polkastarter",
+    "logo": "pols.png",
+    "erc20": true,
+    "symbol": "POLS",
+    "decimals": 18,
+    "coingeckoId": "Polkastarter",
+    "chainId": "0x38"
+  },
+  "0xCa3F508B8e4Dd382eE878A314789373D80A5190A": {
+    "name": "Beefy.Finance",
+    "logo": "bifi.png",
+    "erc20": true,
+    "symbol": "BIFI",
+    "decimals": 18,
+    "coingeckoId": "beefy-finance",
+    "chainId": "0x38"
+  },
+  "0xA179248E50CE5AFb507FD8C54e08A66FBAC7B6Ff": {
+    "name": "Freedom. Jobs. Business",
+    "logo": "$fjb.png",
+    "erc20": true,
+    "symbol": "$FJB",
+    "decimals": 18,
+    "coingeckoId": "freedom-jobs-business",
+    "chainId": "0x38"
+  },
+  "0xd6fDDe76B8C1C45B33790cc8751D5b88984c44ec": {
+    "name": "StrikeX",
+    "logo": "strx.png",
+    "erc20": true,
+    "symbol": "STRX",
+    "decimals": 18,
+    "coingeckoId": "strikex",
+    "chainId": "0x38"
+  },
+  "0x6e84a6216ea6dacc71ee8e6b0a5b7322eebc0fdd": {
+    "name": "Joe",
+    "logo": "joe.png",
+    "erc20": true,
+    "symbol": "JOE",
+    "decimals": 18,
+    "coingeckoId": "joe",
+    "chainId": "0xa86a"
   }
 }
