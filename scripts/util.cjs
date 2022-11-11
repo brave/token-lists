@@ -43,7 +43,7 @@ const contractAddExtraAssetIcons = (file, imagesDstPath) => {
     "logo": "eurt.png",
     "erc20": true,
     "symbol": "EURT",
-    "decimals": 18
+    "decimals": 6
   }
 
   // Just copy ETH icon as ETH is not a contract token
