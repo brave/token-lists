@@ -5,7 +5,7 @@ import os from 'os'
 import path from 'path'
 
 // NPM imports
-import {TokenListProvider, Strategy} from '@solana/spl-token-registry'
+import { TokenListProvider, Strategy } from '@brave/spl-token-registry'
 import { Qyu } from 'qyu'
 
 // Local module imports
