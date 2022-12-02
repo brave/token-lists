@@ -60,7 +60,11 @@ async function stageEVMTokenImages(stagingDir, inputTokenFilePath, addExtraToken
     var fileTo = file.substr(0, file.lastIndexOf(".")) + ".png"
     var fromPath = path.join(imagesSrcPath, file)
     var toPath = path.join(imagesDstPath, fileTo)
-    await util.saveToPNGResize(fromPath, toPath, false)
+    try {
+      await util.saveToPNGResize(fromPath, toPath, false)
+    } catch (e) {
+      console.log(`Failed to resize: ${fromPath}`)
+    }
   }
   util.contractReplaceSvgToPng(outputTokenFilePath)
   // We can remove this later if we migrate the tokens to
