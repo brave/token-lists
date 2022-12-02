@@ -10,7 +10,7 @@ env:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  audit:
     # The type of runner that the job will run on
     runs-on: macos-latest
 
@@ -22,8 +22,8 @@ jobs:
         with:
           node-version: '14.x'
           registry-url: 'https://registry.npmjs.org'
-      - run: brew install librsvg
-      - run: npm install -g npm
-      - run: npm --version
-      - run: npm ci
-      - run: npm audit
+      - run: brew install librsvg libimagequant
+      - run: npm install -g yarn
+      - run: yarn --version
+      - run: yarn
+      - run: yarn audit
