@@ -20,10 +20,10 @@ jobs:
           node-version: '14.x'
           registry-url: 'https://registry.npmjs.org'
       - run: brew install librsvg libimagequant
-      - run: npm install -g yarn
+      - run: npm install -g yarn npm
       - run: yarn --version
       - run: yarn
       - run: yarn start
-      - run: yarn publish-token-package
+      - run: npm run publish-token-package
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
