@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@brave/spl-token-registry@0.2.223":
-  version "0.2.223"
-  resolved "https://registry.yarnpkg.com/@brave/spl-token-registry/-/spl-token-registry-0.2.223.tgz#732f585862b16229e2243899f9667863027cdd59"
-  integrity sha512-22IruDy56WXxsFl6BHdg55JCEos1oyR0jQBtWKmaqa2WQeXGsmOHbC1P9pdserYUbarcNynqptYzaZb6PW0GiQ==
+"@brave/spl-token-registry@0.2.226":
+  version "0.2.226"
+  resolved "https://registry.yarnpkg.com/@brave/spl-token-registry/-/spl-token-registry-0.2.226.tgz#aedfa83ce7f063572f0d77927fe4375720dd9721"
+  integrity sha512-2pOoplrM8rrtMjqgWO4/mZNMxfA/UE3tIgO1WdwpNlKWXNj9KLPQhXAhaq+Z7q3ySJuLiP+gqrHWb4yrUzGyKw==
   dependencies:
     cross-fetch "^3.1.5"
 

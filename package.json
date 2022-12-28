@@ -4,7 +4,7 @@
   "description": "Manages custom token lists for Brave Wallet",
   "dependencies": {
     "@metamask/contract-metadata": "git+https://git@github.com/MetaMask/contract-metadata.git",
-    "@brave/spl-token-registry": "0.2.223",
+    "@brave/spl-token-registry": "0.2.226",
     "nodejs-file-downloader": "^4.9.3",
     "qyu": "^0.4.7",
     "sharp": "^0.30.5",
