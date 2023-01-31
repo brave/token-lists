@@ -4,7 +4,7 @@
   "description": "Manages custom token lists for Brave Wallet",
   "dependencies": {
     "@metamask/contract-metadata": "git+https://git@github.com/MetaMask/contract-metadata.git",
-    "@brave/spl-token-registry": "0.2.223",
+    "@solflare-wallet/utl-aggregator": "^0.0.11",
     "nodejs-file-downloader": "^4.9.3",
     "qyu": "^0.4.7",
     "sharp": "^0.30.5",
@@ -25,6 +25,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node scripts/index.js",
+    "gen:solana": "node scripts/solana.task.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "preinstall": "./isDocker.sh",
     "publish-token-package": "npm publish ./build"
