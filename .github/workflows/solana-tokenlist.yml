@@ -1,0 +1,49 @@
+name: Update Solana Unified Tokens List
+
+on:
+  schedule:
+    # Runs "at 00:00 every day"
+      - cron: '0 0 * * *'
+
+env:
+  TOKEN_LISTS_ACTIONS_OR_CI_BUILD: true
+
+jobs:
+  generate:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Extract branch name
+        shell: bash
+        run: echo "GITHUB_BRANCH=${GITHUB_REF#refs/heads/}" >> $GITHUB_OUTPUT
+        id: extract_branch
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+      - run: brew install librsvg libimagequant
+
+      - run: npm install -g yarn
+      - run: yarn
+
+      - run: yarn gen:solana
+        env:
+          SOLANA_MAINNET_RPC_URL: ${{ secrets.SOLANA_MAINNET_RPC_URL }}
+          TRUSTED_TOKEN_LIST_URL: https://cdn.jsdelivr.net/gh/brave/token-lists@${{ steps.extract_branch.outputs.GITHUB_BRANCH }}/data/solana/trusted-tokenlist.json
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update Solana UTL
+          file_pattern: 'data/solana/tokenlist.json'
+
+      - name: 'Automated Version Bump'
+        uses: 'phips28/gh-action-bump-version@master'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: yarn start
+
+      - run: npm run publish-token-package
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
