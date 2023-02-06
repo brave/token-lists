@@ -5,7 +5,6 @@ import os from 'os'
 import path from 'path'
 
 // NPM imports
-import { TokenListProvider, Strategy } from '@brave/spl-token-registry'
 import { Qyu } from 'qyu'
 
 // Local module imports
@@ -159,13 +158,8 @@ async function stageTokenListsTokens(stagingDir, tokens, isEVM = true) {
 }
 
 async function stageSPLTokens(stagingDir) {
-  const splTokensProvider = await new TokenListProvider()
-    .resolve(Strategy.Static)
-
-  const splTokensArray = splTokensProvider
-    .filterByClusterSlug('mainnet-beta')
-    .getList()
-
+  const tokenMap = JSON.parse(fs.readFileSync(path.join('data', 'solana', 'tokenlist.json')).toString())
+  const splTokensArray = tokenMap.tokens
   const splTokens = await stageTokenListsTokens(stagingDir, splTokensArray, false)
   const splTokensPath = path.join(stagingDir, 'solana-contract-map.json')
   fs.writeFileSync(splTokensPath, JSON.stringify(splTokens, null, 2))
