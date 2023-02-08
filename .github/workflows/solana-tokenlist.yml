@@ -3,7 +3,12 @@ name: Update Solana Unified Tokens List
 on:
   schedule:
     # Runs "at 00:00 every day"
-      - cron: '0 0 * * *'
+    - cron: '0 0 * * *'
+  push:
+    tags:
+      # Force run this workflow by creating a tag starting with "force-solana-"
+      # which may be deleted later.
+      - 'force-solana-*'
 
 env:
   TOKEN_LISTS_ACTIONS_OR_CI_BUILD: true
