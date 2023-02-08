@@ -39,7 +39,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_TOKEN_LIST }}
         with:
-          skip-push: 'true'
           skip-tag:  'true'
 
       - run: yarn start
