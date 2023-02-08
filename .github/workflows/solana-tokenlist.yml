@@ -2,13 +2,8 @@ name: Update Solana Unified Tokens List
 
 on:
   schedule:
-    # Runs "at 00:00 every day"
-    - cron: '0 0 * * *'
-  push:
-    tags:
-      # Force run this workflow by creating a tag starting with "force-solana-"
-      # which may be deleted later.
-      - 'force-solana-*'
+    # At minute 0 past every 3rd hour.
+    - cron: '0 */3 * * *'
 
 env:
   TOKEN_LISTS_ACTIONS_OR_CI_BUILD: true
@@ -39,8 +34,6 @@ jobs:
           SOLANA_MAINNET_RPC_URL: ${{ secrets.SOLANA_MAINNET_RPC_URL }}
           TRUSTED_TOKEN_LIST_URL: https://cdn.jsdelivr.net/gh/brave/token-lists@${{ steps.extract_branch.outputs.GITHUB_BRANCH }}/data/solana/trusted-tokenlist.json
 
-      - run: yarn start
-
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Update Solana UTL
@@ -50,6 +43,8 @@ jobs:
         uses: 'phips28/gh-action-bump-version@master'
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_TOKEN_LIST }}
+
+      - run: yarn start
 
       - run: npm run publish-token-package
         env:
