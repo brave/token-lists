@@ -104,15 +104,21 @@ async function stageTokenListsLogo(stagingDir, token) {
     return logoURI
   }
 
-  const extension = logoURI.substr(logoURI.lastIndexOf('.'), 4)
+  const extension = path.extname(logoURI.split('?')[0])
   const sourceFile = `${address}${extension}`
   const destFile = `${address}.png`
   const sourceFilePath = path.join(os.tmpdir(), sourceFile)
+
   try {
     await util.download(logoURI, sourceFile)
   } catch (err) {
+    console.log(err)
     return ''
   }
+
+  // Add a delay to prevent coingecko asset CDN from forcing a JS security
+  // challenge.
+  await new Promise(r => setTimeout(r, 700))
 
   try {
     await util.saveToPNGResize(
@@ -129,7 +135,7 @@ async function stageTokenListsLogo(stagingDir, token) {
 
 async function stageTokenListsTokens(stagingDir, tokens, isEVM = true) {
   // Use an asynchronous job queue to throttle downloads.
-  const q = new Qyu({concurrency: 10})
+  const q = new Qyu({concurrency: 2})
   q(tokens, async (token, idx) => {
     tokens[idx].logoURI = await stageTokenListsLogo(stagingDir, token)
   })

@@ -251,6 +251,9 @@ async function download(url, dest) {
   const downloader = new Downloader({
     url,
     directory: os.tmpdir(),
+    headers: {
+      'User-Agent': 'Chrome/91.0.0'
+    },
     onBeforeSave: (deducedName) => {
       const deducedExtension = path.extname(deducedName)
       return path.parse(dest).name + deducedExtension
