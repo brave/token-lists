@@ -8,9 +8,10 @@ WORKDIR /token-lists
 COPY . ../token-lists
 
 # Install dependencies
-RUN npm install
 RUN apt-get update
 RUN apt-get install -y librsvg2-bin
+RUN apt-get install -y libimagequant-dev
+RUN npm install 
 
 # Run an application
 CMD npm run start
