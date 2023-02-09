@@ -21,6 +21,11 @@ jobs:
         run: echo "GITHUB_BRANCH=${GITHUB_REF#refs/heads/}" >> $GITHUB_OUTPUT
         id: extract_branch
 
+      - name: 'Configure git'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
@@ -35,18 +40,15 @@ jobs:
           SOLANA_MAINNET_RPC_URL: ${{ secrets.SOLANA_MAINNET_RPC_URL }}
           TRUSTED_TOKEN_LIST_URL: https://cdn.jsdelivr.net/gh/brave/token-lists@${{ steps.extract_branch.outputs.GITHUB_BRANCH }}/data/solana/trusted-tokenlist.json
 
-      - name: 'Bump patch version'
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          npm version patch
-
-      - run: yarn start
-
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Update Solana UTL
           file_pattern: 'data/solana/tokenlist.json'
+
+      - name: 'Bump patch version'
+        run: npm version patch
+
+      - run: yarn start
 
       - run: git push
 
