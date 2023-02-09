@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          token: ${{ secrets.REPO_TOKEN_LIST }}
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Extract branch name
         shell: bash
         run: echo "GITHUB_BRANCH=${GITHUB_REF#refs/heads/}" >> $GITHUB_OUTPUT
@@ -35,12 +35,11 @@ jobs:
           SOLANA_MAINNET_RPC_URL: ${{ secrets.SOLANA_MAINNET_RPC_URL }}
           TRUSTED_TOKEN_LIST_URL: https://cdn.jsdelivr.net/gh/brave/token-lists@${{ steps.extract_branch.outputs.GITHUB_BRANCH }}/data/solana/trusted-tokenlist.json
 
-      - name: 'Automated Version Bump'
-        uses: 'phips28/gh-action-bump-version@master'
-        env:
-          GITHUB_TOKEN: ${{ secrets.REPO_TOKEN_LIST }}
-        with:
-          skip-tag:  'true'
+      - name: 'Bump patch version'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          npm version patch
 
       - run: yarn start
 
@@ -48,6 +47,8 @@ jobs:
         with:
           commit_message: Update Solana UTL
           file_pattern: 'data/solana/tokenlist.json'
+
+      - run: git push
 
       - run: npm run publish-token-package
         env:
