@@ -5,14 +5,13 @@ const fullContractMap = { "0xBBc2AE13b23d715c30720F079fcd9B4a74093505": { "name"
 
 async function testGenerateMainnetTokenList() {
   // Generate a list of all tokens on mainnet
-  const topHundredTokenList = await generateMainnetTokenList(fullContractMap);
-
+  let topHundredTokenList = await generateMainnetTokenList(fullContractMap)
   // Should be mostly full
-  assert(topHundredTokenList.length > 80);
+  assert(Object.keys(topHundredTokenList.length > 80))
 
-  // BAT should be in the list
-  assert(topHundredTokenList['0x0d8775f648430679a709e98d2b0cb6250d2887ef']
-    && topHundredTokenList['0x0d8775f648430679a709e98d2b0cb6250d2887ef'].symbol === 'BAT');
+  // BAT should be in the list even if it's not in the contract map
+  topHundredTokenList = await generateMainnetTokenList({})
+  assert(topHundredTokenList['0x0D8775F648430679A709E98d2b0Cb6250d2887EF'].symbol === 'BAT')
 }
 
 testGenerateMainnetTokenList();

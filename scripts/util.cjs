@@ -386,6 +386,15 @@ const generateMainnetTokenList = async (fullTokenList) => {
     }
   }
 
+  // Ensure BAT is always added
+  outputTokenList['0x0D8775F648430679A709E98d2b0Cb6250d2887EF'] = {
+    'name': 'Basic Attention Token',
+    'logo': 'bat.png',
+    'erc20': true,
+    'symbol': 'BAT',
+    'decimals': 18
+  }
+
   return outputTokenList
 }
 
