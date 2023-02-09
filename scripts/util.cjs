@@ -4,6 +4,7 @@ const os = require('os')
 const path = require('path')
 const sharp = require('sharp')
 const Downloader = require('nodejs-file-downloader')
+const fetch = require('node-fetch')
 
 const contractReplaceSvgToPng = (file) => {
   const data = JSON.parse(fs.readFileSync(file))
@@ -285,10 +286,114 @@ const installErrorHandlers = () => {
   })
 }
 
+const generateMainnetTokenList = async (fullTokenList) => {
+  const MAX_TOKEN_LIST_SIZE = 100
+  const coinGeckoApiBaseUrl = 'https://api.coingecko.com/api/v3'
+
+  // Fetch the list of tokens from CoinGecko
+  const coinListEndpoint = coinGeckoApiBaseUrl + '/coins/list?include_platform=true'
+  const coinListResponse = await fetch(coinListEndpoint)
+  const coinList = await coinListResponse.json()
+  // Ex.
+  // [
+  //   {
+  //     "id": "01coin",
+  //     "symbol": "zoc",
+  //     "name": "01coin",
+  //     "platforms": {}
+  //   },
+  //   {
+  //     "id": "0chain",
+  //     "symbol": "zcn",
+  //     "name": "Zus",
+  //     "platforms": {
+  //       "ethereum": "0xb9ef770b6a5e12e45983c5d80545258aa38f3b78",
+  //       "polygon-pos": "0x8bb30e0e67b11b978a5040144c410e1ccddcba30"
+  //     }
+  //   },
+  
+  // Mapping from Coingecko IDs to Ethereum token contract addresses
+  const contractAddresses = {}
+  for (const coin of coinList) {
+    if (coin.platforms && coin.platforms.ethereum) {
+      contractAddresses[coin.id] = coin.platforms.ethereum
+    }
+  }
+
+  // Fetch the top 250 tokens by market cap from CoinGecko
+  const coinMarketEndpoint = coinGeckoApiBaseUrl + '/coins/markets?vs_currency=usd&category=ethereum-ecosystem&order=market_cap_desc&per_page=250&page=1&sparkline=false'
+  const coinMarketResponse = await fetch(coinMarketEndpoint)
+  const topCoins = await coinMarketResponse.json()
+  // Ex.
+  // [
+  //   {
+  //     "id": "ethereum",
+  //     "symbol": "eth",
+  //     "name": "Ethereum",
+  //     "image": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880",
+  //     "current_price": 1647.39,
+  //     "market_cap": 198265811337,
+  //     "market_cap_rank": 2,
+  //     "fully_diluted_valuation": 198265811337,
+  //     "total_volume": 9138271993,
+  //     "high_24h": 1690.44,
+  //     "low_24h": 1635.13,
+  //     "price_change_24h": -22.227143657222314,
+  //     "price_change_percentage_24h": -1.33127,
+  //     "market_cap_change_24h": -2275221284.88501,
+  //     "market_cap_change_percentage_24h": -1.13454,
+  //     "circulating_supply": 120508854.572098,
+  //     "total_supply": 120508854.572098,
+  //     "max_supply": null,
+  //     "ath": 4878.26,
+  //     "ath_change_percentage": -66.26464,
+  //     "ath_date": "2021-11-10T14:24:19.604Z",
+  //     "atl": 0.432979,
+  //     "atl_change_percentage": 379987.53669,
+  //     "atl_date": "2015-10-20T00:00:00.000Z",
+  //     "roi": {
+  //       "times": 95.17701531300291,
+  //       "currency": "btc",
+  //       "percentage": 9517.701531300292
+  //     },
+  //     "last_updated": "2023-02-08T21:05:06.901Z"
+  //   },
+  //   ...
+  // ]
+
+  // Map lowercase token contract addresses to checksum addresses
+  // Needed because the token list uses checksum addresses, but the CoinGecko API returns lowercase addresses
+  const checksumAddresses = {}
+  for (const [key, value] of Object.entries(fullTokenList)) {
+    checksumAddresses[key.toLowerCase()] = key
+  }
+
+  // For each of the top 250 tokens, check (1) if there is a corresponding ethereum token contract address
+  // by checkingif the id is in the contractAddresses, and (2) if the token contract address is in
+  // the tokenList. If both conditions are true, then add the token to the output token list. Continue
+  // until we have 100 tokens in the output token list.
+  const outputTokenList = {}
+  for (const coin of topCoins) {
+    const contractAddress = contractAddresses[coin.id]
+    if (contractAddress) {
+      const checksumAddress = checksumAddresses[contractAddress.toLowerCase()]
+      if (checksumAddress && fullTokenList[checksumAddress]) {
+        outputTokenList[checksumAddress] = fullTokenList[checksumAddress]
+        if (Object.keys(outputTokenList).length === MAX_TOKEN_LIST_SIZE) {
+          break
+        }
+      }
+    }
+  }
+
+  return outputTokenList
+}
+
 module.exports = {
   contractReplaceSvgToPng,
   contractAddExtraAssetIcons,
   installErrorHandlers,
   saveToPNGResize,
-  download
+  download,
+  generateMainnetTokenList,
 }

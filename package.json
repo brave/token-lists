@@ -27,7 +27,7 @@
   "scripts": {
     "start": "node scripts/index.js",
     "gen:solana": "node scripts/solana.task.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node test/util.test.cjs",
     "preinstall": "./isDocker.sh",
     "publish-token-package": "npm publish ./build"
   },
