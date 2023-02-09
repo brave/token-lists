@@ -11,7 +11,7 @@ COPY . ../token-lists
 RUN apt-get update
 RUN apt-get install -y librsvg2-bin
 RUN apt-get install -y libimagequant-dev
-RUN npm install 
+RUN yarn 
 
 # Run an application
-CMD npm run start
+CMD yarn run start
