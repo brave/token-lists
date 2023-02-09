@@ -1,6 +1,7 @@
 name: Update Solana Unified Tokens List
 
 on:
+  workflow_dispatch:
   schedule:
     # At minute 0 past every 3rd hour.
     - cron: '0 */3 * * *'
