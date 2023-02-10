@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-02-04T11:32:24.099Z",
+  "timestamp": "2023-02-10T14:37:21.051Z",
   "tokens": [
     {
       "chainId": 101,
@@ -669,6 +669,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "bitspawn"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "BIU COIN",
+      "symbol": "BIU",
+      "address": "4D7kEovLBEY3VQUzJUQjXyGR8fAZwQWSxEcsP5Y9nZ6S",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/28990/large/cat_%281%29.png?1675820407",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "biu-coin"
       }
     },
     {
@@ -3823,20 +3837,6 @@
     },
     {
       "chainId": 101,
-      "name": "MetaShells",
-      "symbol": "SHELL",
-      "address": "BRg8CLYEStYAFQad3CVMCYy1cgeuvUnarAZLV8K8Hyfv",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/23230/large/metashellslogo.png?1643355563",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "metashells"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "MetaToken",
       "symbol": "MTK",
       "address": "ANXqXpSkTEuCnR27YK2AoHNH2CCbiSaKYAKcDQVMi6ar",
@@ -4491,6 +4491,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "paydex"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "PepeSol",
+      "symbol": "PEPE",
+      "address": "F9CpWoyeBJfoRB8f2pBe2ZNPbPsEE76mWZWme3StsvHK",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/28996/large/Pepesol_LOGO.png?1675836291",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "pepesol"
       }
     },
     {
@@ -7375,20 +7389,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "ween-token"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "WeSleep",
-      "symbol": "WEZ",
-      "address": "9igG1YEgda7M2LjWkCiaKwcwYkFW174VDzrrPvoAT6DJ",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/28265/large/Logo_WEZ_png.png?1668766709",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "wesleep"
       }
     },
     {
