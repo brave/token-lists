@@ -2,6 +2,22 @@
 
 Manages custom token lists for Brave Wallet
 
+## Automated Publishing
+
+We have the following setup in place to automatically build and publish
+token-lists to wallet data files.
+
+1. A **daily** cron job on [GitHub Actions](https://github.com/brave/token-lists/blob/main/.github/workflows/solana-tokenlist.yml) that performs the following tasks:
+   1. use `@solflare-wallet/utl-aggregator` to fetch the top SPL tokens on CoinGecko.
+   2. commit the above list to `data/solana/tokenlist.json`.
+   3. download and post-process token logos, and build a new NPM package.
+   4. publish the above NPM package.
+2. A **weekly** cron job on [Jenkins](https://github.com/brave/devops/blob/master/jenkins/jobs/extensions/brave-core-ext-wallet-data-files-update-publish.yml) that publishes the latest NPM package
+  (in 1.iv) to wallet data files.
+
+The purpose of 2 independent cron jobs is to factor in flakiness of 1., and
+avoid performing PNG post-processing in 2.
+
 ## Development
 
 To test out the output of this package you have to use a docker. It has been
