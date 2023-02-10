@@ -118,7 +118,7 @@ async function stageTokenListsLogo(stagingDir, token) {
 
   // Add a delay to prevent coingecko asset CDN from forcing a JS security
   // challenge.
-  await new Promise(r => setTimeout(r, 700))
+  await new Promise(r => setTimeout(r, 800))
 
   try {
     await util.saveToPNGResize(
