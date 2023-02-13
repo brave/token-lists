@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-02-11T02:18:11.916Z",
+  "timestamp": "2023-02-13T02:21:22.298Z",
   "tokens": [
     {
       "chainId": 101,
@@ -3441,6 +3441,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "leonidas-token"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "Liberty Square Filth",
+      "symbol": "FLTH",
+      "address": "FLTHudk5B5zag7JmGXqrYrFfey6otevLQA6jm1UHHLEE",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/29037/large/FLTH.png?1676100466",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "liberty-square-filth"
       }
     },
     {
@@ -7669,6 +7683,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "xhashtag"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "xLP Finance",
+      "symbol": "XLPFI",
+      "address": "xLPFiPmWve5rUnAYcHZSZWjwgyqEdcV6dDzoBJRtNw9",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/29042/large/xLPFi-min.png?1676179032",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "xlp-finance"
       }
     },
     {
