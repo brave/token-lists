@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-02-14T02:21:52.647Z",
+  "timestamp": "2023-02-15T02:21:48.086Z",
   "tokens": [
     {
       "chainId": 101,
@@ -6357,6 +6357,20 @@
     },
     {
       "chainId": 101,
+      "name": "Staika",
+      "symbol": "STIK",
+      "address": "8BMzMi2XxZn9afRaMx5Z6fauk9foHXqV5cLTCYWRcVje",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/29063/large/STIK.png?1676363303",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "staika"
+      }
+    },
+    {
+      "chainId": 101,
       "name": "Star Atlas",
       "symbol": "ATLAS",
       "address": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
@@ -6773,20 +6787,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "terrausd-wormhole"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Tether",
-      "symbol": "USDT",
-      "address": "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/325/large/Tether.png?1668148663",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "tether"
       }
     },
     {
