@@ -22,6 +22,27 @@ function stageTokenFile(stagingDir, inputTokenFilePath) {
   fs.copyFileSync(inputTokenFilePath, getOutputTokenPath(stagingDir, inputTokenFilePath))
 }
 
+async function stageMainnetTokenFile(stagingDir, inputTokenFilePath) {
+  // Read in the JSON file located at inputTokenFilePath
+  const tokenList = JSON.parse(fs.readFileSync(inputTokenFilePath, 'utf-8'))
+  // Ex.
+  // {
+  //   "0xBBc2AE13b23d715c30720F079fcd9B4a74093505": {
+  //     "name": "Ethernity Chain Token",
+  //     "logo": "ERN.png",
+  //     "erc20": true,
+  //     "symbol": "ERN",
+  //     "decimals": 18
+  //   },
+  //  ...
+  // }
+
+  const outputTokenList = await util.generateMainnetTokenList(tokenList)
+ 
+  // Write the output token list to the staging directory
+  fs.writeFileSync(getOutputTokenPath(stagingDir, inputTokenFilePath), JSON.stringify(outputTokenList, null, 2))
+}
+
 function stagePackageJson(stagingDir) {
   const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf-8'))
   packageJson.name = 'brave-wallet-lists'
@@ -184,7 +205,7 @@ async function stageTokenPackage() {
 
   // Add MetaMask tokens for contract-map.json
   const metamaskTokenPath = path.join('node_modules', '@metamask', 'contract-metadata', 'contract-map.json');
-  stageTokenFile(stagingDir, metamaskTokenPath)
+  await stageMainnetTokenFile(stagingDir, metamaskTokenPath)
   await stageEVMTokenImages(stagingDir, metamaskTokenPath, true)
 
   // Add Brave specific tokens in evm-contract-map.json
