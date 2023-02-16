@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-02-15T02:21:48.086Z",
+  "timestamp": "2023-02-16T02:22:03.779Z",
   "tokens": [
     {
       "chainId": 101,
@@ -7781,6 +7781,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "zion"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "zSOL",
+      "symbol": "ZSOL",
+      "address": "So111DzVTTNpDq81EbeyKZMi4SkhU9yekqB8xmMpqzA",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/29076/large/zSOL.png?1676437344",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "zsol"
       }
     }
   ]
