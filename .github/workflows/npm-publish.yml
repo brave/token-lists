@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
-      - run: brew install librsvg libimagequant
+      - run: brew install librsvg libimagequant pkg-config
       - run: npm install -g yarn npm
       - run: yarn --version
       - run: yarn
