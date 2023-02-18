@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-02-16T02:22:03.779Z",
+  "timestamp": "2023-02-18T02:24:03.156Z",
   "tokens": [
     {
       "chainId": 101,
@@ -2867,6 +2867,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "hiram"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "Hivemapper",
+      "symbol": "HONEY",
+      "address": "4vMsoUT2BWatFweudnQM1xedRLfJgJ7hswhcpz4xgBTy",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/28388/large/honey.png?1670065511",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "hivemapper"
       }
     },
     {
@@ -6787,6 +6801,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "terrausd-wormhole"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "Tether",
+      "symbol": "USDT",
+      "address": "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/325/large/Tether.png?1668148663",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "tether"
       }
     },
     {
