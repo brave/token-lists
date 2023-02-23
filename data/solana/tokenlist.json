@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-02-21T02:25:44.609Z",
+  "timestamp": "2023-02-23T02:22:19.177Z",
   "tokens": [
     {
       "chainId": 101,
@@ -3263,6 +3263,20 @@
     },
     {
       "chainId": 101,
+      "name": "KITTI",
+      "symbol": "KITTI",
+      "address": "B5Fvzd2RL5ctrmFsvDafXiNGbBqbxapiryJo8JfoSEcA",
+      "decimals": 5,
+      "logoURI": "https://assets.coingecko.com/coins/images/29149/large/kittt.jpeg?1676967159",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "kitti"
+      }
+    },
+    {
+      "chainId": 101,
       "name": "Kitty Coin Solana",
       "symbol": "KITTY",
       "address": "6XWfkyg5mzGtKNftSDgYjyoPyUsLRf2rafj95XSFSFrr",
@@ -5023,6 +5037,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "rice"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "ROALAND CORE",
+      "symbol": "ROA",
+      "address": "5tB5D6DGJMxxHYmNkfJNG237x6pZGEwTzGpUUh62yQJ7",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/29153/large/roa.png?1676973190",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "roaland-core"
       }
     },
     {
