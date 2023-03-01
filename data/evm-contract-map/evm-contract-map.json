@@ -278,6 +278,24 @@
     "coingeckoId": "slink",
     "chainId": "0xa"
   },
+  "0xc5102fe9359fd9a28f877a67e36b0f050d81a3cc": {
+    "name": "Hop",
+    "logo": "hop.png",
+    "erc20": true,
+    "symbol": "HOP",
+    "decimals": 18,
+    "coingeckoId": "hop-protocol",
+    "chainId": "0xa"
+  },
+  "0x4200000000000000000000000000000000000042": {
+    "name": "Optimism",
+    "logo": "op.png",
+    "erc20": true,
+    "symbol": "OP",
+    "decimals": 18,
+    "coingeckoId": "optimism",
+    "chainId": "0xa"
+  },
   "0x2170Ed0880ac9A755fd29B2688956BD959F933F8": {
     "name": "Binance-Peg Ethereum Token",
     "logo": "eth.png",
