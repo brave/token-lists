@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-03-01T02:25:43.560Z",
+  "timestamp": "2023-03-02T02:25:10.797Z",
   "tokens": [
     {
       "chainId": 101,
@@ -4407,6 +4407,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "otter-finance"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "Ovols Floor Index",
+      "symbol": "$OVOL",
+      "address": "4v3UTV9jibkhPfHi5amevropw6vFKVWo7BmxwQzwEwq6",
+      "decimals": 2,
+      "logoURI": "https://assets.coingecko.com/coins/images/29255/large/Screenshot_2023-02-28_at_2.03.10_PM.png?1677646995",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "ovols-floor-index"
       }
     },
     {
