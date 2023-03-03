@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-03-02T02:25:10.797Z",
+  "timestamp": "2023-03-03T04:03:06.694Z",
   "tokens": [
     {
       "chainId": 101,
@@ -2909,6 +2909,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "honey-finance"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "Honeyland",
+      "symbol": "HXD",
+      "address": "3dgCCb15HMQSA4Pn3Tfii5vRk7aRqTH95LJjxzsG2Mug",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/29256/large/hxd-200x200.png?1677647816",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "honeyland-honey"
       }
     },
     {
