@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-03-03T04:03:06.694Z",
+  "timestamp": "2023-03-04T02:21:35.889Z",
   "tokens": [
     {
       "chainId": 101,
@@ -1943,6 +1943,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "dragon-war"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "Dual Finance",
+      "symbol": "DUAL",
+      "address": "DUALa4FC2yREwZ59PHeu1un4wis36vHRv5hWVBmzykCJ",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/29293/large/Logo-cropped.png?1677812342",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "dual-finance"
       }
     },
     {
