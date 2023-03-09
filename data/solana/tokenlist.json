@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-03-07T02:26:08.016Z",
+  "timestamp": "2023-03-09T02:25:23.515Z",
   "tokens": [
     {
       "chainId": 101,
@@ -1271,6 +1271,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "codi-finance"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "Cogent SOL",
+      "symbol": "CGNTSOL",
+      "address": "CgnTSoL3DgY9SFHxcLj6CgCgKKoTBr6tp4CPAEWy25DE",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/29353/large/cgntSOL.png?1678262725",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "cogent-sol"
       }
     },
     {
@@ -3851,20 +3865,6 @@
     },
     {
       "chainId": 101,
-      "name": "Metacraft Mineral",
-      "symbol": "MEMI",
-      "address": "ATEMTyZVC1yDHYUg1aqHC6cpn8KVLe4Bbn7G74xSRDqG",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/27214/large/Metacraft_Mineral_MEMI_icon_200x200px.png?1662610576",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "metacraft-mineral"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "MetaMall",
       "symbol": "MALL",
       "address": "5EbpXhW7t8ypBF3Q1X7odFaHjuh7XJfCohXR3VYAW32i",
@@ -4309,6 +4309,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "nova-finance"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "Octokn",
+      "symbol": "OTK",
+      "address": "octo82drBEdm8CSDaEKBymVn86TBtgmPnDdmE64PTqJ",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/29154/large/icon-otk-big-filled.png?1676973364",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "octo-gaming"
       }
     },
     {
