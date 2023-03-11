@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-03-10T02:16:46.956Z",
+  "timestamp": "2023-03-11T02:14:30.020Z",
   "tokens": [
     {
       "chainId": 101,
@@ -309,20 +309,6 @@
     },
     {
       "chainId": 101,
-      "name": "AstraPad",
-      "symbol": "ASTRA",
-      "address": "AMp8Jo18ZjK2tuQGfjKAkkWnVP4NWX5sav4NJH6pXF2D",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/20028/large/WzDPqfV.png?1636418940",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "astrapad"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "Atlas DEX",
       "symbol": "ATS",
       "address": "HJbNXx2YMRxgfUJ6K4qeWtjatMK5KYQT1QnsCdDWywNv",
@@ -459,20 +445,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "baby-samo-coin"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "BabyTigerGold",
-      "symbol": "BABYTIGER",
-      "address": "8JjBJdV73zPPmZvkgC91ni8RsbXWTkhpuSdxeZgaw6hD",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/22811/large/logo_babytiger.png?1642658264",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "babytigergold"
       }
     },
     {
@@ -2171,20 +2143,6 @@
     },
     {
       "chainId": 101,
-      "name": "Fraktionalized THUG 2856",
-      "symbol": "THUG",
-      "address": "7osS84AkAG2TCrUvrE1wfKwfAqWTCrHnaCsrsyVJd5pY",
-      "decimals": 3,
-      "logoURI": "https://assets.coingecko.com/coins/images/22678/large/q4h6GvG6MQfhXXNJTbLILbZY1OIgLqkJNHzNLClHDiw.png?1642406678",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "fraktionalized-thug-2856"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "FRAKT",
       "symbol": "FRKT",
       "address": "ErGB9xa24Szxbk1M28u2Tx8rKPqzL6BroNkkzk5rG4zj",
@@ -3081,20 +3039,6 @@
     },
     {
       "chainId": 101,
-      "name": "KillSwitch",
-      "symbol": "KSW",
-      "address": "8ymjMjitLchSFU9zkcbjsJENhSXou4YKh7RD2U3yvqdJ",
-      "decimals": 8,
-      "logoURI": "https://assets.coingecko.com/coins/images/20215/large/logo_%2824%29.png?1636670633",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "killswitch"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "Kin",
       "symbol": "KIN",
       "address": "kinXdEcpDQeHPEuQnqmUgtYykqKGVFq6CeVX5iAHJq6",
@@ -3133,20 +3077,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "kineko-knk"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "King Samo",
-      "symbol": "KSAMO",
-      "address": "HDiA4quoMibAGeJQzvxajp3Z9cvnkNng99oVrnuNj6px",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/21237/large/KSAMO_1.png?1638759919",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "king-samo"
       }
     },
     {
@@ -5741,20 +5671,6 @@
     },
     {
       "chainId": 101,
-      "name": "Solfire Finance",
-      "symbol": "FIRE",
-      "address": "AfXLBfMZd32pN6QauazHCd7diEWoBgw1GNUALDw3suVZ",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/22305/large/logo.png?1641446227",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "solfire-finance"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "SOL Flowers",
       "symbol": "FLWR",
       "address": "HDVR9Edy2o8uRdf5xFUDSGVLo556UjAaNR9BrwZ8QeMJ",
@@ -6595,20 +6511,6 @@
     },
     {
       "chainId": 101,
-      "name": "Theca",
-      "symbol": "THECA",
-      "address": "D3cm6WRnyBct3p7vFqyTt2CaynsGPuVQT2zW6WHSTX6q",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/21782/large/logo_%281%29.png?1640007283",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "theca"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "The Sandbox (Wormhole)",
       "symbol": "SAND",
       "address": "49c7WuCZkQgc3M4qH8WuEUNXfgwupZf1xqWkDQ7gjRGt",
@@ -7431,20 +7333,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "yawww"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Your Open Metaverse",
-      "symbol": "YOM",
-      "address": "yomFPUqz1wJwYSfD5tZJUtS3bNb8xs8mx9XzBv8RL39",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/24462/large/yom.png?1676713976",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "your-open-metaverse"
       }
     },
     {
