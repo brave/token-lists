@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-03-11T02:14:30.020Z",
+  "timestamp": "2023-03-12T02:15:24.613Z",
   "tokens": [
     {
       "chainId": 101,
@@ -5069,20 +5069,6 @@
     },
     {
       "chainId": 101,
-      "name": "Shiba Light",
-      "symbol": "SHIBT",
-      "address": "2946ofy854iifvXCQmHX2AJgxRBoQcchy1gfD26RtkHp",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/20744/large/logo_-_2021-11-23T101625.925.png?1637633795",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "shiba-light"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "Shibana",
       "symbol": "BANA",
       "address": "BhPXDQio8xtNC6k5Bg5fnUVL9kGN8uvRDNwW8MZBu8DL",
@@ -6227,20 +6213,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "sunnysideup"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "SuperBonds",
-      "symbol": "SB",
-      "address": "SuperbZyz7TsSdSoFAZ6RYHfAWe9NmjXBLVQpS8hqdx",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/22743/large/ywws9ojM_400x400.jpg?1642548336",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "superbonds"
       }
     },
     {
