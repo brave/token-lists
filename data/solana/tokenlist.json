@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-03-12T02:15:24.613Z",
+  "timestamp": "2023-03-14T02:13:35.152Z",
   "tokens": [
     {
       "chainId": 101,
@@ -3137,20 +3137,6 @@
     },
     {
       "chainId": 101,
-      "name": "Krook Coin",
-      "symbol": "KROOK",
-      "address": "AfARcLLqRHsZc4xPWHE9nXZAswZaW294Ff1xcYQbjkLq",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/22160/large/143821720-d9c6f5fd-96d7-424f-9b1f-b185451cbb31.png?1640949570",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "krook-coin"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "KROWN",
       "symbol": "KRW",
       "address": "Gw7M5dqZJ6B6a8dYkDry6z9t9FuUA2xPUokjV2cortoq",
@@ -4575,20 +4561,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "protoreality-games"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "PSY Coin",
-      "symbol": "PSY",
-      "address": "49jpm8SpyTwaGaJfUa4AmU28hmW1HoKuqzXkgykysowU",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/22416/large/rHFKrmsJ_400x400.jpg?1641805324",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "psy-coin"
       }
     },
     {
