@@ -80,6 +80,15 @@ async function stageEVMTokenImages(stagingDir, inputTokenFilePath, addExtraToken
     var fileTo = file.substr(0, file.lastIndexOf(".")) + ".png"
     var fromPath = path.join(imagesSrcPath, file)
     var toPath = path.join(imagesDstPath, fileTo)
+
+    if (fs.existsSync(toPath)) {
+      try {
+        fs.unlinkSync(toPath)
+      } catch (e) {
+        console.log(`Failed to remove: ${toPath}`)
+      }
+    }
+
     try {
       await util.saveToPNGResize(fromPath, toPath, false)
     } catch (e) {
