@@ -127,7 +127,7 @@
   },
   "0x0b3F868E0BE5597D5DB7fEB59E1CADBb0fdDa50a": {
     "name": "Sushi (PoS)",
-    "logo": "",
+    "logo": "sushi.png",
     "erc20": true,
     "symbol": "SUSHI",
     "decimals": 18,
@@ -1078,5 +1078,104 @@
     "decimals": 18,
     "coingeckoId": "joe",
     "chainId": "0xa86a"
+  },
+  "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9": {
+    "name": "Tether USD",
+    "logo": "usdt.png",
+    "erc20": true,
+    "symbol": "USDT",
+    "decimals": 6,
+    "coingeckoId": "tether",
+    "chainId": "0xa4b1"
+  },
+  "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8": {
+    "name": "USD Coin",
+    "logo": "usdc.png",
+    "erc20": true,
+    "symbol": "USDC",
+    "decimals": 6,
+    "coingeckoId": "usd-coin",
+    "chainId": "0xa4b1"
+  },
+  "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1": {
+    "name": "Dai Stablecoin",
+    "logo": "dai.png",
+    "erc20": true,
+    "symbol": "DAI",
+    "decimals": 18,
+    "coingeckoId": "dai",
+    "chainId": "0xa4b1"
+  },
+  "0xfa7f8980b0f1e64a2062791cc3b0871572f1f7f0": {
+    "name": "Uniswap",
+    "logo": "uni.png",
+    "erc20": true,
+    "symbol": "UNI",
+    "decimals": 18,
+    "coingeckoId": "uniswap",
+    "chainId": "0xa4b1"
+  },
+  "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f": {
+    "name": "Wrapped Bitcoin",
+    "logo": "wbtc.png",
+    "erc20": true,
+    "symbol": "WBTC",
+    "decimals": 8,
+    "coingeckoId": "wrapped-bitcoin",
+    "chainId": "0xa4b1"
+  },
+  "0xf97f4df75117a78c1a5a0dbb814af92458539fb4": {
+    "name": "ChainLink",
+    "logo": "chainlink.png",
+    "erc20": true,
+    "symbol": "LINK",
+    "decimals": 18,
+    "coingeckoId": "chainlink",
+    "chainId": "0xa4b1"
+  },
+  "0x11cdb42b0eb46d95f990bedd4695a6e3fa034978": {
+    "name": "Curve",
+    "logo": "curve.png",
+    "erc20": true,
+    "symbol": "CRV",
+    "decimals": 18,
+    "coingeckoId": "curve-dao-token",
+    "chainId": "0xa4b1"
+  },
+  "0x354a6da3fcde098f8389cad84b0182725c6c91de": {
+    "name": "Compound",
+    "logo": "comp.png",
+    "erc20": true,
+    "symbol": "COMP",
+    "decimals": 18,
+    "coingeckoId": "compound-governance-token",
+    "chainId": "0xa4b1"
+  },
+  "0x040d1edc9569d4bab2d15287dc5a4f10f56a56b8": {
+    "name": "Balancer",
+    "logo": "balancer.png",
+    "erc20": true,
+    "symbol": "BAL",
+    "decimals": 18,
+    "coingeckoId": "balancer",
+    "chainId": "0xa4b1"
+  },
+  "0xd4d42f0b6def4ce0383636770ef773390d85c61a": {
+    "name": "Sushi",
+    "logo": "sushi.png",
+    "erc20": true,
+    "symbol": "SUSHI",
+    "decimals": 18,
+    "coingeckoId": "sushi",
+    "chainId": "0xa4b1"
+  },
+  "0xc5102fE9359FD9a28f877a67E36B0F050d81a3CC": {
+    "name": "Hop",
+    "logo": "hop.png",
+    "erc20": true,
+    "symbol": "HOP",
+    "decimals": 18,
+    "coingeckoId": "hop-protocol",
+    "chainId": "0xa4b1"
   }
 }
