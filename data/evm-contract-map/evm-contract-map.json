@@ -1177,5 +1177,14 @@
     "decimals": 18,
     "coingeckoId": "hop-protocol",
     "chainId": "0xa4b1"
+  },
+  "0x912ce59144191c1204e64559fe8253a0e49e6548": {
+    "name": "Arbitrum",
+    "logo": "arb.png",
+    "erc20": true,
+    "symbol": "ARB",
+    "decimals": 18,
+    "coingeckoId": "arbitrum",
+    "chainId": "0xa4b1"
   }
 }
