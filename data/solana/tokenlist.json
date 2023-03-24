@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-03-14T02:13:35.152Z",
+  "timestamp": "2023-03-24T02:07:54.766Z",
   "tokens": [
     {
       "chainId": 101,
@@ -57,20 +57,6 @@
     },
     {
       "chainId": 101,
-      "name": "ABC Floor Index",
-      "symbol": "ABC",
-      "address": "EKLq86cHRwc8Spkcx2noPnfoVyQvcWSeud5JMJnTxNAD",
-      "decimals": 2,
-      "logoURI": "https://assets.coingecko.com/coins/images/27172/large/abc.png?1662287244",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "abc-floor-index"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "Access Protocol",
       "symbol": "ACS",
       "address": "5MAYDfq5yxtudAhtfyuMBuHZjgAbaS9tbEyEQYAhDS5y",
@@ -109,6 +95,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "aldrin"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "AlfProtocol",
+      "symbol": "ALF",
+      "address": "36s9cAKFqea4gGFwAjG92Aoo3Zx5L3AbqBB519QeKsZU",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/29530/large/20036.png?1679477510",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "alfprotocol"
       }
     },
     {
@@ -449,20 +449,6 @@
     },
     {
       "chainId": 101,
-      "name": "Balisari",
-      "symbol": "BST",
-      "address": "EYDEQW4xQzLqHcFwHTgGvpdjsa5EFn74KzuqLX5emjD2",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/19852/large/balisari-1.jpg?1636061685",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "balisari"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "Balloonsville AIR",
       "symbol": "AIR",
       "address": "E6eCEE3KqjRD5UxcBYQTdV8Z535hyaBuFin9Udm6s6bz",
@@ -487,20 +473,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "bamboo-coin"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Banana Bucks",
-      "symbol": "BAB",
-      "address": "2Dzzc14S1D7cEFGJyMZMACuoQRHVUYFhVE74C5o8Fwau",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/20592/large/_BAB_coinmedium.png?1637285029",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "banana-bucks"
       }
     },
     {
@@ -827,20 +799,6 @@
     },
     {
       "chainId": 101,
-      "name": "Boryoku Genesis Dragonz Index",
-      "symbol": "DRGNZ",
-      "address": "CzXF8oUJSsB9ADKV99WAi2TgytqAyKvQw6EihwiL9em4",
-      "decimals": 2,
-      "logoURI": "https://assets.coingecko.com/coins/images/24386/large/AzJI7FQ.png?1647501836",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "boryoku-genesis-dragonz-index"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "Bounty",
       "symbol": "BNTY",
       "address": "BNTY5DaMP9CZhEtmQfMLHfUwwkXropHuCz4m96YqpqKm",
@@ -1103,20 +1061,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "clash"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Clash Of Cars",
-      "symbol": "CLASH",
-      "address": "3aAYh35n81F8HPG2QBdE48aYdzGFj2fsLccg91X4AcRc",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/23307/large/logo_%286%29.png?1643697035",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "clash-of-cars"
       }
     },
     {
@@ -1583,20 +1527,6 @@
     },
     {
       "chainId": 101,
-      "name": "DecentSol",
-      "symbol": "DSOL",
-      "address": "5y1YcGVPFy8bEiCJi79kegF9igahmvDe5UrqswFvnpMJ",
-      "decimals": 4,
-      "logoURI": "https://assets.coingecko.com/coins/images/19700/large/QmdvXyoW82LjwF2w3ya2Sr42WQgXzdTo9jfXW452RJXVLD.png?1635752529",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "decentsol"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "Decimated",
       "symbol": "DIO",
       "address": "BiDB55p4G3n1fGhwKFpxsokBMqgctL4qnZpDH1bVQxMD",
@@ -1803,20 +1733,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "doggystyle-coin"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Drachma Exchange",
-      "symbol": "DRA",
-      "address": "6jAHVBYY2B4dU6hGxXpCqFwHdjDL6aiLtTvJKn8fWRo1",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/26768/large/Drachma_Exchange_%281%29.png?1660038908",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "drachma-exchange"
       }
     },
     {
@@ -2321,20 +2237,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "gari-network"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Garlic",
-      "symbol": "GRLC",
-      "address": "88YqDBWxYhhwPbExF966EdaCYBKP51xVm1oGBcbWzcf2",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/21011/large/logo.png?1638190406",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "garlic"
       }
     },
     {
@@ -3417,20 +3319,6 @@
     },
     {
       "chainId": 101,
-      "name": "Magic Eggs",
-      "symbol": "MAGA",
-      "address": "Ma4dse7fmzXLQYymNsDDjq6VgRXtEFTJw1CvmRrBoKN",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/24843/large/Maga-200x200.png?1649107298",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "magic-eggs"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "Maneki-neko",
       "symbol": "NEKI",
       "address": "ALKiRVrfLgzeAV2mCT7cJHKg3ZoPvsCRSV7VCRWnE8zQ",
@@ -3851,20 +3739,6 @@
     },
     {
       "chainId": 101,
-      "name": "NeXt-DeFi Protocol",
-      "symbol": "NXDF",
-      "address": "Au6EdrSDubCUc34awy9c6iQAg5GSos9pPBXyZQtyZewV",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/22783/large/NXDF.png?1642579165",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "next-defi-protocol"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "NftEyez",
       "symbol": "EYE",
       "address": "G7eETAaUzmsBPKhokZyfbaT4tD9igdZSmfQGEYWem8Sw",
@@ -3931,20 +3805,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "nirvana-prana"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "NodeBunch",
-      "symbol": "NOCH",
-      "address": "EcFyPDjqpnyMvh1LhACtC6rrCZ41DMez7RZYocjhmUVS",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/24880/large/logo.png?1649224634",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "nodebunch"
       }
     },
     {
@@ -4057,20 +3917,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "okami-lana"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Okay Bears Floor Index",
-      "symbol": "OKAYB",
-      "address": "Ca9LxRYdZ7jK4QAqjLo4iaYmiV8FNdngtSkzM69hzgDX",
-      "decimals": 2,
-      "logoURI": "https://assets.coingecko.com/coins/images/27170/large/9815.png?1662286926",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "okay-bears-floor-index"
       }
     },
     {
@@ -4719,20 +4565,6 @@
     },
     {
       "chainId": 101,
-      "name": "renZEC",
-      "symbol": "RENZEC",
-      "address": "E99CQ2gFMmbiyK2bwiaFNWUUmwz4r8k2CVEFxwuvQ7ue",
-      "decimals": 8,
-      "logoURI": "https://assets.coingecko.com/coins/images/11564/large/Zcash.jpg?1628072865",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "renzec"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "Republic Credits",
       "symbol": "RPC",
       "address": "EAefyXw6E8sny1cX3LTH6RSvtzH6E5EFy1XsE2AiH1f3",
@@ -5191,20 +5023,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "solana-nut"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Solana Paws",
-      "symbol": "PAWS",
-      "address": "6bLp99VoqKU1C3Qp6VTNvSoCoc78jMGxPkGSSopq8wHB",
-      "decimals": 2,
-      "logoURI": "https://assets.coingecko.com/coins/images/20779/large/logo-1.png?1637667957",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "solana-paws"
       }
     },
     {
@@ -5965,34 +5783,6 @@
     },
     {
       "chainId": 101,
-      "name": "Space Hamster",
-      "symbol": "HAMS",
-      "address": "A2T2jDe2bxyEHkKtS8AtrTRmJ9VZRwyY8Kr7oQ8xNyfb",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/18455/large/logo_-_2021-09-20T105215.999.png?1632106402",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "space-hamster"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Sphinxel",
-      "symbol": "SPX",
-      "address": "H6JocWxg5g1Lcs4oPnBecmjQ4Y1bkZhGJHtjMunmjyrp",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/20249/large/logo_-_2021-11-12T151134.139.png?1636701101",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "sphinxel"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "Spookeletons",
       "symbol": "SPKL",
       "address": "31tCNEE6LiL9yW4Bu153Dq4vi2GuorXxCA9pW9aA6ecU",
@@ -6483,20 +6273,6 @@
     },
     {
       "chainId": 101,
-      "name": "The Starship Finance",
-      "symbol": "BIP",
-      "address": "FoqP7aTaibT5npFKYKQQdyonL99vkW8YALNPwWepdvf5",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/21587/large/logo_-_2021-12-15T120333.709.png?1639541030",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "the-starship-finance"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "The Xenobots Project",
       "symbol": "XENO",
       "address": "Bwfe7DwmEDvjEBZGbQnDU8CrwZsuvYaed1VuQ8KDTGsS",
@@ -6861,20 +6637,6 @@
     },
     {
       "chainId": 101,
-      "name": "Vitall Markets",
-      "symbol": "VITAL",
-      "address": "2FKuYE5D75e9Fjg3ymGBrFfVc8tVKac4SeyvZn5dGNUz",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/21923/large/logo.png?1640267906",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "vitall-markets"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "Vivaion",
       "symbol": "VIVAION",
       "address": "2jw1uFmc1hhfJH3EqGhaE2rfZMMC2YBpxkZcdUbPppMn",
@@ -6969,20 +6731,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "weyu"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Whalemap",
-      "symbol": "WMP",
-      "address": "BygDd5LURoqztD3xETc99WCxLUbTi6WYSht9XiBgZ4HW",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/21892/large/logo-token_%281%29.png?1640228860",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "whalemap"
       }
     },
     {
@@ -7277,6 +7025,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "yawww"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "YOM",
+      "symbol": "YOM",
+      "address": "yomFPUqz1wJwYSfD5tZJUtS3bNb8xs8mx9XzBv8RL39",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/24462/large/yom.png?1676713976",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "your-open-metaverse"
       }
     },
     {
