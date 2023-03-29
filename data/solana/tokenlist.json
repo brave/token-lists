@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-03-24T02:07:54.766Z",
+  "timestamp": "2023-03-29T02:08:20.140Z",
   "tokens": [
     {
       "chainId": 101,
@@ -477,6 +477,20 @@
     },
     {
       "chainId": 101,
+      "name": "Banana Bucks",
+      "symbol": "BAB",
+      "address": "2Dzzc14S1D7cEFGJyMZMACuoQRHVUYFhVE74C5o8Fwau",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/20592/large/_BAB_coinmedium.png?1637285029",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "banana-bucks"
+      }
+    },
+    {
+      "chainId": 101,
       "name": "Bancambios AX",
       "symbol": "BXS",
       "address": "pH5wWJc3KhdeVQSt86DU31pdcL9c8P88x2FQoKEJVHC",
@@ -869,20 +883,6 @@
     },
     {
       "chainId": 101,
-      "name": "Bulldog Billionaires",
-      "symbol": "BONE",
-      "address": "D3eyBjfgJMPHZyYDRtbf1cSxeLiNwKumwHzQK3h3TRRq",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/24560/large/MIBYsiqF_400x400.jpg?1648195687",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "bulldog-billionaires"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "BunnyDucky",
       "symbol": "BUD",
       "address": "BUD1144GGYwmMRFs4Whjfkom5UHqC9a8dZHPVvR2vfPx",
@@ -1243,20 +1243,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "corni"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Cosmic Ape Coin",
-      "symbol": "CAC",
-      "address": "E1s2muWwiLT2n3EQUL27hgviaPRRXWkpXD7ShpfgRvVz",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/22570/large/Cosmic-Ape-Logosc.png?1643186237",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "cosmic-ape-coin"
       }
     },
     {
@@ -2077,7 +2063,7 @@
       "symbol": "FRAX",
       "address": "FR87nWEUxVgerFGhZM8Y4AggKGLnaXswr1Pd8wZ4kZcp",
       "decimals": 8,
-      "logoURI": "https://assets.coingecko.com/coins/images/13422/large/ethCanonicalFRAX.png?1669277108",
+      "logoURI": "https://assets.coingecko.com/coins/images/13422/large/FRAX_icon.png?1679886922",
       "tags": [],
       "verified": true,
       "holders": null,
@@ -2091,7 +2077,7 @@
       "symbol": "FXS",
       "address": "6LX8BhMQ4Sy2otmAWj7Y5sKd9YTVVUgfMsBzT6B9W7ct",
       "decimals": 8,
-      "logoURI": "https://assets.coingecko.com/coins/images/13423/large/ethCanonicalFXS.png?1669276861",
+      "logoURI": "https://assets.coingecko.com/coins/images/13423/large/Frax_Shares_icon.png?1679886947",
       "tags": [],
       "verified": true,
       "holders": null,
@@ -2577,20 +2563,6 @@
     },
     {
       "chainId": 101,
-      "name": "Hippo Coin",
-      "symbol": "$HIPPO",
-      "address": "3EkHyexJLGCvSxzn5umbtd9N69GoT4p5pfdLTFqCNP9Y",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/20728/large/iu-n3i1b_400x400.jpg?1637596901",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "hippo-coin"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "Hiram",
       "symbol": "HIRAM",
       "address": "GDsVXtyt2CBwieKSYMEsjjZXXvqz2G2VwudD7EvXzoEU",
@@ -2657,20 +2629,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "honeyland-honey"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Hono",
-      "symbol": "HONO",
-      "address": "BGN9c9JJxMgmm7rUqeLanYwWwo2GbedjUFaXn7tAeuXK",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/21870/large/hono.png?1640180863",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "hono"
       }
     },
     {
@@ -3445,20 +3403,6 @@
     },
     {
       "chainId": 101,
-      "name": "Mekka Froggo",
-      "symbol": "LFGO",
-      "address": "7z1eQmEhhM9e1AVCBQc6BzMZWmCZRqHCLJtkDgHxzYnQ",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/22244/large/LK5s4mx-d5GIPPPmilZLRBtxH0OvOAp02sbgYCbFRtE.png?1641275800",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "mekka-froggo"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "Mend",
       "symbol": "MEND",
       "address": "Ch9NFVk5sqEPQHtw2gJVgnHfTm7FW1JspYwc7SxLi6q3",
@@ -3991,20 +3935,6 @@
     },
     {
       "chainId": 101,
-      "name": "Otter Finance",
-      "symbol": "OTR",
-      "address": "6TgvYd7eApfcZ7K5Mur7MaUQ2xT7THB4cLHWuMkQdU5Z",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/20157/large/VAPiUujl_400x400.png?1636590602",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "otter-finance"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "Ovols Floor Index",
       "symbol": "$OVOL",
       "address": "4v3UTV9jibkhPfHi5amevropw6vFKVWo7BmxwQzwEwq6",
@@ -4397,21 +4327,7 @@
     },
     {
       "chainId": 101,
-      "name": "ProtoReality Games",
-      "symbol": "PRGC",
-      "address": "66edZnAPEJSxnAK4SckuupssXpbu5doV57FUcghaqPsY",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/25525/large/Bjh4zRK1_400x400.png?1652235059",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "protoreality-games"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "PsyOptions",
+      "name": "PsyFi",
       "symbol": "PSY",
       "address": "PsyFiqqjiv41G7o5SMRzDJCu4psptThNR2GtfeGHfSq",
       "decimals": 6,
@@ -4505,20 +4421,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "ratio-finance"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Ratio Stable Coin",
-      "symbol": "USDR",
-      "address": "USDrbBQwQbQ2oWHUPfA8QBHcyVxKUq1xHyXsSLKdUq2",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/26066/large/usdr_logo.png?1655469254",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "ratio-stable-coin"
       }
     },
     {
@@ -4971,20 +4873,6 @@
     },
     {
       "chainId": 101,
-      "name": "SolaLambo",
-      "symbol": "SOB",
-      "address": "EkDf4Nt89x4Usnxkj4sGHX7sWxkmmpiBzA4qdDkgEN6b",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/19908/large/SOLA-LAMBO-2.png?1636104328",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "solalambo"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "Solana Ecosystem Index",
       "symbol": "SOLI",
       "address": "8JnNWJ46yfdq8sKgT1Lk4G7VWkAA8Rhh7LhqgJ6WY41G",
@@ -5079,20 +4967,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "solanium"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Solanyx",
-      "symbol": "SYX",
-      "address": "94jMUy411XNUw1CnkFr2514fq6KRc49W3kAmrjJiuZLx",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/21964/large/logo.png?1640524913",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "solanyx"
       }
     },
     {
@@ -5559,20 +5433,6 @@
     },
     {
       "chainId": 101,
-      "name": "Solootbox DAO",
-      "symbol": "BOX",
-      "address": "DysbQiM8nPdZbBhvHM1EgcSE73EwtFWDanXwY8CDD3Jn",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/22660/large/qggoHE1__400x400.jpg?1642401842",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "solootbox-dao"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "Solpad Finance",
       "symbol": "SOLPAD",
       "address": "GfJ3Vq2eSTYf1hJP6kKLE9RT6u7jF9gNszJhZwo5VPZp",
@@ -5619,7 +5479,7 @@
       "symbol": "SOLR",
       "address": "7j7H7sgsnNDeCngAPjpaCN4aaaru4HS7NAFYSEUyzJ3k",
       "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/18390/large/Sol-Razr-Logo-TICKER.png?1631759669",
+      "logoURI": "https://assets.coingecko.com/coins/images/18390/large/download.png?1679625972",
       "tags": [],
       "verified": true,
       "holders": null,
@@ -5793,6 +5653,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "spookeletons-token"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "StaFi Staked SOL",
+      "symbol": "RSOL",
+      "address": "7hUdUTkJLwdcmt3jSEeqx4ep91sm1XwBxMDaJae6bD5D",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/29612/large/rSOL.png?1679997614",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "stafi-staked-sol"
       }
     },
     {
@@ -6343,20 +6217,6 @@
     },
     {
       "chainId": 101,
-      "name": "TOPSS",
-      "symbol": "TOPSS",
-      "address": "2pVkjwPJHXopCknbdsHgXQnhptEWWWkfiw6pDcnNnBPC",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/27508/large/Topss_logo_final_logo_light.png?1664334182",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "topss"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "TORG",
       "symbol": "TORG",
       "address": "AbnTggpTujbdAiJtyhH9WtK2CqXk44W7GipyJXkopBDd",
@@ -6395,20 +6255,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "tudabirds"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Turnt Up Tikis",
-      "symbol": "TUT",
-      "address": "6wShYhqA2gs3HUAZ4MyaPDpKPBWFJUQQUGaCoy2k1Tgz",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/22007/large/exiled.2e9d4c91.png?1640589892",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "turnt-up-tikis"
       }
     },
     {
