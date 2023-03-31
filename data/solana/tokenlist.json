@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-03-30T02:06:47.583Z",
+  "timestamp": "2023-03-31T02:07:14.589Z",
   "tokens": [
     {
       "chainId": 101,
@@ -827,11 +827,11 @@
     },
     {
       "chainId": 101,
-      "name": "Boxch",
+      "name": "Utility Token Boxch",
       "symbol": "BOXCH",
       "address": "Boxch1343xWQWbahVBPhYHuYLXNHnWYHG6QbuqfNugQ1",
       "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/26119/large/Group_212.png?1667726216",
+      "logoURI": "https://assets.coingecko.com/coins/images/26119/large/boxchlogo.png?1680171947",
       "tags": [],
       "verified": true,
       "holders": null,
@@ -3487,20 +3487,6 @@
     },
     {
       "chainId": 101,
-      "name": "MILLIONSY",
-      "symbol": "MILLI",
-      "address": "HDLRMKW1FDz2q5Zg778CZx26UgrtnqpUDkNNJHhmVUFr",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/20396/large/Logo_200px_%281%29.png?1641567027",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "millionsy"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "MIM",
       "symbol": "SWARM",
       "address": "4dydh8EGNEdTz6grqnGBxpduRg55eLnwNZXoNZJetadu",
@@ -4953,6 +4939,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "solanax"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "Sola Ninja",
+      "symbol": "SNJ",
+      "address": "Hj4sTP4L4rvR9WBR6KyK99sxPptBQQczNWe4y15mxhRD",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/19730/large/logo_-_2021-11-01T200443.131.png?1635768291",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "sola-ninja"
       }
     },
     {
