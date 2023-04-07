@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-04-06T02:04:55.564Z",
+  "timestamp": "2023-04-07T02:02:32.768Z",
   "tokens": [
     {
       "chainId": 101,
@@ -3987,20 +3987,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "partneroid"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "PayDex",
-      "symbol": "DPAY",
-      "address": "GyUYoBT1gcZBEVffWeGKQ3E2gzfNP5b8GEvnqAGjL6Hs",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/26530/large/paydexlogo.png?1658666536",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "paydex"
       }
     },
     {
