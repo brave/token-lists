@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-04-08T02:01:58.160Z",
+  "timestamp": "2023-04-09T02:05:53.592Z",
   "tokens": [
     {
       "chainId": 101,
@@ -795,20 +795,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "boring-protocol"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Bork",
-      "symbol": "BORK",
-      "address": "2LxZrcJJhzcAju1FBHuGvw929EVkX7R7Q8yA2cdp8q7b",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/19951/large/VtJL5kdepu6AyVHnHi4GImgyWxmcb2XMPN7jURW_yXQ.png?1636338300",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "bork"
       }
     },
     {
