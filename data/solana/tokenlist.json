@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-04-10T02:03:29.761Z",
+  "timestamp": "2023-04-12T02:02:06.115Z",
   "tokens": [
     {
       "chainId": 101,
@@ -491,20 +491,6 @@
     },
     {
       "chainId": 101,
-      "name": "Bancambios AX",
-      "symbol": "BXS",
-      "address": "pH5wWJc3KhdeVQSt86DU31pdcL9c8P88x2FQoKEJVHC",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/25644/large/81660481.png?1652949329",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "bancambios-ax"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "basis.markets",
       "symbol": "BASIS",
       "address": "Basis9oJw9j8cw53oMV7iqsgo6ihi9ALw4QR31rcjUJa",
@@ -795,20 +781,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "boring-protocol"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Bounty",
-      "symbol": "BNTY",
-      "address": "BNTY5DaMP9CZhEtmQfMLHfUwwkXropHuCz4m96YqpqKm",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/24975/large/bnty.png?1649652061",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "bounty"
       }
     },
     {
@@ -1181,7 +1153,7 @@
       "symbol": "COPE",
       "address": "o1Mw5Y3n68o8TakZFuGKLZMGjm72qv4JeoZvGiCLEvK",
       "decimals": 2,
-      "logoURI": "https://assets.coingecko.com/coins/images/28717/large/coingecko.png?1673576722",
+      "logoURI": "https://assets.coingecko.com/coins/images/28717/large/cope16.jpg?1681199859",
       "tags": [],
       "verified": true,
       "holders": null,
@@ -3683,20 +3655,6 @@
     },
     {
       "chainId": 101,
-      "name": "NPC DAO",
-      "symbol": "NPC",
-      "address": "EuD5L5XSYKzyDC1YyYzmoWC8gmJhpEh2vMj4f8LeRW8r",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/19981/large/1EXEFTo6_400x400.jpg?1640251890",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "nole-npc"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "Nora",
       "symbol": "NRA",
       "address": "1C2EYVrwmoXAGbiKirFFBeDFDYUBHPhDeg9trhibTND",
@@ -5737,20 +5695,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "sushi"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Swanlana",
-      "symbol": "SWAN",
-      "address": "SWANaZUGxF82KyVsbxeeNsMaVECtimze5VyCdywkvkH",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/18425/large/SWANLANA_PNG.png?1631866031",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "swanlana"
       }
     },
     {
