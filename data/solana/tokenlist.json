@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-04-13T02:04:23.698Z",
+  "timestamp": "2023-04-14T02:00:15.633Z",
   "tokens": [
     {
       "chainId": 101,
@@ -669,20 +669,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "blocto-token"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "bofb",
-      "symbol": "BOFB",
-      "address": "45wdSjpSqZCk9mkqmq5Nh7beCEqqUJMJcVduwYCip5eq",
-      "decimals": 8,
-      "logoURI": "https://assets.coingecko.com/coins/images/24866/large/2qsZgpxd_400x400.jpg?1649166378",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "bofb"
       }
     },
     {
@@ -4453,20 +4439,6 @@
     },
     {
       "chainId": 101,
-      "name": "Santaclaus",
-      "symbol": "SANTA",
-      "address": "EctmRn2jMAdTDvQdG7mxadyiTvhGZiGYNrt9PWe6zioG",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/22211/large/logo_%281%29.png?1641195172",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "santaclaus"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "Sator",
       "symbol": "SAO",
       "address": "2HeykdKjzHKGm2LKHw8pDYwjKPiFEoXAz74dirhUgQvq",
@@ -5611,20 +5583,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "stepn"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Stoned Ape Crew Index",
-      "symbol": "SAC",
-      "address": "GZL4yjPohDShW4RofJ6dEWu2Fv7qEa5mBT7Dpje5hqe7",
-      "decimals": 2,
-      "logoURI": "https://assets.coingecko.com/coins/images/24385/large/stone_ape.PNG?1647501586",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "stoned-ape-crew-index"
       }
     },
     {
