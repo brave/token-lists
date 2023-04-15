@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-04-14T02:00:15.633Z",
+  "timestamp": "2023-04-15T02:02:16.224Z",
   "tokens": [
     {
       "chainId": 101,
@@ -1863,20 +1863,6 @@
     },
     {
       "chainId": 101,
-      "name": "Flock",
-      "symbol": "FLOCK",
-      "address": "Hq9MuLDvUAWqC29JhqP2CUJP9879LfqNBHyRRREEXwtZ",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/22775/large/fUNf0Lu.png?1642577185",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "flock"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "FLOOF",
       "symbol": "FLOOF",
       "address": "3jzdrXXKxwkBk82u2eCWASZLCKoZs1LQTg87HBEAmBJw",
@@ -2273,7 +2259,7 @@
       "symbol": "GOBI",
       "address": "MarcoPaG4dV4qit3ZPGPFm4qt4KKNBKvAsm2rPGNF72",
       "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/28554/large/GOBI.png?1671697657",
+      "logoURI": "https://assets.coingecko.com/coins/images/28554/large/Gobi_labs.jpg?1681469070",
       "tags": [],
       "verified": true,
       "holders": null,
@@ -5149,20 +5135,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "solice"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Solid Protocol",
-      "symbol": "SOLID",
-      "address": "A5UevXJdphkzXhRtTXj8JyoYYrWnkCLHVS986JHtRLyj",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/22100/large/logo.png?1640797686",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "solid-protocol"
       }
     },
     {
