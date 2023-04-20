@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-04-19T02:01:14.767Z",
+  "timestamp": "2023-04-20T01:59:52.163Z",
   "tokens": [
     {
       "chainId": 101,
@@ -2423,6 +2423,20 @@
     },
     {
       "chainId": 101,
+      "name": "Helium",
+      "symbol": "HNT",
+      "address": "hntyVP6YFm1Hg25TN9WGLqM12b8TQmcknKrdu1oxWux",
+      "decimals": 8,
+      "logoURI": "https://assets.coingecko.com/coins/images/4284/large/Helium_HNT.png?1612620071",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "helium"
+      }
+    },
+    {
+      "chainId": 101,
       "name": "High Roller Hippo Clique",
       "symbol": "ROLL",
       "address": "76aYNHbDfHemxSS7vmh6eJGfjodK8m7srCxiYCrKxzY1",
@@ -3273,20 +3287,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "mekkacoin"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Mend",
-      "symbol": "MEND",
-      "address": "Ch9NFVk5sqEPQHtw2gJVgnHfTm7FW1JspYwc7SxLi6q3",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/25917/large/logo-e1637099222337.png?1654592434",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "mend"
       }
     },
     {
