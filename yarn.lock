@@ -1625,13 +1625,13 @@ supports-preserve-symlinks-flag@^1.0.0:
 
 "svg-resizer@git+https://git@github.com/brave/svg-resizer.git":
   version "0.0.1"
-  resolved "git+https://git@github.com/brave/svg-resizer.git#fa2834baa19b0be456de1836825ecf3ae0ed3be9"
+  resolved "git+https://git@github.com/brave/svg-resizer.git#7c7e70624df64429fd648818a886250137b5fe04"
   dependencies:
     commander "^2.20.0"
     fs-extra "~0.8.1"
     lodash "^4.17.21"
     shelljs "~0.8.5"
-    xml2js "~0.4.2"
+    xml2js "~0.5.0"
 
 tar-fs@^2.0.0, tar-fs@^2.1.1:
   version "2.1.1"
@@ -1796,10 +1796,10 @@ wrappy@1:
   resolved "https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz"
   integrity sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==
 
-xml2js@~0.4.2:
-  version "0.4.23"
-  resolved "https://registry.npmjs.org/xml2js/-/xml2js-0.4.23.tgz"
-  integrity sha512-ySPiMjM0+pLDftHgXY4By0uswI3SPKLDw/i3UXbnO8M/p28zqexCUoPmQFrYD+/1BzhGJSs2i1ERWKJAtiLrug==
+xml2js@~0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/xml2js/-/xml2js-0.5.0.tgz#d9440631fbb2ed800203fad106f2724f62c493b7"
+  integrity sha512-drPFnkQJik/O+uPKpqSgr22mpuFHqKdbS835iAQrUC73L2F5WkboIRd63ai/2Yg6I1jzifPFKH2NTK+cfglkIA==
   dependencies:
     sax ">=0.6.0"
     xmlbuilder "~11.0.0"
