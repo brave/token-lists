@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-04-20T01:59:52.163Z",
+  "timestamp": "2023-04-23T02:04:58.896Z",
   "tokens": [
     {
       "chainId": 101,
@@ -473,20 +473,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "bamboo-coin"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Banana Bucks",
-      "symbol": "BAB",
-      "address": "2Dzzc14S1D7cEFGJyMZMACuoQRHVUYFhVE74C5o8Fwau",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/20592/large/_BAB_coinmedium.png?1637285029",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "banana-bucks"
       }
     },
     {
@@ -1079,20 +1065,6 @@
     },
     {
       "chainId": 101,
-      "name": "Companion",
-      "symbol": "CMPN",
-      "address": "9tQhCmFtCh56qqf9szLQ8dNjYcd4TTv6MWPpw6MqLubu",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/27914/large/cmpn.png?1666343810",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "companion"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "Compendium",
       "symbol": "CMFI",
       "address": "5Wsd311hY8NXQhkt9cWHwTnqafk7BGEbLu8Py3DSnPAr",
@@ -1159,20 +1131,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "corestarter"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Corni",
-      "symbol": "CORNI",
-      "address": "FYNmEg12xqyuNrRn8A1cqkEapcUCh3M7ZARUN1yj1bEs",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/27901/large/corni_logo_m.png?1666330995",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "corni"
       }
     },
     {
@@ -2433,6 +2391,34 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "helium"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "Helium IOT",
+      "symbol": "IOT",
+      "address": "iotEVVZLEywoTn1QdwNPddxPWszn3zFhEot3MfL9fns",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/29880/large/IOT.png?1681978420",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "helium-iot"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "Helium Mobile",
+      "symbol": "MOBILE",
+      "address": "mb1eu7TzEc71KxDpsmsKoucSSuuoGLv1drys1oP2jh6",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/29879/large/MOBILE.png?1681978297",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "helium-mobile"
       }
     },
     {
