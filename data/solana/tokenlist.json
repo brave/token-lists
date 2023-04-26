@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-04-25T02:02:45.656Z",
+  "timestamp": "2023-04-26T02:03:17.184Z",
   "tokens": [
     {
       "chainId": 101,
@@ -761,7 +761,7 @@
       "symbol": "BOXCH",
       "address": "Boxch1343xWQWbahVBPhYHuYLXNHnWYHG6QbuqfNugQ1",
       "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/26119/large/boxchlogo.png?1680171947",
+      "logoURI": "https://assets.coingecko.com/coins/images/26119/large/bx.png?1682408337",
       "tags": [],
       "verified": true,
       "holders": null,
@@ -3329,6 +3329,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "metatoken"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "MIDAS Token",
+      "symbol": "MDS",
+      "address": "9TVjnzpF3X8DHsfVqYWoCGphJxtGYh1PDCFN5QmsHW5t",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/29983/large/Logomark_White_copy.png?1682409945",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "midas-token"
       }
     },
     {
