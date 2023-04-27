@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-04-26T02:03:17.184Z",
+  "timestamp": "2023-04-27T02:01:21.244Z",
   "tokens": [
     {
       "chainId": 101,
@@ -809,20 +809,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "buff-samo"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "BunnyDucky",
-      "symbol": "BUD",
-      "address": "BUD1144GGYwmMRFs4Whjfkom5UHqC9a8dZHPVvR2vfPx",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/25934/large/bdlogo.png?1654758682",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "bunnyducky"
       }
     },
     {
@@ -3469,6 +3455,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "musk-doge"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "NANA Token",
+      "symbol": "NANA",
+      "address": "HxRELUQfvvjToVbacjr9YECdfQMUqGgPYB68jVDYxkbr",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/30017/large/nanavector.png?1682517070",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "nana-token"
       }
     },
     {
