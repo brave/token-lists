@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-04-28T02:01:35.530Z",
+  "timestamp": "2023-04-29T01:59:42.050Z",
   "tokens": [
     {
       "chainId": 101,
@@ -837,20 +837,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "capybara"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Catalina Whales Index",
-      "symbol": "WHALES",
-      "address": "DSXWF79VQ3RzFBB67WeNfCzfzAQq5X6m97zi85bq1TRx",
-      "decimals": 2,
-      "logoURI": "https://assets.coingecko.com/coins/images/27053/large/whales.png?1661507402",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "catalina-whales-index"
       }
     },
     {
@@ -2157,11 +2143,11 @@
     },
     {
       "chainId": 101,
-      "name": "Glitter Finance",
+      "name": "XGLI DAO Protocol",
       "symbol": "XGLI",
       "address": "FsPncBfeDV3Uv9g6yyx1NnKidvUeCaAiT2NtBAPy17xg",
       "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/23292/large/glitter_finance.png?1660285639",
+      "logoURI": "https://assets.coingecko.com/coins/images/23292/large/xgli-dao.png?1682651915",
       "tags": [],
       "verified": true,
       "holders": null,
