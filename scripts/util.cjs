@@ -398,6 +398,43 @@ const generateMainnetTokenList = async (fullTokenList) => {
   return outputTokenList
 }
 
+const generateDappLists = async () => {
+  const dappRadarProjectId = process.env.DAPP_RADAR_PROJECT_ID
+  const dappRadarApiKey = process.env.DAPP_RADAR_API_KEY
+  const chainToIdMap = {
+    'solana': '0x65',
+    'ethereum': '0x1',
+    'polygon': '0x89',
+    'binance-smart-chain': '0x38',
+    'optimism': '0xa',
+    'aurora': '0x4e454152',
+    'avalanche': '0xa86a',
+    'fantom': '0xfa',
+  }
+  const chains = Object.keys(chainToIdMap)
+  const metric = 'uaw'
+  const range = '30d'
+  const top = 100
+  const dappLists = {}
+
+  for (const chain of chains) {
+    const response = await fetch(`https://api.dappradar.com/${dappRadarProjectId}/dapps/top/${metric}?chain=${chain}&range=${range}&top=${top}`, {
+      headers: {
+        'X-BLOBR-KEY': dappRadarApiKey,
+      },
+    })
+
+    if (response.ok) {
+      const dapps = await response.json()
+      dappLists[chainToIdMap[chain]] = dapps
+    } else {
+      console.error(`Error fetching dApps for ${chain}: ${response.status} ${response.statusText}`)
+    }
+  }
+
+  return dappLists
+}
+
 module.exports = {
   contractReplaceSvgToPng,
   contractAddExtraAssetIcons,

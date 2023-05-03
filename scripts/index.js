@@ -201,6 +201,12 @@ async function stageSPLTokens(stagingDir) {
   fs.writeFileSync(splTokensPath, JSON.stringify(splTokens, null, 2))
 }
 
+async function stageDappLists(stagingDir) {
+  const dappListsPath = path.join(stagingDir, 'dapp-lists.json')
+  const dappLists = await util.generateDappLists()
+  fs.writeFileSync(dappListsPath, JSON.stringify(dappLists, null, 2))
+}
+
 async function stageTokenPackage() {
   const stagingDir = 'build'
   if (!fs.existsSync(stagingDir)) {
