@@ -401,17 +401,16 @@ const generateMainnetTokenList = async (fullTokenList) => {
 const generateDappLists = async () => {
   const dappRadarProjectId = process.env.DAPP_RADAR_PROJECT_ID
   const dappRadarApiKey = process.env.DAPP_RADAR_API_KEY
-  const chainToIdMap = {
-    'solana': '0x65',
-    'ethereum': '0x1',
-    'polygon': '0x89',
-    'binance-smart-chain': '0x38',
-    'optimism': '0xa',
-    'aurora': '0x4e454152',
-    'avalanche': '0xa86a',
-    'fantom': '0xfa',
-  }
-  const chains = Object.keys(chainToIdMap)
+  const chains = [
+    'solana',
+    'ethereum',
+    'polygon',
+    'binance-smart-chain',
+    'optimism',
+    'aurora',
+    'avalanche',
+    'fantom',
+  ]
   const metric = 'uaw'
   const range = '30d'
   const top = 100
@@ -426,7 +425,7 @@ const generateDappLists = async () => {
 
     if (response.ok) {
       const dapps = await response.json()
-      dappLists[chainToIdMap[chain]] = dapps
+      dappLists[chain] = dapps
     } else {
       console.error(`Error fetching dApps for ${chain}: ${response.status} ${response.statusText}`)
     }
