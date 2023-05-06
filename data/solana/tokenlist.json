@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-05-05T01:58:28.263Z",
+  "timestamp": "2023-05-06T01:58:09.490Z",
   "tokens": [
     {
       "chainId": 101,
@@ -1083,7 +1083,7 @@
       "symbol": "COPE",
       "address": "o1Mw5Y3n68o8TakZFuGKLZMGjm72qv4JeoZvGiCLEvK",
       "decimals": 2,
-      "logoURI": "https://assets.coingecko.com/coins/images/28717/large/cope16.jpg?1681199859",
+      "logoURI": "https://assets.coingecko.com/coins/images/28717/large/Screenshot_%2891%29.png?1683271149",
       "tags": [],
       "verified": true,
       "holders": null,
@@ -2251,6 +2251,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "gu"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "Guacamole",
+      "symbol": "GUAC",
+      "address": "AZsHEMXd36Bj1EMNXhowJajpUXzrKcK57wW4ZGXVa7yR",
+      "decimals": 5,
+      "logoURI": "https://assets.coingecko.com/coins/images/30119/large/GUAC_Official_Logo.png?1683249431",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "guacamole"
       }
     },
     {
