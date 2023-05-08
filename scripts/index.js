@@ -236,6 +236,9 @@ async function stageTokenPackage() {
   // Add chainlist.json.
   await stageChainListJson(stagingDir)
 
+  // Add dapp-lists.json.
+  await stageDappLists(stagingDir)
+
   stagePackageJson(stagingDir)
   stageManifest(stagingDir)
 }

@@ -417,7 +417,8 @@ const generateDappLists = async () => {
   const dappLists = {}
 
   for (const chain of chains) {
-    const response = await fetch(`https://api.dappradar.com/${dappRadarProjectId}/dapps/top/${metric}?chain=${chain}&range=${range}&top=${top}`, {
+    const url = `https://api.dappradar.com/${dappRadarProjectId}/dapps/top/${metric}?chain=${chain}&range=${range}&top=${top}`
+    const response = await fetch(url, {
       headers: {
         'X-BLOBR-KEY': dappRadarApiKey,
       },
@@ -441,4 +442,5 @@ module.exports = {
   saveToPNGResize,
   download,
   generateMainnetTokenList,
+  generateDappLists
 }
