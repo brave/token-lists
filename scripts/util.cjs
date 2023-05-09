@@ -293,6 +293,9 @@ const generateMainnetTokenList = async (fullTokenList) => {
   // Fetch the list of tokens from CoinGecko
   const coinListEndpoint = coinGeckoApiBaseUrl + '/coins/list?include_platform=true'
   const coinListResponse = await fetch(coinListEndpoint)
+  if (!coinListResponse.ok) {
+    throw new Error(`Error fetching coin list from CoinGecko: ${coinListResponse.status} ${coinListResponse.statusText}`)
+  }
   const coinList = await coinListResponse.json()
   // Ex.
   // [
@@ -323,6 +326,9 @@ const generateMainnetTokenList = async (fullTokenList) => {
   // Fetch the top 250 tokens by market cap from CoinGecko
   const coinMarketEndpoint = coinGeckoApiBaseUrl + '/coins/markets?vs_currency=usd&category=ethereum-ecosystem&order=market_cap_desc&per_page=250&page=1&sparkline=false'
   const coinMarketResponse = await fetch(coinMarketEndpoint)
+  if (!coinMarketResponse.ok) {
+    throw new Error(`Error fetching coin market data: ${coinMarketResponse.status} ${coinMarketResponse.statusText}`)
+  }
   const topCoins = await coinMarketResponse.json()
   // Ex.
   // [
@@ -424,12 +430,12 @@ const generateDappLists = async () => {
       },
     })
 
-    if (response.ok) {
-      const dapps = await response.json()
-      dappLists[chain] = dapps
-    } else {
-      console.error(`Error fetching dApps for ${chain}: ${response.status} ${response.statusText}`)
+    if (!response.ok) {
+      throw new Error(`Error fetching dApps for ${chain}: ${response.status} ${response.statusText}`)
     }
+
+    const dapps = await response.json()
+    dappLists[chain] = dapps
   }
 
   return dappLists
