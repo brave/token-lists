@@ -6,6 +6,8 @@ on: push
 
 env:
   TOKEN_LISTS_ACTIONS_OR_CI_BUILD: true
+  DAPP_RADAR_PROJECT_ID: ${{ secrets.DAPP_RADAR_PROJECT_ID }}
+  DAPP_RADAR_API_KEY: ${{ secrets.DAPP_RADAR_API_KEY }}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:

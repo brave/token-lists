@@ -293,6 +293,9 @@ const generateMainnetTokenList = async (fullTokenList) => {
   // Fetch the list of tokens from CoinGecko
   const coinListEndpoint = coinGeckoApiBaseUrl + '/coins/list?include_platform=true'
   const coinListResponse = await fetch(coinListEndpoint)
+  if (!coinListResponse.ok) {
+    throw new Error(`Error fetching coin list from CoinGecko: ${coinListResponse.status} ${coinListResponse.statusText}`)
+  }
   const coinList = await coinListResponse.json()
   // Ex.
   // [
@@ -323,6 +326,9 @@ const generateMainnetTokenList = async (fullTokenList) => {
   // Fetch the top 250 tokens by market cap from CoinGecko
   const coinMarketEndpoint = coinGeckoApiBaseUrl + '/coins/markets?vs_currency=usd&category=ethereum-ecosystem&order=market_cap_desc&per_page=250&page=1&sparkline=false'
   const coinMarketResponse = await fetch(coinMarketEndpoint)
+  if (!coinMarketResponse.ok) {
+    throw new Error(`Error fetching coin market data: ${coinMarketResponse.status} ${coinMarketResponse.statusText}`)
+  }
   const topCoins = await coinMarketResponse.json()
   // Ex.
   // [
@@ -398,6 +404,43 @@ const generateMainnetTokenList = async (fullTokenList) => {
   return outputTokenList
 }
 
+const generateDappLists = async () => {
+  const dappRadarProjectId = process.env.DAPP_RADAR_PROJECT_ID
+  const dappRadarApiKey = process.env.DAPP_RADAR_API_KEY
+  const chains = [
+    'solana',
+    'ethereum',
+    'polygon',
+    'binance-smart-chain',
+    'optimism',
+    'aurora',
+    'avalanche',
+    'fantom',
+  ]
+  const metric = 'uaw'
+  const range = '30d'
+  const top = 100
+  const dappLists = {}
+
+  for (const chain of chains) {
+    const url = `https://api.dappradar.com/${dappRadarProjectId}/dapps/top/${metric}?chain=${chain}&range=${range}&top=${top}`
+    const response = await fetch(url, {
+      headers: {
+        'X-BLOBR-KEY': dappRadarApiKey,
+      },
+    })
+
+    if (!response.ok) {
+      throw new Error(`Error fetching dApps for ${chain}: ${response.status} ${response.statusText}`)
+    }
+
+    const dapps = await response.json()
+    dappLists[chain] = dapps
+  }
+
+  return dappLists
+}
+
 module.exports = {
   contractReplaceSvgToPng,
   contractAddExtraAssetIcons,
@@ -405,4 +448,5 @@ module.exports = {
   saveToPNGResize,
   download,
   generateMainnetTokenList,
+  generateDappLists
 }
