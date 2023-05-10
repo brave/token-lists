@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-05-09T01:59:26.966Z",
+  "timestamp": "2023-05-10T02:01:30.878Z",
   "tokens": [
     {
       "chainId": 101,
@@ -949,6 +949,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "chimp-fight"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "Circlepod",
+      "symbol": "CPX",
+      "address": "CPXDs2uhNwDKAt9V3vXvtspv9U7rsQ2fVr1qAUDmuCaq",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/20453/large/cpx_logo.png?1637228050",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "circlepod"
       }
     },
     {
@@ -2797,6 +2811,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "kineko-knk"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "KING",
+      "symbol": "KING",
+      "address": "9noXzpXnkyEcKF3AeXqUHTdR59V5uvrRBUZ9bwfQwxeq",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/30183/large/king.png?1683600013",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "king-2"
       }
     },
     {
@@ -4813,6 +4841,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "solberg"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "Solcasino Token",
+      "symbol": "SCS",
+      "address": "SCSuPPNUSypLBsV4darsrYNg4ANPgaGhKhsA3GmMyjz",
+      "decimals": 5,
+      "logoURI": "https://assets.coingecko.com/coins/images/30228/large/logo_%282%29.png?1683633230",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "solcasino-token"
       }
     },
     {
