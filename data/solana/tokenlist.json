@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-05-10T02:01:30.878Z",
+  "timestamp": "2023-05-11T02:00:02.830Z",
   "tokens": [
     {
       "chainId": 101,
@@ -785,6 +785,20 @@
     },
     {
       "chainId": 101,
+      "name": "Bruv",
+      "symbol": "BRUV",
+      "address": "BRUV9DjBeDZRamtWjhzQEH5roosnBApPhfqS1HQ23Xgy",
+      "decimals": 5,
+      "logoURI": "https://assets.coingecko.com/coins/images/30247/large/bruvv200rs.png?1683696795",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "bruv"
+      }
+    },
+    {
+      "chainId": 101,
       "name": "Brazilian Digital",
       "symbol": "BRZ",
       "address": "FtgGSFADXBtroxq8VCausXRr2of47QBf5AS1NtZCu4GD",
@@ -837,6 +851,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "capybara"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "Catalina Whales Index",
+      "symbol": "WHALES",
+      "address": "DSXWF79VQ3RzFBB67WeNfCzfzAQq5X6m97zi85bq1TRx",
+      "decimals": 2,
+      "logoURI": "https://assets.coingecko.com/coins/images/27053/large/whales.png?1661507402",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "catalina-whales-index"
       }
     },
     {
@@ -2237,20 +2265,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "green-satoshi-token"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "GTON CAPITAL",
-      "symbol": "GTON",
-      "address": "nVZnRKdr3pmcgnJvYDE8iafgiMiBqxiffQMcyv5ETdA",
-      "decimals": 8,
-      "logoURI": "https://assets.coingecko.com/coins/images/15728/large/GC_logo_200x200.png?1642669327",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "gton-capital"
       }
     },
     {
@@ -4001,20 +4015,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "poglana"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Pollen Coin",
-      "symbol": "PCN",
-      "address": "GWsZd8k85q2ie9SNycVSLeKkX7HLZfSsgx6Jdat9cjY1",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/25687/large/97762641.png?1653374572",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "pollen-coin"
       }
     },
     {
