@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-05-13T02:00:04.522Z",
+  "timestamp": "2023-05-14T02:01:20.764Z",
   "tokens": [
     {
       "chainId": 101,
@@ -991,20 +991,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "circlepod"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Clash",
-      "symbol": "CLH",
-      "address": "CLAsHPfTPpsXmzZzdexdEuKeRzZrWjZFRHQEPu2kSgWM",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/27836/large/New-Clash-Icon_copy.png?1665996878",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "clash"
       }
     },
     {
