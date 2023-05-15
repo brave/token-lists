@@ -435,11 +435,19 @@ const generateDappLists = async () => {
     }
 
     const dapps = await response.json()
-    dappLists[chain] = dapps
+
+    // Remove socialLinks and fullDescription from each dApp object
+    const filteredDapps = dapps.results.map(dapp => {
+      const { socialLinks, fullDescription, ...filteredDapp } = dapp
+      return filteredDapp
+    })
+
+    dappLists[chain] = filteredDapps
   }
 
   return dappLists
 }
+
 
 module.exports = {
   contractReplaceSvgToPng,
