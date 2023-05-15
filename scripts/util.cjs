@@ -437,12 +437,12 @@ const generateDappLists = async () => {
     const dapps = await response.json()
 
     // Remove socialLinks and fullDescription from each dApp object
-    const filteredDapps = dapps.results.map(dapp => {
+    dapps.results = dapps.results.map(dapp => {
       const { socialLinks, fullDescription, ...filteredDapp } = dapp
       return filteredDapp
     })
 
-    dappLists[chain] = filteredDapps
+    dappLists[chain] = dapps
   }
 
   return dappLists
