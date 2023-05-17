@@ -53,8 +53,17 @@
     "coingeckoId": "wrapped-ust",
     "chainId": "0x89"
   },
+  "0x9c9e5fd8bbc25984b178fdce6117defa39d2db39": {
+    "name": "Binance-Peg BUSD",
+    "logo": "busd.png",
+    "erc20": true,
+    "symbol": "BUSD",
+    "decimals": 18,
+    "coingeckoId": "binance-usd",
+    "chainId": "0x89"
+  },
   "0xdAb529f40E671A1D4bF91361c21bf9f0C9712ab7": {
-    "name": "Binance USD",
+    "name": "Binance USD (Paxos)",
     "logo": "busd.png",
     "erc20": true,
     "symbol": "BUSD",
