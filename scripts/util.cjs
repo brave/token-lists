@@ -422,7 +422,7 @@ const generateDappLists = async () => {
   const top = 100
   const dappLists = {}
 
-  for (const chain of chains) {
+  for (let chain of chains) {
     const url = `https://api.dappradar.com/${dappRadarProjectId}/dapps/top/${metric}?chain=${chain}&range=${range}&top=${top}`
     const response = await fetch(url, {
       headers: {
@@ -437,12 +437,18 @@ const generateDappLists = async () => {
     const dapps = await response.json()
 
     // Remove socialLinks and fullDescription from each dApp object
-    const filteredDapps = dapps.results.map(dapp => {
+    dapps.results = dapps.results.map(dapp => {
       const { socialLinks, fullDescription, ...filteredDapp } = dapp
       return filteredDapp
     })
 
-    dappLists[chain] = filteredDapps
+    // Replace 'binance-smart-chain' with 'binance_smart_chain' so it plays well
+    // with the browser JSON parser.
+    if (chain  === 'binance-smart-chain') {
+      chain = 'binance_smart_chain'
+    }
+    
+    dappLists[chain] = dapps
   }
 
   return dappLists
