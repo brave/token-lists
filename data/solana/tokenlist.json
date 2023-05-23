@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-05-22T02:01:16.796Z",
+  "timestamp": "2023-05-23T02:01:02.362Z",
   "tokens": [
     {
       "chainId": 101,
@@ -389,20 +389,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "avenue-hamilton-token"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Avenue University Token",
-      "symbol": "AUT",
-      "address": "AUT1gfMZw37wMMQqAxk89nfpjZpEEf2XSoBUd8V5ydnS",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/28087/large/T-R84Zo32rDOA5Wo66T8jAlqcyjD7Folt1oeCfjlizU.png?1667724695",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "avenue-university-token"
       }
     },
     {
