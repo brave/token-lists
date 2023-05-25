@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-05-24T02:00:13.164Z",
+  "timestamp": "2023-05-25T02:00:25.325Z",
   "tokens": [
     {
       "chainId": 101,
@@ -2997,6 +2997,20 @@
     },
     {
       "chainId": 101,
+      "name": "Leancoin",
+      "symbol": "LEAN",
+      "address": "7297kX7SEZ1do223VsjTAC2MS9gLxPJoxFs9UMwiG4oS",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/30538/large/leancoin.jpg?1684928765",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "leancoin"
+      }
+    },
+    {
+      "chainId": 101,
       "name": "Learning Star",
       "symbol": "LSTAR",
       "address": "C6qep3y7tCZUJYDXHiwuK46Gt6FsoxLi8qV1bTCRYaY1",
@@ -4691,20 +4705,6 @@
     },
     {
       "chainId": 101,
-      "name": "Sola Ninja",
-      "symbol": "SNJ",
-      "address": "Hj4sTP4L4rvR9WBR6KyK99sxPptBQQczNWe4y15mxhRD",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/19730/large/logo_-_2021-11-01T200443.131.png?1635768291",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "sola-ninja"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "Solanium",
       "symbol": "SLIM",
       "address": "xxxxa1sKNGwFtw2kFn8XauW9xq8hBZ5kVtcSesTT9fW",
@@ -5107,20 +5107,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "solice"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Solily Protocol",
-      "symbol": "LILY",
-      "address": "LiLyT885cG9xZKYQk9x6VWMzmcui4ueV9J1uzPDDajY",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/25611/large/logo200.png?1652846780",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "solily-protocol"
       }
     },
     {
