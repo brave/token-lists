@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-05-26T02:00:15.003Z",
+  "timestamp": "2023-05-27T02:00:45.293Z",
   "tokens": [
     {
       "chainId": 101,
@@ -109,20 +109,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "alfprotocol"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Alien Chicken Farm",
-      "symbol": "ACF",
-      "address": "2cZv8HrgcWSvC6n1uEiS48cEQGb1d3fiowP2rpa4wBL9",
-      "decimals": 2,
-      "logoURI": "https://assets.coingecko.com/coins/images/25441/large/acf-token_%281%29.png?1651760005",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "alien-chicken-farm"
       }
     },
     {
