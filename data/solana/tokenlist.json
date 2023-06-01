@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-05-30T02:02:11.739Z",
+  "timestamp": "2023-06-01T02:07:26.199Z",
   "tokens": [
     {
       "chainId": 101,
@@ -71,6 +71,20 @@
     },
     {
       "chainId": 101,
+      "name": "Aevum",
+      "symbol": "AEVUM",
+      "address": "EsirN3orp85uyvZyDrZnbe9cyo7N1114ynLFdwMPCQce",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/30587/large/vivaion-aevum-2.png?1685453479",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "aevum-ore"
+      }
+    },
+    {
+      "chainId": 101,
       "name": "Agronomist",
       "symbol": "AGTE",
       "address": "4QV4wzDdy7S1EV6y2r9DkmaDsHeoKz6HUvFLVtAsu6dV",
@@ -109,6 +123,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "alfprotocol"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "Alien Chicken Farm",
+      "symbol": "ACF",
+      "address": "2cZv8HrgcWSvC6n1uEiS48cEQGb1d3fiowP2rpa4wBL9",
+      "decimals": 2,
+      "logoURI": "https://assets.coingecko.com/coins/images/25441/large/acf-token_%281%29.png?1651760005",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "alien-chicken-farm"
       }
     },
     {
@@ -795,20 +823,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "buff-samo"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Burrito Boyz Floor Index",
-      "symbol": "BURR",
-      "address": "XwTZraiF1dVh69cZ2SpqyjDLmei2uVps5CYHD9vqK6d",
-      "decimals": 2,
-      "logoURI": "https://assets.coingecko.com/coins/images/27169/large/7ryKn0fdux0PnpBEiwmop9DaFq2KG8WHmGhhtOYPoAU.png?1662286753",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "burrito-boyz-floor-index"
       }
     },
     {
@@ -3501,7 +3515,7 @@
     },
     {
       "chainId": 101,
-      "name": "Neonomad Finance",
+      "name": "Neonomad",
       "symbol": "NNI",
       "address": "buMnhMd5xSyXBssTQo15jouu8VhuEZJCfbtBUZgRcuW",
       "decimals": 6,
@@ -4071,6 +4085,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "prism"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "PRNT",
+      "symbol": "PRNT",
+      "address": "4TUNzcgp2fPD48fcW4seRjyqyDZMrPj4ZubnXFEsKeYk",
+      "decimals": 7,
+      "logoURI": "https://assets.coingecko.com/coins/images/30592/large/691D296E-3515-4758-9391-A8BBFC4A096B.png?1685498516",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "prnt"
       }
     },
     {
