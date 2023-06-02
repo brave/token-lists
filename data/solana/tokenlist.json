@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-06-01T02:07:26.199Z",
+  "timestamp": "2023-06-02T02:01:32.732Z",
   "tokens": [
     {
       "chainId": 101,
@@ -403,20 +403,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "avenue-hamilton-token"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "AvocadoCoin",
-      "symbol": "AVDO",
-      "address": "EE5L8cMU4itTsCSuor7NLK6RZx6JhsBe8GGV3oaAHm3P",
-      "decimals": 8,
-      "logoURI": "https://assets.coingecko.com/coins/images/23675/large/PNLL1B2g_400x400.jpg?1644996225",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "avocadocoin"
       }
     },
     {
@@ -6129,20 +6115,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "void-games"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "VYNK Chain",
-      "symbol": "VYNC",
-      "address": "A5NF1e6RnYkVwtg3V3z1qeUz4PZfHCXmQ9RotuJWgi6F",
-      "decimals": 4,
-      "logoURI": "https://assets.coingecko.com/coins/images/17743/large/vynk_chain.PNG?1629150126",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "vynk-chain"
       }
     },
     {
