@@ -1,0 +1,218 @@
+{
+  "currencies": [
+    {
+      "currency_code": "ARS",
+      "currency_name": "Argentine Peso",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "AUD",
+      "currency_name": "Australian dollar",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "BMD",
+      "currency_name": "Bermudian Dollar",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "BRL",
+      "currency_name": "Brazilian Real",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "GBP",
+      "currency_name": "British pound",
+      "providers": [
+        "ramp",
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "CAD",
+      "currency_name": "Canadian dollar",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "CLP",
+      "currency_name": "Chilean Peso",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "CZK",
+      "currency_name": "Czech Koruna",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "DKK",
+      "currency_name": "Danish Krone",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "DJF",
+      "currency_name": "Djibouti Franc",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "EUR",
+      "currency_name": "Euro",
+      "providers": [
+        "ramp",
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "HUF",
+      "currency_name": "Forint",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "INR",
+      "currency_name": "Indian rupee",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "IDR",
+      "currency_name": "Indonesian Rupiah",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "ILS",
+      "currency_name": "Israeli Shekel",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "JPY",
+      "currency_name": "Japanese Yen",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "MYR",
+      "currency_name": "Malaysian Ringgit",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "MXN",
+      "currency_name": "Mexican peso",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "NZD",
+      "currency_name": "New Zealand dollar",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "NOK",
+      "currency_name": "Norwegian Krone",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "PHP",
+      "currency_name": "Philippine Peso",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "PLN",
+      "currency_name": "Polish Zloty",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "SGD",
+      "currency_name": "Singapore Dollar",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "ZAR",
+      "currency_name": "South African Rand",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "KRW",
+      "currency_name": "South Korean Won",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "SEK",
+      "currency_name": "Swedish krona",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "CHF",
+      "currency_name": "Swiss franc",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "THB",
+      "currency_name": "Thai Baht",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "TRY",
+      "currency_name": "Turkish Lira",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "USD",
+      "currency_name": "US Dollar",
+      "providers": [
+        "ramp",
+        "transak",
+        "stripe"
+      ]
+    }
+  ]
+}
