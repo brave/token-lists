@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-06-07T02:01:26.225Z",
+  "timestamp": "2023-06-08T02:01:59.586Z",
   "tokens": [
     {
       "chainId": 101,
@@ -6059,6 +6059,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "void-games"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "Voodoo",
+      "symbol": "LDZ",
+      "address": "E5ZVeBMazQAYq4UEiSNRLxfMeRds9SKL31yPan7j5GJK",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/30660/large/ACD05DC9-3427-4C15-8451-34519CBC04BB.jpeg?1686127100",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "voodoo"
       }
     },
     {
