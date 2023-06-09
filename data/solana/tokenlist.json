@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-06-08T02:01:59.586Z",
+  "timestamp": "2023-06-09T02:02:38.820Z",
   "tokens": [
     {
       "chainId": 101,
@@ -1425,6 +1425,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "deltafi"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "DePay",
+      "symbol": "DEPAY",
+      "address": "DePay1miDBPWXs6PVQrdC5Vch2jemgEPaiyXLNLLa2NF",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/13183/large/DEPAY.png?1650615816",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "depay"
       }
     },
     {
@@ -3119,20 +3133,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "luna-wormhole"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Magic Square",
-      "symbol": "SQR",
-      "address": "SQRNmMb9mKjjkihQS7fCmAwo3gVs1FSQBVeDZzA7CP3",
-      "decimals": 8,
-      "logoURI": "https://assets.coingecko.com/coins/images/26377/large/bafkreictuxcsw472vuroqwv7maumzsa4pfhrdw6tglpme7zfdkce62niau_%281%29.jpg?1678849971",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "magic-square"
       }
     },
     {
