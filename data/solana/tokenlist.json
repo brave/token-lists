@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-06-13T02:00:39.605Z",
+  "timestamp": "2023-06-14T01:59:54.830Z",
   "tokens": [
     {
       "chainId": 101,
@@ -1611,7 +1611,7 @@
     },
     {
       "chainId": 101,
-      "name": "DUST Protocol",
+      "name": "Dust Protocol",
       "symbol": "DUST",
       "address": "DUSTawucrTsGU8hcqRdHDCbuYhCPADMLM2VcCb8VnFnQ",
       "decimals": 9,
@@ -4113,6 +4113,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "rad"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "Rafkróna",
+      "symbol": "ISKT",
+      "address": "isktkk27QaTpoRUhwwS5n9YUoYf8ydCuoTz5R2tFEKu",
+      "decimals": 2,
+      "logoURI": "https://assets.coingecko.com/coins/images/30721/large/mintum.png?1686623360",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "rafkrona"
       }
     },
     {
