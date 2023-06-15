@@ -134,7 +134,10 @@ async function stageTokenListsLogo(stagingDir, token) {
     return logoURI
   }
 
-  const extension = path.extname(logoURI.split('?')[0])
+  let extension = path.extname(logoURI.split('?')[0])
+  if (extension === ".") {
+    extension = ""
+  }
   const sourceFile = `${address}${extension}`
   const destFile = `${address}.png`
   const sourceFilePath = path.join(os.tmpdir(), sourceFile)
