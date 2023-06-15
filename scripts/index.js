@@ -134,7 +134,10 @@ async function stageTokenListsLogo(stagingDir, token) {
     return logoURI
   }
 
-  const extension = path.extname(logoURI.split('?')[0])
+  let extension = path.extname(logoURI.split('?')[0])
+  if (extension === ".") {
+    extension = ""
+  }
   const sourceFile = `${address}${extension}`
   const destFile = `${address}.png`
   const sourceFilePath = path.join(os.tmpdir(), sourceFile)
@@ -207,6 +210,20 @@ async function stageDappLists(stagingDir) {
   fs.writeFileSync(dappListsPath, JSON.stringify(dappLists, null, 2))
 }
 
+async function stageOnRampLists(stagingDir) {
+  const srcOnRampTokensPath = path.join('data', 'onramps', 'on-ramp-token-lists.json');
+  const dstOnRampTokensPath = path.join(stagingDir, 'on-ramp-token-lists.json');
+  await fsPromises.copyFile(srcOnRampTokensPath, dstOnRampTokensPath);
+
+  const srcOffRampTokensPath = path.join('data', 'onramps', 'off-ramp-token-lists.json');
+  const dstOffRampTokensPath = path.join(stagingDir, 'off-ramp-token-lists.json');
+  await fsPromises.copyFile(srcOffRampTokensPath, dstOffRampTokensPath);
+
+  const srcOnRampCurrenciesPath = path.join('data', 'onramps', 'on-ramp-currency-lists.json');
+  const dstOnRampCurrenciesPath = path.join(stagingDir, 'on-ramp-currency-lists.json');
+  await fsPromises.copyFile(srcOnRampCurrenciesPath, dstOnRampCurrenciesPath);
+}
+
 async function stageTokenPackage() {
   const stagingDir = 'build'
   if (!fs.existsSync(stagingDir)) {
@@ -238,6 +255,9 @@ async function stageTokenPackage() {
 
   // Add dapp-lists.json.
   await stageDappLists(stagingDir)
+
+  // Add on ramp JSON files
+  await stageOnRampLists(stagingDir)
 
   stagePackageJson(stagingDir)
   stageManifest(stagingDir)
