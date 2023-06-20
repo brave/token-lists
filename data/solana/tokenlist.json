@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-06-19T02:00:40.612Z",
+  "timestamp": "2023-06-20T01:59:08.613Z",
   "tokens": [
     {
       "chainId": 101,
@@ -2125,20 +2125,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "glitter-finance"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "GMSOL",
-      "symbol": "GMSOL",
-      "address": "gmdu3snwW28DmmxCseChp9owWLUhamH9eS3hWfHG8Vg",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/20717/large/gm-logo-200.png?1637584967",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "gmsol"
       }
     },
     {
