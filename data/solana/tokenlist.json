@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-06-20T01:59:08.613Z",
+  "timestamp": "2023-06-21T01:59:43.267Z",
   "tokens": [
     {
       "chainId": 101,
@@ -81,20 +81,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "aevum-ore"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Agronomist",
-      "symbol": "AGTE",
-      "address": "4QV4wzDdy7S1EV6y2r9DkmaDsHeoKz6HUvFLVtAsu6dV",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/18314/large/logogecko.png?1631515498",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "agronomist"
       }
     },
     {
