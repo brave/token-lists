@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-06-24T02:02:11.810Z",
+  "timestamp": "2023-06-25T02:02:51.662Z",
   "tokens": [
     {
       "chainId": 101,
@@ -151,20 +151,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "allbridge"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Almond",
-      "symbol": "ALM",
-      "address": "ALMmmmbt5KNrPPUBFE4dAKUKSPWTop5s3kUGCdF69gmw",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/20348/large/logo_-_2021-11-15T102036.111.png?1636942845",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "almond"
       }
     },
     {
@@ -1957,20 +1943,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "future"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Galaxy Essential",
-      "symbol": "GXE",
-      "address": "DsVPH4mAppxKrmdzcizGfPtLYEBAkQGK4eUch32wgaHY",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/25754/large/GXE.png?1653466290",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "galaxy-essential"
       }
     },
     {
