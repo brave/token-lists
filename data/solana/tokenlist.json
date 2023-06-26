@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-06-25T02:02:51.662Z",
+  "timestamp": "2023-06-26T02:01:42.254Z",
   "tokens": [
     {
       "chainId": 101,
@@ -1719,20 +1719,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "famous-fox-federation"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "FaniTrade",
-      "symbol": "FANI",
-      "address": "6c4L5nTH2sBKkfeuP3WhGp6Vq1tE4Suh4ezRp5KSu8Z7",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/24029/large/fani_200x200.png?1646115606",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "fanitrade"
       }
     },
     {
