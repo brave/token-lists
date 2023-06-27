@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-06-26T02:01:42.254Z",
+  "timestamp": "2023-06-27T02:01:10.658Z",
   "tokens": [
     {
       "chainId": 101,
@@ -375,6 +375,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "avenue-hamilton-token"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "AvocadoCoin",
+      "symbol": "AVDO",
+      "address": "EE5L8cMU4itTsCSuor7NLK6RZx6JhsBe8GGV3oaAHm3P",
+      "decimals": 8,
+      "logoURI": "https://assets.coingecko.com/coins/images/23675/large/PNLL1B2g_400x400.jpg?1644996225",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "avocadocoin"
       }
     },
     {
