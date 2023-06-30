@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-06-29T02:01:24.300Z",
+  "timestamp": "2023-06-30T01:59:47.884Z",
   "tokens": [
     {
       "chainId": 101,
@@ -263,20 +263,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "articoin"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Ashera",
-      "symbol": "ASH",
-      "address": "FY6XDSCubMhpkU9FAsUjB7jmN8YHYZGezHTWo9RHBSyX",
-      "decimals": 4,
-      "logoURI": "https://assets.coingecko.com/coins/images/18508/large/ashera.png?1635150588",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "ashera"
       }
     },
     {
@@ -2619,20 +2605,6 @@
     },
     {
       "chainId": 101,
-      "name": "Keeshond",
-      "symbol": "$KSH",
-      "address": "6j14WyX1Ag2pLWvn99euK4xp2VcZD62VeJv2iwCrYmT8",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/21353/large/lkdYjrVS_400x400.jpg?1638999576",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "keeshond"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "Kekwcoin",
       "symbol": "KEKW",
       "address": "2QK9vxydd7WoDwvVFT5JSU8cwE9xmbJSzeqbRESiPGMG",
@@ -4113,20 +4085,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "republic-credits"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Rice",
-      "symbol": "RICE",
-      "address": "5yw793FZPCaPcuUN4F61VJh2ehsFX87zvHbCA4oRebfn",
-      "decimals": 2,
-      "logoURI": "https://assets.coingecko.com/coins/images/24010/large/rice_200_200.png?1646030160",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "rice"
       }
     },
     {
