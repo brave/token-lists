@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-07-02T01:59:48.860Z",
+  "timestamp": "2023-07-03T01:55:09.150Z",
   "tokens": [
     {
       "chainId": 101,
@@ -235,34 +235,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "arenum"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "ARTE",
-      "symbol": "ARTE",
-      "address": "6Dujewcxn1qCd6rcj448SXQL9YYqTcqZCNQdCn3xJAKS",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/23556/large/token_200.png?1644473079",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "arte"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "ArtiCoin",
-      "symbol": "ATC",
-      "address": "GXnw9YSt6DANCt84Ti6ZpbaXvrvuEJFCYqrDjygnq4R8",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/25232/large/LOGO-256.png?1650953344",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "articoin"
       }
     },
     {
@@ -1331,20 +1303,6 @@
     },
     {
       "chainId": 101,
-      "name": "Degen",
-      "symbol": "DEGN",
-      "address": "A9UhP1xfQHWUhSd54NgKPub2XB3ZuQMdPEvf9aMTHxGT",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/20103/large/degendex.png?1636512003",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "degen"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "DeltaFi",
       "symbol": "DELFI",
       "address": "de1QJkP1qDCk5JYCCXCeq27bQQUdCaiv7xVKFrhPSzF",
@@ -1751,20 +1709,6 @@
     },
     {
       "chainId": 101,
-      "name": "Fractionalized SMB-2367",
-      "symbol": "DAOJONES",
-      "address": "r8nuuzXCchjtqsmQZVZDPXXq928tuk7KVH479GsKVpy",
-      "decimals": 2,
-      "logoURI": "https://assets.coingecko.com/coins/images/22611/large/daojones.png?1642228974",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "fractionalized-smb-2367"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "FRAKT",
       "symbol": "FRKT",
       "address": "ErGB9xa24Szxbk1M28u2Tx8rKPqzL6BroNkkzk5rG4zj",
@@ -1849,20 +1793,6 @@
     },
     {
       "chainId": 101,
-      "name": "Fuji",
-      "symbol": "FUJI",
-      "address": "fujiCeCeP9AFDVCv27P5JRcKLoH7wfs2C9xmDECs24m",
-      "decimals": 3,
-      "logoURI": "https://assets.coingecko.com/coins/images/23732/large/vopR7PC.png?1645171161",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "fuji"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "FUMoney",
       "symbol": "FUM",
       "address": "EZF2sPJRe26e8iyXaCrmEefrGVBkqqNGv9UPGG9EnTQz",
@@ -1929,20 +1859,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "gary"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Gear",
-      "symbol": "GEAR",
-      "address": "7s6NLX42eURZfpyuKkVLrr9ED9hJE8718cyXFsYKqq5g",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/24653/large/output-onlinepngtools.png?1648524609",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "gear"
       }
     },
     {
@@ -2409,20 +2325,6 @@
     },
     {
       "chainId": 101,
-      "name": "Invictus",
-      "symbol": "IN",
-      "address": "inL8PMVd6iiW3RCBJnr5AsrRN6nqr4BTrcNuQWQSkvY",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/20097/large/jv2xoOxJ_400x400.jpg?1636494713",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "invictus"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "Invoker",
       "symbol": "IV",
       "address": "invSTFnhB1779dyku9vKSmGPxeBNKhdf7ZfGL1vTH3u",
@@ -2545,20 +2447,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "kalisten"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Kekwcoin",
-      "symbol": "KEKW",
-      "address": "2QK9vxydd7WoDwvVFT5JSU8cwE9xmbJSzeqbRESiPGMG",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/18311/large/logo_black_%281%29.png?1631509612",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "kekwcoin"
       }
     },
     {
@@ -3179,20 +3067,6 @@
     },
     {
       "chainId": 101,
-      "name": "MongooseCoin",
-      "symbol": "MONGOOSE",
-      "address": "J7WYVzFNynk9D28eBCccw2EYkygygiLDCVCabV7CupWL",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/21513/large/logo_mong.png?1639375760",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "mongoosecoin"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "MonkeyLeague",
       "symbol": "MBS",
       "address": "Fm9rHUTF5v3hwMLbStjZXqNBBoZyGriQaFM6sTFz3K8A",
@@ -3231,20 +3105,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "msol"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Musk Doge",
-      "symbol": "MKD",
-      "address": "FatneQg39zhrG6XdwYb8fzM4VgybpgqjisJYESSBD7FV",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/22317/large/20211215_125931.jpg?1641453649",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "musk-doge"
       }
     },
     {
@@ -3399,20 +3259,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "octo-gaming"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "oDOP",
-      "symbol": "ODOP",
-      "address": "4pk3pf9nJDN1im1kNwWJN1ThjE8pCYCTexXYGyFjqKVf",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/15781/large/odop.PNG?1621843047",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "odop"
       }
     },
     {
@@ -4005,20 +3851,6 @@
     },
     {
       "chainId": 101,
-      "name": "SOL Tigers Roar",
-      "symbol": "ROAR",
-      "address": "DqxzPWQ2FKHn8pRoy9jCpA6M3GkEqYfieiAVwMYWVyXr",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/20693/large/logo_-_2021-11-22T144644.880.png?1637563616",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "roar-token"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "Rollbit Coin",
       "symbol": "RLB",
       "address": "RLBxxFkseAZ4RgJH3Sqn8jXxhmGoz9jWxDNJMh8pL7a",
@@ -4397,20 +4229,6 @@
     },
     {
       "chainId": 101,
-      "name": "SolanaSail Governance",
-      "symbol": "GSAIL",
-      "address": "Gsai2KN28MTGcSZ1gKYFswUpFpS7EM9mvdR9c8f6iVXJ",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/17658/large/logo_GSAIL.png?1628758657",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "solanasail-governance-token"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "Solanax",
       "symbol": "SOLD",
       "address": "5v6tZ1SiAi7G8Qg4rBF1ZdAn4cn6aeQtefewMr1NLy61",
@@ -4757,20 +4575,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "solice"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Solit",
-      "symbol": "SLT",
-      "address": "SLT3iSYKeBuCyxvnfij4RUhMfKxZCY3s12Z5pfkTXhV",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/20553/large/logo_-_2021-11-18T112941.579.png?1637206190",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "solit"
       }
     },
     {
