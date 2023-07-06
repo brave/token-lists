@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-07-05T01:54:48.315Z",
+  "timestamp": "2023-07-06T01:54:16.362Z",
   "tokens": [
     {
       "chainId": 101,
@@ -1597,6 +1597,20 @@
     },
     {
       "chainId": 101,
+      "name": "Ethrix",
+      "symbol": "ETX",
+      "address": "9DZ58i5vAfk3JaFVYezYzhrVht7j8McZsUbuTcDiSbrP",
+      "decimals": 5,
+      "logoURI": "https://assets.coingecko.com/coins/images/30888/large/ETX_logo.png?1688524170",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "ethrix"
+      }
+    },
+    {
+      "chainId": 101,
       "name": "Fabric",
       "symbol": "FAB",
       "address": "EdAhkbj5nF9sRM7XN7ewuW8C9XEUMs8P7cnoQ57SYE96",
@@ -2587,20 +2601,6 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "laddercaster"
-      }
-    },
-    {
-      "chainId": 101,
-      "name": "Laine Stake",
-      "symbol": "LAINESOL",
-      "address": "LAinEtNLgpmCP9Rvsf5Hn8W6EhNiKLZQti1xfWMLy6X",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/28184/large/laineSOL.png?1668257050",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "laine-stake"
       }
     },
     {
