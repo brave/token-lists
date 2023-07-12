@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-07-11T01:52:50.668Z",
+  "timestamp": "2023-07-12T01:55:18.318Z",
   "tokens": [
     {
       "chainId": 101,
@@ -5415,6 +5415,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "uxd-stablecoin"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "Venture Coin",
+      "symbol": "VC",
+      "address": "AebrVZPfSH7KPAxPwnuqTZB9QNepdktk7HSSY4SNj7BM",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/30944/large/6HvW8RLbLhBbw09QDRpPd6HX-N3Sk9kF2vvdaZGHExU.png?1689085289",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "venture-coin-2"
       }
     },
     {
