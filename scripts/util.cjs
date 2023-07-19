@@ -505,6 +505,7 @@ const addSupportedCoinbaseTokens = async (rampTokens) => {
                     is_erc1155: false,
                     is_nft: false,
                     symbol: currency.id,
+                    decimals: 18, // Adding decimals since it's required by the parser, but it's not used for on ramp tokens.
                     visible: true,
                     token_id: "",
                     coingecko_id: "",
