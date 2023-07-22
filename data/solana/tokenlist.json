@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-07-21T01:51:22.423Z",
+  "timestamp": "2023-07-22T01:51:48.740Z",
   "tokens": [
     {
       "chainId": 101,
@@ -2601,6 +2601,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "laddercaster"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "Laine Stake",
+      "symbol": "LAINESOL",
+      "address": "LAinEtNLgpmCP9Rvsf5Hn8W6EhNiKLZQti1xfWMLy6X",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/28184/large/laineSOL.png?1668257050",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "laine-stake"
       }
     },
     {
