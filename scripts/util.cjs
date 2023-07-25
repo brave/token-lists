@@ -525,6 +525,77 @@ const addSupportedCoinbaseTokens = async (rampTokens) => {
     return rampTokens;
 }
 
+const generateChainList = async () => {
+  const chainListResponse = await fetch('https://chainid.network/chains.json')
+  if (!chainListResponse.ok) {
+    throw new Error(
+      `Error fetching chain list from chainid.network:
+      ${chainListResponse.status} ${chainListResponse.statusText}`
+    )
+  }
+
+  return await chainListResponse.json()
+}
+
+const generateCoingeckoIds = async () => {
+  const coinGeckoApiBaseUrl = 'https://api.coingecko.com/api/v3'
+
+  // Fetch the list of tokens from CoinGecko
+  const coinListResponse = await fetch(
+    `${coinGeckoApiBaseUrl}/coins/list?include_platform=true`
+  )
+  if (!coinListResponse.ok) {
+    throw new Error(
+      `Error fetching coin list from CoinGecko:
+      ${coinListResponse.status} ${coinListResponse.statusText}`
+    )
+  }
+  const coinList = await coinListResponse.json()
+
+  const assetPlatformsResponse = await fetch(
+    `${coinGeckoApiBaseUrl}/asset_platforms`
+  )
+  if (!assetPlatformsResponse.ok) {
+    throw new Error(
+      `Error fetching asset platforms from CoinGecko:
+      ${assetPlatformsResponse.status} ${assetPlatformsResponse.statusText}`
+    )
+  }
+  const assetPlatformsList = await assetPlatformsResponse.json()
+  const assetPlatformsMap = assetPlatformsList
+    .reduce((acc, platform) => {
+      // Manually add Solana chain identifier since it's not in the CoinGecko
+      // asset platforms list
+      if (platform.id === 'solana' && !platform.chain_identifier) {
+        platform.chain_identifier = 101
+      }
+
+      acc[platform.id] = platform.chain_identifier
+      return acc
+    }, {})
+
+  return coinList.reduce((acc, coin) => {
+    Object.entries(coin.platforms)
+      .forEach(([platform, contractAddress]) => {
+        const chainId = assetPlatformsMap[platform]
+        if (!chainId || !contractAddress) {
+          return
+        }
+
+        const chainIdHex = `0x${chainId.toString(16)}`
+        if (acc[chainIdHex]) {
+          acc[chainIdHex][contractAddress] = coin.id
+        } else {
+          acc[chainIdHex] = {
+            [contractAddress]: coin.id
+          }
+        }
+      })
+
+    return acc
+  }, {})
+}
+
 module.exports = {
   contractReplaceSvgToPng,
   contractAddExtraAssetIcons,
@@ -533,5 +604,7 @@ module.exports = {
   download,
   generateMainnetTokenList,
   generateDappLists,
-  addSupportedCoinbaseTokens
+  addSupportedCoinbaseTokens,
+  generateCoingeckoIds,
+  generateChainList
 }

@@ -54,9 +54,9 @@ function stagePackageJson(stagingDir) {
 }
 
 async function stageChainListJson(stagingDir) {
-  const srcPath = path.join('data', 'chainlist', 'chainlist.json')
   const dstPath = path.join(stagingDir, 'chainlist.json')
-  fsPromises.copyFile(srcPath, dstPath)
+  const chainList = await util.generateChainList()
+  fs.writeFileSync(dstPath, JSON.stringify(chainList, null, 2))
 }
 
 function stageManifest(stagingDir) {
@@ -210,6 +210,12 @@ async function stageDappLists(stagingDir) {
   fs.writeFileSync(dappListsPath, JSON.stringify(dappLists, null, 2))
 }
 
+async function stageCoingeckoIds(stagingDir) {
+  const dstPath = path.join(stagingDir, 'coingecko-ids.json')
+  const coingeckoIds = await util.generateCoingeckoIds()
+  fs.writeFileSync(dstPath, JSON.stringify(coingeckoIds, null, 2))
+}
+
 async function stageOnRampLists(stagingDir) {
   // The on-ramp-token-lists.json file is no longer used by the release version of the
   // browser.  It will be safe to remove in July, 2024.
@@ -270,6 +276,9 @@ async function stageTokenPackage() {
 
   // Add on ramp JSON files
   await stageOnRampLists(stagingDir)
+
+  // Add coingecko-ids.json
+  await stageCoingeckoIds(stagingDir)
 
   stagePackageJson(stagingDir)
   stageManifest(stagingDir)
