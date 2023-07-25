@@ -211,13 +211,25 @@ async function stageDappLists(stagingDir) {
 }
 
 async function stageOnRampLists(stagingDir) {
+  // The on-ramp-token-lists.json file is no longer used by the release version of the
+  // browser.  It will be safe to remove in July, 2024.
   const srcOnRampTokensPath = path.join('data', 'onramps', 'on-ramp-token-lists.json');
   const dstOnRampTokensPath = path.join(stagingDir, 'on-ramp-token-lists.json');
   await fsPromises.copyFile(srcOnRampTokensPath, dstOnRampTokensPath);
 
+  // The off-ramp-token-lists.json file is no longer used by the release version of the
+  // browser.  It will be safe to remove in July, 2024.
   const srcOffRampTokensPath = path.join('data', 'onramps', 'off-ramp-token-lists.json');
   const dstOffRampTokensPath = path.join(stagingDir, 'off-ramp-token-lists.json');
   await fsPromises.copyFile(srcOffRampTokensPath, dstOffRampTokensPath);
+
+  // ramp-tokens.json
+  const srcRampTokensPath = path.join('data', 'onramps', 'ramp-tokens.json');
+  const dstRampTokensPath = path.join(stagingDir, 'ramp-tokens.json');
+  const srcRampTokensData = await fsPromises.readFile(srcRampTokensPath, 'utf-8');
+  let rampTokens = JSON.parse(srcRampTokensData);
+  rampTokens = await util.addSupportedCoinbaseTokens(rampTokens);
+  await fsPromises.writeFile(dstRampTokensPath, JSON.stringify(rampTokens, null, 2));
 
   const srcOnRampCurrenciesPath = path.join('data', 'onramps', 'on-ramp-currency-lists.json');
   const dstOnRampCurrenciesPath = path.join(stagingDir, 'on-ramp-currency-lists.json');

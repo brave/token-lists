@@ -454,6 +454,76 @@ const generateDappLists = async () => {
   return dappLists
 }
 
+const addSupportedCoinbaseTokens = async (rampTokens) => {
+    // Public Coinbase API url
+    const coinbaseApiUrl = 'https://api.exchange.coinbase.com/currencies';
+
+    // Maps Coinbase's network IDs to our hex chain IDs
+    const networkIdMap = {
+        "ethereum": "0x1",
+        "kava": "0x8ae",
+        "solana": "0x65",
+        "arbitrum": "0xa4b1",
+        "optimism": "0xa",
+        "ethereumclassic": "0x3d",
+        "avacchain": "0xa86a",
+        "polygon": "0x89",
+        "celo": "0xa4ec"
+    };
+
+    let response = await fetch(coinbaseApiUrl);
+    let coinbaseTokens = await response.json();
+
+    // Convert array to a map for efficient lookup using compound key
+    let tokenMap = new Map(rampTokens.tokens.map(token => [`${token.chain_id}-${token.contract_address?.toLowerCase()}`, token]));
+
+    for (let currency of coinbaseTokens) {
+        // Skip the token if the name or symbol are missing
+        if (currency.name === null || currency.id === null) {
+            continue;
+        }
+        
+        for (let network of currency.supported_networks) {
+            let networkHexId = networkIdMap[network.id];
+            if (!networkHexId) {
+                continue;
+            }
+
+            let correspondingToken = tokenMap.get(`${networkHexId}-${network.contract_address?.toLowerCase()}`);
+
+            if (correspondingToken) {
+                if (!correspondingToken.on_ramp_providers.includes("coinbase")) {
+                    correspondingToken.on_ramp_providers.push("coinbase");
+                }
+            } else {
+                let newToken = {
+                    contract_address: network.contract_address || "", // Empty string allowed for native tokens.
+                    name: currency.name,
+                    logo: "",
+                    is_erc20: network.contract_address !== null,
+                    is_erc721: false,
+                    is_erc1155: false,
+                    is_nft: false,
+                    symbol: currency.id,
+                    decimals: 18, // Adding decimals since it's required by the parser, but it's not used for on ramp tokens.
+                    visible: true,
+                    token_id: "",
+                    coingecko_id: "",
+                    chain_id: networkHexId,
+                    coin: network.id === "solana" ? 501 : 60,
+                    on_ramp_providers: ["coinbase"],
+                    off_ramp_providers: []
+                };
+                tokenMap.set(`${networkHexId}-${network.contract_address?.toLowerCase()}`, newToken);
+            }
+        }
+    }
+
+    // Convert back to array format for return
+    rampTokens.tokens = Array.from(tokenMap.values());
+
+    return rampTokens;
+}
 
 module.exports = {
   contractReplaceSvgToPng,
@@ -462,5 +532,6 @@ module.exports = {
   saveToPNGResize,
   download,
   generateMainnetTokenList,
-  generateDappLists
+  generateDappLists,
+  addSupportedCoinbaseTokens
 }
