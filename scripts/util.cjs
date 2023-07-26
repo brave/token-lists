@@ -19,145 +19,139 @@ const contractReplaceSvgToPng = (file) => {
   fs.writeFileSync(file, JSON.stringify(data, null, 2))
 }
 
-const contractAddExtraAssetIcons = (file, imagesDstPath) => {
-  const data = JSON.parse(fs.readFileSync(file))
-  // CRV
-  data["0xD533a949740bb3306d119CC777fa900bA034cd52"] = {
-    name: "Curve",
-    logo: "curve.png",
-    erc20: true,
-    symbol: "CRV",
-    decimals: 18
-  }
-  // PDAI
-  data["0x9043d4d51C9d2e31e3F169de4551E416970c27Ef"] = {
-    name: "Palm DAI",
-    logo: "pdai.png",
-    erc20: true,
-    symbol: "PDAI",
-    decimals: 18
-  }
+const contractAddExtraMainnetAssets = (tokensListMap) => {
+  return {
+    ...tokensListMap,
+    // CRV
+    "0xD533a949740bb3306d119CC777fa900bA034cd52": {
+      name: "Curve",
+      logo: "curve.png",
+      erc20: true,
+      symbol: "CRV",
+      decimals: 18,
+      chainId: "0x1"
+    },
 
-  // EURT
-  data["0xc581b735a1688071a1746c968e0798d642ede491"] = {
-    "name": "Euro Tether",
-    "logo": "eurt.png",
-    "erc20": true,
-    "symbol": "EURT",
-    "decimals": 6
+    // EURT
+    "0xc581b735a1688071a1746c968e0798d642ede491": {
+      name: "Euro Tether",
+      logo: "eurt.png",
+      erc20: true,
+      symbol: "EURT",
+      decimals: 6,
+      chainId: "0x1"
+    },
+
+    // TAMA
+    "0x12b6893ce26ea6341919fe289212ef77e51688c8": {
+      name: "Tamagode",
+      logo: "tama.png",
+      erc20: true,
+      symbol: "TAMA",
+      decimals: 18,
+      chainId: "0x1"
+    },
+
+    // VRA
+    "0xf411903cbc70a74d22900a5de66a2dda66507255": {
+      name: "Verasity",
+      logo: "vra.png",
+      erc20: true,
+      symbol: "VRA",
+      decimals: 18,
+      chainId: "0x1"
+    },
+
+    // MASK
+    "0x69af81e73a73b40adf4f3d4223cd9b1ece623074": {
+      name: "Mask Network",
+      logo: "mask.png",
+      erc20: true,
+      symbol: "MASK",
+      decimals: 18,
+      chainId: "0x1"
+    },
+
+    // CTSI
+    "0x491604c0fdf08347dd1fa4ee062a822a5dd06b5d": {
+      name: "Cartesi",
+      logo: "ctsi.png",
+      erc20: true,
+      symbol: "CTSI",
+      decimals: 18,
+      chainId: "0x1"
+    },
+
+    // DAO
+    "0x0f51bb10119727a7e5ea3538074fb341f56b09ad": {
+      name: "DAO Maker",
+      logo: "dao.png",
+      erc20: true,
+      symbol: "DAO",
+      decimals: 18,
+      chainId: "0x1"
+    },
+
+    // CLV
+    "0x80C62FE4487E1351b47Ba49809EBD60ED085bf52": {
+      name: "Clover Finance",
+      logo: "clv.png",
+      erc20: true,
+      symbol: "CLV",
+      decimals: 18,
+      chainId: "0x1"
+    },
+
+    // AGEUR
+    "0x1a7e4e63778b4f12a199c062f3efdd288afcbce8": {
+      name: "agEUR",
+      logo: "ageur.png",
+      erc20: true,
+      symbol: "AGEUR",
+      decimals: 18,
+      chainId: "0x1"
+    },
+
+    // SWAP
+    "0xcc4304a31d09258b0029ea7fe63d032f52e44efe": {
+      name: "TrustSwap",
+      logo: "swap.png",
+      erc20: true,
+      symbol: "SWAP",
+      decimals: 18,
+      chainId: "0x1"
+    },
+
+    // YLD
+    "0xf94b5c5651c888d928439ab6514b93944eee6f48": {
+      name: "YIELD App",
+      logo: "yld.png",
+      erc20: true,
+      symbol: "YLD",
+      decimals: 18,
+      chainId: "0x1"
+    },
+
+    // GTH
+    "0xeb986DA994E4a118d5956b02d8b7c3C7CE373674": {
+      name: "Gather",
+      logo: "gth.png",
+      erc20: true,
+      symbol: "GTH",
+      decimals: 18,
+      chainId: "0x1"
+    },
+
+    // QUARTZ
+    "0xba8a621b4a54e61c442f5ec623687e2a942225ef": {
+      name: "Sandclock",
+      logo: "quartz.png",
+      erc20: true,
+      symbol: "QUARTZ",
+      decimals: 18,
+      chainId: "0x1"
+    }
   }
-
-  // TAMA
-  data["0x12b6893ce26ea6341919fe289212ef77e51688c8"] = {
-    "name": "Tamagode",
-    "logo": "tama.png",
-    "erc20": true,
-    "symbol": "TAMA",
-    "decimals": 18
-  }
-
-  // VRA
-  data["0xf411903cbc70a74d22900a5de66a2dda66507255"] = {
-    "name": "Verasity",
-    "logo": "vra.png",
-    "erc20": true,
-    "symbol": "VRA",
-    "decimals": 18
-  }
-
-  // MASK
-  data["0x69af81e73a73b40adf4f3d4223cd9b1ece623074"] = {
-    "name": "Mask Network",
-    "logo": "mask.png",
-    "erc20": true,
-    "symbol": "MASK",
-    "decimals": 18
-  }
-
-
-  // CTSI
-  data["0x491604c0fdf08347dd1fa4ee062a822a5dd06b5d"] = {
-    "name": "Cartesi",
-    "logo": "ctsi.png",
-    "erc20": true,
-    "symbol": "CTSI",
-    "decimals": 18
-  }
-
-  // DAO
-  data["0x0f51bb10119727a7e5ea3538074fb341f56b09ad"] = {
-    "name": "DAO Maker",
-    "logo": "dao.png",
-    "erc20": true,
-    "symbol": "DAO",
-    "decimals": 18
-  }
-
-  // CHAIN
-  data["0xd55fce7cdab84d84f2ef3f99816d765a2a94a509"] = {
-    "name": "Chain Games",
-    "logo": "chain.png",
-    "erc20": true,
-    "symbol": "CHAIN",
-    "decimals": 18
-  }
-
-  // CLV
-  data["0x80C62FE4487E1351b47Ba49809EBD60ED085bf52"] = {
-    "name": "Clover Finance",
-    "logo": "clv.png",
-    "erc20": true,
-    "symbol": "CLV",
-    "decimals": 18
-  }
-
-  // AGEUR
-  data["0x1a7e4e63778b4f12a199c062f3efdd288afcbce8"] = {
-    "name": "agEUR",
-    "logo": "ageur.png",
-    "erc20": true,
-    "symbol": "AGEUR",
-    "decimals": 18
-  }
-
-  // SWAP
-  data["0xcc4304a31d09258b0029ea7fe63d032f52e44efe"] = {
-    "name": "TrustSwap",
-    "logo": "swap.png",
-    "erc20": true,
-    "symbol": "SWAP",
-    "decimals": 18
-  }
-
-  // YLD
-  data["0xf94b5c5651c888d928439ab6514b93944eee6f48"] = {
-    "name": "YIELD App",
-    "logo": "yld.png",
-    "erc20": true,
-    "symbol": "YLD",
-    "decimals": 18
-  }
-
-  // GTH
-  data["0xeb986DA994E4a118d5956b02d8b7c3C7CE373674"] = {
-    "name": "Gather",
-    "logo": "gth.png",
-    "erc20": true,
-    "symbol": "GTH",
-    "decimals": 18
-  }
-
-  // QUARTZ
-  data["0xba8a621b4a54e61c442f5ec623687e2a942225ef"] = {
-    "name": "Gather",
-    "logo": "quartz.png",
-    "erc20": true,
-    "symbol": "QUARTZ",
-    "decimals": 18
-  }
-
-  // Just copy ETH icon as ETH is not a contract token
-  fs.writeFileSync(file, JSON.stringify(data, null, 2))
 }
 
 async function saveToPNGResize(source, dest, ignoreError) {
@@ -401,7 +395,13 @@ const generateMainnetTokenList = async (fullTokenList) => {
     'decimals': 18
   }
 
-  return outputTokenList
+  return Object.keys(outputTokenList).reduce((acc, contractAddress) => {
+    acc[contractAddress] = {
+      ...outputTokenList[contractAddress],
+      chainId: '0x1'
+    }
+    return acc
+  }, {})
 }
 
 const generateDappLists = async () => {
@@ -596,9 +596,33 @@ const generateCoingeckoIds = async () => {
   }, {})
 }
 
+const injectCoingeckoIds = (tokensListMap, coingeckoIds) =>
+  Object.entries(tokensListMap).reduce((acc, [contractAddress, token]) => {
+    const chainIdMap = coingeckoIds[token.chainId] || {}
+    const coingeckoId = chainIdMap[contractAddress] || chainIdMap[contractAddress.toLowerCase()]
+    if (!coingeckoId) {
+      console.log(
+        `[WARN] Coingecko ID missing:
+        chainId=${token.chainId} contract=${contractAddress}`
+      )
+      return acc
+    }
+
+    if (token.coingeckoId && token.coingeckoId !== coingeckoId) {
+      console.log(
+        `[ERR] Coingecko ID mismatch:
+        want=${coingeckoId} got=${token.coingeckoId} contract=${contractAddress}`
+      )
+      return acc
+    }
+
+    acc[contractAddress] = { ...token, coingeckoId }
+    return acc
+  }, {})
+
 module.exports = {
   contractReplaceSvgToPng,
-  contractAddExtraAssetIcons,
+  contractAddExtraMainnetAssets,
   installErrorHandlers,
   saveToPNGResize,
   download,
@@ -606,5 +630,6 @@ module.exports = {
   generateDappLists,
   addSupportedCoinbaseTokens,
   generateCoingeckoIds,
-  generateChainList
+  generateChainList,
+  injectCoingeckoIds
 }
