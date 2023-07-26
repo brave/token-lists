@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-07-25T01:52:44.536Z",
+  "timestamp": "2023-07-26T01:51:44.478Z",
   "tokens": [
     {
       "chainId": 101,
@@ -3123,6 +3123,20 @@
     },
     {
       "chainId": 101,
+      "name": "Neonomad",
+      "symbol": "NNI",
+      "address": "buMnhMd5xSyXBssTQo15jouu8VhuEZJCfbtBUZgRcuW",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/25068/large/SeSkZxx7_400x400.jpeg?1658118217",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "neonomad-finance"
+      }
+    },
+    {
+      "chainId": 101,
       "name": "Nest Arcade",
       "symbol": "NESTA",
       "address": "Czt7Fc4dz6BpLh2vKiSYyotNK2uPPDhvbWrrLeD9QxhV",
@@ -3543,20 +3557,6 @@
     },
     {
       "chainId": 101,
-      "name": "PlutusFi",
-      "symbol": "PLUT",
-      "address": "CiAkzbxkQCyY7hFtNeUHMbqiL8CXtbWaRnUJpJz5sBrE",
-      "decimals": 9,
-      "logoURI": "https://assets.coingecko.com/coins/images/27964/large/LeQ9aIhU_400x400.jpeg?1666754146",
-      "tags": [],
-      "verified": true,
-      "holders": null,
-      "extensions": {
-        "coingeckoId": "plutusfi"
-      }
-    },
-    {
-      "chainId": 101,
       "name": "Poglana",
       "symbol": "POG",
       "address": "DfCqzB3mV3LuF2FWZ1GyXer4U5X118g8oUBExeUqzPss",
@@ -3823,7 +3823,7 @@
     },
     {
       "chainId": 101,
-      "name": "ROA CORE",
+      "name": "ROACORE",
       "symbol": "ROA",
       "address": "5tB5D6DGJMxxHYmNkfJNG237x6pZGEwTzGpUUh62yQJ7",
       "decimals": 9,
