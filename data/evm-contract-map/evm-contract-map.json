@@ -197,6 +197,15 @@
     "coingeckoId": "basic-attention-token",
     "chainId": "0x89"
   },
+  "0xdC6fF44d5d932Cbd77B52E5612Ba0529DC6226F1": {
+    "name": "Worldcoin",
+    "logo": "wld.png",
+    "erc20": true,
+    "symbol": "WLD",
+    "decimals": 18,
+    "coingeckoId": "worldcoin-wld",
+    "chainId": "0xa"
+  },
   "0x94b008aA00579c1307B0EF2c499aD98a8ce58e58": {
     "name": "Tether USD",
     "logo": "usdt.png",
