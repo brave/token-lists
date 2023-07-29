@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-07-27T01:50:39.798Z",
+  "timestamp": "2023-07-29T01:51:22.471Z",
   "tokens": [
     {
       "chainId": 101,
@@ -2293,6 +2293,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "hxro"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "International Stable Currency",
+      "symbol": "ISC",
+      "address": "J9BcrQfX4p9D1bvLzRNCbMDv8f44a9LFdeqNE4Yk2WMD",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/31087/large/coin_flat.png?1690445353",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "international-stable-currency"
       }
     },
     {
