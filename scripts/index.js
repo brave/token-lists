@@ -18,11 +18,19 @@ function getOutputTokenPath(stagingDir, inputTokenFilePath) {
   return path.join(stagingDir, tokenFilename)
 }
 
-function stageTokenFile(stagingDir, inputTokenFilePath) {
-  fs.copyFileSync(inputTokenFilePath, getOutputTokenPath(stagingDir, inputTokenFilePath))
+async function stageEVMTokenFile(stagingDir, inputTokenFilePath, coingeckoIds) {
+  // Read in the JSON file located at inputTokenFilePath
+  const tokenList = JSON.parse(fs.readFileSync(inputTokenFilePath))
+  const tokenListWithCoingeckoIds = util.injectCoingeckoIds(tokenList, coingeckoIds)
+
+  // Write the output token list to the staging directory
+  await fsPromises.writeFile(
+    getOutputTokenPath(stagingDir, inputTokenFilePath),
+    JSON.stringify(tokenListWithCoingeckoIds, null, 2)
+  )
 }
 
-async function stageMainnetTokenFile(stagingDir, inputTokenFilePath) {
+async function stageMainnetTokenFile(stagingDir, inputTokenFilePath, coingeckoIds) {
   // Read in the JSON file located at inputTokenFilePath
   const tokenList = JSON.parse(fs.readFileSync(inputTokenFilePath, 'utf-8'))
   // Ex.
@@ -38,9 +46,14 @@ async function stageMainnetTokenFile(stagingDir, inputTokenFilePath) {
   // }
 
   const outputTokenList = await util.generateMainnetTokenList(tokenList)
+  const outputTokenListWithExtraAssets = util.contractAddExtraMainnetAssets(outputTokenList)
+  const mainnetTokensWithCoingeckoIds = util.injectCoingeckoIds(outputTokenListWithExtraAssets, coingeckoIds)
  
   // Write the output token list to the staging directory
-  fs.writeFileSync(getOutputTokenPath(stagingDir, inputTokenFilePath), JSON.stringify(outputTokenList, null, 2))
+  await fsPromises.writeFile(
+    getOutputTokenPath(stagingDir, inputTokenFilePath),
+    JSON.stringify(mainnetTokensWithCoingeckoIds, null, 2)
+  )
 }
 
 function stagePackageJson(stagingDir) {
@@ -65,7 +78,7 @@ function stageManifest(stagingDir) {
   fs.copyFileSync(manifestPath, outputManifestPath)
 }
 
-async function stageEVMTokenImages(stagingDir, inputTokenFilePath, addExtraTokens = false) {
+async function stageEVMTokenImages(stagingDir, inputTokenFilePath) {
   const outputTokenFilePath = getOutputTokenPath(stagingDir, inputTokenFilePath);
   const baseSrcTokenPath = path.dirname(inputTokenFilePath)
   // Copy images and convert them to png plus resize to 200x200 if needed
@@ -96,14 +109,6 @@ async function stageEVMTokenImages(stagingDir, inputTokenFilePath, addExtraToken
     }
   }
   util.contractReplaceSvgToPng(outputTokenFilePath)
-  // We can remove this later if we migrate the tokens to
-  // the evm-contract-map.json.
-  // We can't do this yet because we need
-  // to supporpt old builds that are using the token file.
-  // This can be done after April 2022.
-  if (addExtraTokens) {
-    util.contractAddExtraAssetIcons(outputTokenFilePath, imagesDstPath)
-  }
 }
 
 async function compressPng(imagesDstPath, stagingDir) {
@@ -166,7 +171,7 @@ async function stageTokenListsLogo(stagingDir, token) {
   return destFile
 }
 
-async function stageTokenListsTokens(stagingDir, tokens, isEVM = true) {
+async function stageTokenListsTokens(stagingDir, tokens, coingeckoIds, isEVM = true) {
   // Use an asynchronous job queue to throttle downloads.
   const q = new Qyu({concurrency: 2})
   q(tokens, async (token, idx) => {
@@ -196,12 +201,13 @@ async function stageTokenListsTokens(stagingDir, tokens, isEVM = true) {
     }, {})
 }
 
-async function stageSPLTokens(stagingDir) {
+async function stageSPLTokens(stagingDir, coingeckoIds) {
   const tokenMap = JSON.parse(fs.readFileSync(path.join('data', 'solana', 'tokenlist.json')).toString())
   const splTokensArray = tokenMap.tokens
-  const splTokens = await stageTokenListsTokens(stagingDir, splTokensArray, false)
+  const splTokens = await stageTokenListsTokens(stagingDir, splTokensArray, coingeckoIds, false)
+  const splTokensWithCoingeckoIds = await util.injectCoingeckoIds(splTokens, coingeckoIds)
   const splTokensPath = path.join(stagingDir, 'solana-contract-map.json')
-  fs.writeFileSync(splTokensPath, JSON.stringify(splTokens, null, 2))
+  fs.writeFileSync(splTokensPath, JSON.stringify(splTokensWithCoingeckoIds, null, 2))
 }
 
 async function stageDappLists(stagingDir) {
@@ -213,7 +219,8 @@ async function stageDappLists(stagingDir) {
 async function stageCoingeckoIds(stagingDir) {
   const dstPath = path.join(stagingDir, 'coingecko-ids.json')
   const coingeckoIds = await util.generateCoingeckoIds()
-  fs.writeFileSync(dstPath, JSON.stringify(coingeckoIds, null, 2))
+  await fsPromises.writeFile(dstPath, JSON.stringify(coingeckoIds, null, 2))
+  return coingeckoIds
 }
 
 async function stageOnRampLists(stagingDir) {
@@ -248,6 +255,9 @@ async function stageTokenPackage() {
     fs.mkdirSync(stagingDir)
   }
 
+  // Add coingecko-ids.json
+  const coingeckoIds = await stageCoingeckoIds(stagingDir)
+
   const imagesDstPath = path.join(stagingDir, "imagesUncompressed")
   if (!fs.existsSync(imagesDstPath)){
     fs.mkdirSync(imagesDstPath)
@@ -255,16 +265,16 @@ async function stageTokenPackage() {
 
   // Add MetaMask tokens for contract-map.json
   const metamaskTokenPath = path.join('node_modules', '@metamask', 'contract-metadata', 'contract-map.json');
-  await stageMainnetTokenFile(stagingDir, metamaskTokenPath)
-  await stageEVMTokenImages(stagingDir, metamaskTokenPath, true)
+  await stageMainnetTokenFile(stagingDir, metamaskTokenPath, coingeckoIds)
+  await stageEVMTokenImages(stagingDir, metamaskTokenPath)
 
   // Add Brave specific tokens in evm-contract-map.json
   const braveTokenPath = path.join('data', 'evm-contract-map', 'evm-contract-map.json');
-  stageTokenFile(stagingDir, braveTokenPath)
-  await stageEVMTokenImages(stagingDir, braveTokenPath)
+  await stageEVMTokenFile(stagingDir, braveTokenPath, coingeckoIds)
+  await stageEVMTokenImages(stagingDir, braveTokenPath, coingeckoIds)
 
   // Add Solana (SPL) tokens in solana-contract-map.json.
-  await stageSPLTokens(stagingDir)
+  await stageSPLTokens(stagingDir, coingeckoIds)
   await compressPng(imagesDstPath, stagingDir)
   fs.rmSync(imagesDstPath, { recursive: true, force: true });
 
@@ -276,9 +286,6 @@ async function stageTokenPackage() {
 
   // Add on ramp JSON files
   await stageOnRampLists(stagingDir)
-
-  // Add coingecko-ids.json
-  await stageCoingeckoIds(stagingDir)
 
   stagePackageJson(stagingDir)
   stageManifest(stagingDir)

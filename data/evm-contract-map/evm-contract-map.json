@@ -284,7 +284,7 @@
     "erc20": true,
     "symbol": "sUSD",
     "decimals": 18,
-    "coingeckoId": "susd",
+    "coingeckoId": "nusd",
     "chainId": "0xa"
   },
   "0xc5Db22719A06418028A40A9B5E9A7c02959D0d08": {
@@ -320,7 +320,7 @@
     "erc20": true,
     "symbol": "ETH",
     "decimals": 18,
-    "coingeckoId": "ethereum",
+    "coingeckoId": "weth",
     "chainId": "0x38"
   },
   "0x55d398326f99059fF775485246999027B3197955": {
@@ -473,7 +473,7 @@
     "erc20": true,
     "symbol": "BTCB",
     "decimals": 18,
-    "coingeckoId": "bitcoin-bep2",
+    "coingeckoId": "binance-bitcoin",
     "chainId": "0x38"
   },
   "0x14016E85a25aeb13065688cAFB43044C2ef86784": {
@@ -482,7 +482,7 @@
     "erc20": true,
     "symbol": "TUSD",
     "decimals": 18,
-    "coingeckoId": "true-usd",
+    "coingeckoId": "bridged-trueusd",
     "chainId": "0x38"
   },
   "0x101d82428437127bF1608F699CD651e6Abf9766E": {
@@ -536,7 +536,7 @@
     "erc20": true,
     "symbol": "USDT.e",
     "decimals": 6,
-    "coingeckoId": "tether",
+    "coingeckoId": "tether-avalanche-bridged-usdt-e",
     "chainId": "0xa86a"
   },
   "0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7": {
@@ -563,7 +563,7 @@
     "erc20": true,
     "symbol": "USDC.e",
     "decimals": 6,
-    "coingeckoId": "usd-coin",
+    "coingeckoId": "usd-coin-avalanche-bridged-usdc-e",
     "chainId": "0xa86a"
   },
   "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7": {
@@ -725,7 +725,7 @@
     "erc20": true,
     "symbol": "AVAX",
     "decimals": 18,
-    "coingeckoId": "avalanche-2",
+    "coingeckoId": "wrapped-avax",
     "chainId": "0xfa"
   },
   "0x321162Cd933E2Be498Cd2267a90534A804051b11": {
@@ -791,15 +791,6 @@
     "coingeckoId": "curve-dao-token",
     "chainId": "0xfa"
   },
-  "0x4e834cdcc911605227eedddb89fad336ab9dc00a": {
-    "name": "Aave Token",
-    "logo": "aave.png",
-    "erc20": true,
-    "symbol": "AAVE",
-    "decimals": 18,
-    "coingeckoId": "aave",
-    "chainId": "0x4e454152"
-  },
   "0x8bec47865ade3b172a928df8f990bc7f2a3b9f79": {
     "name": "Aurora",
     "logo": "aurora.png",
@@ -809,15 +800,6 @@
     "coingeckoId": "aurora-near",
     "chainId": "0x4e454152"
   },
-  "0xb59d0fdaf498182ff19c4e80c00ecfc4470926e2": {
-    "name": "Balancer",
-    "logo": "balancer.png",
-    "erc20": true,
-    "symbol": "BAL",
-    "decimals": 18,
-    "coingeckoId": "balancer",
-    "chainId": "0x4e454152"
-  },
   "0x2b9025aecc5ce7a8e6880d3e9c6e458927ecba04": {
     "name": "Basic Attention Token",
     "logo": "bat.png",
@@ -825,24 +807,6 @@
     "symbol": "BAT",
     "decimals": 18,
     "coingeckoId": "basic-attention-token",
-    "chainId": "0x4e454152"
-  },
-  "0xdeacf0faa2b80af41470003b5f6cd113d47b4dcd": {
-    "name": "Compound",
-    "logo": "comp.png",
-    "erc20": true,
-    "symbol": "COMP",
-    "decimals": 18,
-    "coingeckoId": "compound-governance-token",
-    "chainId": "0x4e454152"
-  },
-  "0xabe9818c5fb5e751c4310be6f0f18c8d85f9bd7f": {
-    "name": "Cream Finance",
-    "logo": "cream.png",
-    "erc20": true,
-    "symbol": "CREAM",
-    "decimals": 18,
-    "coingeckoId": "cream-2",
     "chainId": "0x4e454152"
   },
   "0xe3520349f477a5f6eb06107066048508498a291b": {
@@ -881,60 +845,6 @@
     "coingeckoId": "frax",
     "chainId": "0x4e454152"
   },
-  "0xc8fdd32e0bf33f0396a18209188bb8c6fb8747d2": {
-    "name": "Frax Share",
-    "logo": "fxs.png",
-    "erc20": true,
-    "symbol": "FXS",
-    "decimals": 18,
-    "coingeckoId": "frax-share",
-    "chainId": "0x4e454152"
-  },
-  "0x94190d8ef039c670c6d6b9990142e0ce2a1e3178": {
-    "name": "ChainLink Token",
-    "logo": "chainlink.png",
-    "erc20": true,
-    "symbol": "LINK",
-    "decimals": 18,
-    "coingeckoId": "chainlink",
-    "chainId": "0x4e454152"
-  },
-  "0x1d1f82d8b8fc72f29a8c268285347563cb6cd8b3": {
-    "name": "Maker",
-    "logo": "mkr.png",
-    "erc20": true,
-    "symbol": "MKR",
-    "decimals": 18,
-    "coingeckoId": "maker",
-    "chainId": "0x4e454152"
-  },
-  "0x18921f1e257038e538ba24d49fa6495c8b1617bc": {
-    "name": "Republic",
-    "logo": "ren.png",
-    "erc20": true,
-    "symbol": "REN",
-    "decimals": 18,
-    "coingeckoId": "republic-protocol",
-    "chainId": "0x4e454152"
-  },
-  "0xdc9be1ff012d3c6da818d136a3b2e5fdd4442f74": {
-    "name": "Synthetix Network Token",
-    "logo": "snx.png",
-    "erc20": true,
-    "symbol": "SNX",
-    "decimals": 18,
-    "coingeckoId": "havven",
-    "chainId": "0x4e454152"
-  },
-  "0x7821c773a12485b12a2b5b7bc451c3eb200986b1": {
-    "name": "SushiToken",
-    "logo": "sushi.png",
-    "erc20": true,
-    "symbol": "SUSHI",
-    "decimals": 18,
-    "coingeckoId": "sushi",
-    "chainId": "0x4e454152"
-  },
   "0x1bc741235ec0ee86ad488fa49b69bb6c823ee7b7": {
     "name": "Uniswap",
     "logo": "uni.png",
@@ -948,7 +858,7 @@
     "name": "USD Coin",
     "logo": "usdc.png",
     "erc20": true,
-    "symbol": "USDC",
+    "symbol": "USDC.e",
     "decimals": 6,
     "coingeckoId": "usd-coin",
     "chainId": "0x4e454152"
@@ -957,7 +867,7 @@
     "name": "Tether USD",
     "logo": "usdt.png",
     "erc20": true,
-    "symbol": "USDT",
+    "symbol": "USDT.e",
     "decimals": 6,
     "coingeckoId": "tether",
     "chainId": "0x4e454152"
@@ -969,15 +879,6 @@
     "symbol": "WBTC",
     "decimals": 8,
     "coingeckoId": "wrapped-bitcoin",
-    "chainId": "0x4e454152"
-  },
-  "0xa64514a8af3ff7366ad3d5daa5a548eefcef85e0": {
-    "name": "yearn.finance",
-    "logo": "yfi.png",
-    "erc20": true,
-    "symbol": "YFI",
-    "decimals": 18,
-    "coingeckoId": "yearn-finance",
     "chainId": "0x4e454152"
   },
   "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d": {
@@ -1034,7 +935,7 @@
     "coingeckoId": "metasoccer",
     "chainId": "0x89"
   },
-  "0x72d6066F486bd0052eefB9114B66ae40e0A6031a": {
+  "0x8e17ed70334C87eCE574C9d537BC153d8609e2a3": {
     "name": "WazirX",
     "logo": "wrx.png",
     "erc20": true,
@@ -1052,13 +953,13 @@
     "coingeckoId": "trust-wallet-token",
     "chainId": "0x38"
   },
-  "0x83e6f1E41cdd28eAcEB20Cb649155049Fac3D5Aa": {
+  "0x7e624FA0E1c4AbFD309cC15719b7E2580887f570": {
     "name": "Polkastarter",
     "logo": "pols.png",
     "erc20": true,
     "symbol": "POLS",
     "decimals": 18,
-    "coingeckoId": "Polkastarter",
+    "coingeckoId": "polkastarter",
     "chainId": "0x38"
   },
   "0xCa3F508B8e4Dd382eE878A314789373D80A5190A": {
@@ -1085,7 +986,7 @@
     "erc20": true,
     "symbol": "STRX",
     "decimals": 18,
-    "coingeckoId": "strikex",
+    "coingeckoId": "strikecoin",
     "chainId": "0x38"
   },
   "0x6e84a6216ea6dacc71ee8e6b0a5b7322eebc0fdd": {
@@ -1107,6 +1008,15 @@
     "chainId": "0xa4b1"
   },
   "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8": {
+    "name": "USD Coin",
+    "logo": "usdc.png",
+    "erc20": true,
+    "symbol": "USDC.e",
+    "decimals": 6,
+    "coingeckoId": "usd-coin-ethereum-bridged",
+    "chainId": "0xa4b1"
+  },
+  "0xaf88d065e77c8cc2239327c5edb3a432268e5831": {
     "name": "USD Coin",
     "logo": "usdc.png",
     "erc20": true,
