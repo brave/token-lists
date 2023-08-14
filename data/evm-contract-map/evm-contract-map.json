@@ -1114,5 +1114,32 @@
     "decimals": 18,
     "coingeckoId": "arbitrum",
     "chainId": "0xa4b1"
+  },
+  "0x50c5725949a6f0c72e6c4a641f24049a917db0cb": {
+    "name": "Dai Stablecoin",
+    "logo": "dai.png",
+    "erc20": true,
+    "symbol": "DAI",
+    "decimals": 18,
+    "coingeckoId": "dai",
+    "chainId": "0x2105"
+  },
+  "0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22": {
+    "name": "Coinbase Wrapped Staked ETH",
+    "logo": "cbeth.png",
+    "erc20": true,
+    "symbol": "cbETH",
+    "decimals": 18,
+    "coingeckoId": "coinbase-wrapped-staked-eth",
+    "chainId": "0x2105"
+  },
+  "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca": {
+    "name": "USD Base Coin",
+    "logo": "usdc.png",
+    "erc20": true,
+    "symbol": "USDbC",
+    "decimals": 6,
+    "coingeckoId": "bridged-usd-coin-base",
+    "chainId": "0x2105"
   }
 }
