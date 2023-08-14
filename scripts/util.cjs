@@ -404,25 +404,13 @@ const generateMainnetTokenList = async (fullTokenList) => {
   }, {})
 }
 
-const generateDappLists = async () => {
+const generateDappListsForChain = async (chain) => {
   const dappRadarProjectId = process.env.DAPP_RADAR_PROJECT_ID
   const dappRadarApiKey = process.env.DAPP_RADAR_API_KEY
-  const chains = [
-    'solana',
-    'ethereum',
-    'polygon',
-    'binance-smart-chain',
-    'optimism',
-    'aurora',
-    'avalanche',
-    'fantom',
-  ]
   const metric = 'uaw'
   const range = '30d'
-  const top = 100
-  const dappLists = {}
 
-  for (let chain of chains) {
+  for (const top of [100, 50, 25, 10]) {
     const url = `https://api.dappradar.com/${dappRadarProjectId}/dapps/top/${metric}?chain=${chain}&range=${range}&top=${top}`
     const response = await fetch(url, {
       headers: {
@@ -431,7 +419,8 @@ const generateDappLists = async () => {
     })
 
     if (!response.ok) {
-      throw new Error(`Error fetching dApps for ${chain}: ${response.status} ${response.statusText}`)
+      console.error(`Error: [chain=${chain} top=${top}] ${response.status} ${response.statusText}`)
+      continue
     }
 
     const dapps = await response.json()
@@ -444,11 +433,30 @@ const generateDappLists = async () => {
 
     // Replace 'binance-smart-chain' with 'binance_smart_chain' so it plays well
     // with the browser JSON parser.
-    if (chain  === 'binance-smart-chain') {
+    if (chain === 'binance-smart-chain') {
       chain = 'binance_smart_chain'
     }
     
-    dappLists[chain] = dapps
+    return dapps
+  }
+
+  throw new Error(`Error fetching dApps for ${chain}`)
+}
+
+const generateDappLists = async () => {
+  const chains = [
+    'solana',
+    'ethereum',
+    'polygon',
+    'binance-smart-chain',
+    'optimism',
+    'aurora',
+    'avalanche',
+    'fantom',
+  ]
+  const dappLists = {}
+  for (let chain of chains) {
+    dappLists[chain] = await generateDappListsForChain(chain)
   }
 
   return dappLists
