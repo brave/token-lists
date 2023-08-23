@@ -533,6 +533,51 @@ const addSupportedCoinbaseTokens = async (rampTokens) => {
     return rampTokens;
 }
 
+
+const addSupportedSardineCurrencies = async (onRampCurrencies) => {
+  const sardine = "sardine"
+  const sardineApiUrl = "https://api.sandbox.sardine.ai/v1/geo-coverage";
+  const response = await fetch(sardineApiUrl);
+  const jsonResponse = await response.json();
+  const currencyCodes = [];
+
+  for (let country of jsonResponse.data) {
+    if (country.isAllowedOnRamp) {
+      if (!currencyCodes.includes(country.currencyCode)) {
+        currencyCodes.push(country.currencyCode);
+      }
+    }
+  }
+
+  // Create a dictionary for quick lookups
+  const currencyLookup = {};
+  onRampCurrencies.currencies.forEach((currency) => {
+    currencyLookup[currency.currency_code] = currency;
+  });
+
+  for (let currencyCode of currencyCodes) {
+    const existingCurrency = currencyLookup[currencyCode];
+
+    if (existingCurrency) {
+      // If "sardine" isn't already in the providers array, add it
+      if (!existingCurrency.providers.includes(sardine)) {
+        existingCurrency.providers.push(sardine);
+      }
+    } else {
+      // If the currency doesn't exist, create a new entry
+      const newCurrency = {
+        currency_code: currencyCode,
+        // currency_name: "", // TODO - This isn't available.
+        providers: [sardine],
+      };
+      onRampCurrencies.currencies.push(newCurrency);
+      currencyLookup[currencyCode] = newCurrency;
+    }
+  }
+
+  return onRampCurrencies
+};
+
 const generateChainList = async () => {
   const chainListResponse = await fetch('https://chainid.network/chains.json')
   if (!chainListResponse.ok) {
@@ -637,6 +682,7 @@ module.exports = {
   generateMainnetTokenList,
   generateDappLists,
   addSupportedCoinbaseTokens,
+  addSupportedSardineCurrencies,
   generateCoingeckoIds,
   generateChainList,
   injectCoingeckoIds
