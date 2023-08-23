@@ -567,7 +567,7 @@ const addSupportedSardineCurrencies = async (onRampCurrencies) => {
       // If the currency doesn't exist, create a new entry
       const newCurrency = {
         currency_code: currencyCode,
-        // currency_name: "", // TODO - This isn't available.
+        currency_name: "",
         providers: [sardine],
       };
       onRampCurrencies.currencies.push(newCurrency);
