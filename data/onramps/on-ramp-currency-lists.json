@@ -33,14 +33,16 @@
       "currency_name": "British pound",
       "providers": [
         "ramp",
-        "transak"
+        "transak",
+        "coinbase"
       ]
     },
     {
       "currency_code": "CAD",
       "currency_name": "Canadian dollar",
       "providers": [
-        "transak"
+        "transak",
+        "coinbase"
       ]
     },
     {
@@ -76,7 +78,8 @@
       "currency_name": "Euro",
       "providers": [
         "ramp",
-        "transak"
+        "transak",
+        "coinbase"
       ]
     },
     {
@@ -211,7 +214,9 @@
       "providers": [
         "ramp",
         "transak",
-        "stripe"
+        "stripe",
+        "sardine",
+        "coinbase"
       ]
     }
   ]
