@@ -244,9 +244,13 @@ async function stageOnRampLists(stagingDir) {
   rampTokens = await util.addSupportedCoinbaseTokens(rampTokens);
   await fsPromises.writeFile(dstRampTokensPath, JSON.stringify(rampTokens, null, 2));
 
+  // on-ramp-currency-lists.json
   const srcOnRampCurrenciesPath = path.join('data', 'onramps', 'on-ramp-currency-lists.json');
   const dstOnRampCurrenciesPath = path.join(stagingDir, 'on-ramp-currency-lists.json');
-  await fsPromises.copyFile(srcOnRampCurrenciesPath, dstOnRampCurrenciesPath);
+  const srcOnRampCurrenciesData = await fsPromises.readFile(srcOnRampCurrenciesPath, 'utf-8');
+  let onRampCurrencies = JSON.parse(srcOnRampCurrenciesData);
+  onRampCurrencies = await util.addSupportedSardineCurrencies(onRampCurrencies);
+  await fsPromises.writeFile(dstOnRampCurrenciesPath, JSON.stringify(onRampCurrencies, null, 2));
 }
 
 async function stageTokenPackage() {
