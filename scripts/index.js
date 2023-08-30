@@ -253,6 +253,12 @@ async function stageOnRampLists(stagingDir) {
   await fsPromises.writeFile(dstOnRampCurrenciesPath, JSON.stringify(onRampCurrencies, null, 2));
 }
 
+async function stageOFACLists(stagingDir) {
+  const ofacLists = util.fetchGitHubRepoTopLevelFiles('brave-intl', 'ofac-sanctioned-digital-currency-addresses', 'lists');
+  const dstOfacListsPath = path.join(stagingDir, 'ofac-sanctioned-digital-currency-addresses.json');
+  await fsPromises.writeFile(dstOfacListsPath, JSON.stringify(ofacLists, null, 2));
+}
+
 async function stageTokenPackage() {
   const stagingDir = 'build'
   if (!fs.existsSync(stagingDir)) {
@@ -290,6 +296,9 @@ async function stageTokenPackage() {
 
   // Add on ramp JSON files
   await stageOnRampLists(stagingDir)
+
+  // Add OFAC banned address lists
+  await stageOFACLists(stagingDir)
 
   stagePackageJson(stagingDir)
   stageManifest(stagingDir)

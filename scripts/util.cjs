@@ -673,6 +673,82 @@ const injectCoingeckoIds = (tokensListMap, coingeckoIds) =>
     return acc
   }, {})
 
+const fetchGitHubFileContent = async (repoOwner, repoName, branch, filePath, githubHeaders) => {
+  const contentApiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}?ref=${branch}`;
+
+  const contentResponse = await fetch(contentApiUrl, { headers: githubHeaders });
+  const contentData = await contentResponse.json();
+
+  if (!contentData.content) {
+    console.error('Failed to fetch content for file:', filePath, contentData.message || 'Unknown error');
+    return '';
+  }
+
+  return Buffer.from(contentData.content, 'base64').toString('utf-8');
+};
+
+const fetchGitHubRepoTopLevelFiles = async (repoOwner, repoName, branch) => {
+  const githubToken = process.env.GITHUB_TOKEN;
+  const githubHeaders = {
+      "Accept": "application/vnd.github.v3+json",
+      "Authorization": `token ${githubToken}`
+  };
+
+  const chainIdLookup = {
+    'ARB': '0xa4b1',
+    'BCH': 'BCH',
+    'BSC': '0x38',
+    'BSV': 'BSV',
+    'BTG': 'BTG',
+    'DASH': 'DASH',
+    'ETC': '0x3d',
+    'ETH': '0x1',
+    'LTC': 'LTC',
+    'USDT': '0x1',
+    'XBT': 'bitcoin_mainnet',
+    'XMR': 'XMR',
+    'XRP': 'XRP',
+    'XVG': 'XVG',
+    'ZEC': 'ZEC'
+  };
+
+  const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/git/trees/${branch}?recursive=1`;
+
+  const response = await fetch(apiUrl, { headers: githubHeaders });
+  const data = await response.json();
+
+  if (!data.tree) {
+    console.error('Failed to fetch files:', data.message);
+    return;
+  }
+
+  const jsonFiles = [];
+  for (const item of data.tree) {
+      if (item.type === 'blob' &&
+          !item.path.includes('/') &&
+          item.path.endsWith('.json') &&
+          item.path !== 'README.md') {
+          jsonFiles.push(item);
+      }
+  }
+
+  const aggregatedData = {};
+  for (const file of jsonFiles) {
+    const content = await fetchGitHubFileContent(repoOwner, repoName, branch, file.path, githubHeaders); 
+    const parsedContent = JSON.parse(content);
+    
+    const chainIdSymbol = file.path.replace('sanctioned_addresses_', '').replace('.json', '');
+
+    const numericalChainId = chainIdLookup[chainIdSymbol];
+
+    aggregatedData[numericalChainId] = parsedContent;
+  }
+
+  console.log(aggregatedData);
+  return aggregatedData
+}
+
+
 module.exports = {
   contractReplaceSvgToPng,
   contractAddExtraMainnetAssets,
@@ -685,5 +761,6 @@ module.exports = {
   addSupportedSardineCurrencies,
   generateCoingeckoIds,
   generateChainList,
-  injectCoingeckoIds
+  injectCoingeckoIds,
+  fetchGitHubRepoTopLevelFiles 
 }
