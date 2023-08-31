@@ -18,6 +18,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Extract branch name
         shell: bash
         run: echo "GITHUB_BRANCH=${GITHUB_REF#refs/heads/}" >> $GITHUB_OUTPUT
@@ -42,15 +43,16 @@ jobs:
           SOLANA_MAINNET_RPC_URL: ${{ secrets.SOLANA_MAINNET_RPC_URL }}
           TRUSTED_TOKEN_LIST_URL: https://cdn.jsdelivr.net/gh/brave/token-lists@${{ steps.extract_branch.outputs.GITHUB_BRANCH }}/data/solana/trusted-tokenlist.json
 
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Update Solana UTL
-          file_pattern: 'data/solana/tokenlist.json'
-
       - name: 'Bump patch version'
         run: npm version patch
 
       - run: yarn start
+
+      # Commit after yarn start
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update Solana UTL
+          file_pattern: 'data/ build/'
 
       - run: git push
 
