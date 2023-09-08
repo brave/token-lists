@@ -30,6 +30,12 @@ async function stageEVMTokenFile(stagingDir, inputTokenFilePath, coingeckoIds) {
   )
 }
 
+async function stageCombinedTokenFile(stagingDir, coingeckoIds) {
+  const dstPath = path.join(stagingDir, 'token-lists.json')
+  const tokenLists = await util.generateTokenList(coingeckoIds)
+  fs.writeFileSync(dstPath, JSON.stringify(tokenLists, null, 2))
+}
+
 async function stageMainnetTokenFile(stagingDir, inputTokenFilePath, coingeckoIds) {
   // Read in the JSON file located at inputTokenFilePath
   const tokenList = JSON.parse(fs.readFileSync(inputTokenFilePath, 'utf-8'))
@@ -266,6 +272,9 @@ async function stageTokenPackage() {
   if (!fs.existsSync(imagesDstPath)){
     fs.mkdirSync(imagesDstPath)
   }
+
+  // Generate combined token list
+  await stageCombinedTokenFile(stagingDir, coingeckoIds)
 
   // Add MetaMask tokens for contract-map.json
   const metamaskTokenPath = path.join('node_modules', '@metamask', 'contract-metadata', 'contract-map.json');
