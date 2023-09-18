@@ -1,10 +1,10 @@
 {
   "name": "token-lists",
-  "version": "1.11.0",
+  "version": "1.12.0",
   "description": "Manages custom token lists for Brave Wallet",
   "dependencies": {
     "@metamask/contract-metadata": "git+https://git@github.com/MetaMask/contract-metadata.git",
-    "@solflare-wallet/utl-aggregator": "^0.0.11",
+    "@solflare-wallet/utl-aggregator": "^0.0.14",
     "node-fetch": "2",
     "nodejs-file-downloader": "^4.9.3",
     "qyu": "^0.4.7",

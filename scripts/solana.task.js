@@ -1,13 +1,12 @@
 import path from 'path'
 import fs from 'fs'
-import fsPromises from 'fs/promises'
 
 import {
-  ChainId,
   Generator,
   ProviderCoinGecko,
-  ProviderTrusted
-} from '@solflare-wallet/utl-aggregator'
+  ProviderTrusted,
+  ChainId
+} from "@solflare-wallet/utl-aggregator"
 
 async function generateTokensList () {
   const trustedTokenList =
