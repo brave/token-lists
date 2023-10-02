@@ -694,26 +694,7 @@ const fetchGitHubRepoTopLevelFiles = async (repoOwner, repoName, branch) => {
       "Authorization": `token ${githubToken}`
   };
 
-  const chainIdLookup = {
-    'ARB': '0xa4b1',
-    'BCH': 'BCH',
-    'BSC': '0x38',
-    'BSV': 'BSV',
-    'BTG': 'BTG',
-    'DASH': 'DASH',
-    'ETC': '0x3d',
-    'ETH': '0x1',
-    'LTC': 'LTC',
-    'USDT': '0x1',
-    'XBT': 'bitcoin_mainnet',
-    'XMR': 'XMR',
-    'XRP': 'XRP',
-    'XVG': 'XVG',
-    'ZEC': 'ZEC'
-  };
-
   const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/git/trees/${branch}?recursive=1`;
-
   const response = await fetch(apiUrl, { headers: githubHeaders });
   const data = await response.json();
 
@@ -732,20 +713,15 @@ const fetchGitHubRepoTopLevelFiles = async (repoOwner, repoName, branch) => {
       }
   }
 
-  const aggregatedData = {};
+  let bannedAddresses = []
   for (const file of jsonFiles) {
     const content = await fetchGitHubFileContent(repoOwner, repoName, branch, file.path, githubHeaders); 
-    const parsedContent = JSON.parse(content);
-    
-    const chainIdSymbol = file.path.replace('sanctioned_addresses_', '').replace('.json', '');
-
-    const numericalChainId = chainIdLookup[chainIdSymbol];
-
-    aggregatedData[numericalChainId] = parsedContent;
+    const bannedAddressesForFile = JSON.parse(content);
+    bannedAddresses = [...bannedAddressesForFile, ...bannedAddresses]
   }
+  bannedAddresses = [...new Set(bannedAddresses)]
 
-  console.log(aggregatedData);
-  return aggregatedData
+  return {"bannedAddresses": bannedAddresses}
 }
 
 

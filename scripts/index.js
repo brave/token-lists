@@ -254,7 +254,7 @@ async function stageOnRampLists(stagingDir) {
 }
 
 async function stageOFACLists(stagingDir) {
-  const ofacLists = util.fetchGitHubRepoTopLevelFiles('brave-intl', 'ofac-sanctioned-digital-currency-addresses', 'lists');
+  const ofacLists = await util.fetchGitHubRepoTopLevelFiles('brave-intl', 'ofac-sanctioned-digital-currency-addresses', 'lists');
   const dstOfacListsPath = path.join(stagingDir, 'ofac-sanctioned-digital-currency-addresses.json');
   await fsPromises.writeFile(dstOfacListsPath, JSON.stringify(ofacLists, null, 2));
 }
