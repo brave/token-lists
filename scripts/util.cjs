@@ -721,7 +721,7 @@ const fetchGitHubRepoTopLevelFiles = async (repoOwner, repoName, branch) => {
   }
   bannedAddresses = [...new Set(bannedAddresses)]
 
-  return {"bannedAddresses": bannedAddresses}
+  return {"addresses": bannedAddresses}
 }
 
 
