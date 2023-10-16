@@ -688,7 +688,7 @@ const fetchGitHubFileContent = async (repoOwner, repoName, branch, filePath, git
 };
 
 const fetchGitHubRepoTopLevelFiles = async (repoOwner, repoName, branch) => {
-  const githubToken = process.env.GITHUB_TOKEN;
+  const githubToken = process.env.API_AUTH_TOKEN_GITHUB;
   const githubHeaders = {
       "Accept": "application/vnd.github.v3+json",
       "Authorization": `token ${githubToken}`
