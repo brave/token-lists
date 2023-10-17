@@ -673,6 +673,58 @@ const injectCoingeckoIds = (tokensListMap, coingeckoIds) =>
     return acc
   }, {})
 
+const fetchGitHubFileContent = async (repoOwner, repoName, branch, filePath, githubHeaders) => {
+  const contentApiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}?ref=${branch}`;
+
+  const contentResponse = await fetch(contentApiUrl, { headers: githubHeaders });
+  const contentData = await contentResponse.json();
+
+  if (!contentData.content) {
+    console.error('Failed to fetch content for file:', filePath, contentData.message || 'Unknown error');
+    return '';
+  }
+
+  return Buffer.from(contentData.content, 'base64').toString('utf-8');
+};
+
+const fetchGitHubRepoTopLevelFiles = async (repoOwner, repoName, branch) => {
+  const githubToken = process.env.API_AUTH_TOKEN_GITHUB;
+  const githubHeaders = {
+      "Accept": "application/vnd.github.v3+json",
+      "Authorization": `token ${githubToken}`
+  };
+
+  const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/git/trees/${branch}?recursive=1`;
+  const response = await fetch(apiUrl, { headers: githubHeaders });
+  const data = await response.json();
+
+  if (!data.tree) {
+    console.error('Failed to fetch files:', data.message);
+    return;
+  }
+
+  const jsonFiles = [];
+  for (const item of data.tree) {
+      if (item.type === 'blob' &&
+          !item.path.includes('/') &&
+          item.path.endsWith('.json') &&
+          item.path !== 'README.md') {
+          jsonFiles.push(item);
+      }
+  }
+
+  let bannedAddresses = []
+  for (const file of jsonFiles) {
+    const content = await fetchGitHubFileContent(repoOwner, repoName, branch, file.path, githubHeaders); 
+    const bannedAddressesForFile = JSON.parse(content);
+    bannedAddresses = [...bannedAddressesForFile, ...bannedAddresses]
+  }
+  bannedAddresses = [...new Set(bannedAddresses)]
+
+  return {"addresses": bannedAddresses}
+}
+
+
 module.exports = {
   contractReplaceSvgToPng,
   contractAddExtraMainnetAssets,
@@ -685,5 +737,6 @@ module.exports = {
   addSupportedSardineCurrencies,
   generateCoingeckoIds,
   generateChainList,
-  injectCoingeckoIds
+  injectCoingeckoIds,
+  fetchGitHubRepoTopLevelFiles 
 }
