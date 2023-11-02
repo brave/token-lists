@@ -431,12 +431,6 @@ const generateDappListsForChain = async (chain) => {
       return filteredDapp
     })
 
-    // Replace 'binance-smart-chain' with 'binance_smart_chain' so it plays well
-    // with the browser JSON parser.
-    if (chain === 'binance-smart-chain') {
-      chain = 'binance_smart_chain'
-    }
-    
     return dapps
   }
 
@@ -456,7 +450,14 @@ const generateDappLists = async () => {
   ]
   const dappLists = {}
   for (let chain of chains) {
-    dappLists[chain] = await generateDappListsForChain(chain)
+    const dapps = await generateDappListsForChain(chain)
+    // Replace 'binance-smart-chain' with 'binance_smart_chain' so it plays well
+    // with the browser JSON parser.
+    if (chain === 'binance-smart-chain') {
+      chain = 'binance_smart_chain'
+    }
+
+    dappLists[chain] = dapps
   }
 
   return dappLists
