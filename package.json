@@ -21,7 +21,8 @@
     "got": ">=11.8.5",
     "bin-build": "github:brave/bin-build#da4209b",
     "bin-wrapper": "github:brave/bin-wrapper#4bc5c9e",
-    "download": "github:brave/download#c9c2589"
+    "download": "github:brave/download#c9c2589",
+    "axios": ">=1.6.0"
   },
   "main": "index.js",
   "scripts": {
