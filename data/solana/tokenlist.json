@@ -11,7 +11,7 @@
       "description": ""
     }
   },
-  "timestamp": "2023-12-12T15:30:48.187Z",
+  "timestamp": "2023-12-12T18:02:54.203Z",
   "tokens": [
     {
       "chainId": 101,
@@ -3413,6 +3413,20 @@
       "holders": null,
       "extensions": {
         "coingeckoId": "nfteyez"
+      }
+    },
+    {
+      "chainId": 101,
+      "name": "Ninja Protocol",
+      "symbol": "NINJA",
+      "address": "FgX1WD9WzMU3yLwXaFSarPfkgzjLb2DZCqmkx9ExpuvJ",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/18442/large/ninja.PNG?1696517930",
+      "tags": [],
+      "verified": true,
+      "holders": null,
+      "extensions": {
+        "coingeckoId": "ninja-protocol"
       }
     },
     {
