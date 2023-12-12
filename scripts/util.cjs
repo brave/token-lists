@@ -442,7 +442,7 @@ const generateDappLists = async () => {
     'solana',
     'ethereum',
     'polygon',
-    'binance-smart-chain',
+    'bnb-chain',
     'optimism',
     'aurora',
     'avalanche',
@@ -451,9 +451,9 @@ const generateDappLists = async () => {
   const dappLists = {}
   for (let chain of chains) {
     const dapps = await generateDappListsForChain(chain)
-    // Replace 'binance-smart-chain' with 'binance_smart_chain' so it plays well
+    // Replace 'bnb-chain' with 'binance_smart_chain' so it plays well
     // with the browser JSON parser.
-    if (chain === 'binance-smart-chain') {
+    if (chain === 'bnb-chain') {
       chain = 'binance_smart_chain'
     }
 
