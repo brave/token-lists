@@ -659,6 +659,7 @@ const injectCoingeckoIds = (tokensListMap, coingeckoIds) =>
         `[WARN] Coingecko ID missing:
         chainId=${token.chainId} contract=${contractAddress}`
       )
+      acc[contractAddress] = token
       return acc
     }
 
@@ -667,6 +668,7 @@ const injectCoingeckoIds = (tokensListMap, coingeckoIds) =>
         `[ERR] Coingecko ID mismatch:
         want=${coingeckoId} got=${token.coingeckoId} contract=${contractAddress}`
       )
+      acc[contractAddress] = token
       return acc
     }
 
