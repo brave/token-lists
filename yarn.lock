@@ -9,16 +9,6 @@
   dependencies:
     regenerator-runtime "^0.14.0"
 
-"@brave/utl-aggregator@^0.0.15":
-  version "0.0.15"
-  resolved "https://registry.yarnpkg.com/@brave/utl-aggregator/-/utl-aggregator-0.0.15.tgz#6714ceadc7cbec52a16e319861684fe333936f14"
-  integrity sha512-cqKrb5pne9htOU1fER1+BmN7XDIDfWk/Hm+9KRAxbn1ReqU6Y7mlwxIcYwEEtsPIngpdf7sOcG5rinbc/NJNaw==
-  dependencies:
-    axios "^0.27.2"
-    axios-retry "^3.2.5"
-    lodash "^4.17.21"
-    temp-dir "^2.0.0"
-
 "@metamask/contract-metadata@git+https://git@github.com/MetaMask/contract-metadata.git":
   version "2.4.0"
   resolved "git+https://git@github.com/MetaMask/contract-metadata.git#11c438db97ecdc075ce28b03f13dc94f174eaee9"
@@ -48,6 +38,16 @@
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-6.1.0.tgz#71a4ca5171888fb7fc36c6d1ff3604b0a5e43555"
   integrity sha512-BuvU07zq3tQ/2SIgBsEuxKYDyDjC0n7Zir52bpHy2xnBbW81+po43aLFPLbeV3HRAheFbGud1qgcqSYfhtHMAg==
+
+"@solflare-wallet/utl-aggregator@^0.0.14":
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/@solflare-wallet/utl-aggregator/-/utl-aggregator-0.0.14.tgz#96d0e59fd58d85325b57cac36f3ea78185edaf4a"
+  integrity sha512-/+TtWeh69BiDJzu0OrIJY9im0DXFhRxNVSqpzaoz492DH0VtgqDqbagJUgJlR9lB5fhbyl9ggUi6moES2P6o/A==
+  dependencies:
+    axios "^0.27.2"
+    axios-retry "^3.2.5"
+    lodash "^4.17.21"
+    temp-dir "^2.0.0"
 
 "@szmarczak/http-timer@^5.0.1":
   version "5.0.1"

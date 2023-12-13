@@ -1,35 +1,30 @@
 import path from "path";
 import fs from "fs";
+import axios from "axios";
 
 import {
   Generator,
   ProviderCoinGecko,
-  ProviderTrusted,
   ProviderIgnore,
   ChainId,
   Tag,
-} from "@brave/utl-aggregator";
+} from "@solflare-wallet/utl-aggregator";
 
 const sec = 1000;
 
 async function generateTokensList() {
-  const trustedTokenList =
+  const trustedTokenListUrl =
     process.env.TRUSTED_TOKEN_LIST_URL ??
     "https://cdn.jsdelivr.net/gh/brave/token-lists@main/data/solana/trusted-tokenlist.json";
+
+  const trustedTokenListResp = await axios.get(trustedTokenListUrl);
+  const trustedTokenList = trustedTokenListResp.data;
+
   const coinGeckoApiKey = process.env.COINGECKO_API_KEY ?? null;
   const rpcUrlMainnet = process.env.SOLANA_MAINNET_RPC_URL;
 
   const generator = new Generator(
     [
-      ...(trustedTokenList
-        ? [
-            new ProviderTrusted(
-              trustedTokenList,
-              [Tag.LP_TOKEN],
-              ChainId.MAINNET
-            ),
-          ]
-        : []),
       new ProviderCoinGecko(coinGeckoApiKey, rpcUrlMainnet, {
         throttle: 200,
         throttleCoinGecko: 65 * sec,
@@ -47,9 +42,14 @@ async function generateTokensList() {
   );
 
   const tokenMap = await generator.generateTokenList();
+  const tokenMapWithTrustedList = {
+    ...tokenMap,
+    tokens: [...tokenMap.tokens, ...trustedTokenList.tokens],
+  };
+
   fs.writeFileSync(
     path.join("data", "solana", "tokenlist.json"),
-    JSON.stringify(tokenMap, null, 2)
+    JSON.stringify(tokenMapWithTrustedList, null, 2)
   );
   return tokenMap;
 }
