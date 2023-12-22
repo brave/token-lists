@@ -1,10 +1,7 @@
 {
   "name": "Brave-trusted Solana Token List",
   "logoURI": "",
-  "keywords": [
-    "solana",
-    "spl"
-  ],
+  "keywords": ["solana", "spl"],
   "tags": {
     "lp-token": {
       "name": "lp-token",
@@ -20,15 +17,36 @@
       "name": "Basic Attention Token (Portal)",
       "decimals": 8,
       "logoURI": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPeUFDgHRxs9xxEPVaL6kfGQvCon7jmAWKVUHuux1Tpz/logo.png",
-      "tags": [
-        "wrapped",
-        "wormhole"
-      ],
+      "tags": ["wrapped", "wormhole"],
       "extensions": {
         "address": "0x0D8775F648430679A709E98d2b0Cb6250d2887EF",
         "assetContract": "https://etherscan.io/address/0x0D8775F648430679A709E98d2b0Cb6250d2887EF",
         "bridgeContract": "https://etherscan.io/address/0x3ee18B2214AFF97000D974cf647E7C347E8fa585",
         "coingeckoId": "basic-attention-token"
+      }
+    },
+    {
+      "chainId": 101,
+      "address": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+      "symbol": "BONK",
+      "name": "Bonk",
+      "decimals": 5,
+      "logoURI": "https://assets.coingecko.com/coins/images/28600/standard/bonk.jpg",
+      "tags": [],
+      "extensions": {
+        "coingeckoId": "bonk"
+      }
+    },
+    {
+      "chainId": 101,
+      "address": "EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm",
+      "symbol": "$WIF",
+      "name": "dogwifhat",
+      "decimals": 5,
+      "logoURI": "https://assets.coingecko.com/coins/images/33566/standard/dogwifhat.jpg",
+      "tags": [],
+      "extensions": {
+        "coingeckoId": "dogwifcoin"
       }
     }
   ]
