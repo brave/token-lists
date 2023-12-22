@@ -1,5 +1,30 @@
 {
     "tokens": [
+      {
+            "chain_id": "bitcoin_mainnet",
+            "coin": 0,
+            "coingecko_id": "",
+            "contract_address": "",
+            "decimals": 8,
+            "is_erc1155": false,
+            "is_erc20": false,
+            "is_erc721": false,
+            "is_nft": false,
+            "logo": "",
+            "name": "Bitcoin",
+            "symbol": "BTC",
+            "token_id": "",
+            "visible": true,
+            "on_ramp_providers": [
+                "ramp",
+                "sardine",
+                "transak",
+                "stripe"
+            ],
+            "off_ramp_providers": [
+                "ramp"
+            ]
+        },
         {
             "chain_id": "0x1",
             "coin": 60,
