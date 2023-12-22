@@ -44,7 +44,13 @@ async function generateTokensList() {
   const tokenMap = await generator.generateTokenList();
   const tokenMapWithTrustedList = {
     ...tokenMap,
-    tokens: [...tokenMap.tokens, ...trustedTokenList.tokens],
+    tokens: [
+      ...tokenMap.tokens,
+      ...trustedTokenList.tokens.filter(
+        (token) =>
+          tokenMap.tokens.findIndex((t) => t.address === token.address) === -1
+      ),
+    ],
   };
 
   fs.writeFileSync(
