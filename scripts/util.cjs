@@ -6,7 +6,7 @@ const sharp = require("sharp")
 const fetch = require("node-fetch")
 const { extension } = require("mime-types")
 const { https } = require("follow-redirects")
-const trustedCoingeckoIds = require('../data/solana/trusted-coingecko-ids.json')
+const trustedCoingeckoIdsByChainId = require("../data/solana/trusted-coingecko-ids.json")
 
 const contractReplaceSvgToPng = (file) => {
   const data = JSON.parse(fs.readFileSync(file))
@@ -664,7 +664,7 @@ const generateCoingeckoIds = async () => {
     return acc
   }, {})
 
-  const coingeckoIds = coinList.reduce((acc, coin) => {
+  const coingeckoIdsByChainId = coinList.reduce((acc, coin) => {
     Object.entries(coin.platforms).forEach(([platform, contractAddress]) => {
       const chainId = assetPlatformsMap[platform]
       if (!chainId || !contractAddress) {
@@ -685,9 +685,12 @@ const generateCoingeckoIds = async () => {
   }, {})
 
   return Object.fromEntries(
-    Object.keys(coingeckoIds).map((chainId) => [
+    Object.keys(coingeckoIdsByChainId).map((chainId) => [
       chainId,
-      { ...coingeckoIds[chainId], ...trustedCoingeckoIds[chainId] }
+      {
+        ...coingeckoIdsByChainId[chainId],
+        ...trustedCoingeckoIdsByChainId[chainId],
+      },
     ])
   )
 }
