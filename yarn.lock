@@ -39,10 +39,10 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-6.1.0.tgz#71a4ca5171888fb7fc36c6d1ff3604b0a5e43555"
   integrity sha512-BuvU07zq3tQ/2SIgBsEuxKYDyDjC0n7Zir52bpHy2xnBbW81+po43aLFPLbeV3HRAheFbGud1qgcqSYfhtHMAg==
 
-"@solflare-wallet/utl-aggregator@^0.0.14":
-  version "0.0.14"
-  resolved "https://registry.yarnpkg.com/@solflare-wallet/utl-aggregator/-/utl-aggregator-0.0.14.tgz#96d0e59fd58d85325b57cac36f3ea78185edaf4a"
-  integrity sha512-/+TtWeh69BiDJzu0OrIJY9im0DXFhRxNVSqpzaoz492DH0VtgqDqbagJUgJlR9lB5fhbyl9ggUi6moES2P6o/A==
+"@solflare-wallet/utl-aggregator@^0.0.15":
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/@solflare-wallet/utl-aggregator/-/utl-aggregator-0.0.15.tgz#e4e4f9fdab08caae1a14d9d3c8dd9a43b7bb1a12"
+  integrity sha512-OQSgzmtmcqdD6/t1voqmKXgkJaRvUgOZJ3xWA3hXydVTw91qYjxRWbOsVU99n93QySm01nKHOkPTh6E+hckJfg==
   dependencies:
     axios "^0.27.2"
     axios-retry "^3.2.5"
