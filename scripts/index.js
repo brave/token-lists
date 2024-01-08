@@ -182,7 +182,7 @@ async function stageTokenListsLogo(stagingDir, token) {
 
 async function stageTokenListsTokens(stagingDir, tokens, coingeckoIds, isEVM = true) {
   // Use an asynchronous job queue to throttle downloads.
-  const q = new Qyu({concurrency: 2})
+  const q = new Qyu({concurrency: 4})
   q(tokens, async (token, idx) => {
     tokens[idx].logoURI = await stageTokenListsLogo(stagingDir, token)
   })
