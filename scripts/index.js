@@ -112,18 +112,18 @@ async function stageEVMTokenImages(stagingDir, inputTokenFilePath) {
 }
 
 async function compressPng(imagesDstPath, stagingDir) {
-  console.log('compressing png images...')
-  if (!fs.existsSync(stagingDir + '/images')) {
-    fs.mkdirSync(stagingDir + '/images')
+  console.log("compressing png images...")
+  if (!fs.existsSync(stagingDir + "/images")) {
+    fs.mkdirSync(stagingDir + "/images")
   }
   await imagemin([imagesDstPath + "/*.png"], {
-      destination: stagingDir + '/images',
-      plugins: [
-        imageminPngquant({
-          quality: [0.1, 0.3]
-        })
-      ]
-    })
+    destination: stagingDir + "/images",
+    plugins: [
+      imageminPngquant({
+        quality: [0.1, 0.3],
+      }),
+    ],
+  })
 }
 
 async function stageTokenListsLogo(stagingDir, token) {
@@ -182,7 +182,7 @@ async function stageTokenListsLogo(stagingDir, token) {
 
 async function stageTokenListsTokens(stagingDir, tokens, coingeckoIds, isEVM = true) {
   // Use an asynchronous job queue to throttle downloads.
-  const q = new Qyu({concurrency: 4})
+  const q = new Qyu({concurrency: 2})
   q(tokens, async (token, idx) => {
     tokens[idx].logoURI = await stageTokenListsLogo(stagingDir, token)
   })
