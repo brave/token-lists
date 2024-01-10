@@ -1,27 +1,50 @@
 # token-lists
 
+[![Build](https://github.com/brave/token-lists/actions/workflows/build.yml/badge.svg)](https://github.com/brave/token-lists/actions/workflows/build.yml) [![npm version](https://badge.fury.io/js/brave-wallet-lists.svg)](https://badge.fury.io/js/brave-wallet-lists)
+
 Manages custom token lists for Brave Wallet
 
 ## Automated Publishing
 
-We have the following setup in place to automatically build and publish
-token-lists to wallet data files.
-
-1. A **daily** cron job on [GitHub Actions](https://github.com/brave/token-lists/blob/main/.github/workflows/solana-tokenlist.yml) that performs the following tasks:
-   1. use `@solflare-wallet/utl-aggregator` to fetch the top SPL tokens on CoinGecko.
-   2. commit the above list to `data/solana/tokenlist.json`.
-   3. download and post-process token logos, and build a new NPM package.
-   4. publish the above NPM package.
-2. A **weekly** cron job on [Jenkins](https://github.com/brave/devops/blob/master/jenkins/jobs/extensions/brave-core-ext-wallet-data-files-update-publish.yml) that publishes the latest NPM package
-  (in 1.iv) to wallet data files.
-
-The purpose of 2 independent cron jobs is to factor in flakiness of 1., and
-avoid performing PNG post-processing in 2.
+We have setup a **weekly** cron job on [Jenkins](https://github.com/brave/devops/blob/master/jenkins/jobs/extensions/brave-core-ext-wallet-data-files-update-publish.yml) that publishes the latest NPM package to wallet data files.
 
 ## Development
 
-To test out the output of this package you have to use a docker. It has been
-tested on Linux and macOS:
+### Ubuntu
+
+- Install system dependencies.
+
+  ```bash
+  sudo apt install librsvg2-bin libimagequant-dev pkg-config
+  ```
+
+- Ensure you have the required node version and `yarn` installed.
+
+- Install dependencies and run the build script.
+
+  ```bash
+  yarn
+  yarn start
+  ```
+
+### MacOS
+
+- Install system dependencies.
+
+  ```bash
+  brew install librsvg libimagequant pkg-config
+  ```
+
+- Ensure you have the required node version and `yarn` installed.
+
+- Install dependencies and run the build script.
+
+  ```bash
+  yarn
+  yarn start
+  ```
+
+### Docker
 
 - Install [docker](https://runnable.com/docker/)
 - Create a docker image `docker build -t token-lists .`
@@ -30,11 +53,10 @@ tested on Linux and macOS:
 
 ## Publishing token list to npm
 
-[brave/brave-core-crx-packager](https://github.com/brave/brave-core-crx-packager) uses the npm package published [here brave-wallet-lists](https://www.npmjs.com/package/brave-wallet-lists).
+[brave/brave-core-crx-packager](https://github.com/brave/brave-core-crx-packager) uses the npm package published [here brave-wallet-lists](https://www.npmjs.com/package/brave-wallet-lists). It will be automatically published when your
+PR is merged and a new release is created.
 
-It will be automatically published when your PR is merged and release is created.
-
-This outputs a no dependency package with output images and token lists.
+This produces a zero-dependency package with output images and token lists.
 
 ## Testing a deployment
 
