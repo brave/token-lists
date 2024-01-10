@@ -14,7 +14,7 @@ env:
 jobs:
   audit:
     # The type of runner that the job will run on
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -24,7 +24,8 @@ jobs:
         with:
           node-version: '20.x'
           registry-url: 'https://registry.npmjs.org'
-      - run: brew install librsvg libimagequant pkg-config
+      - run: sudo apt-get update -y
+      - run: sudo apt-get install -y librsvg2-bin libimagequant-dev pkg-config
       - run: npm install -g yarn
       - run: yarn --version
       - run: yarn
