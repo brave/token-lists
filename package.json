@@ -6,7 +6,7 @@
     "@metamask/contract-metadata": "git+https://git@github.com/MetaMask/contract-metadata.git",
     "follow-redirects": "^1.15.4",
     "mime-types": "^2.1.35",
-    "node-fetch": "2",
+    "node-fetch": "3",
     "qyu": "^0.4.7",
     "sharp": "^0.32.6",
     "svg-resizer": "git+https://git@github.com/brave/svg-resizer.git"
