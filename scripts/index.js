@@ -63,7 +63,7 @@ function stagePackageJson(stagingDir) {
   packageJson.devDependencies = {}
   packageJson.dependencies = {}
   packageJson.engines = {}
-  fs.writeFileSync(path.join(stagingDir, 'package.json'), JSON.stringify(packageJson, null, 2));
+  fs.writeFileSync(path.join(stagingDir, 'package.json'), JSON.stringify(packageJson, null, 2))
 }
 
 async function stageChainListJson(stagingDir) {
@@ -73,13 +73,13 @@ async function stageChainListJson(stagingDir) {
 }
 
 function stageManifest(stagingDir) {
-  const manifestPath = path.join('data', 'manifest.json');
-  const outputManifestPath = path.join(stagingDir, 'manifest.json');
+  const manifestPath = path.join('data', 'manifest.json')
+  const outputManifestPath = path.join(stagingDir, 'manifest.json')
   fs.copyFileSync(manifestPath, outputManifestPath)
 }
 
 async function stageEVMTokenImages(stagingDir, inputTokenFilePath) {
-  const outputTokenFilePath = getOutputTokenPath(stagingDir, inputTokenFilePath);
+  const outputTokenFilePath = getOutputTokenPath(stagingDir, inputTokenFilePath)
   const baseSrcTokenPath = path.dirname(inputTokenFilePath)
   // Copy images and convert them to png plus resize to 200x200 if needed
   const imagesSrcPath = path.join(baseSrcTokenPath, "images")
@@ -112,18 +112,18 @@ async function stageEVMTokenImages(stagingDir, inputTokenFilePath) {
 }
 
 async function compressPng(imagesDstPath, stagingDir) {
-  console.log('compressing png images...')
-  if (!fs.existsSync(stagingDir + '/images')) {
-    fs.mkdirSync(stagingDir + '/images')
+  console.log("compressing png images...")
+  if (!fs.existsSync(stagingDir + "/images")) {
+    fs.mkdirSync(stagingDir + "/images")
   }
   await imagemin([imagesDstPath + "/*.png"], {
-      destination: stagingDir + '/images',
-      plugins: [
-        imageminPngquant({
-          quality: [0.1, 0.3]
-        })
-      ]
-    })
+    destination: stagingDir + "/images",
+    plugins: [
+      imageminPngquant({
+        quality: [0.1, 0.3],
+      }),
+    ],
+  })
 }
 
 async function stageTokenListsLogo(stagingDir, token) {
@@ -139,18 +139,26 @@ async function stageTokenListsLogo(stagingDir, token) {
     return logoURI
   }
 
-  let extension = path.extname(logoURI.split('?')[0])
-  if (extension === ".") {
-    extension = ""
-  }
-  const sourceFile = `${address}${extension}`
-  const destFile = `${address}.png`
-  const sourceFilePath = path.join(os.tmpdir(), sourceFile)
+  const url = new URL(logoURI)
+  const extensionQuery = url.searchParams.get("ext")
+  const extension =
+    extensionQuery ?? path.extname(url.href.split("?")[0]).replace('.', '') ?? ""
+
+  const directory = os.tmpdir()
+  let sourceFilePath
 
   try {
-    await util.download(logoURI, sourceFile)
+    sourceFilePath = await util.download(
+      url.href,
+      directory,
+      address,
+      extension
+    )
   } catch (err) {
-    console.log(err)
+    return ''
+  }
+
+  if (!sourceFilePath) {
     return ''
   }
 
@@ -158,6 +166,7 @@ async function stageTokenListsLogo(stagingDir, token) {
   // challenge.
   await new Promise(r => setTimeout(r, 800))
 
+  const destFile = `${address}.png`
   try {
     await util.saveToPNGResize(
       sourceFilePath,
@@ -202,8 +211,7 @@ async function stageTokenListsTokens(stagingDir, tokens, coingeckoIds, isEVM = t
 }
 
 async function stageSPLTokens(stagingDir, coingeckoIds) {
-  const tokenMap = JSON.parse(fs.readFileSync(path.join('data', 'solana', 'tokenlist.json')).toString())
-  const splTokensArray = tokenMap.tokens
+  const splTokensArray = await util.fetchJupiterTokensList()
   const splTokens = await stageTokenListsTokens(stagingDir, splTokensArray, coingeckoIds, false)
   const splTokensWithCoingeckoIds = await util.injectCoingeckoIds(splTokens, coingeckoIds)
   const splTokensPath = path.join(stagingDir, 'solana-contract-map.json')
@@ -226,37 +234,37 @@ async function stageCoingeckoIds(stagingDir) {
 async function stageOnRampLists(stagingDir) {
   // The on-ramp-token-lists.json file is no longer used by the release version of the
   // browser.  It will be safe to remove in July, 2024.
-  const srcOnRampTokensPath = path.join('data', 'onramps', 'on-ramp-token-lists.json');
-  const dstOnRampTokensPath = path.join(stagingDir, 'on-ramp-token-lists.json');
-  await fsPromises.copyFile(srcOnRampTokensPath, dstOnRampTokensPath);
+  const srcOnRampTokensPath = path.join('data', 'onramps', 'on-ramp-token-lists.json')
+  const dstOnRampTokensPath = path.join(stagingDir, 'on-ramp-token-lists.json')
+  await fsPromises.copyFile(srcOnRampTokensPath, dstOnRampTokensPath)
 
   // The off-ramp-token-lists.json file is no longer used by the release version of the
   // browser.  It will be safe to remove in July, 2024.
-  const srcOffRampTokensPath = path.join('data', 'onramps', 'off-ramp-token-lists.json');
-  const dstOffRampTokensPath = path.join(stagingDir, 'off-ramp-token-lists.json');
-  await fsPromises.copyFile(srcOffRampTokensPath, dstOffRampTokensPath);
+  const srcOffRampTokensPath = path.join('data', 'onramps', 'off-ramp-token-lists.json')
+  const dstOffRampTokensPath = path.join(stagingDir, 'off-ramp-token-lists.json')
+  await fsPromises.copyFile(srcOffRampTokensPath, dstOffRampTokensPath)
 
   // ramp-tokens.json
-  const srcRampTokensPath = path.join('data', 'onramps', 'ramp-tokens.json');
-  const dstRampTokensPath = path.join(stagingDir, 'ramp-tokens.json');
-  const srcRampTokensData = await fsPromises.readFile(srcRampTokensPath, 'utf-8');
-  let rampTokens = JSON.parse(srcRampTokensData);
-  rampTokens = await util.addSupportedCoinbaseTokens(rampTokens);
-  await fsPromises.writeFile(dstRampTokensPath, JSON.stringify(rampTokens, null, 2));
+  const srcRampTokensPath = path.join('data', 'onramps', 'ramp-tokens.json')
+  const dstRampTokensPath = path.join(stagingDir, 'ramp-tokens.json')
+  const srcRampTokensData = await fsPromises.readFile(srcRampTokensPath, 'utf-8')
+  let rampTokens = JSON.parse(srcRampTokensData)
+  rampTokens = await util.addSupportedCoinbaseTokens(rampTokens)
+  await fsPromises.writeFile(dstRampTokensPath, JSON.stringify(rampTokens, null, 2))
 
   // on-ramp-currency-lists.json
-  const srcOnRampCurrenciesPath = path.join('data', 'onramps', 'on-ramp-currency-lists.json');
-  const dstOnRampCurrenciesPath = path.join(stagingDir, 'on-ramp-currency-lists.json');
-  const srcOnRampCurrenciesData = await fsPromises.readFile(srcOnRampCurrenciesPath, 'utf-8');
-  let onRampCurrencies = JSON.parse(srcOnRampCurrenciesData);
-  onRampCurrencies = await util.addSupportedSardineCurrencies(onRampCurrencies);
-  await fsPromises.writeFile(dstOnRampCurrenciesPath, JSON.stringify(onRampCurrencies, null, 2));
+  const srcOnRampCurrenciesPath = path.join('data', 'onramps', 'on-ramp-currency-lists.json')
+  const dstOnRampCurrenciesPath = path.join(stagingDir, 'on-ramp-currency-lists.json')
+  const srcOnRampCurrenciesData = await fsPromises.readFile(srcOnRampCurrenciesPath, 'utf-8')
+  let onRampCurrencies = JSON.parse(srcOnRampCurrenciesData)
+  onRampCurrencies = await util.addSupportedSardineCurrencies(onRampCurrencies)
+  await fsPromises.writeFile(dstOnRampCurrenciesPath, JSON.stringify(onRampCurrencies, null, 2))
 }
 
 async function stageOFACLists(stagingDir) {
-  const ofacLists = await util.fetchGitHubRepoTopLevelFiles('brave-intl', 'ofac-sanctioned-digital-currency-addresses', 'lists');
-  const dstOfacListsPath = path.join(stagingDir, 'ofac-sanctioned-digital-currency-addresses.json');
-  await fsPromises.writeFile(dstOfacListsPath, JSON.stringify(ofacLists, null, 2));
+  const ofacLists = await util.fetchGitHubRepoTopLevelFiles('brave-intl', 'ofac-sanctioned-digital-currency-addresses', 'lists')
+  const dstOfacListsPath = path.join(stagingDir, 'ofac-sanctioned-digital-currency-addresses.json')
+  await fsPromises.writeFile(dstOfacListsPath, JSON.stringify(ofacLists, null, 2))
 }
 
 async function stageTokenPackage() {
@@ -274,19 +282,19 @@ async function stageTokenPackage() {
   }
 
   // Add MetaMask tokens for contract-map.json
-  const metamaskTokenPath = path.join('node_modules', '@metamask', 'contract-metadata', 'contract-map.json');
+  const metamaskTokenPath = path.join('node_modules', '@metamask', 'contract-metadata', 'contract-map.json')
   await stageMainnetTokenFile(stagingDir, metamaskTokenPath, coingeckoIds)
   await stageEVMTokenImages(stagingDir, metamaskTokenPath)
 
   // Add Brave specific tokens in evm-contract-map.json
-  const braveTokenPath = path.join('data', 'evm-contract-map', 'evm-contract-map.json');
+  const braveTokenPath = path.join('data', 'evm-contract-map', 'evm-contract-map.json')
   await stageEVMTokenFile(stagingDir, braveTokenPath, coingeckoIds)
   await stageEVMTokenImages(stagingDir, braveTokenPath, coingeckoIds)
 
   // Add Solana (SPL) tokens in solana-contract-map.json.
   await stageSPLTokens(stagingDir, coingeckoIds)
   await compressPng(imagesDstPath, stagingDir)
-  fs.rmSync(imagesDstPath, { recursive: true, force: true });
+  fs.rmSync(imagesDstPath, { recursive: true, force: true })
 
   // Add chainlist.json.
   await stageChainListJson(stagingDir)
@@ -304,5 +312,5 @@ async function stageTokenPackage() {
   stageManifest(stagingDir)
 }
 
-util.installErrorHandlers();
+util.installErrorHandlers()
 stageTokenPackage()

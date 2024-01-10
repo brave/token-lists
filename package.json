@@ -1,12 +1,12 @@
 {
   "name": "token-lists",
-  "version": "1.20.0",
+  "version": "1.21.0",
   "description": "Manages custom token lists for Brave Wallet",
   "dependencies": {
     "@metamask/contract-metadata": "git+https://git@github.com/MetaMask/contract-metadata.git",
-    "@solflare-wallet/utl-aggregator": "^0.0.14",
+    "follow-redirects": "^1.15.4",
+    "mime-types": "^2.1.35",
     "node-fetch": "2",
-    "nodejs-file-downloader": "^4.9.3",
     "qyu": "^0.4.7",
     "sharp": "^0.32.6",
     "svg-resizer": "git+https://git@github.com/brave/svg-resizer.git"
@@ -27,7 +27,6 @@
   "main": "index.js",
   "scripts": {
     "start": "node scripts/index.js",
-    "gen:solana": "node scripts/solana.task.js",
     "test": "node test/util.test.cjs",
     "preinstall": "./isDocker.sh",
     "publish-token-package": "npm publish ./build"
