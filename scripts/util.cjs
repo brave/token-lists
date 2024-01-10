@@ -260,7 +260,7 @@ const modifySvgFile = (file) => {
 async function download(url, directory, filename, ext) {
   console.log(`Download: ${url}`)
   return new Promise((resolve, reject) => {
-    const request = https.get(url, { timeout: 2000 }, (response) => {
+    const request = https.get(url, { timeout: 3000 }, (response) => {
       if (response.statusCode < 200 || response.statusCode >= 300) {
         console.error(`Download failed: ${url}`)
         reject()
@@ -283,6 +283,12 @@ async function download(url, directory, filename, ext) {
     request.on("error", (err) => {
       console.error(`Download failed: ${url}`)
       reject(err)
+    })
+
+    request.on("timeout", () => {
+      request.destroy()
+      console.error(`Download timed out: ${url}`)
+      reject()
     })
   })
 }
