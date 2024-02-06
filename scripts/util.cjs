@@ -154,7 +154,17 @@ const contractAddExtraMainnetAssets = (tokensListMap) => {
       decimals: 18,
       chainId: "0x1",
     },
-  }
+
+    // KARATE
+    "0x80008BCD713c38AF90a9930288D446bc3bD2E684": {
+      name: "Karate Combat",
+      logo: "karate.png",
+      erc20: true,
+      symbol: "KARATE",
+      decimals: 18,
+      chainId: "0x1",
+    },
+  };
 }
 
 async function saveToPNGResize(source, dest, ignoreError) {
