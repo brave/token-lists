@@ -447,16 +447,14 @@ const generateMainnetTokenList = async (fullTokenList) => {
 }
 
 const generateDappListsForChain = async (chain) => {
-  const dappRadarProjectId = process.env.DAPP_RADAR_PROJECT_ID
-  const dappRadarApiKey = process.env.DAPP_RADAR_API_KEY
   const metric = "uaw"
   const range = "30d"
 
   for (const top of [100, 50, 25, 10]) {
-    const url = `https://api.dappradar.com/${dappRadarProjectId}/dapps/top/${metric}?chain=${chain}&range=${range}&top=${top}`
+    const url = `https://apis.dappradar.com/v2/dapps/top/${metric}?chain=${chain}&range=${range}&top=${top}`
     const response = await fetch(url, {
       headers: {
-        "X-BLOBR-KEY": dappRadarApiKey,
+        "X-API-KEY": process.env.DAPP_RADAR_API_KEY,
       },
     })
 
