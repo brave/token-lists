@@ -28,9 +28,9 @@
     fastq "^1.6.0"
 
 "@sindresorhus/is@^6.1.0":
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-6.1.0.tgz#71a4ca5171888fb7fc36c6d1ff3604b0a5e43555"
-  integrity sha512-BuvU07zq3tQ/2SIgBsEuxKYDyDjC0n7Zir52bpHy2xnBbW81+po43aLFPLbeV3HRAheFbGud1qgcqSYfhtHMAg==
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-6.2.0.tgz#979e220a34e7403790f65cc7e381f6d50aeb8eea"
+  integrity sha512-yM/IGPkVnYGblhDosFBwq0ZGdnVSBkNV4onUtipGMOjZd4kB6GAu3ys91aftSbyMHh6A2GPdt+KDI5NoWP63MQ==
 
 "@szmarczak/http-timer@^5.0.1":
   version "5.0.1"
@@ -701,9 +701,9 @@ globby@^12.0.0:
     slash "^4.0.0"
 
 got@>=11.8.5, got@^11.8.5:
-  version "14.2.0"
-  resolved "https://registry.yarnpkg.com/got/-/got-14.2.0.tgz#59b453e379e81a6e9e6aa3b39ab3cbde47b1b150"
-  integrity sha512-dBq2KkHcQl3AwPoIWsLsQScCPpUgRulz1qZVthjPYKYOPmYfBnekR3vxecjZbm91Vc3JUGnV9mqFX7B+Fe2quw==
+  version "14.2.1"
+  resolved "https://registry.yarnpkg.com/got/-/got-14.2.1.tgz#59513971a4f990d7c20f4830cf78145d58b3042d"
+  integrity sha512-KOaPMremmsvx6l9BLC04LYE6ZFW4x7e4HkTe3LwBmtuYYQwpeS4XKqzhubTIkaQ1Nr+eXxeori0zuwupXMovBQ==
   dependencies:
     "@sindresorhus/is" "^6.1.0"
     "@szmarczak/http-timer" "^5.0.1"
@@ -1038,9 +1038,9 @@ node-fetch@2:
     whatwg-url "^5.0.0"
 
 normalize-url@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-8.0.0.tgz#593dbd284f743e8dcf6a5ddf8fadff149c82701a"
-  integrity sha512-uVFpKhj5MheNBJRTiMZ9pE/7hD1QTeEvugSJW/OmLzAp78PB5O6adfMNTvmfKhXBkvCzC+rqifWcVYpGFwTjnw==
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-8.0.1.tgz#9b7d96af9836577c58f5883e939365fa15623a4a"
+  integrity sha512-IO9QvjUMWxPQQhs60oOu10CRkWCiZzSUkzbXGGV9pviYl1fXYcvkzQ5jV9z8Y6un8ARoVRl4EtC6v6jNqbaJ/w==
 
 npm-run-path@^2.0.0:
   version "2.0.2"
