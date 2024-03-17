@@ -4,7 +4,7 @@
   "description": "Manages custom token lists for Brave Wallet",
   "dependencies": {
     "@metamask/contract-metadata": "git+https://git@github.com/MetaMask/contract-metadata.git",
-    "follow-redirects": "^1.15.4",
+    "follow-redirects": "^1.15.6",
     "mime-types": "^2.1.35",
     "node-fetch": "2",
     "qyu": "^0.7.0",
