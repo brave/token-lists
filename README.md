@@ -46,7 +46,7 @@ We have setup a **weekly** cron job on [Jenkins](https://github.com/brave/devops
 
 ### Docker
 
-- Install [docker](https://runnable.com/docker/)
+- Install [docker](https://sb-biodatacatalyst.readme.io/docs/install-docker)
 - Create a docker image `docker build -t token-lists .`
 - Launch the docker image `docker run -u "$(id -u):$(id -g)" -v "$PWD/build:/token-lists/build" -ti token-lists`
 - You will see an output in the `build` folder
