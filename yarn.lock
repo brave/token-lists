@@ -777,7 +777,7 @@ ignore@^5.1.9:
     ow "^0.17.0"
     pngquant-bin "^8.0.1"
 
-imagemin@^8.0.1:
+imagemin@8.0.1:
   version "8.0.1"
   resolved "https://registry.yarnpkg.com/imagemin/-/imagemin-8.0.1.tgz#8b29ecb78197d8f0eac6a782f2e6b38fb3780d9e"
   integrity sha512-Q/QaPi+5HuwbZNtQRqUVk6hKacI6z9iWiCSQBisAv7uBynZwO7t1svkryKl7+iSQbkU/6t9DWnHz04cFs2WY7w==
