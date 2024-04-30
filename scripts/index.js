@@ -203,6 +203,11 @@ async function stageTokenListsTokens(stagingDir, tokens, coingeckoIds, isEVM = t
         result.coingeckoId = token.extensions.coingeckoId
       }
 
+      // Check Solana token-2022 standard from Jupiter list.
+      if (token.tags && token.tags.includes('token-2022')) {
+        result.token2022 = true
+      }
+
       return {
         ...acc,
         [token.address]: result
