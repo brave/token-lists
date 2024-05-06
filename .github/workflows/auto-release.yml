@@ -24,16 +24,20 @@ jobs:
           node-version: '20.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Bump patch version and extract it
-        shell: bash
-        run: echo "PKG_VERSION=$(npm version patch)" >> $GITHUB_OUTPUT
-        id: version
+      - name: Bump patch version
+        run: npm version patch
+
+      - name: Get version
+        id: project-version
+        uses: 'euberdeveloper/ga-project-version@main'
+        with:
+          package-manager: 'npm'
 
       - run: git push
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
+          automatic_release_tag: "v${{ steps.project-version.outputs.version }}"
           prerelease: false
-          title: "{{ steps.version.outputs.PKG_VERSION }}"
+          title: "v${{ steps.project-version.outputs.version }}"
