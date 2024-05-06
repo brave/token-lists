@@ -5,8 +5,9 @@ name: Publish NPM package
 
 on:
   workflow_dispatch:
-  release:
-    types: [created]
+  push:
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.20.10
 
 env:
   TOKEN_LISTS_ACTIONS_OR_CI_BUILD: true
