@@ -1,4 +1,7 @@
-name: Auto-release
+# This workflow will bump the patch version of the package and create a release on GitHub.
+# It triggers the npm-publish workflow to publish the package to NPM.
+
+name: Auto Release
 
 on:
   workflow_dispatch:
