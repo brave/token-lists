@@ -12,7 +12,7 @@
     "svg-resizer": "git+https://git@github.com/brave/svg-resizer.git"
   },
   "devDependencies": {
-    "imagemin": "^8.0.1",
+    "imagemin": "8.0.1",
     "imagemin-pngquant": "github:brave/imagemin-pngquant#fd51901"
   },
   "resolutions": {
