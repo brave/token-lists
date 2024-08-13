@@ -470,7 +470,9 @@ const generateDappListsForChain = async (chain) => {
     // Remove socialLinks and fullDescription from each dApp object
     dapps.results = dapps.results.map((dapp) => {
       const { socialLinks, fullDescription, logo, ...filteredDapp } = dapp
-      filteredDapp.logo = logo.replace('dashboard-assets.dappradar.com', 'dashboard-assets-dappradar.wallet.brave.com')
+      const logoUrl = new URL(logo)
+      logoUrl.hostname = 'dashboard-assets-dappradar.wallet.brave.com'
+      filteredDapp.logo = logoUrl.toString()
       return filteredDapp
     })
 
