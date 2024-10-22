@@ -1141,5 +1141,77 @@
     "decimals": 6,
     "coingeckoId": "bridged-usd-coin-base",
     "chainId": "0x2105"
+  },
+  "0x38e0355ecD67b979909c8Ad80596Caf47746B792": {
+    "name": "Aurora",
+    "logo": "aurora.png",
+    "erc20": true,
+    "symbol": "AURORA",
+    "decimals": 18,
+    "coingeckoId": "aurora-near",
+    "chainId": "0x18d"
+  },
+  "0x53F6d33EbDe8d751B9349b6aD4133bef3608686e": {
+    "name": "Wrapped BTC",
+    "logo": "wbtc.png",
+    "erc20": true,
+    "symbol": "WBTC",
+    "decimals": 8,
+    "coingeckoId": "wrapped-bitcoin",
+    "chainId": "0x18d"
+  },
+  "0xd39713f1afB70d636c9723BA1EC075a488BF2dC3": {
+    "name": "Flux Token",
+    "logo": "flx.png",
+    "erc20": true,
+    "symbol": "FLX",
+    "decimals": 18,
+    "coingeckoId": "flux-token",
+    "chainId": "0x18d"
+  },
+  "0x1E58e80AD34A003691b1f74d585Deb8aB6cfa9f2": {
+    "name": "USD.e Coin",
+    "logo": "usdc.png",
+    "erc20": true,
+    "symbol": "USDC.e",
+    "decimals": 6,
+    "coingeckoId": "usd-coin",
+    "chainId": "0x18d"
+  },
+  "0x62816D06ebE7002ED31049Ed09CC5fBdfb4aeEDA": {
+    "name": "USD Coin",
+    "logo": "usdc.png",
+    "erc20": true,
+    "symbol": "USDC",
+    "decimals": 6,
+    "coingeckoId": "usd-coin",
+    "chainId": "0x18d"
+  },
+  "0xaA1E7A316F17B5875e735d48A3828453C0e36711": {
+    "name": "Tether USD",
+    "logo": "usdt.png",
+    "erc20": true,
+    "symbol": "USDT",
+    "decimals": 6,
+    "coingeckoId": "tether",
+    "chainId": "0x18d"
+  },
+  "0x97064481125993760553E663Cb57dE747ED4bB50": {
+    "name": "Tether USD.e",
+    "logo": "usdt.png",
+    "erc20": true,
+    "symbol": "USDT.e",
+    "decimals": 6,
+    "coingeckoId": "tether",
+    "chainId": "0x18d"
+  },
+  "0x7d2b87d5D7AC17a2eA2319f7f7E72Ac36F0dB97A": {
+    "name": "Dai Stablecoin",
+    "logo": "dai.png",
+    "erc20": true,
+    "symbol": "DAI",
+    "decimals": 18,
+    "coingeckoId": "dai",
+    "chainId": "0x18d"
   }
 }
