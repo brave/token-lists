@@ -4,16 +4,23 @@
   "description": "Manages custom token lists for Brave Wallet",
   "dependencies": {
     "@metamask/contract-metadata": "git+https://git@github.com/MetaMask/contract-metadata.git",
+    "@solana/spl-token": "^0.4.9",
+    "@solana/web3.js": "^1.95.4",
+    "ethers": "^6.13.4",
     "follow-redirects": "^1.15.6",
     "mime-types": "^2.1.35",
     "node-fetch": "2",
     "qyu": "^0.7.0",
     "sharp": "^0.32.6",
-    "svg-resizer": "git+https://git@github.com/brave/svg-resizer.git"
+    "svg-resizer": "git+https://git@github.com/brave/svg-resizer.git",
+    "typescript": "^5.6.3"
   },
   "devDependencies": {
-    "imagemin": "8.0.1",
-    "imagemin-pngquant": "github:brave/imagemin-pngquant#fd51901"
+    "@types/node": "^22.9.0",
+    "@types/node-fetch": "^2.6.11",
+    "imagemin": "^8.0.1",
+    "imagemin-pngquant": "github:brave/imagemin-pngquant#fd51901",
+    "ts-node": "^10.9.2"
   },
   "resolutions": {
     "semver-regex": ">=4.0.5",
@@ -29,7 +36,8 @@
     "start": "node scripts/index.js",
     "test": "node test/util.test.cjs",
     "preinstall": "./isDocker.sh",
-    "publish-token-package": "npm publish ./build"
+    "publish-token-package": "npm publish ./build",
+    "generate-coingecko-universe": "ts-node scripts/coingecko-universe.ts"
   },
   "repository": {
     "type": "git",
@@ -40,6 +48,5 @@
   "bugs": {
     "url": "https://github.com/brave/token-lists/issues"
   },
-  "homepage": "https://github.com/brave/token-lists#readme",
-  "type": "module"
+  "homepage": "https://github.com/brave/token-lists#readme"
 }

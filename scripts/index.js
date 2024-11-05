@@ -1,17 +1,22 @@
 // Node imports
-import fs from 'fs'
-import fsPromises from 'fs/promises'
-import os from 'os'
-import path from 'path'
+const fs = require('fs')
+const fsPromises = require('fs/promises')
+const os = require('os')
+const path = require('path')
 
 // NPM imports
-import { Qyu } from 'qyu'
+const { Qyu } = require('qyu')
 
 // Local module imports
-import util from './util.cjs'
+const util = require('./util.cjs')
 
-import imagemin from 'imagemin'
-import imageminPngquant from 'imagemin-pngquant'
+// Load the ES modules dynamically
+let imagemin
+let imageminPngquant
+async function loadImageModules() {
+  imagemin = (await import('imagemin')).default
+  imageminPngquant = (await import('imagemin-pngquant')).default
+}
 
 function getOutputTokenPath(stagingDir, inputTokenFilePath) {
   const tokenFilename = path.parse(inputTokenFilePath).base
@@ -116,6 +121,12 @@ async function compressPng(imagesDstPath, stagingDir) {
   if (!fs.existsSync(stagingDir + "/images")) {
     fs.mkdirSync(stagingDir + "/images")
   }
+
+  // Load modules if not already loaded
+  if (!imagemin) {
+    await loadImageModules()
+  }
+
   await imagemin([imagesDstPath + "/*.png"], {
     destination: stagingDir + "/images",
     plugins: [
