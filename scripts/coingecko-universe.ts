@@ -67,6 +67,11 @@ type TokenInfo = {
 };
 type Result = Record<string, Record<string, TokenInfo>>;
 
+// The enum fields indicate the chain IDs that we support.
+//
+// The current criteria for inclusion is as follows:
+//   - The chain must be top 10 by TVL on DefiLlama
+//   - The chain must have native USDC token
 enum ChainId {
   ETHEREUM = '0x1',
   BSC = '0x38', 
@@ -74,9 +79,11 @@ enum ChainId {
   BASE = '0x2105',
   POLYGON = '0x89',
   OPTIMISM = '0xa',
-  ZKSYNC = '0x144',
   AVALANCHE = '0xa86a',
   SOLANA = '0x65',
+
+  // Disabled for now
+  // ZKSYNC = '0x144',
 }
 
 function validateEnvVars() {
@@ -87,9 +94,11 @@ function validateEnvVars() {
     'BASE_RPC_URL',
     'POLYGON_RPC_URL',
     'OPTIMISM_RPC_URL',
-    'ZKSYNC_RPC_URL',
     'AVALANCHE_RPC_URL',
     'SOLANA_RPC_URL',
+
+    // Disabled for now
+    // 'ZKSYNC_RPC_URL',
   ];
 
   const missing = requiredVars.filter(v => !process.env[v]);
@@ -108,9 +117,11 @@ function loadRpcConfig(): Record<ChainId, string> {
     [ChainId.BASE]: process.env.BASE_RPC_URL!,
     [ChainId.POLYGON]: process.env.POLYGON_RPC_URL!,
     [ChainId.OPTIMISM]: process.env.OPTIMISM_RPC_URL!,
-    [ChainId.ZKSYNC]: process.env.ZKSYNC_RPC_URL!,
     [ChainId.AVALANCHE]: process.env.AVALANCHE_RPC_URL!,
-    [ChainId.SOLANA]: process.env.SOLANA_RPC_URL!
+    [ChainId.SOLANA]: process.env.SOLANA_RPC_URL!,
+
+    // Disabled for now
+    // [ChainId.ZKSYNC]: process.env.ZKSYNC_RPC_URL!,
   } as const;
 }
 
