@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 
 const COINGECKO_API_URL = 'https://api.coingecko.com/api/v3';
-const RATE_LIMIT_DELAY = 7100; // over 6s to stay under rate limits
+const RATE_LIMIT_DELAY = 11000; // set a delay to stay under rate limits
 
 // Sleep utility function
 const sleep = (ms: number): Promise<void> => {
