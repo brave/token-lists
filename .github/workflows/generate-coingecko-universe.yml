@@ -1,0 +1,50 @@
+# This workflow will generate the data/coingecko-universe.json file
+
+name: Generate Coingecko Universe
+
+on:
+  workflow_dispatch:
+  schedule:
+    # At 00:00 every week on Saturday.
+    - cron: '0 0 * * 6'
+
+env:
+  TOKEN_LISTS_ACTIONS_OR_CI_BUILD: true
+  API_AUTH_TOKEN_GITHUB: ${{ secrets.API_AUTH_TOKEN_GITHUB }}
+  ETHEREUM_RPC_URL: ${{ secrets.ETHEREUM_RPC_URL }}
+  BSC_RPC_URL: ${{ secrets.BSC_RPC_URL }}
+  ARBITRUM_RPC_URL: ${{ secrets.ARBITRUM_RPC_URL }}
+  BASE_RPC_URL: ${{ secrets.BASE_RPC_URL }}
+  POLYGON_RPC_URL: ${{ secrets.POLYGON_RPC_URL }}
+  OPTIMISM_RPC_URL: ${{ secrets.OPTIMISM_RPC_URL }}
+  AVALANCHE_RPC_URL: ${{ secrets.AVALANCHE_RPC_URL }}
+  SOLANA_RPC_URL: ${{ secrets.SOLANA_RPC_URL }}
+
+jobs:
+  generate-coingecko-universe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 'Configure git'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4.0.3
+        with:
+          node-version: '20.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: sudo apt-get update -y
+      - run: npm install -g yarn
+      - run: yarn --version
+      - run: yarn
+      - run: yarn generate-coingecko-universe
+
+      - run: git add data/coingecko-universe.json
+      - run: git commit -m "Update Coingecko Universe"
+
+      - run: git push
