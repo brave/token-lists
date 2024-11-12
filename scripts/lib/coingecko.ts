@@ -1,7 +1,9 @@
 import fetch from 'node-fetch';
 
 const COINGECKO_API_URL = 'https://api.coingecko.com/api/v3';
-const RATE_LIMIT_DELAY = 11000; // set a delay to stay under rate limits
+const s = 1000;
+const RATE_LIMIT_DELAY = 60 * s; // 60 seconds
+const RETRY_DELAY = 10 * s; // 10 seconds
 
 // Sleep utility function
 const sleep = (ms: number): Promise<void> => {
@@ -44,17 +46,27 @@ class CoinGeckoAPI {
     for (let i = 0; i < retries; i++) {
       try {
         const response = await fetch(`${COINGECKO_API_URL}${endpoint}`, options);
-        
+
+        // Handle rate limit exceeded error
+        if (response.status === 429) {
+          if (i === retries - 1) {
+            throw new Error('Rate limit exceeded');
+          }
+
+          await sleep(RATE_LIMIT_DELAY);
+          continue;
+        }
+
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         
         const data = await response.json();
-        await sleep(RATE_LIMIT_DELAY);
+        await sleep(RETRY_DELAY);
         return data;
       } catch (error) {
         if (i === retries - 1) throw error;
-        await sleep(RATE_LIMIT_DELAY * 2); // Wait longer between retries
+        await sleep(RETRY_DELAY * 2); // Wait longer between retries
       }
     }
   }
@@ -87,7 +99,7 @@ class CoinGeckoAPI {
         }
         page++;
       }
-      await new Promise(resolve => setTimeout(resolve, 100));
+      await new Promise(resolve => setTimeout(resolve, 0.5 * s));
     }
   }
 
