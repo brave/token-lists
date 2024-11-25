@@ -45,7 +45,7 @@ jobs:
       - run: yarn
       - run: yarn generate-coingecko-universe
 
-      - run: git add data/coingecko-universe.json
+      - run: git add data
       - run: git commit -m "Update Coingecko Universe"
 
       - run: git push
