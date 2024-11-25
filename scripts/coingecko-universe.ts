@@ -63,7 +63,6 @@ type TokenInfo = {
   coingeckoId: string;
   decimals: number;
   logo: string;
-  rank: number | null;
 };
 type Result = Record<string, Record<string, TokenInfo>>;
 
@@ -214,12 +213,6 @@ const main = async (maxRank: number | undefined = undefined) => {
     let addedTokens = 0;
     let logs: string[] = [];
 
-    if (maxRank && (market.market_cap_rank === null || market.market_cap_rank > maxRank)) {
-      logs.push(`⚠️ [skip] ${market.name} (${market.symbol})`);
-      logs.push(`    └─→ Rank: ${market.market_cap_rank ?? 'N/A'}`);
-      continue;
-    }
-
     const coin = coins.find(c => c.id === market.id);
     if (!coin) continue;
 
@@ -254,7 +247,6 @@ const main = async (maxRank: number | undefined = undefined) => {
         coingeckoId: coin.id,
         decimals,
         logo: market.image,
-        rank: market.market_cap_rank
       };
       processed = true;
       addedTokens++;
@@ -275,9 +267,15 @@ const main = async (maxRank: number | undefined = undefined) => {
       console.log(`│ ${summary.padEnd(boxWidth - 3)} │`);
       console.log(`└${border}┘`);
 
-      // Save results to file for top 5000 tokens
+      if (maxRank && market.market_cap_rank && market.market_cap_rank <= maxRank) {
+        await fs.promises.writeFile(
+          `data/coingecko-top${maxRank}.json`,
+          JSON.stringify(result, null, 2)
+        );
+      }
+
       await fs.promises.writeFile(
-        'data/coingecko-universe.json',
+        'data/coingecko.json',
         JSON.stringify(result, null, 2)
       );
     }
