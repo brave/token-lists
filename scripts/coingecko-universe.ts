@@ -269,13 +269,13 @@ const main = async (maxRank: number | undefined = undefined) => {
 
       if (maxRank && market.market_cap_rank && market.market_cap_rank <= maxRank) {
         await fs.promises.writeFile(
-          `data/coingecko-top${maxRank}.json`,
+          `data/v1/coingecko-top${maxRank}.json`,
           JSON.stringify(result, null, 2)
         );
       }
 
       await fs.promises.writeFile(
-        'data/coingecko.json',
+        'data/v1/coingecko.json',
         JSON.stringify(result, null, 2)
       );
     }
