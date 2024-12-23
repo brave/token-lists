@@ -3,8 +3,8 @@ name: Generate Coingecko Universe
 on:
   workflow_dispatch:
   schedule:
-    # At 00:00 every week on Saturday.
-    - cron: '0 0 * * 6'
+    # At 00:00 (midnight) every day
+    - cron: '0 0 * * *'
 
 env:
   TOKEN_LISTS_ACTIONS_OR_CI_BUILD: true
