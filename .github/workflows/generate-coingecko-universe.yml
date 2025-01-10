@@ -38,7 +38,7 @@ jobs:
 
       - run: sudo apt-get update -y
       - run: npm install -g yarn
-      - run: sudo apt-get install -y librsvg2-bin libimagequant-dev pkg-config
+      - run: sudo apt-get install -y librsvg2-bin libimagequant-dev pkg-config libpng16-dev
       - run: yarn --version
       - run: yarn
       - run: yarn generate-coingecko-universe
