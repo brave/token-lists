@@ -283,6 +283,12 @@ async function stageOFACLists(stagingDir) {
   await fsPromises.writeFile(dstOfacListsPath, JSON.stringify(ofacLists, null, 2))
 }
 
+async function stageCoingeckoTokenList(stagingDir, filename) {
+  const srcTokenListPath = path.join('data', 'v1', filename)
+  const dstTokenListPath = path.join(stagingDir, filename)
+  await fsPromises.copyFile(srcTokenListPath, dstTokenListPath)
+}
+
 async function stageTokenPackage() {
   const stagingDir = 'build'
   if (!fs.existsSync(stagingDir)) {
@@ -323,6 +329,9 @@ async function stageTokenPackage() {
 
   // Add OFAC banned address lists
   await stageOFACLists(stagingDir)
+
+  // Add coingecko token list
+  await stageCoingeckoTokenList(stagingDir, 'coingecko-top5000.json')
 
   stagePackageJson(stagingDir)
   stageManifest(stagingDir)
