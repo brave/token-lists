@@ -63,6 +63,7 @@ type TokenInfo = {
   coingeckoId: string;
   decimals: number;
   logo: string;
+  token2022?: boolean;
 };
 type Result = Record<string, Record<string, TokenInfo>>;
 
@@ -149,7 +150,7 @@ const isEVMAddress = (address: string) => {
   return address.startsWith("0x") && address.length === 42;
 };
 
-const getDecimals = async (chainId: ChainId, address: string) => {
+const getTokenChainInfo = async (chainId: ChainId, address: string) => {
   const rpcUrl = rpcConfig[chainId];
 
   if (chainId === ChainId.SOLANA) {
@@ -164,7 +165,9 @@ const getDecimals = async (chainId: ChainId, address: string) => {
         undefined, // commitment
         splToken.TOKEN_PROGRAM_ID
       );
-      return mintInfo.decimals;
+      return {
+        decimals: mintInfo.decimals
+      };
     } catch (error) {
       // If standard SPL Token fails, try Token-2022 program
       const mintInfo = await splToken.getMint(
@@ -173,7 +176,10 @@ const getDecimals = async (chainId: ChainId, address: string) => {
         undefined, // commitment
         splToken.TOKEN_2022_PROGRAM_ID
       );
-      return mintInfo.decimals;
+      return {
+        decimals: mintInfo.decimals,
+        token2022: true
+      };
     }
   }
 
@@ -184,7 +190,9 @@ const getDecimals = async (chainId: ChainId, address: string) => {
     provider,
   )
 
-  return Number(await contract.decimals())
+  return {
+    decimals: Number(await contract.decimals())
+  }
 }
 
 const log = {
@@ -232,8 +240,11 @@ const main = async (maxRank: number | undefined = undefined) => {
       }
 
       let decimals: number;
+      let token2022: boolean | undefined;
       try {
-        decimals = await getDecimals(chainId, address);
+        const tokenChainInfo = await getTokenChainInfo(chainId, address);
+        decimals = tokenChainInfo.decimals;
+        token2022 = tokenChainInfo.token2022;
       } catch (error: any) {
         logs.push(`⚠️ [skip] ${coin.symbol} (${address}) on ${chainId}`);
         logs.push(`    └─→ ${error?.message || 'Unknown error'}`);
@@ -246,8 +257,13 @@ const main = async (maxRank: number | undefined = undefined) => {
         symbol: coin.symbol,
         coingeckoId: coin.id,
         decimals,
-        logo: market.image,
+        logo: market.image
       };
+
+      if (token2022) {
+        result[chainId][address].token2022 = token2022;
+      }
+
       processed = true;
       addedTokens++;
       logs.push(`💎 [add]  ${coin.symbol} (${address}) on ${chainId}`);
