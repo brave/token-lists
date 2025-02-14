@@ -285,7 +285,7 @@ async function stageOFACLists(stagingDir) {
 
 async function stageCoingeckoTokenList(stagingDir, filename) {
   const srcTokenListPath = path.join('data', 'v1', filename)
-  const dstTokenListPath = path.join(stagingDir, filename)
+  const dstTokenListPath = path.join(stagingDir, 'coingecko.json')
   await fsPromises.copyFile(srcTokenListPath, dstTokenListPath)
 }
 
