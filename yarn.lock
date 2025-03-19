@@ -550,9 +550,10 @@ bignumber.js@^9.0.1:
   resolved "https://registry.yarnpkg.com/bignumber.js/-/bignumber.js-9.1.2.tgz#b7c4242259c008903b13707983b5f4bbd31eda0c"
   integrity sha512-2/mKyZH9K85bzOEfhXDBFZTGd1CTs+5IHpeFQo9luiBG7hghdC851Pj2WAhb6E3R6b9tZj/XKhbg4fum+Kepug==
 
-bin-build@^3.0.0, "bin-build@github:brave/bin-build#fb92d12":
+bin-build@^3.0.0, "bin-build@github:brave/bin-build#bfbb583":
   version "3.1.0"
-  resolved "https://codeload.github.com/brave/bin-build/tar.gz/fb92d12ea08e9770f9fb00f806b520aaec714bda"
+  uid bfbb58313c4ecc5d79f72c2421f55e7999000048
+  resolved "https://codeload.github.com/brave/bin-build/tar.gz/bfbb58313c4ecc5d79f72c2421f55e7999000048"
   dependencies:
     decompress "^4.0.0"
     download "github:onyb/download#c9c2589"
