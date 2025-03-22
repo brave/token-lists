@@ -16,11 +16,11 @@
     "typescript": "^5.6.3"
   },
   "devDependencies": {
-    "@types/node": "^22.9.0",
-    "@types/node-fetch": "^2.6.11",
-    "imagemin": "^8.0.1",
-    "imagemin-pngquant": "^10.0.0",
-    "ts-node": "^10.9.2"
+    "@types/node": "22.9.0",
+    "@types/node-fetch": "2.6.11",
+    "imagemin": "8.0.1",
+    "imagemin-pngquant": "10.0.0",
+    "ts-node": "10.9.2"
   },
   "resolutions": {
     "semver-regex": ">=4.0.5",
