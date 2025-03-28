@@ -35,13 +35,13 @@ jobs:
 
       - name: Get version
         id: project-version
-        uses: euberdeveloper/ga-project-version@main
+        uses: euberdeveloper/ga-project-version@5ddfd05bca46829074510125c27850b39714d6a9 # main
         with:
           package-manager: 'npm'
 
       - run: git push
 
-      - uses: marvinpinto/action-automatic-releases@d68defdd11f9dcc7f52f35c1b7c236ee7513bcc1 # latest
+      - uses: marvinpinto/action-automatic-releases@d68defdd11f9dcc7f52f35c1b7c236ee7513bcc1 # master
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "v${{ steps.project-version.outputs.version }}"
