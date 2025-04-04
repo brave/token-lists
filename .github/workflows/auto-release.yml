@@ -35,9 +35,9 @@ jobs:
 
       - name: Get version
         id: project-version
-        uses: euberdeveloper/ga-project-version@5ddfd05bca46829074510125c27850b39714d6a9 # main
-        with:
-          package-manager: 'npm'
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - run: git push
 
