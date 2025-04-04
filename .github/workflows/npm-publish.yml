@@ -32,6 +32,28 @@ jobs:
       - run: yarn --version
       - run: yarn
       - run: yarn start
+
+      - name: Get version
+        id: project-version
+        uses: euberdeveloper/ga-project-version@5ddfd05bca46829074510125c27850b39714d6a9 # main
+        with:
+          package-manager: 'npm'
+
+      - name: Set commit message
+        id: commit_message_step
+        run: |
+          echo 'commit_message<<EOF' >> $GITHUB_OUTPUT
+          echo "ci: update build assets (v${{ steps.project-version.outputs.version }})" >> $GITHUB_OUTPUT
+          echo 'EOF' >> $GITHUB_OUTPUT
+
+      - name: Commit build assets
+        uses: stefanzweifel/git-auto-commit-action@v5.1.0
+        with:
+          commit_message: ${{ steps.commit_message_step.outputs.commit_message }}
+          file_pattern: 'data/ build/'
+
+      - run: git push
+
       - run: npm run publish-token-package
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
