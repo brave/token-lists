@@ -41,9 +41,10 @@ jobs:
 
       - run: git push
 
-      - uses: marvinpinto/action-automatic-releases@d68defdd11f9dcc7f52f35c1b7c236ee7513bcc1 # master
+      - uses: ridedott/release-me-action@e5c1509fcd5af4f4c3d5ba5eac9918d8724e8550
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "v${{ steps.project-version.outputs.version }}"
-          prerelease: false
-          title: "v${{ steps.project-version.outputs.version }}"
+          dry-run: true
+          release-branches: '["ci-exp"]'
+          disable-changelog: true
