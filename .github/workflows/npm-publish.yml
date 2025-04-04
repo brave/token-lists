@@ -53,7 +53,3 @@ jobs:
           file_pattern: 'data/ build/'
 
       - run: git push
-
-      - run: npm run publish-token-package
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
