@@ -1,0 +1,447 @@
+{
+  "currencies": [
+    {
+      "currency_code": "ARS",
+      "currency_name": "Argentine Peso",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "AUD",
+      "currency_name": "Australian dollar",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "BMD",
+      "currency_name": "Bermudian Dollar",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "BRL",
+      "currency_name": "Brazilian Real",
+      "providers": [
+        "transak",
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "GBP",
+      "currency_name": "British pound",
+      "providers": [
+        "ramp",
+        "transak",
+        "coinbase"
+      ]
+    },
+    {
+      "currency_code": "CAD",
+      "currency_name": "Canadian dollar",
+      "providers": [
+        "transak",
+        "coinbase"
+      ]
+    },
+    {
+      "currency_code": "CLP",
+      "currency_name": "Chilean Peso",
+      "providers": [
+        "transak",
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "CZK",
+      "currency_name": "Czech Koruna",
+      "providers": [
+        "transak",
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "DKK",
+      "currency_name": "Danish Krone",
+      "providers": [
+        "transak",
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "DJF",
+      "currency_name": "Djibouti Franc",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "EUR",
+      "currency_name": "Euro",
+      "providers": [
+        "ramp",
+        "transak",
+        "coinbase",
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "HUF",
+      "currency_name": "Forint",
+      "providers": [
+        "transak",
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "INR",
+      "currency_name": "Indian rupee",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "IDR",
+      "currency_name": "Indonesian Rupiah",
+      "providers": [
+        "transak",
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "ILS",
+      "currency_name": "Israeli Shekel",
+      "providers": [
+        "transak",
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "JPY",
+      "currency_name": "Japanese Yen",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "MYR",
+      "currency_name": "Malaysian Ringgit",
+      "providers": [
+        "transak",
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "MXN",
+      "currency_name": "Mexican peso",
+      "providers": [
+        "transak",
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "NZD",
+      "currency_name": "New Zealand dollar",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "NOK",
+      "currency_name": "Norwegian Krone",
+      "providers": [
+        "transak",
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "PHP",
+      "currency_name": "Philippine Peso",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "PLN",
+      "currency_name": "Polish Zloty",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "SGD",
+      "currency_name": "Singapore Dollar",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "ZAR",
+      "currency_name": "South African Rand",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "KRW",
+      "currency_name": "South Korean Won",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "SEK",
+      "currency_name": "Swedish krona",
+      "providers": [
+        "transak",
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "CHF",
+      "currency_name": "Swiss franc",
+      "providers": [
+        "transak",
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "THB",
+      "currency_name": "Thai Baht",
+      "providers": [
+        "transak",
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "TRY",
+      "currency_name": "Turkish Lira",
+      "providers": [
+        "transak"
+      ]
+    },
+    {
+      "currency_code": "USD",
+      "currency_name": "US Dollar",
+      "providers": [
+        "ramp",
+        "transak",
+        "stripe",
+        "sardine",
+        "coinbase"
+      ]
+    },
+    {
+      "currency_code": "COP",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "BGN",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "ISK",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "PEN",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "RON",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "CRC",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "BZD",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "HNL",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "PYG",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "UYU",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "DOP",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "EGP",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "MRU",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "LKR",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "OMR",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "XOF",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "XCD",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "KMF",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "SCR",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "AOA",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "GNF",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "GYD",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "XAF",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "KGS",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "MGA",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "MVR",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "MNT",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "TTD",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "UZS",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    },
+    {
+      "currency_code": "VUV",
+      "currency_name": "",
+      "providers": [
+        "sardine"
+      ]
+    }
+  ]
+}
