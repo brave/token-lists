@@ -917,9 +917,10 @@ dot-prop@^8.0.2:
   dependencies:
     type-fest "^3.8.0"
 
-download@^8.0.0, "download@github:brave/download#c9c2589", "download@github:onyb/download#c9c2589":
+download@^8.0.0, "download@github:brave/download#1072e94", "download@github:onyb/download#c9c2589":
   version "8.0.0"
-  resolved "https://codeload.github.com/brave/download/tar.gz/c9c2589cfd2f018a64c497c2744c5185bfb46e89"
+  uid "1072e9490cf9a3d966964132dcdef2201193cee1"
+  resolved "https://codeload.github.com/brave/download/tar.gz/1072e9490cf9a3d966964132dcdef2201193cee1"
   dependencies:
     archive-type "^4.0.0"
     content-disposition "^0.5.4"
