@@ -586,9 +586,10 @@ bin-version@^6.0.0:
     execa "^5.0.0"
     find-versions "^5.0.0"
 
-bin-wrapper@^4.0.1, "bin-wrapper@github:brave/bin-wrapper#4bc5c9e":
+bin-wrapper@^4.0.1, "bin-wrapper@github:brave/bin-wrapper#8f26b3b":
   version "4.1.0"
-  resolved "https://codeload.github.com/brave/bin-wrapper/tar.gz/4bc5c9e86e49a2a7d1453146f8b2688b71b2b38d"
+  uid "8f26b3b022a66ca88ac4b3700c0a1d931a3a2927"
+  resolved "https://codeload.github.com/brave/bin-wrapper/tar.gz/8f26b3b022a66ca88ac4b3700c0a1d931a3a2927"
   dependencies:
     bin-check "^4.1.0"
     bin-version-check "^5.0.0"
