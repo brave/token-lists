@@ -36,26 +36,30 @@ jobs:
           node-version: '22.x'
           registry-url: 'https://registry.npmjs.org'
 
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
       - run: sudo apt-get update -y
       - run: sudo apt-get install -y librsvg2-bin libimagequant-dev pkg-config libpng-dev
       - run: npm install -g yarn
       - run: yarn --version
-      - run: yarn
-      - run: yarn start
+
+      - name: Install dependencies
+        run: yarn
 
       - name: Bump patch version
         run: npm version patch
+
+      - name: Build assets
+        run: yarn build
 
       - name: Get version
         id: project-version
         run: |
           VERSION=$(node -p "require('./package.json').version")
           echo "version=$VERSION" >> $GITHUB_OUTPUT
-
-      - name: Configure Git
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Commit build assets
         run: |
