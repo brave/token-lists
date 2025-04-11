@@ -5,11 +5,11 @@ name: Publish NPM package
 
 on:
   workflow_dispatch:
-  workflow_run:
-    workflows: ["Auto Release"]
-    types: [completed]
   release:
     types: [created]
+  schedule:
+    # At 01:00 (1 AM) every day
+    - cron: '0 1 * * *'
 
 env:
   TOKEN_LISTS_ACTIONS_OR_CI_BUILD: true
@@ -43,27 +43,33 @@ jobs:
       - run: yarn
       - run: yarn start
 
+      - name: Bump patch version
+        run: npm version patch
+
       - name: Get version
         id: project-version
         run: |
           VERSION=$(node -p "require('./package.json').version")
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
-      - name: Set commit message
-        id: commit_message_step
+      - name: Configure Git
         run: |
-          echo 'commit_message<<EOF' >> $GITHUB_OUTPUT
-          echo "ci: update build assets (v${{ steps.project-version.outputs.version }})" >> $GITHUB_OUTPUT
-          echo 'EOF' >> $GITHUB_OUTPUT
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Commit build assets
-        uses: stefanzweifel/git-auto-commit-action@v5.1.0
+        run: |
+          git add data/ build/
+          git commit -m "ci: update build assets (v${{ steps.project-version.outputs.version }})"
+          git push
+
+      # - run: npm run publish-token-package
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
         with:
-          commit_message: ${{ steps.commit_message_step.outputs.commit_message }}
-          file_pattern: 'data/ build/'
-
-      - run: git push
-
-      - run: npm run publish-token-package
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          tag_name: v${{ steps.project-version.outputs.version }}
+          generate_release_notes: true
+          make_latest: true
