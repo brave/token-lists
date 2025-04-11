@@ -49,8 +49,20 @@ import util from 'node:util';
 import fs from 'node:fs';
 
 import { ethers } from 'ethers';
-import * as solanaWeb3 from '@solana/web3.js';
-import * as splToken from '@solana/spl-token';
+import {
+  address as solanaAddress,
+  createSolanaRpc
+} from "@solana/kit";
+import {
+  fetchMint,
+  TOKEN_PROGRAM_ADDRESS
+} from "@solana-program/token";
+
+import {
+  fetchMint as fetchMint2022,
+  TOKEN_2022_PROGRAM_ADDRESS
+} from "@solana-program/token-2022";
+
 
 import coingecko, { AssetPlatform } from './lib/coingecko';
 
@@ -154,30 +166,26 @@ const getTokenChainInfo = async (chainId: ChainId, address: string) => {
   const rpcUrl = rpcConfig[chainId];
 
   if (chainId === ChainId.SOLANA) {
-    const connection = new solanaWeb3.Connection(rpcUrl);
-    const mintPubkey = new solanaWeb3.PublicKey(address);
+    const rpc = createSolanaRpc(rpcUrl);
+    const mintPubkey = solanaAddress(address);
 
     try {
       // First try standard SPL Token program
-      const mintInfo = await splToken.getMint(
-        connection, 
-        mintPubkey,
-        undefined, // commitment
-        splToken.TOKEN_PROGRAM_ID
+      const mintInfo = await fetchMint(
+        rpc,
+        mintPubkey
       );
       return {
-        decimals: mintInfo.decimals
+        decimals: mintInfo.data.decimals
       };
     } catch (error) {
       // If standard SPL Token fails, try Token-2022 program
-      const mintInfo = await splToken.getMint(
-        connection, 
-        mintPubkey,
-        undefined, // commitment
-        splToken.TOKEN_2022_PROGRAM_ID
+      const mintInfo = await fetchMint2022(
+        rpc,
+        mintPubkey
       );
       return {
-        decimals: mintInfo.decimals,
+        decimals: mintInfo.data.decimals,
         token2022: true
       };
     }
