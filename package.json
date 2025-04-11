@@ -4,8 +4,9 @@
   "description": "Manages custom token lists for Brave Wallet",
   "dependencies": {
     "@metamask/contract-metadata": "git+https://git@github.com/MetaMask/contract-metadata.git",
-    "@solana/spl-token": "^0.4.9",
-    "@solana/web3.js": "^1.95.4",
+    "@solana-program/token": "^0.5.1",
+    "@solana-program/token-2022": "^0.4.0",
+    "@solana/kit": "^2.1.0",
     "ethers": "^6.13.4",
     "follow-redirects": "^1.15.6",
     "mime-types": "^2.1.35",
