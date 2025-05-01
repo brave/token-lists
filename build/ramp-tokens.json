@@ -3985,6 +3985,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0x3c3a81e81dc49a522a592e7622a7e711c06bf354",
+      "name": "Mantle",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "MANTLE",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0x69af81e73a73b40adf4f3d4223cd9b1ece623074",
       "name": "Mask Network",
       "logo": "",
@@ -6479,6 +6499,26 @@
       "coingecko_id": "",
       "chain_id": "0x65",
       "coin": 501,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
+      "contract_address": "0xdc6ff44d5d932cbd77b52e5612ba0529dc6226f1",
+      "name": "Worldcoin",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "WLD",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0xa",
+      "coin": 60,
       "on_ramp_providers": [
         "coinbase"
       ],
