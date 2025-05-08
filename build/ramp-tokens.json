@@ -795,7 +795,8 @@
       "token_id": "",
       "visible": true,
       "on_ramp_providers": [
-        "sardine"
+        "sardine",
+        "coinbase"
       ],
       "off_ramp_providers": []
     },
