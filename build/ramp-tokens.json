@@ -2186,6 +2186,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0x152649ea73beab28c5b49b26eb48f7ead6d4c898",
+      "name": "Pancakeswap",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "CAKE",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0xbe9895146f7af43049ca1c1ae358b0541ea49704",
       "name": "Coinbase Wrapped Staked ETH",
       "logo": "",
@@ -2860,6 +2880,26 @@
       "coingecko_id": "",
       "chain_id": "0x1",
       "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
+      "contract_address": "9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump",
+      "name": "Fartcoin",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "FARTCOIN",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x65",
+      "coin": 501,
       "on_ramp_providers": [
         "coinbase"
       ],
@@ -5819,6 +5859,26 @@
       "token_id": "",
       "coingecko_id": "",
       "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
+      "contract_address": "0x1337420dED5ADb9980CFc35f8f2B054ea86f8aB1",
+      "name": "Subsquid",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "SQD",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0xa4b1",
       "coin": 60,
       "on_ramp_providers": [
         "coinbase"
