@@ -5866,6 +5866,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0xc20059e0317DE91738d13af027DfC4a50781b066",
+      "name": "Spark",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "SPK",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0x1337420dED5ADb9980CFc35f8f2B054ea86f8aB1",
       "name": "Subsquid",
       "logo": "",
