@@ -2766,6 +2766,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0xE2AD0BF751834f2fbdC62A41014f84d67cA1de2A",
+      "name": "Caldera",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "ERA",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0xbbc2ae13b23d715c30720f079fcd9b4a74093505",
       "name": "Ethernity Chain",
       "logo": "",
