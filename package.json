@@ -30,7 +30,8 @@
     "bin-build": "github:brave/bin-build#bfbb583",
     "bin-wrapper": "github:brave/bin-wrapper#8f26b3b",
     "download": "github:brave/download#1072e94",
-    "axios": ">=1.6.0"
+    "axios": ">=1.6.0",
+    "cross-spawn": ">=7.0.5"
   },
   "main": "index.js",
   "scripts": {
