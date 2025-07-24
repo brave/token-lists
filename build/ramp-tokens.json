@@ -3686,6 +3686,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn",
+      "name": "Jito Staked Sol",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "JITOSOL",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x65",
+      "coin": 501,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
       "name": "Jito",
       "logo": "",
@@ -4400,6 +4420,26 @@
       "coingecko_id": "",
       "chain_id": "0x1",
       "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
+      "contract_address": "METAewgxyPbgwsseH8T16a39CQ5VyVxZi9zXiDPY18m",
+      "name": "Metaplex",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "MPLX",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x65",
+      "coin": 501,
       "on_ramp_providers": [
         "coinbase"
       ],
