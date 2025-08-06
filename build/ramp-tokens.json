@@ -2886,6 +2886,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0xd9fcd98c322942075a5c3860693e9f4f03aae07b",
+      "name": "Euler",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "EUL",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0x1abaea1f7c830bd89acc67ec4af516284b1bc33c",
       "name": "EURC",
       "logo": "",
@@ -5274,6 +5294,26 @@
       "is_erc1155": false,
       "is_nft": false,
       "symbol": "PRO",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
+      "contract_address": "0x6BEF15D938d4E72056AC92Ea4bDD0D76B1C4ad29",
+      "name": "Succinct",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "PROVE",
       "decimals": 18,
       "visible": true,
       "token_id": "",
