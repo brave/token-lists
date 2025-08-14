@@ -6866,6 +6866,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0xeF4461891DfB3AC8572cCf7C794664A8DD927945",
+      "name": "Walletconnect Token",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "WCT",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0xa",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm",
       "name": "Dogwifhat",
       "logo": "",
