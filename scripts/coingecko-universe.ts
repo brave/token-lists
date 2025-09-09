@@ -209,13 +209,23 @@ const getTokenChainInfo = async (chainId: ChainId, address: string) => {
   const provider = new ethers.JsonRpcProvider(rpcUrl)
   const contract = new ethers.Contract(
     address,
-    ['function decimals() view returns (uint8)'],
+    [
+      'function decimals() view returns (uint8)',
+      'function symbol() view returns (string)'
+    ],
     provider,
   )
 
+  let symbol: string | undefined;
+  try {
+    symbol = await contract.symbol();
+  } catch (error) {
+    // Symbol is optional, so we continue without it
+  }
+
   return {
     decimals: Number(await contract.decimals()),
-    symbol: await contract.symbol(),
+    symbol,
   }
 }
 
