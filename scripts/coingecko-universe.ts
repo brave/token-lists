@@ -55,12 +55,10 @@ import {
 } from "@solana/kit";
 import {
   fetchMint,
-  TOKEN_PROGRAM_ADDRESS
 } from "@solana-program/token";
 
 import {
   fetchMint as fetchMint2022,
-  TOKEN_2022_PROGRAM_ADDRESS
 } from "@solana-program/token-2022";
 
 
@@ -69,15 +67,20 @@ import coingecko, { AssetPlatform } from './lib/coingecko';
 // Enable colors in util.inspect
 util.inspect.defaultOptions.colors = true;
 
-type TokenInfo = {
+type Result = Record<string, Record<string, {
   name: string;
   symbol: string;
   coingeckoId: string;
   decimals: number;
   logo: string;
   token2022?: boolean;
+}>>;
+
+type TokenInfo = {
+  token2022?: boolean;
+  symbol?: string;
+  decimals?: number;
 };
-type Result = Record<string, Record<string, TokenInfo>>;
 
 // The enum fields indicate the chain IDs that we support.
 //
@@ -177,7 +180,7 @@ function nearToEvmAddress(nearAccountId: string): string {
   return evmAddress;
 }
 
-const getTokenChainInfo = async (chainId: ChainId, address: string) => {
+const getTokenInfoFromChain = async (chainId: ChainId, address: string): Promise<TokenInfo> => {
   const rpcUrl = rpcConfig[chainId];
 
   if (chainId === ChainId.SOLANA) {
@@ -186,27 +189,24 @@ const getTokenChainInfo = async (chainId: ChainId, address: string) => {
 
     try {
       // First try standard SPL Token program
-      const mintInfo = await fetchMint(
-        rpc,
-        mintPubkey
-      );
+      const mintInfo = await fetchMint(rpc, mintPubkey);
       return {
-        decimals: mintInfo.data.decimals
+        decimals: mintInfo.data.decimals,
+        symbol: undefined,
+        token2022: undefined,
       };
     } catch (error) {
       // If standard SPL Token fails, try Token-2022 program
-      const mintInfo = await fetchMint2022(
-        rpc,
-        mintPubkey
-      );
+      const mintInfo = await fetchMint2022(rpc, mintPubkey);
       return {
         decimals: mintInfo.data.decimals,
-        token2022: true
+        symbol: undefined,
+        token2022: true,
       };
     }
   }
 
-  const provider = new ethers.JsonRpcProvider(rpcUrl)
+  const provider = new ethers.JsonRpcProvider(rpcUrl);
   const contract = new ethers.Contract(
     address,
     [
@@ -214,7 +214,7 @@ const getTokenChainInfo = async (chainId: ChainId, address: string) => {
       'function symbol() view returns (string)'
     ],
     provider,
-  )
+  );
 
   let symbol: string | undefined;
   try {
@@ -223,11 +223,68 @@ const getTokenChainInfo = async (chainId: ChainId, address: string) => {
     // Symbol is optional, so we continue without it
   }
 
-  return {
-    decimals: Number(await contract.decimals()),
-    symbol,
+  let decimals: number | undefined;
+  try {
+    decimals = Number(await contract.decimals());
+  } catch (error) {
+    // Decimals is optional, so we continue without it
   }
-}
+
+  return {
+    decimals,
+    symbol,
+    token2022: undefined
+  };
+};
+
+const getTokenDecimalsFromCoingecko = async (coinId: string, platformId: string): Promise<number> => {
+  const coinDetails = await coingecko.getCoinDetails(coinId);
+  const platformData = coinDetails.detail_platforms[platformId];
+
+  if (!platformData || platformData.decimal_place === undefined) {
+    throw new Error(`No decimal_place found for ${coinId} on platform ${platformId}`);
+  }
+
+  return platformData.decimal_place;
+};
+
+const getTokenInfo = async (
+  chainId: ChainId,
+  address: string,
+  coinId: string,
+  platformId: string
+): Promise<TokenInfo> => {
+  // First try to get token info from the blockchain
+  try {
+    const onchainInfo = await getTokenInfoFromChain(chainId, address);
+
+    // If we got decimals from chain, return the full info
+    if (onchainInfo.decimals !== undefined) {
+      return onchainInfo;
+    }
+
+    // If no decimals from chain, try CoinGecko
+    const decimals = await getTokenDecimalsFromCoingecko(coinId, platformId);
+
+    return {
+      decimals,
+      symbol: onchainInfo.symbol,
+      token2022: onchainInfo.token2022
+    };
+
+  } catch (error) {
+    try {
+      const decimals = await getTokenDecimalsFromCoingecko(coinId, platformId);
+      return {
+        decimals,
+        symbol: undefined,
+        token2022: undefined
+      };
+    } catch (coingeckoError) {
+      throw error; // Re-throw original error if fallback fails
+    }
+  }
+};
 
 const log = {
   info: (msg: string) => console.log('\x1b[36m%s\x1b[0m', msg),
@@ -283,23 +340,29 @@ const main = async (maxRank: number | undefined = undefined) => {
         continue;
       }
 
-      let decimals: number;
+      let decimals: number | undefined;
       let symbol: string | undefined;
       let token2022: boolean | undefined;
       try {
-        const tokenChainInfo = await getTokenChainInfo(chainId, evmAddress || address);
-        decimals = tokenChainInfo.decimals;
-        symbol = tokenChainInfo.symbol;
-        token2022 = tokenChainInfo.token2022;
+        const tokenInfo = await getTokenInfo(
+          chainId,
+          evmAddress || address,
+          coin.id,
+          platformId
+        );
+        decimals = tokenInfo.decimals;
+        symbol = tokenInfo.symbol;
+        token2022 = tokenInfo.token2022;
       } catch (error: any) {
         logs.push(`⚠️ [skip] ${coin.symbol} (${address}) on ${chainId}`);
         logs.push(`    └─→ ${error?.message || 'Unknown error'}`);
         continue;
       }
 
-      if (symbol !== coin.symbol) {
-        logs.push(`⚠️ [warn] ${coin.symbol} (${address}) on ${chainId}`);
-        logs.push(`    └─→ Symbol mismatch: ${symbol} !== ${coin.symbol}`);
+      if (decimals === undefined) {
+        logs.push(`⚠️ [skip] ${coin.symbol} (${address}) on ${chainId}`);
+        logs.push(`    └─→ No decimals found`);
+        continue;
       }
 
       result[chainId] ??= {};

@@ -1,6 +1,9 @@
 import fetch from 'node-fetch';
 
-const COINGECKO_API_URL = 'https://api.coingecko.com/api/v3';
+const COINGECKO_API_URL = process.env.COINGECKO_API_KEY
+  ? 'https://pro-api.coingecko.com/api/v3'
+  : 'https://api.coingecko.com/api/v3';
+
 const s = 1000;
 const RATE_LIMIT_DELAY = 60 * s; // 60 seconds
 const RETRY_DELAY = 10 * s; // 10 seconds
@@ -20,6 +23,14 @@ export interface AssetPlatform {
   }
 }
 
+export interface CoinDetailPlatform {
+  decimal_place: number;
+}
+
+export interface CoinDetails {
+  detail_platforms: Record<string, CoinDetailPlatform>;
+}
+
 interface CoinListItem {
   id: string;
   symbol: string;
@@ -35,17 +46,20 @@ interface CoinMarket {
   image: string;
 }
 
+
 class CoinGeckoAPI {
   private async fetchWithRetry(endpoint: string, retries = 3): Promise<any> {
-    const options ={
-      headers: {
-        'Accept': 'application/json'
-      }
+    const headers: Record<string, string> = {
+      'Accept': 'application/json'
     };
+
+    if (process.env.COINGECKO_API_KEY) {
+      headers['x-cg-pro-api-key'] = process.env.COINGECKO_API_KEY;
+    }
 
     for (let i = 0; i < retries; i++) {
       try {
-        const response = await fetch(`${COINGECKO_API_URL}${endpoint}`, options);
+        const response = await fetch(`${COINGECKO_API_URL}${endpoint}`, { headers });
 
         // Handle rate limit exceeded error
         if (response.status === 429) {
@@ -60,7 +74,7 @@ class CoinGeckoAPI {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        
+
         const data = await response.json();
         await sleep(RETRY_DELAY);
         return data;
@@ -109,6 +123,12 @@ class CoinGeckoAPI {
       allMarkets.push(market);
     }
     return allMarkets;
+  }
+
+  async getCoinDetails(coinId: string): Promise<CoinDetails> {
+    return this.fetchWithRetry(
+      `/coins/${coinId}?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false`
+    );
   }
 }
 
