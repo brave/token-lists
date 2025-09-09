@@ -93,6 +93,7 @@ enum ChainId {
   OPTIMISM = '0xa',
   AVALANCHE = '0xa86a',
   SOLANA = '0x65',
+  NEAR_PROTOCOL_EVM = '0x18d',
 
   // Disabled for now
   // ZKSYNC = '0x144',
@@ -131,6 +132,7 @@ function loadRpcConfig(): Record<ChainId, string> {
     [ChainId.OPTIMISM]: process.env.OPTIMISM_RPC_URL!,
     [ChainId.AVALANCHE]: process.env.AVALANCHE_RPC_URL!,
     [ChainId.SOLANA]: process.env.SOLANA_RPC_URL!,
+    [ChainId.NEAR_PROTOCOL_EVM]: 'https://eth-rpc.mainnet.near.org',
 
     // Disabled for now
     // [ChainId.ZKSYNC]: process.env.ZKSYNC_RPC_URL!,
@@ -140,9 +142,13 @@ function loadRpcConfig(): Record<ChainId, string> {
 const rpcConfig = loadRpcConfig();
 
 const getPlatformChainId = (platform: AssetPlatform): ChainId | undefined => {
-  // Special case for Solana since it doesn't use chain identifiers
+  // Handle special cases for networks that don't use chain identifiers
   if (platform.id === "solana") {
     return ChainId.SOLANA;
+  }
+
+  if (platform.id === "near-protocol") {
+    return ChainId.NEAR_PROTOCOL_EVM;
   }
 
   // For other chains, convert numeric chain ID to hex string
@@ -161,6 +167,15 @@ const getPlatformChainId = (platform: AssetPlatform): ChainId | undefined => {
 const isEVMAddress = (address: string) => {
   return address.startsWith("0x") && address.length === 42;
 };
+
+// Convert a NEAR account ID to an EVM address using NEP-518 standard
+function nearToEvmAddress(nearAccountId: string): string {
+  // Compute Keccak-256 hash of the UTF-8 bytes of the account ID
+  const hash = ethers.keccak256(ethers.toUtf8Bytes(nearAccountId));
+  // Take the last 40 hex chars (20 bytes) and apply EIP-55 checksum
+  const evmAddress = ethers.getAddress('0x' + hash.slice(-40));
+  return evmAddress;
+}
 
 const getTokenChainInfo = async (chainId: ChainId, address: string) => {
   const rpcUrl = rpcConfig[chainId];
@@ -234,10 +249,6 @@ const main = async (maxRank: number | undefined = undefined) => {
     if (!coin) continue;
 
     for (const [platformId, address] of Object.entries(coin.platforms)) {
-      if (!isEVMAddress(address) && platformId !== "solana") {
-        continue;
-      }
-
       const platform = platforms.find(p => p.id === platformId);
       if (!platform) {
         continue;
@@ -248,11 +259,25 @@ const main = async (maxRank: number | undefined = undefined) => {
         continue;
       }
 
+      let evmAddress: string | undefined;
+      if (chainId === ChainId.NEAR_PROTOCOL_EVM) {
+        evmAddress = nearToEvmAddress(address);
+      }
+
+      if (isEVMAddress(address)) {
+        evmAddress = address;
+      }
+
+      // Skip if token or platform is not supported
+      if (!evmAddress && platformId !== "solana") {
+        continue;
+      }
+
       let decimals: number;
       let symbol: string | undefined;
       let token2022: boolean | undefined;
       try {
-        const tokenChainInfo = await getTokenChainInfo(chainId, address);
+        const tokenChainInfo = await getTokenChainInfo(chainId, evmAddress || address);
         decimals = tokenChainInfo.decimals;
         symbol = tokenChainInfo.symbol;
         token2022 = tokenChainInfo.token2022;
