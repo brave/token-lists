@@ -199,7 +199,8 @@ const getTokenChainInfo = async (chainId: ChainId, address: string) => {
   )
 
   return {
-    decimals: Number(await contract.decimals())
+    decimals: Number(await contract.decimals()),
+    symbol: await contract.symbol(),
   }
 }
 
@@ -248,10 +249,12 @@ const main = async (maxRank: number | undefined = undefined) => {
       }
 
       let decimals: number;
+      let symbol: string | undefined;
       let token2022: boolean | undefined;
       try {
         const tokenChainInfo = await getTokenChainInfo(chainId, address);
         decimals = tokenChainInfo.decimals;
+        symbol = tokenChainInfo.symbol;
         token2022 = tokenChainInfo.token2022;
       } catch (error: any) {
         logs.push(`⚠️ [skip] ${coin.symbol} (${address}) on ${chainId}`);
@@ -259,10 +262,18 @@ const main = async (maxRank: number | undefined = undefined) => {
         continue;
       }
 
+      if (symbol !== coin.symbol) {
+        logs.push(`⚠️ [warn] ${coin.symbol} (${address}) on ${chainId}`);
+        logs.push(`    └─→ Symbol mismatch: ${symbol} !== ${coin.symbol}`);
+      }
+
       result[chainId] ??= {};
       result[chainId][address] = {
         name: coin.name,
-        symbol: coin.symbol,
+
+        // Use the symbol from onchain data if available, otherwise use the symbol from CoinGecko.
+        // Coingecko API returns lowercase symbols, so we need to uppercase it.
+        symbol: symbol || coin.symbol.toUpperCase(),
         coingeckoId: coin.id,
         decimals,
         logo: market.image
