@@ -343,10 +343,13 @@ const main = async (maxRank: number | undefined = undefined) => {
       let decimals: number | undefined;
       let symbol: string | undefined;
       let token2022: boolean | undefined;
+
+      const resolvedAddress = evmAddress || address;
+
       try {
         const tokenInfo = await getTokenInfo(
           chainId,
-          evmAddress || address,
+          resolvedAddress,
           coin.id,
           platformId
         );
@@ -354,19 +357,19 @@ const main = async (maxRank: number | undefined = undefined) => {
         symbol = tokenInfo.symbol;
         token2022 = tokenInfo.token2022;
       } catch (error: any) {
-        logs.push(`⚠️ [skip] ${coin.symbol} (${address}) on ${chainId}`);
+        logs.push(`⚠️ [skip] ${coin.symbol} (${resolvedAddress}) on ${chainId}`);
         logs.push(`    └─→ ${error?.message || 'Unknown error'}`);
         continue;
       }
 
       if (decimals === undefined) {
-        logs.push(`⚠️ [skip] ${coin.symbol} (${address}) on ${chainId}`);
+        logs.push(`⚠️ [skip] ${coin.symbol} (${resolvedAddress}) on ${chainId}`);
         logs.push(`    └─→ No decimals found`);
         continue;
       }
 
       result[chainId] ??= {};
-      result[chainId][address] = {
+      result[chainId][resolvedAddress] = {
         name: coin.name,
 
         // Use the symbol from onchain data if available, otherwise use the symbol from CoinGecko.
@@ -378,12 +381,16 @@ const main = async (maxRank: number | undefined = undefined) => {
       };
 
       if (token2022) {
-        result[chainId][address].token2022 = token2022;
+        result[chainId][resolvedAddress].token2022 = token2022;
       }
 
       processed = true;
       addedTokens++;
-      logs.push(`💎 [add]  ${coin.symbol} (${address}) on ${chainId}`);
+      if (resolvedAddress !== address) {
+        logs.push(`💎 [add]  ${coin.symbol} (${address} -> ${resolvedAddress}) on ${chainId}`);
+      } else {
+        logs.push(`💎 [add]  ${coin.symbol} (${resolvedAddress}) on ${chainId}`);
+      }
     }
 
     if (processed || logs.length > 0) {
