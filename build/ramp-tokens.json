@@ -7206,6 +7206,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0x000006c2A22ff4A44ff1f5d0F2ed65F781F55555",
+      "name": "Boundless",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "ZKC",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0x6985884C4392D348587B19cb9eAAf157F13271cd",
       "name": "Layerzero",
       "logo": "",
