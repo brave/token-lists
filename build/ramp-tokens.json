@@ -2286,6 +2286,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0xcccccccccc33d538dbc2ee4feab0a7a1ff4e8a94",
+      "name": "Centrifuge",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "CFG",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0x471ece3750da237f93b8e339c536989b8978a438",
       "name": "Celo",
       "logo": "",
@@ -6600,6 +6620,26 @@
       "coingecko_id": "",
       "chain_id": "0x1",
       "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
+      "contract_address": "5UUH9RTDiSpq6HKS6bp4NdU9PNJpXRXuiw6ShBTBhgH2",
+      "name": "Troll",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "TROLL",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x65",
+      "coin": 501,
       "on_ramp_providers": [
         "coinbase"
       ],
