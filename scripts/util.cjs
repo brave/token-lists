@@ -315,6 +315,63 @@ const installErrorHandlers = () => {
   })
 }
 
+const generateTokenList = async (coingeckoIds) => {
+    const ankrApiKey = process.env.ANKR_API_KEY
+    const ankrSupportedChains = {
+        "eth": "0x1",
+        "bsc": "0x38",
+        "fantom": "0xfa",
+        "avalanche": "0xa86a",
+        "polygon": "0x89",
+        "optimism": "0xa",
+    };
+
+    const tokenList = {};
+
+    for (let chainKey in ankrSupportedChains) {
+        let chainId = ankrSupportedChains[chainKey];
+
+        const response = await fetch(`https://rpc.ankr.com/multichain/${ankrApiKey}/?ankr_getCurrencies=`, {
+            method: 'POST',
+            headers: {
+                'accept': 'application/json',
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                "jsonrpc": "2.0",
+                "method": "ankr_getCurrencies",
+                "params": {
+                    "blockchain": chainKey
+                },
+                "id": 1
+            })
+        });
+
+        const data = await response.json();
+
+        if (data.result && data.result.currencies) {
+            let tokens = data.result.currencies;
+            let tokenMapping = {};
+
+            for (let token of tokens) {
+                let coingeckoId = coingeckoIds[chainId] && coingeckoIds[chainId][token.address] ? coingeckoIds[chainId][token.address] : null;
+                tokenMapping[token.address] = {
+                    "name": token.name,
+                    "logo": token.thumbnail,
+                    "symbol": token.symbol,
+                    "decimals": token.decimals,
+                    "coingeckoId": coingeckoId,
+                    "erc20": true,
+                };
+            }
+
+            tokenList[chainId] = tokenMapping;
+        }
+    }
+
+    return tokenList;
+}
+
 const generateMainnetTokenList = async (fullTokenList) => {
   const MAX_TOKEN_LIST_SIZE = 100
   const coinGeckoApiBaseUrl = "https://api.coingecko.com/api/v3"
@@ -820,6 +877,7 @@ module.exports = {
   installErrorHandlers,
   saveToPNGResize,
   download,
+  generateTokenList,
   generateMainnetTokenList,
   generateDappLists,
   addSupportedCoinbaseTokens,
