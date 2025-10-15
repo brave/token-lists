@@ -809,7 +809,7 @@ const fetchGitHubRepoTopLevelFiles = async (repoOwner, repoName, branch) => {
 }
 
 const fetchJupiterTokensList = async () => {
-  const jupiterTokensListResp = await fetch("https://token.jup.ag/strict")
+  const jupiterTokensListResp = await fetch("https://lite-api.jup.ag/tokens/v2/tag?query=verified")
   const jupiterTokensList = await jupiterTokensListResp.json()
   return jupiterTokensList
 }

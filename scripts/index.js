@@ -191,23 +191,16 @@ async function stageTokenListsLogo(stagingDir, token) {
   return destFile
 }
 
-async function stageTokenListsTokens(stagingDir, tokens, coingeckoIds, isEVM = true) {
-  // Use an asynchronous job queue to throttle downloads.
-  const q = new Qyu({concurrency: 2})
-  q(tokens, async (token, idx) => {
-    tokens[idx].logoURI = await stageTokenListsLogo(stagingDir, token)
-  })
-
-  await q.whenEmpty()
+async function stageTokenListsTokens(stagingDir, tokens, coingeckoIds) {
   return tokens
     .reduce((acc, token) => {
       const result = {
         name: token.name,
-        logo: token.logoURI,
-        erc20: isEVM,
+        logo: token.icon,
+        erc20: false,
         symbol: token.symbol,
         decimals: token.decimals,
-        chainId: `0x${token.chainId.toString(16)}`
+        chainId: '0x65'
       }
 
       if (token.extensions && token.extensions.coingeckoId) {
@@ -221,14 +214,14 @@ async function stageTokenListsTokens(stagingDir, tokens, coingeckoIds, isEVM = t
 
       return {
         ...acc,
-        [token.address]: result
+        [token.id]: result
       }
     }, {})
 }
 
 async function stageSPLTokens(stagingDir, coingeckoIds) {
   const splTokensArray = await util.fetchJupiterTokensList()
-  const splTokens = await stageTokenListsTokens(stagingDir, splTokensArray, coingeckoIds, false)
+  const splTokens = await stageTokenListsTokens(stagingDir, splTokensArray, coingeckoIds)
   const splTokensWithCoingeckoIds = await util.injectCoingeckoIds(splTokens, coingeckoIds)
   const splTokensPath = path.join(stagingDir, 'solana-contract-map.json')
   fs.writeFileSync(splTokensPath, JSON.stringify(splTokensWithCoingeckoIds, null, 2))
