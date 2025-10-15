@@ -1806,6 +1806,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0x4cCe605eD955295432958d8951D0B176C10720d5",
+      "name": "Australian Digital Dollar",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "AUDD",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0x18aaa7115705e8be94bffebde57af9bfc265b998",
       "name": "Audius",
       "logo": "",
@@ -4066,6 +4086,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0x1789e0043623282d5dcc7f213d703c6d8bafbb04",
+      "name": "Linea",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "LINEA",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0xb59490ab09a0f526cc7305822ac65f2ab12f9723",
       "name": "Litentry",
       "logo": "",
@@ -4299,6 +4339,26 @@
       "token_id": "",
       "coingecko_id": "",
       "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
+      "contract_address": "0x0000000000000000000000000000000000001010",
+      "name": "Polygon",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "MATIC",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x89",
       "coin": 60,
       "on_ramp_providers": [
         "coinbase"
@@ -5219,26 +5279,6 @@
       "token_id": "",
       "coingecko_id": "",
       "chain_id": "0x1",
-      "coin": 60,
-      "on_ramp_providers": [
-        "coinbase"
-      ],
-      "off_ramp_providers": []
-    },
-    {
-      "contract_address": "0x0000000000000000000000000000000000001010",
-      "name": "Polygon Ecosystem Token",
-      "logo": "",
-      "is_erc20": true,
-      "is_erc721": false,
-      "is_erc1155": false,
-      "is_nft": false,
-      "symbol": "POL",
-      "decimals": 18,
-      "visible": true,
-      "token_id": "",
-      "coingecko_id": "",
-      "chain_id": "0x89",
       "coin": 60,
       "on_ramp_providers": [
         "coinbase"
@@ -7146,6 +7186,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0xCEDbEA37C8872c4171259Cdfd5255CB8923Cf8e7",
+      "name": "Anoma",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "XAN",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0xa2cd3d43c775978a96bdbf12d733d5a1ed94fb18",
       "name": "Onyxcoin",
       "logo": "",
@@ -7174,6 +7234,26 @@
       "is_erc1155": false,
       "is_nft": false,
       "symbol": "XMON",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
+      "contract_address": "0x70e8de73ce538da2beed35d14187f6959a8eca96",
+      "name": "XSGD",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "XSGD",
       "decimals": 18,
       "visible": true,
       "token_id": "",
