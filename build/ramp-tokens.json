@@ -1326,6 +1326,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "J6pQQ3FAcJQeWPPGppWRb4nM8jU3wLyYbRrLh7feMfvd",
+      "name": "Doublezero",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "2Z",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x65",
+      "coin": 501,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0x3E5A19c91266aD8cE2477B91585d1856B84062dF",
       "name": "Ancient8",
       "logo": "",
@@ -7274,6 +7294,26 @@
       "is_erc1155": false,
       "is_nft": false,
       "symbol": "XYO",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
+      "contract_address": "0x01791F726B4103694969820be083196cC7c045fF",
+      "name": "Yield Basis",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "YB",
       "decimals": 18,
       "visible": true,
       "token_id": "",
