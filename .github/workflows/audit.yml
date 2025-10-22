@@ -20,10 +20,11 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+      - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
         with:
           node-version: '22.x'
           registry-url: 'https://registry.npmjs.org'
+          cache: 'yarn'
       - run: sudo apt-get update -y
       - run: sudo apt-get install -y librsvg2-bin libimagequant-dev pkg-config libpng-dev
       - run: npm install -g yarn
