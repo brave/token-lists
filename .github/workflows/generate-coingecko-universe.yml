@@ -7,7 +7,7 @@ on:
     - cron: '0 0 * * *'
 
 env:
-  TOKEN_LISTS_ACTIONS_OR_CI_BUILD: true
+  ACTIONS_OR_CI_BUILD: true
   API_AUTH_TOKEN_GITHUB: ${{ secrets.API_AUTH_TOKEN_GITHUB }}
   ETHEREUM_RPC_URL: ${{ secrets.ETHEREUM_RPC_URL }}
   BSC_RPC_URL: ${{ secrets.BSC_RPC_URL }}
