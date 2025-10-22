@@ -24,6 +24,7 @@ jobs:
         with:
           node-version: '22.x'
           registry-url: 'https://registry.npmjs.org'
+          cache: 'yarn'
       - run: sudo apt-get update -y
       - run: sudo apt-get install -y librsvg2-bin libimagequant-dev pkg-config libpng-dev
       - run: npm install -g yarn
