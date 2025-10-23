@@ -9,6 +9,7 @@ on:
 env:
   ACTIONS_OR_CI_BUILD: true
   API_AUTH_TOKEN_GITHUB: ${{ secrets.API_AUTH_TOKEN_GITHUB }}
+  COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
   ETHEREUM_RPC_URL: ${{ secrets.ETHEREUM_RPC_URL }}
   BSC_RPC_URL: ${{ secrets.BSC_RPC_URL }}
   ARBITRUM_RPC_URL: ${{ secrets.ARBITRUM_RPC_URL }}
