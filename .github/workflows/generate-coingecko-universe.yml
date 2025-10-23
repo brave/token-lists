@@ -7,7 +7,7 @@ on:
     - cron: '0 0 * * *'
 
 env:
-  TOKEN_LISTS_ACTIONS_OR_CI_BUILD: true
+  ACTIONS_OR_CI_BUILD: true
   API_AUTH_TOKEN_GITHUB: ${{ secrets.API_AUTH_TOKEN_GITHUB }}
   COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
   ETHEREUM_RPC_URL: ${{ secrets.ETHEREUM_RPC_URL }}
@@ -32,10 +32,11 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+      - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
         with:
           node-version: '22.x'
           registry-url: 'https://registry.npmjs.org'
+          cache: 'yarn'
 
       - run: sudo apt-get update -y
       - run: npm install -g yarn

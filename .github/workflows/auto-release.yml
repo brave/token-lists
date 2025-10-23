@@ -7,7 +7,7 @@ on:
     - cron: '0 1 * * *'
 
 env:
-  TOKEN_LISTS_ACTIONS_OR_CI_BUILD: true
+  ACTIONS_OR_CI_BUILD: true
   COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
   DAPP_RADAR_PROJECT_ID: ${{ secrets.DAPP_RADAR_PROJECT_ID }}
   DAPP_RADAR_API_KEY: ${{ secrets.DAPP_RADAR_API_KEY }}
@@ -27,10 +27,11 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
-      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+      - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
         with:
           node-version: '22.x'
           registry-url: 'https://registry.npmjs.org'
+          cache: 'yarn'
 
       - name: Configure Git
         run: |
