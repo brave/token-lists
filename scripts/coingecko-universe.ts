@@ -367,11 +367,11 @@ const main = async (maxRank: number | undefined = undefined) => {
     for (const item of results) {
       if (!item.success) {
         logs.push(`⚠️ [skip] ${coin.symbol} (${item.resolvedAddress}) on ${item.chainId}`);
-        logs.push(`    └─→ ${'error' in item ? item.error?.message || 'Unknown error' : 'Unknown error'}`);
+        logs.push(`    └─→ ${item.error?.message || 'Unknown error'}`);
         continue;
       }
 
-      const { decimals, symbol, token2022 } = 'tokenInfo' in item ? item.tokenInfo : { decimals: undefined, symbol: undefined, token2022: undefined };
+      const { decimals, symbol, token2022 } = item.tokenInfo;
 
       if (decimals === undefined) {
         logs.push(`⚠️ [skip] ${coin.symbol} (${item.resolvedAddress}) on ${item.chainId}`);
