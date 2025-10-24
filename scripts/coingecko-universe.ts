@@ -315,6 +315,16 @@ const main = async (maxRank: number | undefined = undefined) => {
     const coin = coins.find(c => c.id === market.id);
     if (!coin) continue;
 
+    // Collect all platform requests to parallelize
+    type PlatformRequest = {
+      platformId: string;
+      address: string;
+      chainId: ChainId;
+      resolvedAddress: string;
+    };
+
+    const platformRequests: PlatformRequest[] = [];
+
     for (const [platformId, address] of Object.entries(coin.platforms)) {
       const platform = platforms.find(p => p.id === platformId);
       if (!platform) {
@@ -340,36 +350,37 @@ const main = async (maxRank: number | undefined = undefined) => {
         continue;
       }
 
-      let decimals: number | undefined;
-      let symbol: string | undefined;
-      let token2022: boolean | undefined;
-
       const resolvedAddress = evmAddress || address;
+      platformRequests.push({ platformId, address, chainId, resolvedAddress });
+    }
 
-      try {
-        const tokenInfo = await getTokenInfo(
-          chainId,
-          resolvedAddress,
-          coin.id,
-          platformId
-        );
-        decimals = tokenInfo.decimals;
-        symbol = tokenInfo.symbol;
-        token2022 = tokenInfo.token2022;
-      } catch (error: any) {
-        logs.push(`⚠️ [skip] ${coin.symbol} (${resolvedAddress}) on ${chainId}`);
-        logs.push(`    └─→ ${error?.message || 'Unknown error'}`);
+    // Fetch all platform data in parallel
+    const tokenInfoPromises = platformRequests.map(req =>
+      getTokenInfo(req.chainId, req.resolvedAddress, coin.id, req.platformId)
+        .then(tokenInfo => ({ ...req, tokenInfo, success: true }))
+        .catch((error: any) => ({ ...req, error, success: false }))
+    );
+
+    const results = await Promise.all(tokenInfoPromises);
+
+    // Process results
+    for (const item of results) {
+      if (!item.success) {
+        logs.push(`⚠️ [skip] ${coin.symbol} (${item.resolvedAddress}) on ${item.chainId}`);
+        logs.push(`    └─→ ${'error' in item ? item.error?.message || 'Unknown error' : 'Unknown error'}`);
         continue;
       }
 
+      const { decimals, symbol, token2022 } = 'tokenInfo' in item ? item.tokenInfo : { decimals: undefined, symbol: undefined, token2022: undefined };
+
       if (decimals === undefined) {
-        logs.push(`⚠️ [skip] ${coin.symbol} (${resolvedAddress}) on ${chainId}`);
+        logs.push(`⚠️ [skip] ${coin.symbol} (${item.resolvedAddress}) on ${item.chainId}`);
         logs.push(`    └─→ No decimals found`);
         continue;
       }
 
-      result[chainId] ??= {};
-      result[chainId][resolvedAddress] = {
+      result[item.chainId] ??= {};
+      result[item.chainId][item.resolvedAddress] = {
         name: coin.name,
 
         // Use the symbol from onchain data if available, otherwise use the symbol from CoinGecko.
@@ -381,15 +392,15 @@ const main = async (maxRank: number | undefined = undefined) => {
       };
 
       if (token2022) {
-        result[chainId][resolvedAddress].token2022 = token2022;
+        result[item.chainId][item.resolvedAddress].token2022 = token2022;
       }
 
       processed = true;
       addedTokens++;
-      if (resolvedAddress !== address) {
-        logs.push(`💎 [add]  ${coin.symbol} (${address} -> ${resolvedAddress}) on ${chainId}`);
+      if (item.resolvedAddress !== item.address) {
+        logs.push(`💎 [add]  ${coin.symbol} (${item.address} -> ${item.resolvedAddress}) on ${item.chainId}`);
       } else {
-        logs.push(`💎 [add]  ${coin.symbol} (${resolvedAddress}) on ${chainId}`);
+        logs.push(`💎 [add]  ${coin.symbol} (${item.resolvedAddress}) on ${item.chainId}`);
       }
     }
 
