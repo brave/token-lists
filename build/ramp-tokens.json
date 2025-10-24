@@ -1666,6 +1666,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0x5A9610919f5e81183823A2be4Bd1BeB2B4da2a20",
+      "name": "aPriori",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "APR",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0x912ce59144191c1204e64559fe8253a0e49e6548",
       "name": "Arbitrum",
       "logo": "",
@@ -4454,6 +4474,26 @@
       "is_erc1155": false,
       "is_nft": false,
       "symbol": "MEDIA",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x65",
+      "coin": 501,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
+      "contract_address": "METvsvVRapdj9cFLzq4Tr43xK4tAjQfwX76z3n6mWQL",
+      "name": "Meteora",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "MET",
       "decimals": 18,
       "visible": true,
       "token_id": "",
