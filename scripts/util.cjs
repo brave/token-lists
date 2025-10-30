@@ -814,6 +814,25 @@ const fetchJupiterTokensList = async () => {
   return jupiterTokensList
 }
 
+/**
+ * Sorts a token list JSON object by chain IDs and contract addresses while preserving
+ * the order of token metadata properties (name, symbol, coingeckoId, decimals, logo, etc.)
+ */
+const sortTokenListJson = (tokenListJson) => {
+  return Object.keys(tokenListJson)
+    .sort()
+    .reduce((result, chainId) => {
+      const chainTokens = tokenListJson[chainId]
+      result[chainId] = Object.keys(chainTokens)
+        .sort()
+        .reduce((sortedTokens, address) => {
+          sortedTokens[address] = chainTokens[address]
+          return sortedTokens
+        }, {})
+      return result
+    }, {})
+}
+
 module.exports = {
   contractReplaceSvgToPng,
   contractAddExtraMainnetAssets,
@@ -829,4 +848,5 @@ module.exports = {
   injectCoingeckoIds,
   fetchGitHubRepoTopLevelFiles,
   fetchJupiterTokensList,
+  sortTokenListJson,
 }
