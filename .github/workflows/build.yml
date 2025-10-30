@@ -26,5 +26,5 @@ jobs:
       - run: sudo apt-get install -y librsvg2-bin libimagequant-dev pkg-config libpng-dev
       - run: npm install -g yarn
       - run: yarn --version
-      - run: yarn
+      - run: yarn install --frozen-lockfile
       - run: yarn start
