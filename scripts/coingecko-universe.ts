@@ -64,7 +64,7 @@ import {
 
 import coingecko, { AssetPlatform } from './lib/coingecko';
 
-const util = require('./util.cjs');
+const { sortTokenListJson } = require('./util.cjs');
 
 // Enable colors in util.inspect
 util.inspect.defaultOptions.colors = true;
@@ -412,13 +412,13 @@ const main = async (maxRank: number | undefined = undefined) => {
       if (maxRank && market.market_cap_rank && market.market_cap_rank <= maxRank) {
         await fs.promises.writeFile(
           `data/v1/coingecko-top${maxRank}.json`,
-          JSON.stringify(util.sortTokenListJson(result), null, 2)
+          JSON.stringify(sortTokenListJson(result), null, 2)
         );
       }
 
       await fs.promises.writeFile(
         'data/v1/coingecko.json',
-        JSON.stringify(util.sortTokenListJson(result), null, 2)
+        JSON.stringify(sortTokenListJson(result), null, 2)
       );
     }
   }
