@@ -4006,6 +4006,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0x904567252D8F48555b7447c67dCA23F0372E16be",
+      "name": "Kite",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "KITE",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "KMNo3nJsBXfcpJTVhZcXLW7RmTwTt4GVFE7suUBo9sS",
       "name": "Kamino",
       "logo": "",
