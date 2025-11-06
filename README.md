@@ -10,6 +10,14 @@ We have setup a **weekly** cron job on [Jenkins](https://github.com/brave/devops
 
 ## Development
 
+### Code Quality
+
+This project uses [neostandard](https://github.com/neostandard/neostandard) for code linting to maintain consistent code style and catch potential issues.
+
+```bash
+yarn lint
+```
+
 ### Ubuntu
 
 - Install system dependencies.
