@@ -1,22 +1,22 @@
-const childProcess = require("child_process")
-const fs = require("fs")
-const os = require("os")
-const path = require("path")
-const sharp = require("sharp")
-const fetch = require("node-fetch")
-const { extension } = require("mime-types")
-const { https } = require("follow-redirects")
-const trustedCoingeckoIdsByChainId = require("../data/solana/trusted-coingecko-ids.json")
+const childProcess = require('child_process')
+const fs = require('fs')
+const os = require('os')
+const path = require('path')
+const sharp = require('sharp')
+const fetch = require('node-fetch')
+const { extension } = require('mime-types')
+const { https } = require('follow-redirects')
+const trustedCoingeckoIdsByChainId = require('../data/solana/trusted-coingecko-ids.json')
 
 const contractReplaceSvgToPng = (file) => {
   const data = JSON.parse(fs.readFileSync(file))
   for (const p in data) {
-    if (data.hasOwnProperty(p)) {
+    if (Object.prototype.hasOwnProperty.call(data, p)) {
       if (!data[p].logo) {
         continue
       }
       data[p].logo =
-        data[p].logo.substr(0, data[p].logo.lastIndexOf(".")) + ".png"
+        data[p].logo.substr(0, data[p].logo.lastIndexOf('.')) + '.png'
     }
   }
   fs.writeFileSync(file, JSON.stringify(data, null, 2))
@@ -26,148 +26,148 @@ const contractAddExtraMainnetAssets = (tokensListMap) => {
   return {
     ...tokensListMap,
     // CRV
-    "0xD533a949740bb3306d119CC777fa900bA034cd52": {
-      name: "Curve",
-      logo: "curve.png",
+    '0xD533a949740bb3306d119CC777fa900bA034cd52': {
+      name: 'Curve',
+      logo: 'curve.png',
       erc20: true,
-      symbol: "CRV",
+      symbol: 'CRV',
       decimals: 18,
-      chainId: "0x1",
+      chainId: '0x1'
     },
 
     // EURT
-    "0xc581b735a1688071a1746c968e0798d642ede491": {
-      name: "Euro Tether",
-      logo: "eurt.png",
+    '0xc581b735a1688071a1746c968e0798d642ede491': {
+      name: 'Euro Tether',
+      logo: 'eurt.png',
       erc20: true,
-      symbol: "EURT",
+      symbol: 'EURT',
       decimals: 6,
-      chainId: "0x1",
+      chainId: '0x1'
     },
 
     // TAMA
-    "0x12b6893ce26ea6341919fe289212ef77e51688c8": {
-      name: "Tamagode",
-      logo: "tama.png",
+    '0x12b6893ce26ea6341919fe289212ef77e51688c8': {
+      name: 'Tamagode',
+      logo: 'tama.png',
       erc20: true,
-      symbol: "TAMA",
+      symbol: 'TAMA',
       decimals: 18,
-      chainId: "0x1",
+      chainId: '0x1'
     },
 
     // VRA
-    "0xf411903cbc70a74d22900a5de66a2dda66507255": {
-      name: "Verasity",
-      logo: "vra.png",
+    '0xf411903cbc70a74d22900a5de66a2dda66507255': {
+      name: 'Verasity',
+      logo: 'vra.png',
       erc20: true,
-      symbol: "VRA",
+      symbol: 'VRA',
       decimals: 18,
-      chainId: "0x1",
+      chainId: '0x1'
     },
 
     // MASK
-    "0x69af81e73a73b40adf4f3d4223cd9b1ece623074": {
-      name: "Mask Network",
-      logo: "mask.png",
+    '0x69af81e73a73b40adf4f3d4223cd9b1ece623074': {
+      name: 'Mask Network',
+      logo: 'mask.png',
       erc20: true,
-      symbol: "MASK",
+      symbol: 'MASK',
       decimals: 18,
-      chainId: "0x1",
+      chainId: '0x1'
     },
 
     // CTSI
-    "0x491604c0fdf08347dd1fa4ee062a822a5dd06b5d": {
-      name: "Cartesi",
-      logo: "ctsi.png",
+    '0x491604c0fdf08347dd1fa4ee062a822a5dd06b5d': {
+      name: 'Cartesi',
+      logo: 'ctsi.png',
       erc20: true,
-      symbol: "CTSI",
+      symbol: 'CTSI',
       decimals: 18,
-      chainId: "0x1",
+      chainId: '0x1'
     },
 
     // DAO
-    "0x0f51bb10119727a7e5ea3538074fb341f56b09ad": {
-      name: "DAO Maker",
-      logo: "dao.png",
+    '0x0f51bb10119727a7e5ea3538074fb341f56b09ad': {
+      name: 'DAO Maker',
+      logo: 'dao.png',
       erc20: true,
-      symbol: "DAO",
+      symbol: 'DAO',
       decimals: 18,
-      chainId: "0x1",
+      chainId: '0x1'
     },
 
     // CLV
-    "0x80C62FE4487E1351b47Ba49809EBD60ED085bf52": {
-      name: "Clover Finance",
-      logo: "clv.png",
+    '0x80C62FE4487E1351b47Ba49809EBD60ED085bf52': {
+      name: 'Clover Finance',
+      logo: 'clv.png',
       erc20: true,
-      symbol: "CLV",
+      symbol: 'CLV',
       decimals: 18,
-      chainId: "0x1",
+      chainId: '0x1'
     },
 
     // AGEUR
-    "0x1a7e4e63778b4f12a199c062f3efdd288afcbce8": {
-      name: "agEUR",
-      logo: "ageur.png",
+    '0x1a7e4e63778b4f12a199c062f3efdd288afcbce8': {
+      name: 'agEUR',
+      logo: 'ageur.png',
       erc20: true,
-      symbol: "AGEUR",
+      symbol: 'AGEUR',
       decimals: 18,
-      chainId: "0x1",
+      chainId: '0x1'
     },
 
     // SWAP
-    "0xcc4304a31d09258b0029ea7fe63d032f52e44efe": {
-      name: "TrustSwap",
-      logo: "swap.png",
+    '0xcc4304a31d09258b0029ea7fe63d032f52e44efe': {
+      name: 'TrustSwap',
+      logo: 'swap.png',
       erc20: true,
-      symbol: "SWAP",
+      symbol: 'SWAP',
       decimals: 18,
-      chainId: "0x1",
+      chainId: '0x1'
     },
 
     // YLD
-    "0xf94b5c5651c888d928439ab6514b93944eee6f48": {
-      name: "YIELD App",
-      logo: "yld.png",
+    '0xf94b5c5651c888d928439ab6514b93944eee6f48': {
+      name: 'YIELD App',
+      logo: 'yld.png',
       erc20: true,
-      symbol: "YLD",
+      symbol: 'YLD',
       decimals: 18,
-      chainId: "0x1",
+      chainId: '0x1'
     },
 
     // GTH
-    "0xeb986DA994E4a118d5956b02d8b7c3C7CE373674": {
-      name: "Gather",
-      logo: "gth.png",
+    '0xeb986DA994E4a118d5956b02d8b7c3C7CE373674': {
+      name: 'Gather',
+      logo: 'gth.png',
       erc20: true,
-      symbol: "GTH",
+      symbol: 'GTH',
       decimals: 18,
-      chainId: "0x1",
+      chainId: '0x1'
     },
 
     // QUARTZ
-    "0xba8a621b4a54e61c442f5ec623687e2a942225ef": {
-      name: "Sandclock",
-      logo: "quartz.png",
+    '0xba8a621b4a54e61c442f5ec623687e2a942225ef': {
+      name: 'Sandclock',
+      logo: 'quartz.png',
       erc20: true,
-      symbol: "QUARTZ",
+      symbol: 'QUARTZ',
       decimals: 18,
-      chainId: "0x1",
+      chainId: '0x1'
     },
 
     // KARATE
-    "0x80008BCD713c38AF90a9930288D446bc3bD2E684": {
-      name: "Karate Combat",
-      logo: "karate.png",
+    '0x80008BCD713c38AF90a9930288D446bc3bD2E684': {
+      name: 'Karate Combat',
+      logo: 'karate.png',
       erc20: true,
-      symbol: "KARATE",
+      symbol: 'KARATE',
       decimals: 18,
-      chainId: "0x1",
-    },
-  };
+      chainId: '0x1'
+    }
+  }
 }
 
-async function saveToPNGResize(source, dest, ignoreError) {
+async function saveToPNGResize (source, dest, ignoreError) {
   return new Promise(function (resolve, reject) {
     sharp(source)
       .png()
@@ -188,32 +188,32 @@ async function saveToPNGResize(source, dest, ignoreError) {
               resolve()
             })
             .catch(function (err) {
-              console.log("source == " + source + " " + err)
-              reject()
+              console.log('source == ' + source + ' ' + err)
+              reject(new Error('Failed to resize image: ' + err))
             })
         } else {
           if (
             (info.width < 200 || info.height < 200) &&
-            !source.endsWith(".png")
+            !source.endsWith('.png')
           ) {
-            console.log("resizing vector image == " + source)
-            const outputDir = path.join(os.tmpdir(), "brave-token-images")
-            console.log("outputdir: ", outputDir)
+            console.log('resizing vector image == ' + source)
+            const outputDir = path.join(os.tmpdir(), 'brave-token-images')
+            console.log('outputdir: ', outputDir)
             if (!fs.existsSync(outputDir)) {
               fs.mkdirSync(outputDir)
             }
             const fileName = path.parse(source).base
-            let cmd = "./node_modules/svg-resizer/svg-resizer.js"
-            let args = [
-              "-f",
-              "-x",
-              "300",
-              "-y",
-              "300",
-              "-o",
+            const cmd = './node_modules/svg-resizer/svg-resizer.js'
+            const args = [
+              '-f',
+              '-x',
+              '300',
+              '-y',
+              '300',
+              '-o',
               outputDir,
-              "-i",
-              source,
+              '-i',
+              source
             ]
             childProcess.execFileSync(cmd, args)
             saveToPNGResize(path.join(outputDir, fileName), dest, true)
@@ -226,13 +226,13 @@ async function saveToPNGResize(source, dest, ignoreError) {
       })
       .catch(function (err) {
         if (ignoreError) {
-          console.log("source == " + source + " " + err)
+          console.log('source == ' + source + ' ' + err)
           console.log('Do you need to "brew install librsvg"?')
-          reject()
+          reject(new Error('Image processing failed: ' + err))
           return
         }
-        console.log("trying one more time source == " + source + " " + err)
-        const outputDir = path.join(os.tmpdir(), "brave-token-images")
+        console.log('trying one more time source == ' + source + ' ' + err)
+        const outputDir = path.join(os.tmpdir(), 'brave-token-images')
         if (!fs.existsSync(outputDir)) {
           fs.mkdirSync(outputDir)
         }
@@ -241,7 +241,7 @@ async function saveToPNGResize(source, dest, ignoreError) {
         try {
           modifySvgFile(path.join(outputDir, fileName))
         } catch (e) {
-          console.log("failed to fix SVG file:", e)
+          console.log('failed to fix SVG file:', e)
           return
         }
 
@@ -249,7 +249,7 @@ async function saveToPNGResize(source, dest, ignoreError) {
           .then(resolve)
           .catch((e) => {
             console.log(e)
-            reject()
+            reject(new Error('SVG processing failed: ' + e))
           })
       })
   })
@@ -267,61 +267,61 @@ const modifySvgFile = (file) => {
   fs.writeFileSync(file, data)
 }
 
-async function download(url, directory, filename, ext) {
+async function download (url, directory, filename, ext) {
   console.log(`Download: ${url}`)
   return new Promise((resolve, reject) => {
     const request = https.get(url, { timeout: 3000 }, (response) => {
       if (response.statusCode < 200 || response.statusCode >= 300) {
         console.error(`Download failed: ${url}`)
-        reject()
+        reject(new Error(`Download failed with status ${response.statusCode}`))
         return
       }
 
-      const contentType = response.headers["content-type"]
+      const contentType = response.headers['content-type']
       const resolvedExt = ext || extension(contentType)
       const target = path.join(directory, `${filename}.${resolvedExt}`)
 
       const file = fs.createWriteStream(target)
       response.pipe(file)
-      file.on("finish", () => {
+      file.on('finish', () => {
         file.close()
         console.log(`Saved: ${filename}.${resolvedExt}`)
         resolve(target)
       })
     })
 
-    request.on("error", (err) => {
+    request.on('error', (err) => {
       console.error(`Download failed: ${url}`)
       reject(err)
     })
 
-    request.on("timeout", () => {
+    request.on('timeout', () => {
       request.destroy()
       console.error(`Download timed out: ${url}`)
-      reject()
+      reject(new Error('Download timed out'))
     })
   })
 }
 
 const installErrorHandlers = () => {
-  process.on("uncaughtException", (err) => {
+  process.on('uncaughtException', (err) => {
     console.error(err.stack)
     process.exit(1)
   })
 
-  process.on("unhandledRejection", (err) => {
-    console.error("Unhandled rejection:", err)
+  process.on('unhandledRejection', (err) => {
+    console.error('Unhandled rejection:', err)
     process.exit(1)
   })
 }
 
 const generateMainnetTokenList = async (fullTokenList) => {
   const MAX_TOKEN_LIST_SIZE = 100
-  const coinGeckoApiBaseUrl = "https://api.coingecko.com/api/v3"
+  const coinGeckoApiBaseUrl = 'https://api.coingecko.com/api/v3'
 
   // Fetch the list of tokens from CoinGecko
   const coinListEndpoint =
-    coinGeckoApiBaseUrl + "/coins/list?include_platform=true"
+    coinGeckoApiBaseUrl + '/coins/list?include_platform=true'
   const coinListResponse = await fetch(coinListEndpoint)
   if (!coinListResponse.ok) {
     throw new Error(
@@ -358,7 +358,7 @@ const generateMainnetTokenList = async (fullTokenList) => {
   // Fetch the top 250 tokens by market cap from CoinGecko
   const coinMarketEndpoint =
     coinGeckoApiBaseUrl +
-    "/coins/markets?vs_currency=usd&category=ethereum-ecosystem&order=market_cap_desc&per_page=250&page=1&sparkline=false"
+    '/coins/markets?vs_currency=usd&category=ethereum-ecosystem&order=market_cap_desc&per_page=250&page=1&sparkline=false'
   const coinMarketResponse = await fetch(coinMarketEndpoint)
   if (!coinMarketResponse.ok) {
     throw new Error(
@@ -406,7 +406,7 @@ const generateMainnetTokenList = async (fullTokenList) => {
   // Map lowercase token contract addresses to checksum addresses
   // Needed because the token list uses checksum addresses, but the CoinGecko API returns lowercase addresses
   const checksumAddresses = {}
-  for (const [key, value] of Object.entries(fullTokenList)) {
+  for (const [key] of Object.entries(fullTokenList)) {
     checksumAddresses[key.toLowerCase()] = key
   }
 
@@ -429,33 +429,33 @@ const generateMainnetTokenList = async (fullTokenList) => {
   }
 
   // Ensure BAT is always added
-  outputTokenList["0x0D8775F648430679A709E98d2b0Cb6250d2887EF"] = {
-    name: "Basic Attention Token",
-    logo: "bat.png",
+  outputTokenList['0x0D8775F648430679A709E98d2b0Cb6250d2887EF'] = {
+    name: 'Basic Attention Token',
+    logo: 'bat.png',
     erc20: true,
-    symbol: "BAT",
-    decimals: 18,
+    symbol: 'BAT',
+    decimals: 18
   }
 
   return Object.keys(outputTokenList).reduce((acc, contractAddress) => {
     acc[contractAddress] = {
       ...outputTokenList[contractAddress],
-      chainId: "0x1",
+      chainId: '0x1'
     }
     return acc
   }, {})
 }
 
 const generateDappListsForChain = async (chain) => {
-  const metric = "uaw"
-  const range = "30d"
+  const metric = 'uaw'
+  const range = '30d'
 
   for (const top of [100, 50, 25, 10]) {
     const url = `https://apis.dappradar.com/v2/dapps/top/${metric}?chain=${chain}&range=${range}&top=${top}`
     const response = await fetch(url, {
       headers: {
-        "X-API-KEY": process.env.DAPP_RADAR_API_KEY,
-      },
+        'X-API-KEY': process.env.DAPP_RADAR_API_KEY
+      }
     })
 
     if (!response.ok) {
@@ -484,22 +484,22 @@ const generateDappListsForChain = async (chain) => {
 
 const generateDappLists = async () => {
   const chains = [
-    "solana",
-    "ethereum",
-    "polygon",
-    "bnb-chain",
-    "optimism",
-    "aurora",
-    "avalanche",
-    "fantom",
+    'solana',
+    'ethereum',
+    'polygon',
+    'bnb-chain',
+    'optimism',
+    'aurora',
+    'avalanche',
+    'fantom'
   ]
   const dappLists = {}
   for (let chain of chains) {
     const dapps = await generateDappListsForChain(chain)
     // Replace 'bnb-chain' with 'binance_smart_chain' so it plays well
     // with the browser JSON parser.
-    if (chain === "bnb-chain") {
-      chain = "binance_smart_chain"
+    if (chain === 'bnb-chain') {
+      chain = 'binance_smart_chain'
     }
 
     dappLists[chain] = dapps
@@ -510,57 +510,57 @@ const generateDappLists = async () => {
 
 const addSupportedCoinbaseTokens = async (rampTokens) => {
   // Public Coinbase API url
-  const coinbaseApiUrl = "https://api.exchange.coinbase.com/currencies"
+  const coinbaseApiUrl = 'https://api.exchange.coinbase.com/currencies'
 
   // Maps Coinbase's network IDs to our hex chain IDs
   const networkIdMap = {
-    ethereum: "0x1",
-    kava: "0x8ae",
-    solana: "0x65",
-    arbitrum: "0xa4b1",
-    optimism: "0xa",
-    ethereumclassic: "0x3d",
-    avacchain: "0xa86a",
-    polygon: "0x89",
-    celo: "0xa4ec",
+    ethereum: '0x1',
+    kava: '0x8ae',
+    solana: '0x65',
+    arbitrum: '0xa4b1',
+    optimism: '0xa',
+    ethereumclassic: '0x3d',
+    avacchain: '0xa86a',
+    polygon: '0x89',
+    celo: '0xa4ec'
   }
 
-  let response = await fetch(coinbaseApiUrl)
-  let coinbaseTokens = await response.json()
+  const response = await fetch(coinbaseApiUrl)
+  const coinbaseTokens = await response.json()
 
   // Convert array to a map for efficient lookup using compound key
-  let tokenMap = new Map(
+  const tokenMap = new Map(
     rampTokens.tokens.map((token) => [
       `${token.chain_id}-${token.contract_address?.toLowerCase()}`,
-      token,
+      token
     ])
   )
 
-  for (let currency of coinbaseTokens) {
+  for (const currency of coinbaseTokens) {
     // Skip the token if the name or symbol are missing
     if (currency.name === null || currency.id === null) {
       continue
     }
 
-    for (let network of currency.supported_networks) {
-      let networkHexId = networkIdMap[network.id]
+    for (const network of currency.supported_networks) {
+      const networkHexId = networkIdMap[network.id]
       if (!networkHexId) {
         continue
       }
 
-      let correspondingToken = tokenMap.get(
+      const correspondingToken = tokenMap.get(
         `${networkHexId}-${network.contract_address?.toLowerCase()}`
       )
 
       if (correspondingToken) {
-        if (!correspondingToken.on_ramp_providers.includes("coinbase")) {
-          correspondingToken.on_ramp_providers.push("coinbase")
+        if (!correspondingToken.on_ramp_providers.includes('coinbase')) {
+          correspondingToken.on_ramp_providers.push('coinbase')
         }
       } else {
-        let newToken = {
-          contract_address: network.contract_address || "", // Empty string allowed for native tokens.
+        const newToken = {
+          contract_address: network.contract_address || '', // Empty string allowed for native tokens.
           name: currency.name,
-          logo: "",
+          logo: '',
           is_erc20: network.contract_address !== null,
           is_erc721: false,
           is_erc1155: false,
@@ -568,12 +568,12 @@ const addSupportedCoinbaseTokens = async (rampTokens) => {
           symbol: currency.id,
           decimals: 18, // Adding decimals since it's required by the parser, but it's not used for on ramp tokens.
           visible: true,
-          token_id: "",
-          coingecko_id: "",
+          token_id: '',
+          coingecko_id: '',
           chain_id: networkHexId,
-          coin: network.id === "solana" ? 501 : 60,
-          on_ramp_providers: ["coinbase"],
-          off_ramp_providers: [],
+          coin: network.id === 'solana' ? 501 : 60,
+          on_ramp_providers: ['coinbase'],
+          off_ramp_providers: []
         }
         tokenMap.set(
           `${networkHexId}-${network.contract_address?.toLowerCase()}`,
@@ -590,13 +590,13 @@ const addSupportedCoinbaseTokens = async (rampTokens) => {
 }
 
 const addSupportedSardineCurrencies = async (onRampCurrencies) => {
-  const sardine = "sardine"
-  const sardineApiUrl = "https://api.sandbox.sardine.ai/v1/geo-coverage"
+  const sardine = 'sardine'
+  const sardineApiUrl = 'https://api.sandbox.sardine.ai/v1/geo-coverage'
   const response = await fetch(sardineApiUrl)
   const jsonResponse = await response.json()
   const currencyCodes = []
 
-  for (let country of jsonResponse.data) {
+  for (const country of jsonResponse.data) {
     if (country.isAllowedOnRamp) {
       if (!currencyCodes.includes(country.currencyCode)) {
         currencyCodes.push(country.currencyCode)
@@ -610,7 +610,7 @@ const addSupportedSardineCurrencies = async (onRampCurrencies) => {
     currencyLookup[currency.currency_code] = currency
   })
 
-  for (let currencyCode of currencyCodes) {
+  for (const currencyCode of currencyCodes) {
     const existingCurrency = currencyLookup[currencyCode]
 
     if (existingCurrency) {
@@ -622,8 +622,8 @@ const addSupportedSardineCurrencies = async (onRampCurrencies) => {
       // If the currency doesn't exist, create a new entry
       const newCurrency = {
         currency_code: currencyCode,
-        currency_name: "",
-        providers: [sardine],
+        currency_name: '',
+        providers: [sardine]
       }
       onRampCurrencies.currencies.push(newCurrency)
       currencyLookup[currencyCode] = newCurrency
@@ -634,7 +634,7 @@ const addSupportedSardineCurrencies = async (onRampCurrencies) => {
 }
 
 const generateChainList = async () => {
-  const chainListResponse = await fetch("https://chainid.network/chains.json")
+  const chainListResponse = await fetch('https://chainid.network/chains.json')
   if (!chainListResponse.ok) {
     throw new Error(
       `Error fetching chain list from chainid.network:
@@ -646,7 +646,7 @@ const generateChainList = async () => {
 }
 
 const generateCoingeckoIds = async () => {
-  const coinGeckoApiBaseUrl = "https://api.coingecko.com/api/v3"
+  const coinGeckoApiBaseUrl = 'https://api.coingecko.com/api/v3'
 
   // Fetch the list of tokens from CoinGecko
   const coinListResponse = await fetch(
@@ -673,7 +673,7 @@ const generateCoingeckoIds = async () => {
   const assetPlatformsMap = assetPlatformsList.reduce((acc, platform) => {
     // Manually add Solana chain identifier since it's not in the CoinGecko
     // asset platforms list
-    if (platform.id === "solana" && !platform.chain_identifier) {
+    if (platform.id === 'solana' && !platform.chain_identifier) {
       platform.chain_identifier = 101
     }
 
@@ -693,7 +693,7 @@ const generateCoingeckoIds = async () => {
         acc[chainIdHex][contractAddress] = coin.id
       } else {
         acc[chainIdHex] = {
-          [contractAddress]: coin.id,
+          [contractAddress]: coin.id
         }
       }
     })
@@ -706,8 +706,8 @@ const generateCoingeckoIds = async () => {
       chainId,
       {
         ...coingeckoIdsByChainId[chainId],
-        ...trustedCoingeckoIdsByChainId[chainId],
-      },
+        ...trustedCoingeckoIdsByChainId[chainId]
+      }
     ])
   )
 }
@@ -747,27 +747,27 @@ const fetchGitHubFileContent = async (
   const contentApiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}?ref=${branch}`
 
   const contentResponse = await fetch(contentApiUrl, {
-    headers: githubHeaders,
+    headers: githubHeaders
   })
   const contentData = await contentResponse.json()
 
   if (!contentData.content) {
     console.error(
-      "Failed to fetch content for file:",
+      'Failed to fetch content for file:',
       filePath,
-      contentData.message || "Unknown error"
+      contentData.message || 'Unknown error'
     )
-    return ""
+    return ''
   }
 
-  return Buffer.from(contentData.content, "base64").toString("utf-8")
+  return Buffer.from(contentData.content, 'base64').toString('utf-8')
 }
 
 const fetchGitHubRepoTopLevelFiles = async (repoOwner, repoName, branch) => {
   const githubToken = process.env.API_AUTH_TOKEN_GITHUB
   const githubHeaders = {
-    Accept: "application/vnd.github.v3+json",
-    Authorization: `token ${githubToken}`,
+    Accept: 'application/vnd.github.v3+json',
+    Authorization: `token ${githubToken}`
   }
 
   const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/git/trees/${branch}?recursive=1`
@@ -775,17 +775,17 @@ const fetchGitHubRepoTopLevelFiles = async (repoOwner, repoName, branch) => {
   const data = await response.json()
 
   if (!data.tree) {
-    console.error("Failed to fetch files:", data.message)
+    console.error('Failed to fetch files:', data.message)
     return
   }
 
   const jsonFiles = []
   for (const item of data.tree) {
     if (
-      item.type === "blob" &&
-      !item.path.includes("/") &&
-      item.path.endsWith(".json") &&
-      item.path !== "README.md"
+      item.type === 'blob' &&
+      !item.path.includes('/') &&
+      item.path.endsWith('.json') &&
+      item.path !== 'README.md'
     ) {
       jsonFiles.push(item)
     }
@@ -809,7 +809,7 @@ const fetchGitHubRepoTopLevelFiles = async (repoOwner, repoName, branch) => {
 }
 
 const fetchJupiterTokensList = async () => {
-  const jupiterTokensListResp = await fetch("https://lite-api.jup.ag/tokens/v2/tag?query=verified")
+  const jupiterTokensListResp = await fetch('https://lite-api.jup.ag/tokens/v2/tag?query=verified')
   const jupiterTokensList = await jupiterTokensListResp.json()
   return jupiterTokensList
 }
@@ -848,5 +848,5 @@ module.exports = {
   injectCoingeckoIds,
   fetchGitHubRepoTopLevelFiles,
   fetchJupiterTokensList,
-  sortTokenListJson,
+  sortTokenListJson
 }

@@ -1,0 +1,6 @@
+# Git blame ignore revs
+# This file contains commit hashes that should be ignored by git blame
+# See: https://git-scm.com/docs/git-blame#Documentation/git-blame.txt---ignore-revs-filefile
+
+# Ignore formatting/linting changes
+3ffe06b919a0a4799b391bd85155c2002246c174
