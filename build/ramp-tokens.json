@@ -1566,6 +1566,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0x8408D45b61f5823298F19a09B53b7339c0280489",
+      "name": "Allora",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "ALLO",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0x8457CA5040ad67fdebbCC8EdCE889A335Bc0fbFB",
       "name": "Altlayer",
       "logo": "",
