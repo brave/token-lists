@@ -5006,6 +5006,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0x6e6F6d696e61decd6605bD4a57836c5DB6923340",
+      "name": "Nomina",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "NOM",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0x4fe83213d56308330ec302a8bd641f1d0113a4cc",
       "name": "NuCypher",
       "logo": "",
