@@ -18,10 +18,10 @@
   "devDependencies": {
     "@types/node": "22.18.10",
     "@types/node-fetch": "2.6.13",
-    "eslint": "^9.39.1",
+    "eslint": "9.39.1",
     "imagemin": "8.0.1",
     "imagemin-pngquant": "10.0.0",
-    "neostandard": "^0.12.2",
+    "neostandard": "0.12.2",
     "ts-node": "10.9.2"
   },
   "resolutions": {
