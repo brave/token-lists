@@ -27,6 +27,10 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: 'Configure git'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
         with:
@@ -41,9 +45,7 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn generate-coingecko-universe
 
-      - name: Upload Coingecko Universe artifacts
-        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
-        with:
-          name: coingecko-universe-data
-          path: data/v1/coingecko*.json
-          retention-days: 30
+      - run: git add data
+      - run: git commit -m "Update Coingecko Universe"
+
+      - run: git push
