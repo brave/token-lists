@@ -19,6 +19,9 @@ env:
   AVALANCHE_RPC_URL: ${{ secrets.AVALANCHE_RPC_URL }}
   SOLANA_RPC_URL: ${{ secrets.SOLANA_RPC_URL }}
 
+permissions:
+  contents: write
+
 jobs:
   generate-coingecko-universe:
     runs-on: ubuntu-latest
