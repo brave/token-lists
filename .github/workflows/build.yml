@@ -12,6 +12,9 @@ env:
   DAPP_RADAR_API_KEY: ${{ secrets.DAPP_RADAR_API_KEY }}
   API_AUTH_TOKEN_GITHUB: ${{ secrets.API_AUTH_TOKEN_GITHUB }}
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
