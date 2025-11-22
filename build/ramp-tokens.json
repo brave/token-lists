@@ -2226,6 +2226,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0xC9746F73cC33a36c2cD55b8aEFD732586946Cedd",
+      "name": "Bob",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "BOBBOB",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0x0391D2021f89DC339F60Fff84546EA23E337750f",
       "name": "BarnBridge",
       "logo": "",
