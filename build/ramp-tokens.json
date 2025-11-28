@@ -3886,6 +3886,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0x50f41f589afaca2ef41fdf590fe7b90cd26dee64",
+      "name": "Irys",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "IRYS",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0x7420B4b9a0110cdC71fB720908340C03F9Bc03EC",
       "name": "JasmyCoin",
       "logo": "",
