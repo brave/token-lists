@@ -6126,6 +6126,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0xB5F7b021a78f470d31D762C1DDA05ea549904fbd",
+      "name": "Rayls",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "RLS",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0x6de037ef9ad2725eb40118bb1702ebb27e4aeb24",
       "name": "Render Token",
       "logo": "",
