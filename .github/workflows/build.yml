@@ -6,7 +6,6 @@ name: Build
 on: push
 
 env:
-  ACTIONS_OR_CI_BUILD: true
   COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
   DAPP_RADAR_PROJECT_ID: ${{ secrets.DAPP_RADAR_PROJECT_ID }}
   DAPP_RADAR_API_KEY: ${{ secrets.DAPP_RADAR_API_KEY }}
@@ -25,8 +24,6 @@ jobs:
           node-version: '22.x'
           registry-url: 'https://registry.npmjs.org'
           cache: 'yarn'
-      - run: sudo apt-get update -y
-      - run: sudo apt-get install -y librsvg2-bin libimagequant-dev pkg-config libpng-dev
       - run: npm install -g yarn
       - run: yarn --version
       - run: yarn install --frozen-lockfile
