@@ -52,13 +52,6 @@ yarn lint
   yarn start
   ```
 
-### Docker
-
-- Install [docker](https://runnable.com/docker/)
-- Create a docker image `docker build -t token-lists .`
-- Launch the docker image `docker run -u "$(id -u):$(id -g)" -v "$PWD/build:/token-lists/build" -ti token-lists`
-- You will see an output in the `build` folder
-
 ## Publishing token list to npm
 
 [brave/brave-core-crx-packager](https://github.com/brave/brave-core-crx-packager) uses the npm package published [here brave-wallet-lists](https://www.npmjs.com/package/brave-wallet-lists). It will be automatically published when your

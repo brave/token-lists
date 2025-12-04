@@ -6,57 +6,6 @@ const path = require('path')
 // Local module imports
 const util = require('./util.cjs')
 
-// Load the ES modules dynamically
-let imagemin
-let imageminPngquant
-async function loadImageModules () {
-  imagemin = (await import('imagemin')).default
-  imageminPngquant = (await import('imagemin-pngquant')).default
-}
-
-function getOutputTokenPath (stagingDir, inputTokenFilePath) {
-  const tokenFilename = path.parse(inputTokenFilePath).base
-  return path.join(stagingDir, tokenFilename)
-}
-
-async function stageEVMTokenFile (stagingDir, inputTokenFilePath, coingeckoIds) {
-  // Read in the JSON file located at inputTokenFilePath
-  const tokenList = JSON.parse(fs.readFileSync(inputTokenFilePath))
-  const tokenListWithCoingeckoIds = util.injectCoingeckoIds(tokenList, coingeckoIds)
-
-  // Write the output token list to the staging directory
-  await fsPromises.writeFile(
-    getOutputTokenPath(stagingDir, inputTokenFilePath),
-    JSON.stringify(tokenListWithCoingeckoIds, null, 2)
-  )
-}
-
-async function stageMainnetTokenFile (stagingDir, inputTokenFilePath, coingeckoIds) {
-  // Read in the JSON file located at inputTokenFilePath
-  const tokenList = JSON.parse(fs.readFileSync(inputTokenFilePath, 'utf-8'))
-  // Ex.
-  // {
-  //   "0xBBc2AE13b23d715c30720F079fcd9B4a74093505": {
-  //     "name": "Ethernity Chain Token",
-  //     "logo": "ERN.png",
-  //     "erc20": true,
-  //     "symbol": "ERN",
-  //     "decimals": 18
-  //   },
-  //  ...
-  // }
-
-  const outputTokenList = await util.generateMainnetTokenList(tokenList)
-  const outputTokenListWithExtraAssets = util.contractAddExtraMainnetAssets(outputTokenList)
-  const mainnetTokensWithCoingeckoIds = util.injectCoingeckoIds(outputTokenListWithExtraAssets, coingeckoIds)
-
-  // Write the output token list to the staging directory
-  await fsPromises.writeFile(
-    getOutputTokenPath(stagingDir, inputTokenFilePath),
-    JSON.stringify(mainnetTokensWithCoingeckoIds, null, 2)
-  )
-}
-
 function stagePackageJson (stagingDir) {
   const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf-8'))
   packageJson.name = 'brave-wallet-lists'
@@ -77,96 +26,6 @@ function stageManifest (stagingDir) {
   const manifestPath = path.join('data', 'manifest.json')
   const outputManifestPath = path.join(stagingDir, 'manifest.json')
   fs.copyFileSync(manifestPath, outputManifestPath)
-}
-
-async function stageEVMTokenImages (stagingDir, inputTokenFilePath) {
-  const outputTokenFilePath = getOutputTokenPath(stagingDir, inputTokenFilePath)
-  const baseSrcTokenPath = path.dirname(inputTokenFilePath)
-  // Copy images and convert them to png plus resize to 200x200 if needed
-  const imagesSrcPath = path.join(baseSrcTokenPath, 'images')
-  const imagesDstPath = path.join(stagingDir, 'imagesUncompressed')
-  const files = fs.readdirSync(imagesSrcPath)
-  if (!fs.existsSync(imagesDstPath)) {
-    fs.mkdirSync(imagesDstPath)
-  }
-  for (let i = 0; i < files.length; i++) {
-    const file = files[i]
-    const fileTo = file.substr(0, file.lastIndexOf('.')) + '.png'
-    const fromPath = path.join(imagesSrcPath, file)
-    const toPath = path.join(imagesDstPath, fileTo)
-
-    if (fs.existsSync(toPath)) {
-      try {
-        fs.unlinkSync(toPath)
-      } catch (e) {
-        console.log(`Failed to remove: ${toPath}`)
-      }
-    }
-
-    try {
-      await util.saveToPNGResize(fromPath, toPath, false)
-    } catch (e) {
-      console.log(`Failed to resize: ${fromPath}`)
-    }
-  }
-  util.contractReplaceSvgToPng(outputTokenFilePath)
-}
-
-async function compressPng (imagesDstPath, stagingDir) {
-  console.log('compressing png images...')
-  if (!fs.existsSync(stagingDir + '/images')) {
-    fs.mkdirSync(stagingDir + '/images')
-  }
-
-  // Load modules if not already loaded
-  if (!imagemin) {
-    await loadImageModules()
-  }
-
-  await imagemin([imagesDstPath + '/*.png'], {
-    destination: stagingDir + '/images',
-    plugins: [
-      imageminPngquant({
-        quality: [0.1, 0.3]
-      })
-    ]
-  })
-}
-
-async function stageTokenListsTokens (stagingDir, tokens, coingeckoIds) {
-  return tokens
-    .reduce((acc, token) => {
-      const result = {
-        name: token.name,
-        logo: token.icon,
-        erc20: false,
-        symbol: token.symbol,
-        decimals: token.decimals,
-        chainId: '0x65'
-      }
-
-      if (token.extensions && token.extensions.coingeckoId) {
-        result.coingeckoId = token.extensions.coingeckoId
-      }
-
-      // Check Solana token-2022 standard from Jupiter list.
-      if (token.tags && token.tags.includes('token-2022')) {
-        result.token2022 = true
-      }
-
-      return {
-        ...acc,
-        [token.id]: result
-      }
-    }, {})
-}
-
-async function stageSPLTokens (stagingDir, coingeckoIds) {
-  const splTokensArray = await util.fetchJupiterTokensList()
-  const splTokens = await stageTokenListsTokens(stagingDir, splTokensArray, coingeckoIds)
-  const splTokensWithCoingeckoIds = await util.injectCoingeckoIds(splTokens, coingeckoIds)
-  const splTokensPath = path.join(stagingDir, 'solana-contract-map.json')
-  fs.writeFileSync(splTokensPath, JSON.stringify(splTokensWithCoingeckoIds, null, 2))
 }
 
 async function stageDappLists (stagingDir) {
@@ -231,27 +90,7 @@ async function stageTokenPackage () {
   }
 
   // Add coingecko-ids.json
-  const coingeckoIds = await stageCoingeckoIds(stagingDir)
-
-  const imagesDstPath = path.join(stagingDir, 'imagesUncompressed')
-  if (!fs.existsSync(imagesDstPath)) {
-    fs.mkdirSync(imagesDstPath)
-  }
-
-  // Add MetaMask tokens for contract-map.json
-  const metamaskTokenPath = path.join('node_modules', '@metamask', 'contract-metadata', 'contract-map.json')
-  await stageMainnetTokenFile(stagingDir, metamaskTokenPath, coingeckoIds)
-  await stageEVMTokenImages(stagingDir, metamaskTokenPath)
-
-  // Add Brave specific tokens in evm-contract-map.json
-  const braveTokenPath = path.join('data', 'evm-contract-map', 'evm-contract-map.json')
-  await stageEVMTokenFile(stagingDir, braveTokenPath, coingeckoIds)
-  await stageEVMTokenImages(stagingDir, braveTokenPath, coingeckoIds)
-
-  // Add Solana (SPL) tokens in solana-contract-map.json.
-  await stageSPLTokens(stagingDir, coingeckoIds)
-  await compressPng(imagesDstPath, stagingDir)
-  fs.rmSync(imagesDstPath, { recursive: true, force: true })
+  await stageCoingeckoIds(stagingDir)
 
   // Add chainlist.json.
   await stageChainListJson(stagingDir)

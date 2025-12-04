@@ -1,45 +1,27 @@
 {
   "name": "token-lists",
-  "version": "1.31.50",
+  "version": "1.32.0",
   "description": "Manages custom token lists for Brave Wallet",
   "dependencies": {
-    "@metamask/contract-metadata": "git+https://git@github.com/MetaMask/contract-metadata.git",
     "@solana-program/token": "^0.6.0",
     "@solana-program/token-2022": "^0.4.0",
     "@solana/kit": "^2.1.0",
     "ethers": "^6.13.4",
-    "follow-redirects": "^1.15.6",
-    "mime-types": "^2.1.35",
     "node-fetch": "2",
-    "sharp": "^0.34.0",
-    "svg-resizer": "git+https://git@github.com/brave/svg-resizer.git",
     "typescript": "^5.6.3"
   },
   "devDependencies": {
     "@types/node": "22.18.10",
     "@types/node-fetch": "2.6.13",
     "eslint": "9.39.1",
-    "imagemin": "8.0.1",
-    "imagemin-pngquant": "10.0.0",
     "neostandard": "0.12.2",
     "ts-node": "10.9.2"
-  },
-  "resolutions": {
-    "semver-regex": ">=4.0.5",
-    "uuid": ">=8.3.2",
-    "got": ">=11.8.5",
-    "bin-build": "github:brave/bin-build#bfbb583",
-    "bin-wrapper": "github:brave/bin-wrapper#8f26b3b",
-    "download": "github:brave/download#1072e94",
-    "axios": ">=1.6.0",
-    "cross-spawn": ">=7.0.5"
   },
   "main": "index.js",
   "scripts": {
     "start": "node scripts/index.js",
     "test": "node test/util.test.cjs",
     "lint": "eslint",
-    "preinstall": "./isDocker.sh",
     "publish-token-package": "npm publish ./build",
     "generate-coingecko-universe": "ts-node scripts/coingecko-universe.ts"
   },

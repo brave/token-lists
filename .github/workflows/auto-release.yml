@@ -7,7 +7,6 @@ on:
     - cron: '0 1 * * *'
 
 env:
-  ACTIONS_OR_CI_BUILD: true
   COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
   DAPP_RADAR_PROJECT_ID: ${{ secrets.DAPP_RADAR_PROJECT_ID }}
   DAPP_RADAR_API_KEY: ${{ secrets.DAPP_RADAR_API_KEY }}
@@ -38,8 +37,6 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - run: sudo apt-get update -y
-      - run: sudo apt-get install -y librsvg2-bin libimagequant-dev pkg-config libpng-dev
       - run: npm install -g yarn
       - run: yarn --version
 
