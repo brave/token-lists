@@ -3,7 +3,7 @@
   "version": "1.32.13",
   "description": "Manages custom token lists for Brave Wallet",
   "dependencies": {
-    "@solana-program/token": "^0.6.0",
+    "@solana-program/token": "^0.9.0",
     "@solana-program/token-2022": "^0.4.0",
     "@solana/kit": "^2.1.0",
     "ethers": "^6.13.4",
