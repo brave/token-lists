@@ -6786,6 +6786,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0xaffbe9a60f1f45e057fd9b6dc70004bb0ccc8b99",
+      "name": "Theoriq",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "THQ",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0x485d17a6f1b8780392d53d64751824253011a260",
       "name": "Chrono.tech",
       "logo": "",
