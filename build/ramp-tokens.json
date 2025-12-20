@@ -7686,6 +7686,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0xe1Be424F442D0687129128C6c38aAce44F8c8Dbc",
+      "name": "Zkpass",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "ZKP",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0x6985884C4392D348587B19cb9eAAf157F13271cd",
       "name": "Layerzero",
       "logo": "",
