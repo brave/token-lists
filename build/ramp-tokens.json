@@ -3306,26 +3306,6 @@
       "off_ramp_providers": []
     },
     {
-      "contract_address": "0x8c15ef5b4b21951d50e53e4fbda8298ffad25057",
-      "name": "Function X",
-      "logo": "",
-      "is_erc20": true,
-      "is_erc721": false,
-      "is_erc1155": false,
-      "is_nft": false,
-      "symbol": "FX",
-      "decimals": 18,
-      "visible": true,
-      "token_id": "",
-      "coingecko_id": "",
-      "chain_id": "0x1",
-      "coin": 60,
-      "on_ramp_providers": [
-        "coinbase"
-      ],
-      "off_ramp_providers": []
-    },
-    {
       "contract_address": "0x9c7beba8f6ef6643abd725e45a4e8387ef260649",
       "name": "Gravity",
       "logo": "",
