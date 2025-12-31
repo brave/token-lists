@@ -4246,6 +4246,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0x232ce3bd40fcd6f80f3d55a522d03f25df784ee2",
+      "name": "Lighter",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "LIGHTER",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0x1789e0043623282d5dcc7f213d703c6d8bafbb04",
       "name": "Linea",
       "logo": "",
