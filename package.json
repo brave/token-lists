@@ -34,5 +34,8 @@
   "bugs": {
     "url": "https://github.com/brave/token-lists/issues"
   },
-  "homepage": "https://github.com/brave/token-lists#readme"
+  "homepage": "https://github.com/brave/token-lists#readme",
+  "resolutions": {
+    "diff": "^8.0.3"
+  }
 }
