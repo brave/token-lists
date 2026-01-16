@@ -28,12 +28,6 @@ function stageManifest (stagingDir) {
   fs.copyFileSync(manifestPath, outputManifestPath)
 }
 
-async function stageDappLists (stagingDir) {
-  const dappListsPath = path.join(stagingDir, 'dapp-lists.json')
-  const dappLists = await util.generateDappLists()
-  fs.writeFileSync(dappListsPath, JSON.stringify(dappLists, null, 2))
-}
-
 async function stageCoingeckoIds (stagingDir) {
   const dstPath = path.join(stagingDir, 'coingecko-ids.json')
   const coingeckoIds = await util.generateCoingeckoIds()
@@ -94,9 +88,6 @@ async function stageTokenPackage () {
 
   // Add chainlist.json.
   await stageChainListJson(stagingDir)
-
-  // Add dapp-lists.json.
-  await stageDappLists(stagingDir)
 
   // Add on ramp JSON files
   await stageOnRampLists(stagingDir)

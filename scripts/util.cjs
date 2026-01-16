@@ -144,68 +144,6 @@ const generateMainnetTokenList = async (fullTokenList) => {
   }, {})
 }
 
-const generateDappListsForChain = async (chain) => {
-  const metric = 'uaw'
-  const range = '30d'
-
-  for (const top of [100, 50, 25, 10]) {
-    const url = `https://apis.dappradar.com/v2/dapps/top/${metric}?chain=${chain}&range=${range}&top=${top}`
-    const response = await fetch(url, {
-      headers: {
-        'X-API-KEY': process.env.DAPP_RADAR_API_KEY
-      }
-    })
-
-    if (!response.ok) {
-      console.error(
-        `Error: [chain=${chain} top=${top}] ${response.status} ${response.statusText}`
-      )
-      continue
-    }
-
-    const dapps = await response.json()
-
-    // Remove socialLinks and fullDescription from each dApp object
-    dapps.results = dapps.results.map((dapp) => {
-      const { socialLinks, fullDescription, logo, ...filteredDapp } = dapp
-      const logoUrl = new URL(logo)
-      logoUrl.hostname = 'dashboard-assets-dappradar.wallet.brave.com'
-      filteredDapp.logo = logoUrl.toString()
-      return filteredDapp
-    })
-
-    return dapps
-  }
-
-  throw new Error(`Error fetching dApps for ${chain}`)
-}
-
-const generateDappLists = async () => {
-  const chains = [
-    'solana',
-    'ethereum',
-    'polygon',
-    'bnb-chain',
-    'optimism',
-    'aurora',
-    'avalanche',
-    'fantom'
-  ]
-  const dappLists = {}
-  for (let chain of chains) {
-    const dapps = await generateDappListsForChain(chain)
-    // Replace 'bnb-chain' with 'binance_smart_chain' so it plays well
-    // with the browser JSON parser.
-    if (chain === 'bnb-chain') {
-      chain = 'binance_smart_chain'
-    }
-
-    dappLists[chain] = dapps
-  }
-
-  return dappLists
-}
-
 const addSupportedCoinbaseTokens = async (rampTokens) => {
   // Public Coinbase API url
   const coinbaseApiUrl = 'https://api.exchange.coinbase.com/currencies'
@@ -503,7 +441,6 @@ const sortTokenListJson = (tokenListJson) => {
 module.exports = {
   installErrorHandlers,
   generateMainnetTokenList,
-  generateDappLists,
   addSupportedCoinbaseTokens,
   addSupportedSardineCurrencies,
   generateCoingeckoIds,
