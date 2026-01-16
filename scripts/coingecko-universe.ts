@@ -100,6 +100,8 @@ enum ChainId {
   SOLANA = '0x65',
   NEAR_PROTOCOL_EVM = '0x18d',
 
+  CARDANO = 'cardano-mainnet',
+
   // Disabled for now
   // ZKSYNC = '0x144',
 }
@@ -139,6 +141,9 @@ function loadRpcConfig(): Record<ChainId, string> {
     [ChainId.SOLANA]: process.env.SOLANA_RPC_URL!,
     [ChainId.NEAR_PROTOCOL_EVM]: 'https://eth-rpc.mainnet.near.org',
 
+    // Cardano RPC URL is unused for now
+    [ChainId.CARDANO]: ""
+
     // Disabled for now
     // [ChainId.ZKSYNC]: process.env.ZKSYNC_RPC_URL!,
   } as const;
@@ -154,6 +159,10 @@ const getPlatformChainId = (platform: AssetPlatform): ChainId | undefined => {
 
   if (platform.id === "near-protocol") {
     return ChainId.NEAR_PROTOCOL_EVM;
+  }
+
+  if (platform.id === "cardano") {
+    return ChainId.CARDANO;
   }
 
   // For other chains, convert numeric chain ID to hex string
@@ -182,6 +191,35 @@ function nearToEvmAddress(nearAccountId: string): string {
   return evmAddress;
 }
 
+// Fetch token metadata from Cardano Token Registry
+// Ref: https://developers.cardano.org/docs/build/native-tokens/cardano-token-registry/
+const getTokenInfoFromCardanoRegistry = async (address: string): Promise<TokenInfo> => {
+  const response = await fetch(
+    `https://raw.githubusercontent.com/cardano-foundation/cardano-token-registry/refs/heads/master/mappings/${address}.json`
+  );
+  if (!response.ok) {
+    throw new Error(`Failed to fetch ${address} from Cardano registry: ${response.statusText}`);
+  }
+
+  const data = await response.json();
+  if (!data) {
+    throw new Error(`No data found for ${address} in Cardano registry`);
+  }
+
+  const symbol = data.ticker?.value;
+  const decimals = data.decimals?.value;
+
+  if (!symbol || !decimals) {
+    throw new Error(`No symbol or decimals found for ${address} in Cardano registry`);
+  }
+
+  return {
+    decimals,
+    symbol,
+    token2022: undefined,
+  };
+};
+
 const getTokenInfoFromChain = async (chainId: ChainId, address: string): Promise<TokenInfo> => {
   const rpcUrl = rpcConfig[chainId];
 
@@ -206,6 +244,10 @@ const getTokenInfoFromChain = async (chainId: ChainId, address: string): Promise
         token2022: true,
       };
     }
+  }
+
+  if (chainId === ChainId.CARDANO) {
+    return await getTokenInfoFromCardanoRegistry(address);
   }
 
   const provider = new ethers.JsonRpcProvider(rpcUrl);
@@ -348,7 +390,7 @@ const main = async (maxRank: number | undefined = undefined) => {
       }
 
       // Skip if token or platform is not supported
-      if (!evmAddress && platformId !== "solana") {
+      if (!evmAddress && !["solana", "cardano"].includes(platformId)) {
         continue;
       }
 
