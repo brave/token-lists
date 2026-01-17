@@ -2306,6 +2306,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0x086F405146Ce90135750Bbec9A063a8B20A8bfFb",
+      "name": "Brevis",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "BREV",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0x799ebfabe77a6e34311eeee9825190b9ece32824",
       "name": "Braintrust",
       "logo": "",
@@ -6000,6 +6020,26 @@
       "coingecko_id": "",
       "chain_id": "0x1",
       "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
+      "contract_address": "4k3dyjzvzp8emzwuxbbcjevwskkk59s5icnly3qrkx6r",
+      "name": "Raydium",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "RAY",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x65",
+      "coin": 501,
       "on_ramp_providers": [
         "coinbase"
       ],
