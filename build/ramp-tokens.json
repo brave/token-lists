@@ -7246,6 +7246,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "5AMAA9JV9H97YYVxx8F6FsCMmTwXSuTTQneiup4RYAUQ",
+      "name": "Usdf",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "USDF",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x65",
+      "coin": 501,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
       "name": "USDS",
       "logo": "",
