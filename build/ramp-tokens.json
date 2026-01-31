@@ -3926,6 +3926,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0xdeF1b2D939EdC0E4d35806c59b3166F790175afe",
+      "name": "Infinex",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "INX",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "BZLbGTNCSFfoth2GYDtwr7e4imWzpR5jqcUuGEwr646K",
       "name": "Io.Net",
       "logo": "",
