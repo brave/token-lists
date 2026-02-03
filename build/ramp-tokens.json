@@ -7826,6 +7826,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0xA12CC123ba206d4031D1c7f6223D1C2Ec249f4f3",
+      "name": "Zama",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "ZAMA",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0xf091867ec603a6628ed83d274e835539d82e9cc8",
       "name": "Zetachain",
       "logo": "",
