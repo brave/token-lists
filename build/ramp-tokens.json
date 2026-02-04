@@ -7086,6 +7086,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0x228bEC415adE4b61D7CaF0adf8C91EAc587BA369",
+      "name": "Tria",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "TRIA",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0xc7283b66Eb1EB5FB86327f08e1B5816b0720212B",
       "name": "Tribe",
       "logo": "",
