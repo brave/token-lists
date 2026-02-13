@@ -1986,6 +1986,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0xA27EC0006e59f245217Ff08CD52A7E8b169E62D2",
+      "name": "Aztec",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "AZTEC",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0x3472a5a71965499acd81997a54bba8d852c6e53d",
       "name": "Badger DAO",
       "logo": "",
@@ -3074,6 +3094,26 @@
       "is_erc1155": false,
       "is_nft": false,
       "symbol": "ERN",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
+      "contract_address": "0x031De51F3E8016514Bd0963d0B2AB825A591Db9A",
+      "name": "Espresso",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "ESP",
       "decimals": 18,
       "visible": true,
       "token_id": "",
