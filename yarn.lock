@@ -193,10 +193,10 @@
   resolved "https://registry.yarnpkg.com/@solana-program/token-2022/-/token-2022-0.6.1.tgz#dcc44d56228e34c3b90099d9d3cab97d84c12367"
   integrity sha512-Ex02cruDMGfBMvZZCrggVR45vdQQSI/unHVpt/7HPt/IwFYB4eTlXtO8otYZyqV/ce5GqZ8S6uwyRf0zy6fdbA==
 
-"@solana-program/token@^0.9.0":
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/@solana-program/token/-/token-0.9.0.tgz#9582068c6053b1600472eedb3fe084b262cbc1c7"
-  integrity sha512-vnZxndd4ED4Fc56sw93cWZ2djEeeOFxtaPS8SPf5+a+JZjKA/EnKqzbE1y04FuMhIVrLERQ8uR8H2h72eZzlsA==
+"@solana-program/token@^0.10.0":
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/@solana-program/token/-/token-0.10.0.tgz#d156cc3ff0d8a66d31db1ea697b95b525b84d38c"
+  integrity sha512-6JhgF4tywgbzIBnbEFiSLpXe9ZimPzNheRQU7ksgD98Y4YCakcRI5VIAt2CUh/lTiLUOxGerW/oaK1QGF00FMw==
 
 "@solana/accounts@2.3.0":
   version "2.3.0"
