@@ -6426,6 +6426,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0x32b4d049fE4c888D2b92eEcaf729F44DF6B1F36E",
+      "name": "Robo Token",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "ROBO",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0xd33526068d116ce69f19a9ee46f0bd304f21a51f",
       "name": "Rocket Pool",
       "logo": "",
