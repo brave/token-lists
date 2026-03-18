@@ -924,7 +924,8 @@
       "token_id": "",
       "visible": true,
       "on_ramp_providers": [
-        "transak"
+        "transak",
+        "coinbase"
       ],
       "off_ramp_providers": []
     },
