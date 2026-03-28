@@ -2087,6 +2087,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0x4f2b33840227DDD0e28da8d4185D6fa07ADfed87",
+      "name": "Based One",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "BASED1",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0x62D0A8458eD7719FDAF978fe5929C6D342B0bFcE",
       "name": "Beam",
       "logo": "",
