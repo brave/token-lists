@@ -3027,6 +3027,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0xB0076DE78Dc50581770BBa1D211dDc0aD4F2a241",
+      "name": "Edgex",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "EDGEX",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0xec53bF9167f50cDEB3Ae105f56099aaaB9061F83",
       "name": "Eigenlayer",
       "logo": "",
