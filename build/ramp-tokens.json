@@ -2187,6 +2187,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0xb1110919016846972056AB995054D65560D5f05E",
+      "name": "Billions Network",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "BILL",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0xcb1592591996765ec0efc1f92599a19767ee5ffa",
       "name": "Bio Protocol",
       "logo": "",
