@@ -151,6 +151,29 @@ function loadRpcConfig(): Record<ChainId, string> {
 
 const rpcConfig = loadRpcConfig();
 
+const evmProviders = new Map<ChainId, ethers.JsonRpcProvider>();
+const solanaRpcs = new Map<ChainId, ReturnType<typeof createSolanaRpc>>();
+
+const getEvmProvider = (chainId: ChainId): ethers.JsonRpcProvider => {
+  let provider = evmProviders.get(chainId);
+  if (!provider) {
+    provider = new ethers.JsonRpcProvider(rpcConfig[chainId], undefined, {
+      staticNetwork: true,
+    });
+    evmProviders.set(chainId, provider);
+  }
+  return provider;
+};
+
+const getSolanaRpc = (chainId: ChainId) => {
+  let rpc = solanaRpcs.get(chainId);
+  if (!rpc) {
+    rpc = createSolanaRpc(rpcConfig[chainId]);
+    solanaRpcs.set(chainId, rpc);
+  }
+  return rpc;
+};
+
 const getPlatformChainId = (platform: AssetPlatform): ChainId | undefined => {
   // Handle special cases for networks that don't use chain identifiers
   if (platform.id === "solana") {
@@ -221,10 +244,8 @@ const getTokenInfoFromCardanoRegistry = async (address: string): Promise<TokenIn
 };
 
 const getTokenInfoFromChain = async (chainId: ChainId, address: string): Promise<TokenInfo> => {
-  const rpcUrl = rpcConfig[chainId];
-
   if (chainId === ChainId.SOLANA) {
-    const rpc = createSolanaRpc(rpcUrl);
+    const rpc = getSolanaRpc(chainId);
     const mintPubkey = solanaAddress(address);
 
     try {
@@ -250,7 +271,7 @@ const getTokenInfoFromChain = async (chainId: ChainId, address: string): Promise
     return await getTokenInfoFromCardanoRegistry(address);
   }
 
-  const provider = new ethers.JsonRpcProvider(rpcUrl);
+  const provider = getEvmProvider(chainId);
   const contract = new ethers.Contract(
     address,
     [
