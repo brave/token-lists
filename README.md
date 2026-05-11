@@ -15,7 +15,7 @@ We have setup a **weekly** cron job on [Jenkins](https://github.com/brave/devops
 This project uses [neostandard](https://github.com/neostandard/neostandard) for code linting to maintain consistent code style and catch potential issues.
 
 ```bash
-yarn lint
+pnpm lint
 ```
 
 ### Ubuntu
@@ -26,13 +26,13 @@ yarn lint
   sudo apt install librsvg2-bin libimagequant-dev pkg-config
   ```
 
-- Ensure you have the required node version and `yarn` installed.
+- Ensure you have the required node version and `pnpm` installed.
 
 - Install dependencies and run the build script.
 
   ```bash
-  yarn
-  yarn start
+  pnpm install
+  pnpm start
   ```
 
 ### MacOS
@@ -43,13 +43,13 @@ yarn lint
   brew install librsvg libimagequant pkg-config
   ```
 
-- Ensure you have the required node version and `yarn` installed.
+- Ensure you have the required node version and `pnpm` installed.
 
 - Install dependencies and run the build script.
 
   ```bash
-  yarn
-  yarn start
+  pnpm install
+  pnpm start
   ```
 
 ## Publishing token list to npm
