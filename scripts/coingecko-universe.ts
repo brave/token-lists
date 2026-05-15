@@ -66,6 +66,20 @@ import coingecko, { AssetPlatform } from './lib/coingecko';
 
 const { sortTokenListJson } = require('./util.cjs');
 
+// Normalize blacklist entries to lowercase on load. EVM addresses are stored
+// lowercase throughout this repo; Solana/Cardano addresses don't collide in
+// case, so a uniform lowercase comparison is safe.
+const rawBlacklist: Record<string, string[]> = require('../data/blacklist.json');
+const blacklist: Record<string, Set<string>> = Object.fromEntries(
+  Object.entries(rawBlacklist).map(([chainId, addresses]) => [
+    chainId,
+    new Set(addresses.map(a => a.toLowerCase()))
+  ])
+);
+
+const isBlacklisted = (chainId: string, address: string): boolean =>
+  blacklist[chainId]?.has(address.toLowerCase()) ?? false;
+
 // Enable colors in util.inspect
 util.inspect.defaultOptions.colors = true;
 
@@ -395,6 +409,11 @@ const main = async (maxRank: number | undefined = undefined) => {
       }
 
       const resolvedAddress = evmAddress || address;
+
+      if (isBlacklisted(chainId, resolvedAddress)) {
+        continue;
+      }
+
       platformRequests.push({ platformId, address, chainId, resolvedAddress });
     }
 
