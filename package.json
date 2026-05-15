@@ -37,7 +37,7 @@
   "homepage": "https://github.com/brave/token-lists#readme",
   "pnpm": {
     "overrides": {
-      "diff": "^8.0.3"
+      "diff": "^9.0.0"
     }
   },
   "packageManager": "pnpm@11.0.8"
