@@ -8,7 +8,8 @@ const util = require('./util.cjs')
 
 function stagePackageJson (stagingDir) {
   const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf-8'))
-  packageJson.name = 'brave-wallet-lists'
+  packageJson.name = '@brave/wallet-lists'
+  packageJson.publishConfig = { access: 'public' }
   packageJson.scripts = {}
   packageJson.devDependencies = {}
   packageJson.dependencies = {}

@@ -1,6 +1,6 @@
 # token-lists
 
-[![Build](https://github.com/brave/token-lists/actions/workflows/build.yml/badge.svg)](https://github.com/brave/token-lists/actions/workflows/build.yml) [![npm version](https://badge.fury.io/js/brave-wallet-lists.svg)](https://badge.fury.io/js/brave-wallet-lists)
+[![Build](https://github.com/brave/token-lists/actions/workflows/build.yml/badge.svg)](https://github.com/brave/token-lists/actions/workflows/build.yml) [![npm version](https://badge.fury.io/js/@brave%2Fwallet-lists.svg)](https://badge.fury.io/js/@brave%2Fwallet-lists)
 
 Manages custom token lists for Brave Wallet
 
@@ -54,7 +54,7 @@ pnpm lint
 
 ## Publishing token list to npm
 
-[brave/brave-core-crx-packager](https://github.com/brave/brave-core-crx-packager) uses the npm package published [here brave-wallet-lists](https://www.npmjs.com/package/brave-wallet-lists). It will be automatically published when your
+[brave/brave-core-crx-packager](https://github.com/brave/brave-core-crx-packager) uses the npm package published [here @brave/wallet-lists](https://www.npmjs.com/package/@brave/wallet-lists). It will be automatically published when your
 PR is merged and a new release is created.
 
 This produces a zero-dependency package with output images and token lists.
