@@ -1,14 +1,18 @@
 {
   "compilerOptions": {
-    "module": "CommonJS",
-    "moduleResolution": "Node",
-    "target": "ES2020",
+    "module": "Preserve",
+    "moduleResolution": "Bundler",
+    "target": "ES2023",
+    "lib": ["ES2023"],
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "dist"
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "noEmit": true,
+    "types": ["node"]
   },
-  "include": ["scripts/**/*"],
-  "exclude": ["node_modules"]
+  "include": ["scripts/**/*", "test/**/*", "eslint.config.ts"]
 }
