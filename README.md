@@ -1,8 +1,8 @@
-# token-lists
+# wallet-lists
 
-[![Build](https://github.com/brave/token-lists/actions/workflows/build.yml/badge.svg)](https://github.com/brave/token-lists/actions/workflows/build.yml) [![npm version](https://badge.fury.io/js/@brave%2Fwallet-lists.svg)](https://badge.fury.io/js/@brave%2Fwallet-lists)
+[![Build](https://github.com/brave/wallet-lists/actions/workflows/build.yml/badge.svg)](https://github.com/brave/wallet-lists/actions/workflows/build.yml) [![npm version](https://badge.fury.io/js/@brave%2Fwallet-lists.svg?icon=si%3Anpm)](https://badge.fury.io/js/@brave%2Fwallet-lists)
 
-Manages custom token lists for Brave Wallet
+Manages custom wallet lists for Brave Wallet
 
 ## Automated Publishing
 
@@ -52,12 +52,12 @@ pnpm lint
   pnpm start
   ```
 
-## Publishing token list to npm
+## Publishing wallet list to npm
 
 [brave/brave-core-crx-packager](https://github.com/brave/brave-core-crx-packager) uses the npm package published [here @brave/wallet-lists](https://www.npmjs.com/package/@brave/wallet-lists). It will be automatically published when your
 PR is merged and a new release is created.
 
-This produces a zero-dependency package with output images and token lists.
+This produces a zero-dependency package with output images and wallet lists.
 
 ## Testing a deployment
 
@@ -71,8 +71,7 @@ If you're using a development build, you can set the dev server via this npmrc e
 
 `updater_dev_endpoint=https://go-updater-dev.bravesoftware.com/extensions`
 
-You can test a deployment by running the Jenkins job named:
-`brave-core-ext-wallet-data-files-update-publish-dev`
+You can test a deployment by running the [Jenkins job](https://ci.brave.com/job/brave-core-ext-wallet-data-files-update-publish-dev).
 Please check to make sure it succeeds.
 
 Wait 5-10 minutes as the server will purge its cache during that timeframe and start serving the new component.
@@ -80,7 +79,7 @@ Wait 5-10 minutes as the server will purge its cache during that timeframe and s
 Then startup Brave using:
 `open -a Brave\ Browser\ Beta.app --args --use-dev-goupdater-url --user-data-dir=$(mktemp -d)`
 
-After things are tested you can run the Jenkins job: `brave-core-ext-wallet-data-files-update-publish` and then after success, test on your normal Brave profile.
+After things are tested you can run the [Jenkins job](https://ci.brave.com/job/brave-core-ext-wallet-data-files-update-publish) and then after success, test on your normal Brave profile.
 The change will be live within 5-10 minutes. Please also test on production.
 
 After testing on production, gives sign off in Slack on `#releases` and `#prod-changes`.
