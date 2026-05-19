@@ -1,5 +1,3 @@
-import fetch from 'node-fetch';
-
 const COINGECKO_API_URL = process.env.COINGECKO_API_KEY
   ? 'https://pro-api.coingecko.com/api/v3'
   : 'https://api.coingecko.com/api/v3';
@@ -31,7 +29,7 @@ export interface CoinDetails {
   detail_platforms: Record<string, CoinDetailPlatform>;
 }
 
-interface CoinListItem {
+export interface CoinListItem {
   id: string;
   symbol: string;
   name: string;

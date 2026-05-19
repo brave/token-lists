@@ -51,30 +51,23 @@ import fs from 'node:fs';
 import { ethers } from 'ethers';
 import {
   address as solanaAddress,
-  createSolanaRpc
-} from "@solana/kit";
-import {
-  fetchMint,
-} from "@solana-program/token";
+  createSolanaRpc,
+} from '@solana/kit';
+import { fetchMint } from '@solana-program/token';
+import { fetchMint as fetchMint2022 } from '@solana-program/token-2022';
 
-import {
-  fetchMint as fetchMint2022,
-} from "@solana-program/token-2022";
-
-
-import coingecko, { AssetPlatform } from './lib/coingecko';
-
-const { sortTokenListJson } = require('./util.cjs');
+import coingecko, { type AssetPlatform } from './lib/coingecko';
+import { sortTokenListJson } from './util';
+import rawBlacklist from '../data/blacklist.json' with { type: 'json' };
 
 // Normalize blacklist entries to lowercase on load. EVM addresses are stored
 // lowercase throughout this repo; Solana/Cardano addresses don't collide in
 // case, so a uniform lowercase comparison is safe.
-const rawBlacklist: Record<string, string[]> = require('../data/blacklist.json');
 const blacklist: Record<string, Set<string>> = Object.fromEntries(
-  Object.entries(rawBlacklist).map(([chainId, addresses]) => [
+  Object.entries(rawBlacklist as Record<string, string[]>).map(([chainId, addresses]) => [
     chainId,
-    new Set(addresses.map(a => a.toLowerCase()))
-  ])
+    new Set(addresses.map(a => a.toLowerCase())),
+  ]),
 );
 
 const isBlacklisted = (chainId: string, address: string): boolean =>
@@ -215,7 +208,10 @@ const getTokenInfoFromCardanoRegistry = async (address: string): Promise<TokenIn
     throw new Error(`Failed to fetch ${address} from Cardano registry: ${response.statusText}`);
   }
 
-  const data = await response.json();
+  const data = (await response.json()) as {
+    ticker?: { value?: string };
+    decimals?: { value?: number };
+  } | null;
   if (!data) {
     throw new Error(`No data found for ${address} in Cardano registry`);
   }
@@ -249,7 +245,7 @@ const getTokenInfoFromChain = async (chainId: ChainId, address: string): Promise
         symbol: undefined,
         token2022: undefined,
       };
-    } catch (error) {
+    } catch (_error) {
       // If standard SPL Token fails, try Token-2022 program
       const mintInfo = await fetchMint2022(rpc, mintPubkey);
       return {
@@ -277,14 +273,14 @@ const getTokenInfoFromChain = async (chainId: ChainId, address: string): Promise
   let symbol: string | undefined;
   try {
     symbol = await contract.symbol();
-  } catch (error) {
+  } catch (_error) {
     // Symbol is optional, so we continue without it
   }
 
   let decimals: number | undefined;
   try {
     decimals = Number(await contract.decimals());
-  } catch (error) {
+  } catch (_error) {
     // Decimals is optional, so we continue without it
   }
 
@@ -338,7 +334,7 @@ const getTokenInfo = async (
         symbol: undefined,
         token2022: undefined
       };
-    } catch (coingeckoError) {
+    } catch (_coingeckoError) {
       throw error; // Re-throw original error if fallback fails
     }
   }
@@ -366,9 +362,8 @@ const main = async (maxRank: number | undefined = undefined) => {
   log.success(`    └─→ ${maxRank ? `Max rank: ${maxRank}` : 'No max rank'}`);
 
   for await (const market of coingecko.streamCoinMarkets()) {
-    let processed = false;
     let addedTokens = 0;
-    let logs: string[] = [];
+    const logs: string[] = [];
 
     const coin = coins.find(c => c.id === market.id);
     if (!coin) continue;
@@ -420,21 +415,20 @@ const main = async (maxRank: number | undefined = undefined) => {
     // Fetch all platform data in parallel
     const tokenInfoPromises = platformRequests.map(req =>
       getTokenInfo(req.chainId, req.resolvedAddress, coin.id, req.platformId)
-        .then(tokenInfo => ({ ...req, tokenInfo, success: true }))
-        .catch((error: any) => ({ ...req, error, success: false }))
+        .then(tokenInfo => ({ ...req, tokenInfo, success: true as const }))
+        .catch((error: Error) => ({ ...req, error, success: false as const }))
     );
 
     const results = await Promise.all(tokenInfoPromises);
 
-    // Process results
     for (const item of results) {
       if (!item.success) {
         logs.push(`⚠️ [skip] ${coin.symbol} (${item.resolvedAddress}) on ${item.chainId}`);
-        logs.push(`    └─→ ${'error' in item ? item.error?.message || 'Unknown error' : 'Unknown error'}`);
+        logs.push(`    └─→ ${item.error?.message || 'Unknown error'}`);
         continue;
       }
 
-      const { decimals, symbol, token2022 } = 'tokenInfo' in item ? item.tokenInfo : { decimals: undefined, symbol: undefined, token2022: undefined };
+      const { decimals, symbol, token2022 } = item.tokenInfo;
 
       if (decimals === undefined) {
         logs.push(`⚠️ [skip] ${coin.symbol} (${item.resolvedAddress}) on ${item.chainId}`);
@@ -445,20 +439,17 @@ const main = async (maxRank: number | undefined = undefined) => {
       result[item.chainId] ??= {};
       result[item.chainId][item.resolvedAddress] = {
         name: coin.name,
-
-        // Use the symbol from onchain data if available, otherwise use the symbol from CoinGecko.
-        // Coingecko API returns lowercase symbols, so we need to uppercase it.
+        // Coingecko returns lowercase symbols; uppercase to match onchain convention.
         symbol: symbol || coin.symbol.toUpperCase(),
         coingeckoId: coin.id,
         decimals,
-        logo: market.image
+        logo: market.image,
       };
 
       if (token2022) {
         result[item.chainId][item.resolvedAddress].token2022 = token2022;
       }
 
-      processed = true;
       addedTokens++;
       if (item.resolvedAddress !== item.address) {
         logs.push(`💎 [add]  ${coin.symbol} (${item.address} -> ${item.resolvedAddress}) on ${item.chainId}`);
@@ -467,7 +458,7 @@ const main = async (maxRank: number | undefined = undefined) => {
       }
     }
 
-    if (processed || logs.length > 0) {
+    if (addedTokens > 0 || logs.length > 0) {
       const boxWidth = 78;
       const border = '─'.repeat(boxWidth);
       console.log(`┌${border}┐`);
