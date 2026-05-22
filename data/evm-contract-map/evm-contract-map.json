@@ -1213,5 +1213,23 @@
     "decimals": 18,
     "coingeckoId": "dai",
     "chainId": "0x18d"
+  },
+  "0xc311FD6DA9686507F33991543d8158EF5FaDd5E7": {
+    "name": "Zaro Coin",
+    "logo": "ZARO.png",
+    "erc20": true,
+    "symbol": "ZARO",
+    "decimals": 18,
+    "coingeckoId": "zaro-coin",
+    "chainId": "0x1"
+  },
+  "0xa9D72F6C1490647DF20E8Fad3C136cA6AC42c2fc": {
+    "name": "Zaro Coin",
+    "logo": "ZARO.png",
+    "erc20": true,
+    "symbol": "ZARO",
+    "decimals": 18,
+    "coingeckoId": "zaro-coin",
+    "chainId": "0x38"
   }
 }
