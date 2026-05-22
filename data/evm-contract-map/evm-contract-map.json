@@ -1231,5 +1231,14 @@
     "decimals": 18,
     "coingeckoId": "zaro-coin",
     "chainId": "0x38"
+  },
+  "0x1d4CeA73e212829d06B9a774d2e06be9DEe5AAB0": {
+    "name": "Zaro Coin",
+    "logo": "ZARO.png",
+    "erc20": true,
+    "symbol": "ZARO",
+    "decimals": 18,
+    "coingeckoId": "zaro-coin",
+    "chainId": "0x2105"
   }
 }
