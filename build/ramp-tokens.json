@@ -4947,6 +4947,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "METAwkXcqyXKy1AtsSgJ8JiUHwGCafnZL38n3vYmeta",
+      "name": "Metadao",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "META",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x65",
+      "coin": 501,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0x9e32b13ce7f2e80a01932b42553652e053d6ed8e",
       "name": "MetisDAO",
       "logo": "",
