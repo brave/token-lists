@@ -6407,6 +6407,26 @@
       "off_ramp_providers": []
     },
     {
+      "contract_address": "0x526526528f35ac738177003b8773b402b8df8143",
+      "name": "Re",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "RE",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
       "contract_address": "0xc43C6bfeDA065fE2c4c11765Bf838789bd0BB5dE",
       "name": "Redstone",
       "logo": "",
