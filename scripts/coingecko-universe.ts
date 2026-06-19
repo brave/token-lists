@@ -37,6 +37,16 @@
  *          coingeckoId: "weth",                                │
  *          rank: 2                                             ┘
  *        }
+ *      },
+ *      "polkadot_asset_hub": {                                   ← Chain ID ("polkadot_asset_hub"=Polkadot Asset Hub)
+ *        "1337": {                                               ← Asset Hub integer asset ID
+ *          name: "USDC",                                       ┐
+ *          symbol: "USDC",                                     │
+ *          decimals: 6,                                        │
+ *          logo: "...",                                        ├ ← Token metadata
+ *          coingeckoId: "usd-coin",                            │
+ *          rank: 7                                             ┘
+ *        }
  *      }
  *    }
  *
@@ -44,6 +54,7 @@
  * respective canonical forms:
  *   - Ethereum addresses follow EIP-55 checksum encoding
  *   - Solana addresses use their base58 representation
+ *   - Polkadot Asset Hub assets use their integer asset ID (as a string)
  */
 import util from 'node:util';
 import fs from 'node:fs';
@@ -96,6 +107,9 @@ type TokenInfo = {
 // The current criteria for inclusion is as follows:
 //   - The chain must be top 10 by TVL on DefiLlama
 //   - The chain must have native USDC token
+//
+// Chain IDs must stay in sync with brave-core's brave_wallet.mojom:
+// https://github.com/brave/brave-core/blob/master/components/brave_wallet/common/brave_wallet.mojom
 enum ChainId {
   ETHEREUM = '0x1',
   BSC = '0x38', 
@@ -107,7 +121,9 @@ enum ChainId {
   SOLANA = '0x65',
   NEAR_PROTOCOL_EVM = '0x18d',
 
-  CARDANO = 'cardano-mainnet',
+  CARDANO = 'cardano_mainnet',
+
+  POLKADOT = 'polkadot_asset_hub',
 
   // Disabled for now
   // ZKSYNC = '0x144',
@@ -149,7 +165,10 @@ function loadRpcConfig(): Record<ChainId, string> {
     [ChainId.NEAR_PROTOCOL_EVM]: 'https://eth-rpc.mainnet.near.org',
 
     // Cardano RPC URL is unused for now
-    [ChainId.CARDANO]: ""
+    [ChainId.CARDANO]: "",
+
+    // Polkadot Asset Hub decimals are sourced from CoinGecko; no RPC needed.
+    [ChainId.POLKADOT]: ""
 
     // Disabled for now
     // [ChainId.ZKSYNC]: process.env.ZKSYNC_RPC_URL!,
@@ -170,6 +189,10 @@ const getPlatformChainId = (platform: AssetPlatform): ChainId | undefined => {
 
   if (platform.id === "cardano") {
     return ChainId.CARDANO;
+  }
+
+  if (platform.id === "polkadot") {
+    return ChainId.POLKADOT;
   }
 
   // For other chains, convert numeric chain ID to hex string
@@ -258,6 +281,13 @@ const getTokenInfoFromChain = async (chainId: ChainId, address: string): Promise
 
   if (chainId === ChainId.CARDANO) {
     return await getTokenInfoFromCardanoRegistry(address);
+  }
+
+  // Polkadot Asset Hub assets are identified by integer asset IDs (not contract
+  // addresses) and have no EVM RPC here. Returning undefined decimals defers to
+  // CoinGecko via getTokenInfo's getTokenDecimalsFromCoingecko fallback.
+  if (chainId === ChainId.POLKADOT) {
+    return { decimals: undefined, symbol: undefined, token2022: undefined };
   }
 
   const provider = new ethers.JsonRpcProvider(rpcUrl);
@@ -394,12 +424,20 @@ const main = async (maxRank: number | undefined = undefined) => {
         evmAddress = nearToEvmAddress(address);
       }
 
+      // Polkadot Asset Hub assets are identified by integer asset IDs
+      // (e.g. "1337" for USDC), never contract addresses. CoinGecko occasionally
+      // mistags EVM addresses under the polkadot platform, so skip anything
+      // that isn't a numeric asset id.
+      if (chainId === ChainId.POLKADOT && !/^\d+$/.test(address)) {
+        continue;
+      }
+
       if (isEVMAddress(address)) {
         evmAddress = address;
       }
 
       // Skip if token or platform is not supported
-      if (!evmAddress && !["solana", "cardano"].includes(platformId)) {
+      if (!evmAddress && !["solana", "cardano", "polkadot"].includes(platformId)) {
         continue;
       }
 
