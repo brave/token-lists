@@ -6,10 +6,6 @@ on:
     # At 01:00 (1 AM) every day
     - cron: '0 1 * * *'
 
-env:
-  COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
-  API_AUTH_TOKEN_GITHUB: ${{ secrets.API_AUTH_TOKEN_GITHUB }}
-
 jobs:
   publish-npm:
     runs-on: ubuntu-latest
@@ -38,7 +34,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --ignore-scripts
 
       - name: Bump patch version
         id: bump-version
@@ -48,6 +44,9 @@ jobs:
 
       - name: Build assets
         run: pnpm start
+        env:
+          COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
+          API_AUTH_TOKEN_GITHUB: ${{ secrets.API_AUTH_TOKEN_GITHUB }}
 
       - name: Bump version and commit build assets
         run: |
