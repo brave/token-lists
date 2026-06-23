@@ -73,6 +73,8 @@ const stageOFACLists = async (stagingDir: string): Promise<void> => {
   );
   const dstOfacListsPath = path.join(stagingDir, 'ofac-sanctioned-digital-currency-addresses.json');
   await fsPromises.writeFile(dstOfacListsPath, JSON.stringify(ofacLists, null, 2));
+  const dstProhibitedAddressesPath = path.join(stagingDir, 'prohibited-addresses.json');
+  await fsPromises.writeFile(dstProhibitedAddressesPath, JSON.stringify(ofacLists, null, 2));
 };
 
 const stageCoingeckoTokenList = async (stagingDir: string, filename: string): Promise<void> => {
