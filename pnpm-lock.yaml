@@ -14,8 +14,8 @@ importers:
   .:
     dependencies:
       '@solana-program/token':
-        specifier: 0.13.0
-        version: 0.13.0(@solana/kit@6.10.0(typescript@6.0.3))
+        specifier: 0.14.0
+        version: 0.14.0(@solana/kit@6.10.0(typescript@6.0.3))
       '@solana-program/token-2022':
         specifier: 0.11.0
         version: 0.11.0(@solana/kit@6.10.0(typescript@6.0.3))(@solana/sysvars@6.10.0(typescript@6.0.3))
@@ -430,8 +430,9 @@ packages:
       '@solana/zk-sdk':
         optional: true
 
-  '@solana-program/token@0.13.0':
-    resolution: {integrity: sha512-/Apjrd5lwOJGrPB0J5Rv7EBeclvyEBQPAGA85Scm7wBH+GpkbdLDM9uK3TNg8jjFKyWQYai/JtPHbrx7VgFLSg==}
+  '@solana-program/token@0.14.0':
+    resolution: {integrity: sha512-zpLMr6JZndlsQCQvrm0gezfwdr1lmzOGqN6v2WIYXjtDmbF+xg6zh/MAp2UFHRpv3uDmylEdjtQo05pa2OeaYg==}
+    engines: {node: '>=24.0.0'}
     peerDependencies:
       '@solana/kit': ^6.5.0
 
@@ -1640,7 +1641,7 @@ snapshots:
       '@solana/kit': 6.10.0(typescript@6.0.3)
       '@solana/sysvars': 6.10.0(typescript@6.0.3)
 
-  '@solana-program/token@0.13.0(@solana/kit@6.10.0(typescript@6.0.3))':
+  '@solana-program/token@0.14.0(@solana/kit@6.10.0(typescript@6.0.3))':
     dependencies:
       '@solana-program/system': 0.12.0(@solana/kit@6.10.0(typescript@6.0.3))
       '@solana/kit': 6.10.0(typescript@6.0.3)
