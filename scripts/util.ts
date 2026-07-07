@@ -314,6 +314,11 @@ export const generateCoingeckoIds = async (): Promise<Record<string, Record<stri
       platform.chain_identifier = 101;
     }
 
+    // Manually add Tempo chain identifier; not in the CoinGecko asset platforms list.
+    if (platform.id === 'tempo' && !platform.chain_identifier) {
+      platform.chain_identifier = 4217;
+    }
+
     acc[platform.id] = platform.chain_identifier;
     return acc;
   }, {});

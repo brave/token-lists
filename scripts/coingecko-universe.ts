@@ -121,6 +121,8 @@ enum ChainId {
   SOLANA = '0x65',
   NEAR_PROTOCOL_EVM = '0x18d',
 
+  TEMPO = '0x1079',
+
   CARDANO = 'cardano_mainnet',
 
   POLKADOT = 'polkadot_asset_hub',
@@ -163,6 +165,7 @@ function loadRpcConfig(): Record<ChainId, string> {
     [ChainId.AVALANCHE]: process.env.AVALANCHE_RPC_URL!,
     [ChainId.SOLANA]: process.env.SOLANA_RPC_URL!,
     [ChainId.NEAR_PROTOCOL_EVM]: 'https://eth-rpc.mainnet.near.org',
+    [ChainId.TEMPO]: 'https://rpc.tempo.xyz',
 
     // Cardano RPC URL is unused for now
     [ChainId.CARDANO]: "",
@@ -193,6 +196,11 @@ const getPlatformChainId = (platform: AssetPlatform): ChainId | undefined => {
 
   if (platform.id === "polkadot") {
     return ChainId.POLKADOT;
+  }
+
+  // Tempo has no chain_identifier on CoinGecko despite being an EVM chain.
+  if (platform.id === "tempo") {
+    return ChainId.TEMPO;
   }
 
   // For other chains, convert numeric chain ID to hex string
