@@ -386,8 +386,7 @@
       "visible": true,
       "on_ramp_providers": [
         "ramp",
-        "transak",
-        "coinbase"
+        "transak"
       ],
       "off_ramp_providers": [
         "ramp"
@@ -7660,6 +7659,26 @@
       "token_id": "",
       "coingecko_id": "",
       "chain_id": "0x1",
+      "coin": 60,
+      "on_ramp_providers": [
+        "coinbase"
+      ],
+      "off_ramp_providers": []
+    },
+    {
+      "contract_address": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+      "name": "USDC",
+      "logo": "",
+      "is_erc20": true,
+      "is_erc721": false,
+      "is_erc1155": false,
+      "is_nft": false,
+      "symbol": "USDC",
+      "decimals": 18,
+      "visible": true,
+      "token_id": "",
+      "coingecko_id": "",
+      "chain_id": "0x89",
       "coin": 60,
       "on_ramp_providers": [
         "coinbase"
