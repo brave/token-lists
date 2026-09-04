@@ -386,11 +386,19 @@ const log = {
 };
 
 // Pretty-printed to match the committed data/v1/*.json layout (indent=2, no trailing newline).
+// Write to a sibling .tmp then rename so a crash cannot leave a truncated destination.
 const writeUniverseJson = async (filePath: string, data: Result): Promise<void> => {
-  await fs.promises.writeFile(
-    filePath,
-    JSON.stringify(sortTokenListJson(data), null, 2),
-  );
+  const tmpPath = `${filePath}.tmp`;
+  try {
+    await fs.promises.writeFile(
+      tmpPath,
+      JSON.stringify(sortTokenListJson(data), null, 2),
+    );
+    await fs.promises.rename(tmpPath, filePath);
+  } catch (error) {
+    await fs.promises.unlink(tmpPath).catch(() => undefined);
+    throw error;
+  }
 };
 
 const main = async (maxRank: number | undefined = undefined) => {
@@ -548,13 +556,14 @@ const main = async (maxRank: number | undefined = undefined) => {
 
   if (shouldWriteUniverse) {
     log.info('💾 Writing universe JSON...');
+    // Full universe first so a later top-N write failure still leaves coingecko.json updated.
+    await writeUniverseJson('data/v1/coingecko.json', result);
     if (maxRank && (resultIsCurrentTopN || topNSnapshot)) {
       await writeUniverseJson(
         `data/v1/coingecko-top${maxRank}.json`,
         topNSnapshot ?? result,
       );
     }
-    await writeUniverseJson('data/v1/coingecko.json', result);
   }
 };
 
