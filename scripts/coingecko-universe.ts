@@ -385,9 +385,23 @@ const log = {
   error: (msg: string) => console.log('\x1b[31m%s\x1b[0m', msg),
 };
 
+// Pretty-printed to match the committed data/v1/*.json layout (indent=2, no trailing newline).
+const writeUniverseJson = async (filePath: string, data: Result): Promise<void> => {
+  await fs.promises.writeFile(
+    filePath,
+    JSON.stringify(sortTokenListJson(data), null, 2),
+  );
+};
+
 const main = async (maxRank: number | undefined = undefined) => {
   const result: Result = {};
-  
+  // topN.json is the universe as of the last coin with rank <= maxRank. Clone lazily
+  // when we first mutate `result` after leaving that window so we don't stringify
+  // the growing list on every coin.
+  let topNSnapshot: Result | undefined;
+  let resultIsCurrentTopN = false;
+  let shouldWriteUniverse = false;
+
   log.info('⛓️ Fetching asset platforms from CoinGecko...');
   const platforms = await coingecko.getAssetPlatforms();
   log.success(`    └─→ Found ${platforms.length} platforms`);
@@ -402,6 +416,7 @@ const main = async (maxRank: number | undefined = undefined) => {
   for await (const market of coingecko.streamCoinMarkets()) {
     let addedTokens = 0;
     const logs: string[] = [];
+    const inTopN = Boolean(maxRank && market.market_cap_rank && market.market_cap_rank <= maxRank);
 
     const coin = coins.find(c => c.id === market.id);
     if (!coin) continue;
@@ -482,6 +497,11 @@ const main = async (maxRank: number | undefined = undefined) => {
         continue;
       }
 
+      if (resultIsCurrentTopN && !inTopN) {
+        topNSnapshot = structuredClone(result);
+        resultIsCurrentTopN = false;
+      }
+
       result[item.chainId] ??= {};
       result[item.chainId][item.resolvedAddress] = {
         name: coin.name,
@@ -518,18 +538,23 @@ const main = async (maxRank: number | undefined = undefined) => {
       console.log(`│ ${summary.padEnd(boxWidth - 3)} │`);
       console.log(`└${border}┘`);
 
-      if (maxRank && market.market_cap_rank && market.market_cap_rank <= maxRank) {
-        await fs.promises.writeFile(
-          `data/v1/coingecko-top${maxRank}.json`,
-          JSON.stringify(sortTokenListJson(result), null, 2)
-        );
+      shouldWriteUniverse = true;
+      if (inTopN) {
+        resultIsCurrentTopN = true;
+        topNSnapshot = undefined;
       }
+    }
+  }
 
-      await fs.promises.writeFile(
-        'data/v1/coingecko.json',
-        JSON.stringify(sortTokenListJson(result), null, 2)
+  if (shouldWriteUniverse) {
+    log.info('💾 Writing universe JSON...');
+    if (maxRank && (resultIsCurrentTopN || topNSnapshot)) {
+      await writeUniverseJson(
+        `data/v1/coingecko-top${maxRank}.json`,
+        topNSnapshot ?? result,
       );
     }
+    await writeUniverseJson('data/v1/coingecko.json', result);
   }
 };
 
