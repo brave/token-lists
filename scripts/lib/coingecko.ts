@@ -1,12 +1,12 @@
-const COINGECKO_API_URL = process.env.COINGECKO_API_KEY
+export const isPro = Boolean(process.env.COINGECKO_API_KEY);
+export const COINGECKO_API_URL = isPro
   ? 'https://pro-api.coingecko.com/api/v3'
   : 'https://api.coingecko.com/api/v3';
 
 const s = 1000;
-const RATE_LIMIT_DELAY = 60 * s; // 60 seconds
+const RATE_LIMIT_DELAY = 60 * s; // 60 seconds; used when Retry-After is missing
 const RETRY_DELAY = 10 * s; // 10 seconds
 
-// Sleep utility function
 const sleep = (ms: number): Promise<void> => {
   return new Promise(resolve => setTimeout(resolve, ms));
 };
@@ -59,28 +59,40 @@ class CoinGeckoAPI {
       try {
         const response = await fetch(`${COINGECKO_API_URL}${endpoint}`, { headers });
 
-        // Handle rate limit exceeded error
         if (response.status === 429) {
           if (i === retries - 1) {
             throw new Error('Rate limit exceeded');
           }
 
-          await sleep(RATE_LIMIT_DELAY);
+          const retryAfter = Number(response.headers.get('retry-after'));
+          const delayMs = retryAfter > 0 ? retryAfter * s : RATE_LIMIT_DELAY;
+          console.warn(`CoinGecko 429, retrying after ${delayMs}ms`);
+          await sleep(delayMs);
           continue;
         }
 
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+          if (i === retries - 1) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          console.warn(`CoinGecko HTTP ${response.status}, retrying after ${RETRY_DELAY}ms`);
+          await sleep(RETRY_DELAY);
+          continue;
         }
 
         const data = await response.json();
-        await sleep(RETRY_DELAY);
+        if (!isPro) {
+          await sleep(RETRY_DELAY);
+        }
         return data;
       } catch (error) {
         if (i === retries - 1) throw error;
-        await sleep(RETRY_DELAY * 2); // Wait longer between retries
+        await sleep(RETRY_DELAY);
       }
     }
+
+    throw new Error('CoinGecko request failed');
   }
 
   async getAssetPlatforms(): Promise<AssetPlatform[]> {
@@ -111,7 +123,9 @@ class CoinGeckoAPI {
         }
         page++;
       }
-      await new Promise(resolve => setTimeout(resolve, 0.5 * s));
+      if (!isPro) {
+        await sleep(0.5 * s);
+      }
     }
   }
 

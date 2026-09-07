@@ -67,7 +67,7 @@ import {
 import { fetchMint } from '@solana-program/token';
 import { fetchMint as fetchMint2022 } from '@solana-program/token-2022';
 
-import coingecko, { type AssetPlatform } from './lib/coingecko';
+import coingecko, { type AssetPlatform, isPro, COINGECKO_API_URL } from './lib/coingecko';
 import { sortTokenListJson } from './util';
 import rawBlacklist from '../data/blacklist.json' with { type: 'json' };
 
@@ -409,6 +409,8 @@ const main = async (maxRank: number | undefined = undefined) => {
   let topNSnapshot: Result | undefined;
   let resultIsCurrentTopN = false;
   let shouldWriteUniverse = false;
+
+  log.info(`🦎 CoinGecko: using ${isPro ? 'pro' : 'free'} endpoint (${COINGECKO_API_URL})`);
 
   log.info('⛓️ Fetching asset platforms from CoinGecko...');
   const platforms = await coingecko.getAssetPlatforms();
