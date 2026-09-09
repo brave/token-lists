@@ -16,7 +16,7 @@
     "tsx": "4.22.4",
     "typescript": "6.0.3",
     "typescript-eslint": "8.62.0",
-    "vitest": "4.1.9"
+    "vitest": "4.1.11"
   },
   "scripts": {
     "start": "tsx scripts/index.ts",
