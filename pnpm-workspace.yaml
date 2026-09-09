@@ -1,6 +1,6 @@
 allowBuilds:
   esbuild: true
 overrides:
-  ws: '8.21.0'
+  ws: '8.21.3'
   vite: '8.2.2'
   esbuild: '0.28.1'
