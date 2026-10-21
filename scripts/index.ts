@@ -83,6 +83,12 @@ const stageOFACLists = async (stagingDir: string): Promise<void> => {
   await fsPromises.writeFile(dstProhibitedAddressesPath, JSON.stringify(ofacLists, null, 2));
 };
 
+const stagePolkadotRpcUrls = async (stagingDir: string): Promise<void> => {
+  const srcPath = path.join('data', 'polkadot', 'polkadot-rpc-urls.json');
+  const dstPath = path.join(stagingDir, 'polkadot-rpc-urls.json');
+  await fsPromises.copyFile(srcPath, dstPath);
+};
+
 const stageCoingeckoTokenList = async (stagingDir: string, filename: string): Promise<void> => {
   const srcTokenListPath = path.join('data', 'v1', filename);
   const dstTokenListPath = path.join(stagingDir, 'coingecko.json');
@@ -98,6 +104,7 @@ const stageTokenPackage = async (): Promise<void> => {
   await stageOnRampLists(stagingDir);
   await stageOFACLists(stagingDir);
   await stageCoingeckoTokenList(stagingDir, 'coingecko-top5000.json');
+  await stagePolkadotRpcUrls(stagingDir);
 
   stagePackageJson(stagingDir);
   stageManifest(stagingDir);
