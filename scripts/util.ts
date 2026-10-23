@@ -384,8 +384,7 @@ const fetchGitHubFileContent = async (
   const contentData = (await contentResponse.json()) as GitHubContentResponse;
 
   if (!contentData.content) {
-    console.error('Failed to fetch content for file:', filePath, contentData.message || 'Unknown error');
-    return '';
+    throw new Error(`Failed to fetch ${repoOwner}/${repoName}/${filePath}: ${contentData.message ?? 'Unknown error'}`);
   }
 
   return Buffer.from(contentData.content, 'base64').toString('utf-8');
@@ -395,20 +394,21 @@ export const fetchGitHubRepoTopLevelFiles = async (
   repoOwner: string,
   repoName: string,
   branch: string,
-): Promise<{ addresses: string[] } | undefined> => {
+): Promise<{ addresses: string[] }> => {
   const githubToken = process.env.API_AUTH_TOKEN_GITHUB;
   const githubHeaders: Record<string, string> = {
     Accept: 'application/vnd.github.v3+json',
-    Authorization: `token ${githubToken}`,
+    ...(githubToken && { Authorization: `token ${githubToken}` }),
   };
 
   const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/git/trees/${branch}?recursive=1`;
   const response = await fetch(apiUrl, { headers: githubHeaders });
   const data = (await response.json()) as GitHubTreeResponse;
 
+  // Throw rather than return empty: this feeds the prohibited-addresses list,
+  // and a release must never ship without it.
   if (!data.tree) {
-    console.error('Failed to fetch files:', data.message);
-    return;
+    throw new Error(`Failed to fetch ${repoOwner}/${repoName} tree: ${data.message ?? 'Unknown error'}`);
   }
 
   const jsonFiles: GitHubTreeItem[] = [];
@@ -421,6 +421,9 @@ export const fetchGitHubRepoTopLevelFiles = async (
     ) {
       jsonFiles.push(item);
     }
+  }
+  if (jsonFiles.length === 0) {
+    throw new Error(`No JSON files found in ${repoOwner}/${repoName}@${branch}`);
   }
 
   let bannedAddresses: string[] = [];

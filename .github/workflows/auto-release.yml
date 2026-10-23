@@ -47,7 +47,7 @@ jobs:
         run: pnpm start
         env:
           COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
-          API_AUTH_TOKEN_GITHUB: ${{ secrets.API_AUTH_TOKEN_GITHUB }}
+          API_AUTH_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
 
       # The wallet data component, consumed by brave-core-crx-packager. Same
       # contents as the npm package minus package.json, which only npm needs.
